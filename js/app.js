@@ -265,12 +265,11 @@
       place(contact, 2, 5, rContact, contactRows, 0);
     } else {
       // Phones: a header of 10 x 3 cells that stays at the top of the screen (A1:J3): the
-      // portrait, the name and school mail, "read cv", the menu button, and the breadcrumb
+      // portrait, the name and role, "read cv", the menu button, and the breadcrumb
       // (the role on the home page). The menu button opens a drawer under the header, over
       // the page: the pages, then the contact card.
       state.rowOff = 3;
-      const mail = o.barEmail ? `<a class="bar-mail" href="mailto:${esc(o.barEmail)}"><span>${esc(o.barEmail).replace('@', '@</span><wbr><span>')}</span></a>` : '';
-      const name = cell('bar-name', `<a class="bar-who" href="${HOME}">${o.name.map(esc).join(' ')}</a>${mail}`);
+      const name = cell('bar-name', `<a class="bar-who" href="${HOME}">${o.name.map(esc).join(' ')}</a><span class="bar-role">${esc(o.role)}</span>`);
       const cv = cell('bar-btn', '↗ read cv', 'a', { href: o.cv, target: '_blank', rel: 'noopener', 'data-also-download': '' });
       const toggle = cell('bar-btn bar-toggle', `menu ${state.menuOpen ? '−' : '+'}`, 'button',
         { type: 'button', 'aria-expanded': String(state.menuOpen), 'aria-controls': 'panel' });
@@ -393,8 +392,11 @@
 
   // Preview cards (home "try it" and section cards with demos)
   const previews = [];
+  // Cards with a cover (video, animation or photo): a fixed 6-row block on desktop; on phones
+  // the cover is a full-width square and the card grows to fit it ("media-card").
+  const coverCard = () => MODE === 'desk' ? 'fixed' : 'media-card';
   function previewCard(p, kicker, c) {
-    const e = cell('fixed', `<p class="k">${esc(kicker)}</p><p class="card-title">▶ ${esc(p.title)}</p>`, 'a', { href: pageHref(p) });
+    const e = cell(coverCard(), `<p class="k">${esc(kicker)}</p><p class="card-title">▶ ${esc(p.title)}</p>`, 'a', { href: pageHref(p) });
     if (p.video) {
       // recorded run: just plays (muted, looping) while the card is on screen
       const v = h('video', { class: 'preview', muted: '', loop: '', playsinline: '', preload: 'metadata', poster: p.poster || null, 'aria-hidden': 'true' });
@@ -448,7 +450,7 @@
       b.el.querySelector('.caption').innerHTML = desc;
       return b;
     }
-    const e = cell('fixed', `<p class="k">${meta}</p><p class="card-title">${title}</p>`, 'a', { href: pageHref(p) });
+    const e = cell(p.cover ? coverCard() : 'fixed', `<p class="k">${meta}</p><p class="card-title">${title}</p>`, 'a', { href: pageHref(p) });
     if (p.cover) {
       e.append(h('img', { class: 'preview', src: pagePath(p) + p.cover, alt: p.coverAlt || '' }), h('p', { class: 'caption' }, desc));
     } else {
@@ -705,15 +707,11 @@
     return bands;
   }
 
-  // The owner's contact card, from site.json: the mails, "phone", "based" (one line or a
-  // list of lines) and the web profiles of "contact".
+  // The owner's contact card, from site.json: "based" (one line or a list of lines) and the
+  // web profiles of "contact". No mail address or phone number is published.
   // "cv": a link set at the end of the last row, on its right.
   function contactCard(cv) {
     const o = SITE.owner, rows = [];
-    const mails = o.contact.flatMap(c => c.emails || []);
-    // an address too long for its line breaks after the @ only
-    if (mails.length) rows.push(['mail', mails.map(m => `<a class="mail" href="mailto:${esc(m)}"><span>${esc(m).replace('@', '@</span><wbr><span>')}</span></a>`).join('<span class="mail-sep"> · </span>')]);
-    if (o.phone) rows.push(['phone', `<a href="tel:${esc(o.phone.replace(/[^+\d]/g, ''))}">${esc(o.phone)}</a>`]);
     if (o.based) rows.push(['based', [].concat(o.based).map(esc).join('<br>')]);
     const web = o.contact.filter(c => /^https?:/.test(c.href || ''));
     if (web.length) rows.push(['profiles', web.map(c => `<a href="${esc(c.href)}" target="_blank" rel="noopener">${esc(c.label)}</a>`).join(' · ')]);

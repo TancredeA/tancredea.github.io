@@ -196,9 +196,6 @@ dl.meta.stacked dt:first-child { margin-top: 0; }
 dl.contact-card { margin-top: 1em; }
 dl.contact-card a { color: var(--accent); text-decoration: none; }
 dl.contact-card a:hover { text-decoration: underline; text-underline-offset: 3px; }
-dl.contact-card .mail span { white-space: nowrap; }
-/* between two addresses: a line break, or " · " where they share a line (desktop contact card) */
-dl.contact-card .mail-sep { display: block; height: 0; overflow: hidden; }
 @media (min-width: 960px) {
   /* the contact card of a role page keeps 4 rows (G4:O7): its type follows the grid module */
   .contact-box.fixed { padding-top: calc(var(--u) * 0.2); padding-bottom: calc(var(--u) * 0.2); }
@@ -207,7 +204,6 @@ dl.contact-card .mail-sep { display: block; height: 0; overflow: hidden; }
   .contact-box.fixed dl.contact-card { margin-top: calc(var(--u) * 0.16); gap: calc(var(--u) * 0.04) calc(var(--u) * 0.24); }
   .contact-box.fixed dl.contact-card dt { font-size: calc(var(--u) * 0.19); line-height: 1.65; }
   .contact-box.fixed dl.contact-card dd { font-size: calc(var(--u) * 0.235); line-height: 1.32; }
-  .contact-box.fixed dl.contact-card .mail-sep { display: inline; height: auto; }
   .contact-box.fixed dl.contact-card.with-cv .btn { font-size: calc(var(--u) * 0.2); padding: calc(var(--u) * 0.07) calc(var(--u) * 0.15); }
 }
 /* the CV link at the end of the last row, on its right */
@@ -263,9 +259,9 @@ dl.contact-card.with-cv .btn:hover { color: var(--accent); text-decoration: none
 /* the contact block of the left sheet: the contact card of the about page without its name
    and intro, its type following the grid module so that it fills the same rows at every size */
 .side-contact { padding-top: calc(var(--pad) + var(--u) * 0.1); padding-bottom: calc(var(--u) * 0.18); }   /* the first line under the coordinates */
-.side-contact dl.contact-card { margin: 0; gap: calc(var(--u) * 0.03) calc(var(--u) * 0.12); }
-.side-contact dl.contact-card dt { font-size: calc(var(--u) * 0.17); line-height: 1.6; }
-.side-contact dl.contact-card dd { font-size: calc(var(--u) * 0.2); line-height: 1.3; }
+.side-contact dl.contact-card { margin: 0; gap: calc(var(--u) * 0.1) calc(var(--u) * 0.16); }
+.side-contact dl.contact-card dt { font-size: calc(var(--u) * 0.19); line-height: 1.6; }
+.side-contact dl.contact-card dd { font-size: calc(var(--u) * 0.235); line-height: 1.35; }
 .side-contact > .case-actions { padding-top: calc(var(--u) * 0.08); }
 .side-contact.compact .c-based { display: none; }   /* short windows */
 .side-contact .btn { font-size: calc(var(--u) * 0.19); padding: calc(var(--u) * 0.07) calc(var(--u) * 0.15); }
@@ -559,14 +555,13 @@ code.tex { font: 12px/1.5 var(--mono); white-space: pre-wrap; }
   /* texts on the bottom of their cell, under the coordinates */
   .bar-name { display: flex; flex-direction: column; justify-content: flex-end; gap: 3px; padding-bottom: calc(var(--u) * 0.16); }
   .bar-who { font: 500 clamp(13px, calc(var(--u) * 0.42), 17px)/1.05 var(--sans); letter-spacing: -0.015em; color: var(--ink); text-decoration: none; }
-  .bar-mail { font: clamp(10.5px, calc(var(--u) * 0.29), 12px)/1.3 var(--mono); color: var(--accent); text-decoration: none; }
+  .bar-role { font: clamp(10.5px, calc(var(--u) * 0.29), 12px)/1.3 var(--mono); color: var(--muted); }
   .bar-btn, .bar-crumb { display: flex; align-items: flex-end; padding-top: 0; padding-bottom: calc(var(--u) * 0.16); }
   .bar-btn { font: 12.5px/1 var(--mono); color: var(--accent); text-decoration: none; cursor: pointer; text-align: left; }
   a.bar-btn { display: flex; }
   .bar-toggle { color: var(--ink); }
   .bar-btn:hover, .bar-toggle[aria-expanded="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
   .bar-crumb { gap: 6px; font: 12px/1 var(--mono); color: var(--muted); white-space: nowrap; padding-right: 7ch; }   /* room for the coordinates */
-  .bar-mail span { white-space: nowrap; }                 /* if too long, break after the @ only */
   .bar-crumb > * { flex: none; line-height: 1.2; }
   .bar-crumb > :last-child { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; font-weight: 600; color: var(--ink); }
   .bar-crumb a { color: var(--ink); text-decoration: none; }
@@ -607,6 +602,8 @@ code.tex { font: 12px/1.5 var(--mono); white-space: pre-wrap; }
   .contact-box.fixed > .case-actions { padding-top: calc(var(--u) * 0.2); }
   .contact-box.fixed .btn { font-size: calc(var(--u) * 0.31); padding: calc(var(--u) * 0.13) calc(var(--u) * 0.26); }
   .dd { grid-template-columns: 1fr; }
+  /* cards with a cover: a full-width square, so photos, videos and animations show */
+  .media-card .preview { flex: none; aspect-ratio: 1; height: auto; object-fit: cover; }
   .lede { font-size: 17px; }
 }
 
