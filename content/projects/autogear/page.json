@@ -9,6 +9,7 @@
     ["how"],
     ["role:full"],
     ["decisions:group"],
+    ["after:full"],
     ["limits", "credits"]
   ],
 
@@ -39,6 +40,7 @@
   },
 
   "blocks": {
+    "after": { "label": "after the project", "md": "after.md", "list": true },
     "overview": {
       "label": "the project", "md": "overview.md", "list": true,
       "image": "bench.jpg",
