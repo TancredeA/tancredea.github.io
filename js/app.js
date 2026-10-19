@@ -884,10 +884,11 @@
       else if (d.hint) cells.hint = [cell('case-hint', hintHtml), FULL, FULL, 1];
     }
     if (!hasSim(p) && d.figure) {
-      // static figure (key result): panels side by side, 2 x 2 on phones, then the caption
+      // static figure (key result): panels side by side, 2 x 2 on phones, then the caption;
+      // "panelWidth" (px): panels of that width, centred (for a few photos)
       const f = d.figure;
       const panels = (f.panels || []).map(x => `<figure><img src="${esc(base + x.src)}" alt="${esc(x.alt || x.caption || '')}"><figcaption>${esc(x.caption || '')}</figcaption></figure>`).join('');
-      const el = cell('case-figure', k(f.label || 'key result') + `<div class="case-panels">${panels}</div>` + (f.caption ? `<p class="caption">${esc(f.caption)}</p>` : ''));
+      const el = cell('case-figure', k(f.label || 'key result') + `<div class="case-panels${f.panelWidth ? ' fixed-w' : ''}"${f.panelWidth ? ` style="--panel-w:${+f.panelWidth}px"` : ''}>${panels}</div>` + (f.caption ? `<p class="caption">${esc(f.caption)}</p>` : ''));
       el.querySelectorAll('img').forEach(img => { if (!img.complete) img.addEventListener('load', relayout); });
       cells.figure = [el, FULL, FULL, 4];
     }

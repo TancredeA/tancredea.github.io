@@ -513,7 +513,8 @@ code.tex { font: 12px/1.5 var(--mono); white-space: pre-wrap; }
 /* case pages: static figure (key result) instead of a demo preview */
 .case-panels { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 4px 0 8px; }
 /* a video of the prototype (case pages, "video" in page.json) */
-.case-video video { display: block; width: min(100%, 860px); max-height: 75vh; margin: 4px auto 0; border: 1px solid var(--ink); background: var(--ink); }
+.case-video video { display: block; width: min(100%, 860px); max-height: 62vh; margin: 14px auto 0; border: 1px solid var(--ink); background: var(--ink); }
+.case-panels.fixed-w { grid-template-columns: repeat(auto-fit, var(--panel-w)); justify-content: center; gap: 16px; }
 .case-panels figure { margin: 0; }
 .case-panels img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
 .case-panels figcaption { margin-top: 4px; font: 12px/1.4 var(--mono); color: var(--ink); text-align: center; }
@@ -525,7 +526,7 @@ code.tex { font: 12px/1.5 var(--mono); white-space: pre-wrap; }
   .case-sub-math { border-left: 0; border-top: 1px solid var(--ink); }
   .case-group.relief .case-sub, .case-group.wide-text .case-sub { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .case-group.relief .case-sub-math { border-top: 1px solid var(--ink); }
-  .case-panels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case-panels, .case-panels.fixed-w { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .page { grid-template-columns: 1fr; width: 100%; margin-left: 0; overflow-x: clip; }   /* cells on column J cover the right edge by 1px */
   /* the left sheet becomes a header of 10 x 3 cells that stays at the top (A1:J3); the
      menu button opens a drawer under it, over the veiled page (pages, then contact) */

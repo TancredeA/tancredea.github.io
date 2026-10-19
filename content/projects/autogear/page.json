@@ -5,6 +5,7 @@
     ["header", "facts"],
     ["video"],
     ["overview:full"],
+    ["figure"],
     ["how"],
     ["role:full"],
     ["decisions:group"],
@@ -25,20 +26,35 @@
       ["team", "4 students (credits below)"],
       ["period", "Jan 2025 – present"],
       ["grade", "17/20"],
-      ["board", "Arduino Nano 33 BLE Sense Rev2"],
-      ["stack", "Python (pandas, scikit-learn, XGBoost), C++ (Arduino), 3D printing"]
+      ["hardware", "Arduino Nano 33 BLE Sense Rev2, cadence sensor, servo"],
+      ["stack", "Python (pandas, scikit-learn, XGBoost), C++ (Arduino)"]
     ]
   },
 
   "video": {
-    "label": "the prototype on the road",
-    "src": "",
-    "poster": "",
-    "caption": ""
+    "label": "the prototype on the bench",
+    "src": "bench-test.mp4",
+    "poster": "bench-test.jpg",
+    "caption": "Bench test on a home trainer: the rider's hands stay off the shift levers (top) while the box moves the derailleur across the cassette (bottom)."
   },
 
   "blocks": {
-    "overview": { "label": "the project", "md": "overview.md", "list": true }
+    "overview": {
+      "label": "the project", "md": "overview.md", "list": true,
+      "image": "bench.jpg",
+      "imageAlt": "A student pedals the prototype bike on a home trainer in an electronics lab while a teammate watches the data on a laptop",
+      "imageCaption": "Testing the prototype on a home trainer, in the school's electronics lab."
+    }
+  },
+
+  "figure": {
+    "label": "the prototype",
+    "panelWidth": 300,
+    "panels": [
+      { "src": "electronics.jpg", "alt": "Two boxes clamped on the bike frame, with the Arduino, battery and sensor wiring", "caption": "(a) the embedded electronics on the frame" },
+      { "src": "actuator.jpg", "alt": "A small servo in a box next to the rear derailleur, its arm pushing the derailleur", "caption": "(b) the servo that moves the derailleur" }
+    ],
+    "caption": "Plug and play: the boxes clamp onto the frame and the servo acts on the bike's own derailleur, with no change to the bike."
   },
 
   "how": {
@@ -48,12 +64,12 @@
       "boxWidth": 176,
       "minWidth": 820,
       "modules": [
-        { "id": "sensors", "name": "Sensors", "sub": ["cadence, IMU", "every 200–500 ms"], "col": 0, "row": 0 },
+        { "id": "sensors", "name": "Sensors", "sub": ["cadence, IMU", "every 200–500 ms"], "col": 0, "row": 0, "style": "outline" },
         { "id": "features", "name": "Features", "sub": ["last seconds: trends,", "slope, torque proxy"], "col": 1, "row": 0, "style": "filled" },
         { "id": "stage1", "name": "Stage 1", "sub": ["shift or not?", "threshold θ"], "col": 2, "row": 0, "style": "filled" },
         { "id": "stage2", "name": "Stage 2", "sub": ["up or down?"], "col": 3, "row": 0, "style": "filled" },
         { "id": "guards", "name": "Safeguards", "sub": ["cooldown, vote,", "gear limits"], "col": 3, "row": 1, "style": "filled" },
-        { "id": "motor", "name": "Motor", "sub": ["moves the derailleur"], "col": 2, "row": 1 }
+        { "id": "motor", "name": "Servo", "sub": ["moves the derailleur"], "col": 2, "row": 1, "style": "outline" }
       ],
       "edges": [
         { "from": "sensors", "to": "features" },
@@ -63,7 +79,7 @@
         { "from": "guards", "to": "motor" }
       ],
       "below": "Trained offline in Python on rides shifted by hand by an experienced cyclist, then exported to C for the board.",
-      "caption": "Filled: my work. Plain: team."
+      "caption": "Filled: my work. Accent outline: embedded electronics, with Vincent Lucien. Plain: team."
     }
   },
 

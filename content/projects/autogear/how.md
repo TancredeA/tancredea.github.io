@@ -1,1 +1,1 @@
-Every 200–500 ms, the box reads the cadence and the inertial unit, builds features over the last few seconds, and runs two small models: should it shift, and if so, up or down. Safeguards filter the answer before the motor moves the derailleur.
+Every 200–500 ms, the box reads the cadence and the inertial unit, builds features over the last few seconds, and runs two small models: should it shift, and if so, up or down. Safeguards filter the answer before the servo moves the derailleur.
