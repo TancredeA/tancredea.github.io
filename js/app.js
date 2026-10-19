@@ -273,12 +273,12 @@
       // the menu keeps the height of its tallest state so nothing jumps between pages
       const menuRows = menuMaxRows(menu, rt);
       // contact: a fixed block of 4 rows (it does not grow when the mail addresses open),
-      // down to the last full row of the window, never over the menu
+      // down to the last full row of the window, never over the menu. The three blocks are
+      // glued: the menu starts under the portrait and stretches down to the contact.
       const contactRows = 4;
-      const tight = R < 2 + 3 + 1 + menuRows + contactRows;
-      const rMenu = tight ? 5 : 6;
-      place(menu, 2, 5, rMenu, menuRows, 0);
+      const rMenu = 5;
       const rContact = Math.max(rMenu + menuRows, R - contactRows + 1);
+      place(menu, 2, 5, rMenu, rContact - rMenu, 0);
       // in a short window it gives up one row and tightens its spacing (.compact)
       const rowsC = Math.max(3, Math.min(contactRows, R - rContact + 1));
       contact.classList.toggle('compact', rowsC < contactRows);
