@@ -623,10 +623,10 @@
     const dl = (rows, stacked) => `<dl class="meta${stacked ? ' stacked' : ''}">${(rows || []).map(([dt, dd]) => `<dt>${esc(dt)}</dt><dd>${val(dd)}</dd>`).join('')}</dl>`;
     const md = name => name ? mdFile(base, name) : Promise.resolve('');
     const bandsIn = d.bands || [];
-    const [mains, asides, note] = await Promise.all([
+    const [mains, asides, note, headText] = await Promise.all([
       Promise.all(bandsIn.map(b => md(b.main && b.main.md))),
       Promise.all(bandsIn.map(b => md(b.aside && b.aside.md))),
-      md(d.note && d.note.md)]);
+      md(d.note && d.note.md), md(d.header && d.header.md)]);
 
     if (d.entries) return roleEntries(rt, d, { k, dl, md });
 
@@ -637,6 +637,7 @@
       `<h1>${esc(hd.title || (hd.contact ? SITE.owner.name.join(' ') : p.title))}</h1>` +
       (hd.subtitle ? `<p class="lede">${esc(hd.subtitle)}</p>` : '') +
       (hd.tags && hd.tags.length ? `<p class="case-tags">${hd.tags.map(esc).join(' · ')}</p>` : '') +
+      (hd.md ? `<div class="prose role-head-text">${headText}</div>` : '') +    // a text under the lede ("md")
       (hd.contact ? contactCard(MODE === 'desk' && cvBtn ? cvButton(cvBtn.label) : '') : ''));
     // buttons ({label, href, download, ifExists}): with "ifExists", only once the file is found;
     // with "cv": true, the CV of site.json, opened in a new tab and downloaded (on desktop, the
@@ -686,8 +687,10 @@
       if (b.aside) {
         const a = B(cell('role-aside', k(b.aside.label || 'at a glance') +
           (b.aside.rows ? dl(b.aside.rows, b.aside.stacked) : '') + (b.aside.md ? `<div class="prose case-list">${asides[i]}</div>` : '') +
-          (b.aside.caption ? `<p class="caption">${esc(b.aside.caption)}</p>` : '')), mainB ? RA : LM, 2);
-        if (mainB) { a.with = mainB; addR(a); } else addL(a);
+          (b.aside.caption ? `<p class="caption">${esc(b.aside.caption)}</p>` : '')), mainB || b.aside.side === 'right' ? RA : LM, 2);
+        // a box without a main block goes under the main blocks, or with "side": "right" under
+        // the boxes of the right column
+        if (mainB) { a.with = mainB; addR(a); } else if (b.aside.side === 'right') addR(a); else addL(a);
       }
     });
     // the note: under the main blocks ("column": "main"), or across the page

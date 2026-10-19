@@ -1,0 +1,4 @@
+- **A lasting interest.** This article sparked a research interest that is still with me today: tensor methods, and readings of learned models drawn from information theory and quantum physics.
+- **Read past the abstract.** The claim a paper leads with is not always its contribution; placing it in its research line is what shows the difference.
+- **Interpretability with a number.** While the internal representations of large models remain mostly opaque, a quantity rooted in quantum information that reads what a network has organised is a rare quantitative anchor.
+- **Judge each claim on its own evidence.** Accuracy, efficiency and interpretability are three claims; the experiments support the first and the third, not the second.

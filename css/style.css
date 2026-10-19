@@ -268,6 +268,9 @@ dl.contact-card.with-cv .btn:hover { color: var(--accent); text-decoration: none
 .side-contact.compact .c-based { display: none; }   /* short windows */
 .side-contact .btn { font-size: calc(var(--u) * 0.19); padding: calc(var(--u) * 0.07) calc(var(--u) * 0.15); }
 
+/* a text under the lede of a role page header ("md" in header, e.g. who I am on the about page) */
+.role-head-text { margin-top: 1.1em; }
+
 /* experience pages ("role" layout): main blocks set a little tighter */
 .role-main .prose p, .role-main .prose li { line-height: 1.42; }
 .role-main .case-list li { margin-bottom: 0.1em; }
@@ -539,7 +542,8 @@ code.tex { font: 12px/1.5 var(--mono); white-space: pre-wrap; }
   .case-sub-math { border-left: 0; border-top: 1px solid var(--ink); }
   .case-group.relief .case-sub, .case-group.wide-text .case-sub { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .case-group.relief .case-sub-math { border-top: 1px solid var(--ink); }
-  .case-panels, .case-panels.fixed-w { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case-panels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case-panels.fixed-w { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }   /* one panel: full width */
   .page { grid-template-columns: 1fr; width: 100%; margin-left: 0; overflow-x: clip; }   /* cells on column J cover the right edge by 1px */
   /* the left sheet becomes a header of 10 x 3 cells that stays at the top (A1:J3); the
      menu button opens a drawer under it, over the veiled page (pages, then contact) */

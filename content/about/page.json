@@ -1,15 +1,10 @@
 {
-  "about": "About page (layout \"role\" in site.json, a single page without children). Texts live here and in the .md files next to this one. Links written \"#/section/page\" in a .md file point to pages of the site, and stay plain text while the page does not exist. The header is the contact card: name, mails, phone, place and profiles come from \"owner\" in content/site.json, the CV button opens owner.cv.",
+  "about": "About page (layout \"role\" in site.json, a single page without children). Texts live here and in the .md files next to this one. Links written \"#/section/page\" in a .md file point to pages of the site, and stay plain text while the page does not exist. The header is \"who I am\": name, intro, then who-i-am.md. Contact details are in the left sheet (desktop) and the footer (phones).",
   "header": {
-    "label": "contact",
-    "contact": true,
+    "label": "who I am",
+    "title": "Tancrède Amiel",
     "subtitle": "Engineering student at CentraleSupélec, AI engineer intern at Dassault Systèmes K.K.",
-    "buttons": [
-      {
-        "label": "↗ Read CV",
-        "cv": true
-      }
-    ]
+    "md": "who-i-am.md"
   },
   "facts": {
     "label": "facts",
@@ -34,13 +29,10 @@
   },
   "bands": [
     {
-      "main": {
-        "label": "who I am",
-        "md": "who-i-am.md"
-      },
       "aside": {
         "label": "research interests",
-        "md": "research-interests.md"
+        "md": "research-interests.md",
+        "side": "right"
       }
     },
     {

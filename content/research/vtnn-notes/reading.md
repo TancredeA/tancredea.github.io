@@ -1,0 +1,4 @@
+- **The contribution is interpretability, not scalability.** Compressing layers with tensor trains (Novikov et al., 2015; Gao et al., 2020) and training with DMRG-like sweeps (Stoudenmire & Schwab, 2016) already existed. What is new is a deep, multilayer architecture whose training itself exposes the entanglement spectrum of the weights.
+- **A number read off the weights.** The entanglement entropy at each bond measures how correlated the learned weights are, during training, without any probe added afterwards.
+- **It mirrors the data.** Well-separated Gaussian blobs give an entropy near zero; three intertwined spirals keep it around 0.7–0.8. A single scalar of the network already says something about the geometry of what it learned.
+- **MNIST is a proof of concept.** The comparison that favours the tensor network stops after one epoch, and its training cost grows exponentially with the number of tensors.

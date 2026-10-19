@@ -1,0 +1,104 @@
+{
+  "about": "Case-study page (layout \"case\" in site.json), like research/tfjm-2022. Text lives here and in the .md files next to this one. Formulas use LaTeX (KaTeX): in .md files between $...$ or $$...$$, here in the \"formula\" fields (a list = lines set one under the other; no dollars, backslashes doubled because this is JSON). The two figures are reproduced unmodified from the article (Sci. Rep. 14, 19017, 2024), licensed CC BY-NC-ND 4.0: keep the credit in their captions.",
+
+  "arrangement": [
+    ["header", "facts"],
+    ["exercise:full"],
+    ["paper:full"],
+    ["figure"],
+    ["reading:full"],
+    ["decisions:group"],
+    ["takeaways:0-7", "documents:9-13"]
+  ],
+
+  "header": {
+    "label": "research",
+    "title": "Variational Tensor Neural Networks: A Critical Analysis",
+    "lede": "A close reading of a 2024 paper that trains tensor-network layers with an algorithm from quantum physics. Its real contribution is not the scalability its abstract claims, but a quantitative window on what a trained network has learned.",
+    "tags": ["Tensor networks", "Quantum information", "Interpretability", "Critical reading"],
+    "buttons": [
+      { "label": "↗ Read my paper", "file": "report.pdf" },
+      { "label": "↗ Original article", "href": "https://doi.org/10.1038/s41598-024-69366-8" }
+    ]
+  },
+
+  "facts": {
+    "label": "facts",
+    "rows": [
+      ["course", "Information & Physics, CentraleSupélec"],
+      ["teachers", "Zeno Toffano, Antoine Berthet"],
+      ["article", "S. S. Jahromi, R. Orús, *Scientific Reports* 14, 19017 (2024)"],
+      ["format", "written critical analysis (5 pp., LaTeX) and oral presentation"],
+      ["period", "June 2026"],
+      ["work", "individual"]
+    ]
+  },
+
+  "blocks": {
+    "exercise": { "label": "the exercise", "md": "exercise.md", "list": true },
+    "paper": { "label": "the article in brief", "md": "paper.md" },
+    "reading": {
+      "label": "my reading", "md": "reading.md", "list": true,
+      "image": "fig-spiral.png",
+      "imageAlt": "Three intertwined spirals of red, green and blue points, with the decision regions learned by the tensor neural network",
+      "imageCaption": "Three intertwined spirals, classified at about 95 %: the entropy of the trained weights stays near 0.7–0.8. Fig. 13 of Jahromi & Orús (2024), CC BY-NC-ND 4.0."
+    },
+    "takeaways": { "label": "what I take from it", "md": "takeaways.md", "list": true }
+  },
+
+  "figure": {
+    "label": "the construction",
+    "panelWidth": 560,
+    "panels": [
+      { "src": "fig-tensorize.png", "alt": "Diagram: a dense layer is tensorized; its 216 by 216 weight matrix is reshaped and split by SVDs into three small tensors joined by bonds of dimension chi", "caption": "(a) dense layer → tensor diagram · (b) the weight matrix split by SVDs into an MPO · (c) the resulting forward pass" }
+    ],
+    "caption": "How a dense layer becomes a tensor-network layer: the 216 × 216 weight matrix is reshaped and split into three small tensors linked by bonds of dimension χ. Fig. 5 of Jahromi & Orús (2024), CC BY-NC-ND 4.0."
+  },
+
+  "decisionGroup": { "label": "my findings in detail", "toggleIn": "reading", "relief": true, "open": "↓ my findings in detail, with their math", "close": "↑ hide the findings" },
+
+  "decisions": [
+    {
+      "title": "Old ingredients",
+      "md": "finding-1.md",
+      "formula": "M = U S V^\\dagger = L R,\\qquad L = U\\sqrt{S},\\quad R = \\sqrt{S}\\,V^\\dagger",
+      "caption": "A weight matrix split by SVD; keeping the χ largest singular values λᵢ in S sets the bond dimension, the compression and the correlations allowed between tensors."
+    },
+    {
+      "title": "The move that matters: a two-site update",
+      "md": "finding-2.md",
+      "formula": ["B'_{i,i+1} = B_{i,i+1} - \\alpha\\,\\Delta B,\\qquad \\Delta B = -\\frac{\\partial \\mathcal{L}_{\\mathrm{MSE}}}{\\partial B}", "\\\\[6pt]", "B' = U' S' V'^\\dagger\\ \\text{(truncated to } \\chi\\text{)}"],
+      "caption": "Two neighbouring tensors are contracted into a bond tensor B, updated by a local gradient step, then split again by SVD: the singular values are exposed at every step of training."
+    },
+    {
+      "title": "A number that reads the data",
+      "md": "finding-3.md",
+      "formula": "S = -\\sum_i \\lambda_i^2 \\log \\lambda_i^2",
+      "caption": "Entanglement entropy at a bond. Gaussian blobs: S ≈ 0 at 99 % accuracy. Three spirals: S settles around 0.7–0.8 at about 95 %."
+    },
+    {
+      "title": "MNIST is a proof of concept",
+      "md": "finding-4.md",
+      "formula": "\\begin{array}{l|c} \\text{model} & \\text{accuracy} \\\\ \\hline \\text{TNN, 1 epoch} & 95.8\\,\\% \\\\ \\text{dense, 1 epoch} & 94.2\\,\\% \\\\ \\text{dense, 60 epochs} & 97.6\\,\\% \\end{array}",
+      "caption": "The TNN wins only the single-epoch comparison; its DMRG training time per epoch grows exponentially with the number of MPO tensors, against about ten seconds per epoch for the dense baseline."
+    }
+  ],
+  "decisionLabels": { "text": "finding", "math": "math" },
+
+  "resources": {
+    "label": "resources",
+    "documents": [
+      {
+        "file": "report.pdf",
+        "thumb": "report-p1.png",
+        "title": "Critical Analysis: On Variational Tensor Neural Networks for Deep Learning",
+        "meta": "written analysis, 5 pp., June 2026",
+        "readAndDownload": true,
+        "readLabel": "↗ read my paper"
+      }
+    ],
+    "links": [
+      { "label": "↗ original article (Scientific Reports, 2024)", "href": "https://doi.org/10.1038/s41598-024-69366-8" }
+    ]
+  }
+}

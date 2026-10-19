@@ -161,6 +161,7 @@ Le gabarit sert aussi à une page sans pages filles (exemple : `about`, avec `"l
 
 - `header.buttons` : des boutons sous l'accroche (`{ "label", "href", "download": true }`) ; avec `"ifExists": true`, le bouton n'apparaît que si le fichier existe ; avec `"cv": true`, le bouton ouvre le CV de `owner.cv` et le télécharge ;
 - la fiche de contact, sans le nom ni l'intro, sert aussi de bloc contact en bas de la bande de gauche sur ordinateur (son texte suit la taille de la grille pour tenir en 4 rangées ; dans une fenêtre trop basse, elle laisse de côté la ligne « based ») et dans le menu du téléphone ;
+- `header.md` : un texte sous l'accroche de l'en-tête (exemple : `about`, où l'en-tête « who I am » porte le nom, l'intro puis `who-i-am.md`) ; `"side": "right"` sur un `aside` sans `main` : l'encadré va dans la colonne de droite, sous les précédents (exemple : « research interests » de `about`) ;
 - `header.contact: true` : l'en-tête devient la fiche de contact (exemple : `about`) : le nom pour titre, puis les mails et les profils de `owner.contact`, `owner.phone` et `owner.based` (une ligne ou une liste de lignes) pris dans `site.json` ;
 - `"stacked": true` sur un `aside` à `rows` : chaque terme au-dessus de sa valeur, pour les termes longs ;
 - un `main` peut aussi porter `rows` (une liste de définitions) au lieu d'un `md`, par exemple sur toute la largeur avec `"full": true` (« languages & tools » de `about`) ;
