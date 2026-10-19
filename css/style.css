@@ -578,10 +578,11 @@ code.tex { font: 12px/1.5 var(--mono); white-space: pre-wrap; }
   .panel .contact-links .email, .panel .contact-links .email a { font-size: 13px; line-height: 1.7; }
   main { grid-template-columns: repeat(10, var(--u)); min-height: 0; }
   /* footer: the bar previous / section and place / next, glued to the contact block */
-  a.foot-nav { display: flex; align-items: flex-end; justify-content: center; padding: 0 0 calc(var(--u) * 0.16); color: var(--ink); text-decoration: none; font: 500 17px/1 var(--sans); }
-  a.foot-mid { font: 12.5px/1 var(--mono); }
-  a.foot-nav:not(.foot-mid) > .coord { display: none; }   /* too narrow for its coordinates */
-  a.foot-nav:hover, a.foot-nav:focus-visible { color: var(--accent); }
+  /* one cell, three links: previous, the section and the page's place in it, next */
+  .foot-nav { display: flex; align-items: stretch; padding: 0; }
+  .foot-nav a { display: flex; align-items: flex-end; justify-content: center; padding: 0 calc(var(--u) * 0.4) calc(var(--u) * 0.16); color: var(--ink); text-decoration: none; font: 500 17px/1 var(--sans); }
+  .foot-nav a.foot-mid { flex: 1; font: 12.5px/1 var(--mono); }
+  .foot-nav a:hover, .foot-nav a:focus-visible { color: var(--accent); }
   /* the block takes the leftover fraction of a row at the end of the page: content centred */
   .foot-contact { display: flex; flex-direction: column; justify-content: safe center; padding-top: calc(var(--u) * 0.22); padding-bottom: calc(var(--u) * 0.22); }
   .foot-name { margin: 0 0 0.4em; font: 500 17px/1.2 var(--sans); letter-spacing: -0.015em; }

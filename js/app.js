@@ -401,12 +401,11 @@
     if (rt.type === 'child') {
       const ks = rt.section.children, i = ks.indexOf(rt.page);
       const prev = ks[(i - 1 + ks.length) % ks.length], next = ks[(i + 1) % ks.length];
-      nav = [
-        cell('foot-nav', '←', 'a', { href: pageHref(prev), title: prev.title, 'aria-label': 'Previous page: ' + prev.title }),
-        cell('foot-nav foot-mid', `${esc(rt.section.title)} · ${i + 1} / ${ks.length}`, 'a',
-          { href: sectionHref(rt.section), 'aria-label': `All ${rt.section.title} (page ${i + 1} of ${ks.length})` }),
-        cell('foot-nav', '→', 'a', { href: pageHref(next), title: next.title, 'aria-label': 'Next page: ' + next.title })
-      ];
+      nav = cell('foot-nav',
+        `<a href="${pageHref(prev)}" title="${esc(prev.title)}" aria-label="Previous page: ${esc(prev.title)}">←</a>` +
+        `<a class="foot-mid" href="${sectionHref(rt.section)}" aria-label="All ${esc(rt.section.title)} (page ${i + 1} of ${ks.length})">${esc(rt.section.title)} · ${i + 1} / ${ks.length}</a>` +
+        `<a href="${pageHref(next)}" title="${esc(next.title)}" aria-label="Next page: ${esc(next.title)}">→</a>`,
+        'nav', { 'aria-label': 'Pages of ' + rt.section.title });
     }
     const contact = cell('foot-contact', `<p class="foot-name">${SITE.owner.name.map(esc).join(' ')}</p>` + contactCard(cvButton('↗ read cv')));
     return { nav, contact };
@@ -1133,7 +1132,7 @@
         const page = vh + Math.max(0, Math.ceil((end - vh) / U)) * U;
         const down = Math.floor((page - end) / U);
         r += down;
-        if (f.nav) [[1, 2], [3, 8], [9, 10]].forEach(([c0, c1], i) => place(f.nav[i], c0, c1, r, 1, letterOffset, state.rowOff));
+        if (f.nav) place(f.nav, 1, 10, r, 1, letterOffset, state.rowOff);
         place(f.contact, 1, 10, r + nav, n, letterOffset, state.rowOff);
         f.contact.style.height = (page - end - down * U + n * U) + 'px';
         main.style.minHeight = main.style.height = (page - top) + 'px';
@@ -1244,7 +1243,7 @@
     }));
     bands.forEach(b => b.forEach(x => { main.append(x.el); if (x.tag) main.append(x.tag); }));
     state.footer = MODE === 'desk' ? null : footer(rt);
-    if (state.footer) main.append(...(state.footer.nav || []), state.footer.contact);
+    if (state.footer) main.append(...[state.footer.nav, state.footer.contact].filter(Boolean));
     state.bands = bands;
     layout();
     fitFormulas();
