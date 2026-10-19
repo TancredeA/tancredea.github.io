@@ -426,7 +426,7 @@ img.preview { object-fit: cover; border: 1px solid var(--line); }
 .case-math .caption { margin-top: 6px; }
 code.tex { font: 12px/1.5 var(--mono); white-space: pre-wrap; }
 
-.case-thumb { display: block; width: min(100%, 220px); margin: 2px 0 8px; }
+.case-thumb { display: block; width: min(100%, 220px); margin: 2px auto 8px; }   /* centred in its block */
 .case-thumb img { display: block; width: 100%; border: 1px solid var(--ink); }
 .case-thumb:hover img, .case-thumb:focus-visible img { border-color: var(--accent); }
 .case-report { margin: 0 0 6px; font-size: 14px; line-height: 1.4; }
