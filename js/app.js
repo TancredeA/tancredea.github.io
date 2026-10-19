@@ -72,15 +72,15 @@
     for (const s of SITE.sections) {
       s.children = (s.children || []).filter(c => !c.hidden);
       s.children.forEach(c => { c.section = s; });
-      // pages inside a section are in chronological order (menu, section grid, previous /
-      // next), whatever the order in site.json
+      // pages inside a section are in reverse chronological order (menu, section grid,
+      // previous / next), whatever the order in site.json
       s.children.sort(byStart);
     }
   }
 
-  // Chronological order, oldest first, on "start" in site.json (YYYY-MM, or YYYY); pages
-  // without one come last, in their site.json order.
-  const byStart = (a, b) => (a.start ? 0 : 1) - (b.start ? 0 : 1) || String(a.start || '').localeCompare(String(b.start || ''));
+  // Reverse chronological order, most recent first, on "start" in site.json (YYYY-MM, or
+  // YYYY); pages without one come last, in their site.json order.
+  const byStart = (a, b) => (a.start ? 0 : 1) - (b.start ? 0 : 1) || String(b.start || '').localeCompare(String(a.start || ''));
   const allPages = () => SITE.sections.flatMap(s => s.children);
   const pagePath = p => p.section ? `content/${p.section.id}/${p.id}/` : `content/${p.id}/`;
   // Real addresses, relative to the site root (every page carries <base> pointing at it).
@@ -421,7 +421,7 @@
     return pins.map(path => {
       const rt = routeFor(String(path).replace(/^\/+|\/+$/g, '') + '/');
       return rt && rt.page;
-    }).filter(Boolean).slice(0, 3).sort(byStart);     // in chronological order, like everywhere
+    }).filter(Boolean).slice(0, 3).sort(byStart);     // most recent first, like everywhere
   }
 
   // Project facts shared by the home blocks: category and date in bold anthracite, then
