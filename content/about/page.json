@@ -37,12 +37,10 @@
   "bands": [
     {
       "main": {
-        "id": "who",
         "label": "who I am",
         "md": "who-i-am.md"
       },
       "aside": {
-        "id": "interests",
         "label": "research interests",
         "md": "research-interests.md"
       }
@@ -77,7 +75,6 @@
     },
     {
       "main": {
-        "id": "next",
         "label": "what's next",
         "md": "whats-next.md"
       }
@@ -112,12 +109,5 @@
         "md": "beyond-work.md"
       }
     }
-  ],
-  "phoneOrder": [
-    "header",
-    "who",
-    "interests",
-    "next",
-    "facts"
   ]
 }

@@ -108,7 +108,7 @@ main:focus, main:focus-visible { outline: none; }
 
 .cell.fixed { display: flex; flex-direction: column; }
 
-.cell > .coord + .k, .cell > .coord + .menu-toggle, .cell > .coord + h1 { padding-right: 8ch; }
+.cell > .coord + .k, .cell > .coord + h1 { padding-right: 8ch; }
 
 .coord {
   position: absolute;
@@ -232,8 +232,6 @@ dl.meta.stacked dt:first-child { margin-top: 0; }
 }
 .tree-fold:hover { color: var(--ink); }
 .tree-fold.trail { color: var(--ink); font-weight: 600; }
-
-.menu-toggle { display: none; }
 
 .contact { display: flex; flex-direction: column; }
 .contact-links ul { list-style: none; margin: 0; padding: 0; }
@@ -388,7 +386,6 @@ img.preview { object-fit: cover; border: 1px solid var(--line); }
 .case-tags { margin: 0.5em 0 0; font: 600 12px/1.5 var(--mono); color: var(--accent); }
 .case-access { margin: 0.3em 0 0.25em; font-size: 13px; line-height: 1.4; }
 .case-actions { display: flex; flex-wrap: wrap; gap: 8px; }
-.case-intro .lede { margin-top: 0; }
 .case-actions .btn { text-decoration: none; display: inline-block; padding: 6px 10px; }
 /* header with more air between its lines ("class": "case-head-airy" in page.json) */
 .case-head-airy { display: flex; flex-direction: column; justify-content: space-between; }   /* lines spread over the cell */
@@ -530,21 +527,30 @@ code.tex { font: 12px/1.5 var(--mono); white-space: pre-wrap; }
   .case-group.relief .case-sub-math { border-top: 1px solid var(--ink); }
   .case-panels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .page { grid-template-columns: 1fr; width: 100%; margin-left: 0; }
+  /* the left sheet becomes one row that stays at the top: name and "menu" button; the button
+     opens a panel just under it, over the page (menu, then contact) */
   aside {
-    position: static;
-    height: auto;
+    z-index: 10;
+    height: var(--u);
     grid-template-columns: repeat(10, var(--u));
     overflow: visible;
   }
-  main { grid-template-columns: repeat(10, var(--u)); min-height: 0; }
-  .menu-toggle {
-    display: flex; justify-content: space-between; align-items: center; width: 100%;
-    font: 13px/1 var(--mono); color: var(--ink); background: none; border: none; padding: 0; cursor: pointer;
+  /* text on the bottom of the row, under the coordinates */
+  .bar-name, .bar-toggle { display: flex; align-items: flex-end; padding-top: 0; padding-bottom: calc(var(--u) * 0.16); }
+  .bar-name a { font: 500 clamp(14px, calc(var(--u) * 0.42), 17px)/1 var(--sans); letter-spacing: -0.015em; text-decoration: none; white-space: nowrap; }
+  .bar-toggle { font: 13px/1 var(--mono); color: var(--ink); cursor: pointer; text-align: left; }
+  .bar-toggle:hover, .bar-toggle[aria-expanded="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+  .panel {
+    position: absolute; top: var(--u); left: 0; width: calc(10 * var(--u));
+    max-height: calc(100vh - var(--u)); max-height: calc(100dvh - var(--u));
+    overflow-y: auto; overscroll-behavior: contain;
+    display: grid; grid-template-columns: repeat(10, var(--u)); grid-auto-rows: var(--u); align-content: start;
+    padding-bottom: 6px;                  /* room for the last border and the shadow */
+    filter: drop-shadow(5px 5px 0 var(--ink));
   }
-  .menu .tree { margin-top: 10px; }
-  .menu:not(.open) .tree { display: none; }
+  .panel .contact-links { margin: 0; gap: 12px; justify-content: flex-start; }
+  main { grid-template-columns: repeat(10, var(--u)); min-height: 0; }
   .dd { grid-template-columns: 1fr; }
-  .cell.id .name { font-size: calc(var(--u) * 0.66); }
   .lede { font-size: 17px; }
 }
 

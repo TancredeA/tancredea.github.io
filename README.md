@@ -32,6 +32,13 @@ content/<section>/<page>/index.md   texte long de chaque page
 projects/, research/, experience/, about/   GÉNÉRÉS par tools/build_pages.py
 ```
 
+## Sur téléphone
+
+Sous 960 px de large, la grille passe à 10 colonnes et la page tient en une colonne :
+
+- la bande de gauche devient une rangée qui reste en haut de l'écran : le nom (lien vers l'accueil) et un bouton « menu + » ; ce bouton ouvre, juste en dessous et par-dessus la page, le menu puis les liens de contact ; un toucher en dehors, la touche Échap ou le passage à une autre page le referme ;
+- les blocs de la partie de droite s'empilent dans l'ordre de lecture de la version ordinateur : bande après bande, et dans une bande de haut en bas puis de gauche à droite (un bloc posé sous un autre vient après les blocs placés à côté de celui-ci). Pour changer leur ordre sur téléphone, changer leur place sur ordinateur (`arrangement`, `bands`).
+
 ## Adresses
 
 Chaque page a une vraie adresse, sans `#` : `/projects/blast-routing/`. Pour que ces adresses fonctionnent aussi quand on les ouvre directement (lien partagé, rechargement), chaque page existe comme un dossier contenant une copie de `index.html` avec son propre titre et sa description (utilisés par Google et par les aperçus de lien). Ces dossiers sont générés :
@@ -101,11 +108,9 @@ Gabarit des pages projet racontées comme une étude de cas (aujourd'hui `projec
 
 Le schéma « how it works » se décrit dans `page.json` (`how.diagram`) : des modules placés sur une petite grille (`col`, `row`), `accent: true` pour mettre l'un d'eux en évidence, et des flèches (`from`, `to`, `label`, `dashed`).
 
-Sur téléphone, les cellules s'empilent dans un ordre propre à chaque bloc (option `order` du moteur) : en-tête, aperçu, ligne d'accès, accroche, résumé, rôle, fiche, puis le reste.
-
 Options de `page.json` (exemples : `projects/blast-routing`, `projects/absorber-placement`, `research/tfjm-2022`) :
 
-- `arrangement` : l'ordre des bandes, une liste de noms par bande, par exemple `[["header:full"], ["role:full"], ["summary", "facts"], ["how"], ["decisions"], ["figure"], ["limits", "resources"]]` (noms : `header`, `facts`, `preview`, `hint`, `figure`, `summary`, `role`, `how`, `decisions`, `limits`, `resources` ; `:full` = toute la largeur ; deux noms = gauche et droite). Les téléphones empilent dans le même ordre. Sans ce champ : en-tête et fiche, aperçu, ligne d'accès, figure, résumé et rôle, schéma, décisions, limites et ressources ;
+- `arrangement` : l'ordre des bandes, une liste de noms par bande, par exemple `[["header:full"], ["role:full"], ["summary", "facts"], ["how"], ["decisions"], ["figure"], ["limits", "resources"]]` (noms : `header`, `facts`, `preview`, `hint`, `figure`, `summary`, `role`, `how`, `decisions`, `limits`, `resources` ; `:full` = toute la largeur ; deux noms = gauche et droite). Les téléphones lisent les bandes de gauche à droite et de haut en bas. Sans ce champ : en-tête et fiche, aperçu, ligne d'accès, figure, résumé et rôle, schéma, décisions, limites et ressources ;
 - `blocks` : des blocs de texte en plus, par nom, à placer dans `arrangement` (exemple : `"overview": { "label": "the project", "md": "overview.md", "list": true }`) ;
 - `decisions:group` dans `arrangement` : toutes les décisions en sous-blocs d'un seul grand bloc pleine largeur (texte à gauche, formule à droite), titré par `decisionGroup.label` ; avec `"collapsible": true`, le bloc reste replié jusqu'à ce que le lecteur l'ouvre (`open` / `close` : textes du lien) ; avec `"toggleIn": "role"` (ou le nom d'une autre cellule), le bloc n'est pas du tout sur la page au départ : un lien en bas de cette cellule l'affiche juste en dessous, puis le retire (exemples : les deux projets) ; avec `"relief": true`, le texte et la formule deviennent deux cartes en relief (ombre décalée) posées dans le grand bloc (exemples : `research/tfjm-2022`, les deux projets) ; `"wideText": true` donne plus de place au texte qu'à la formule (8/5 au lieu de 7/6) ;
 - `blocks.<nom>.image` (+ `imageAlt`, `imageCaption`) : une image à côté du texte du bloc ;
@@ -120,7 +125,6 @@ Options de `page.json` (exemples : `projects/blast-routing`, `projects/absorber-
 - `header.class` : une classe en plus sur l'en-tête ; `"case-head-airy"` répartit ses lignes sur toute la hauteur de la cellule ;
 - `header.badge` : un libellé encadré sous l'accroche (par exemple un classement) ; `header.buttons` : des boutons en plus, vers des fichiers du dossier de la page (`{ "label", "file" }`, ou `href` pour une adresse) ;
 - `blocks.<nom>.class` : une classe CSS en plus sur le bloc ; `"case-steps"` présente la liste numérotée du bloc en étapes, en ligne sur ordinateur et empilées sur téléphone (exemple : « our year, from research to debate » de TFJM) ;
-- `factsAfter` : sur téléphone, la fiche placée à côté de l'en-tête vient après ce bloc (par défaut, après `role`) ;
 - `resources.documents` (cellule `documents`) : des documents côte à côte, chacun avec sa vignette, son titre, sa description et les liens « read » et « download » ; `resources.links` : des liens en dessous ; `"hidden": true` masque un document (ou un bouton) dont le fichier n'est pas encore là ; `"readAndDownload": true` sur un document remplace « read » et « download » par un seul lien (`readLabel`) qui ouvre le PDF et le télécharge ;
 - `formula` peut être une liste de lignes : elles s'affichent l'une sous l'autre (une ligne `"\\[4pt]"` seule ajoute l'espacement entre les deux lignes qu'elle sépare) ;
 - Une valeur `[TO CONFIRM]` ou `TODO` dans la fiche s'affiche en couleur, pour être repérée ; `*texte*` dans une valeur de la fiche s'affiche en italique.
@@ -147,12 +151,11 @@ Gabarit court pour un poste, un rôle ou du bénévolat (exemples : `experience/
 
 Chaque colonne se remplit depuis le haut, avec une seule rangée vide (l'étiquette) entre deux blocs : à gauche l'en-tête puis les blocs principaux, à droite la fiche puis les encadrés, chaque encadré jamais plus haut que le bloc principal qui lui correspond.
 
-Un bloc absent ne s'affiche pas et ne laisse pas de cellule vide. Sur téléphone : en-tête, premier bloc principal, son encadré, fiche, puis la suite.
+Un bloc absent ne s'affiche pas et ne laisse pas de cellule vide. Sur téléphone : en-tête, fiche, premier bloc principal, son encadré, puis la suite.
 
 Le gabarit sert aussi à une page sans pages filles (exemple : `about`, avec `"layout": "role"` sur la section elle-même ; pas de liens précédent / suivant). Options en plus :
 
 - `header.buttons` : des boutons sous l'accroche (`{ "label", "href", "download": true }`) ; avec `"ifExists": true`, le bouton n'apparaît que si le fichier existe (exemple : « ↓ Download CV » vers `assets/cv.pdf`) ;
-- `"id"` sur un `main` ou un `aside`, et `phoneOrder` : la liste des blocs qui viennent d'abord sur téléphone, dans cet ordre (`header`, `facts` et ces `id`) ; les autres suivent dans l'ordre des bandes ;
 - `"stacked": true` sur un `aside` à `rows` : chaque terme au-dessus de sa valeur, pour les termes longs ;
 - un `main` peut aussi porter `rows` (une liste de définitions) au lieu d'un `md`, par exemple sur toute la largeur avec `"full": true` (« languages & tools » de `about`) ;
 - dans un `.md`, un lien écrit `#/section/page` pointe vers une page du site ; si la page n'existe pas, le texte reste sans lien.

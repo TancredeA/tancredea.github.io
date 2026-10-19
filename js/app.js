@@ -255,21 +255,17 @@
     const aside = $('#aside');
     aside.innerHTML = '';
     const o = SITE.owner;
-
-    const name = cell('id', `<a href="${HOME}" style="text-decoration:none"><p class="name">${o.name.map(n => `<span>${esc(n)}</span>`).join('')}</p></a><p class="k role">${esc(o.role)}</p>`);
-    const photo = cell('photo fixed', photoHtml());
-    const menu = cell('menu' + (state.menuOpen ? ' open' : ''));
-    menu.append(h('button', { class: 'menu-toggle', 'aria-expanded': String(state.menuOpen) },
-      `<span>menu</span><span>${state.menuOpen ? '−' : '+'}</span>`));
+    const menu = cell('menu');
     menu.append(buildTree(rt));
-    menu.querySelector('.menu-toggle').onclick = () => { state.menuOpen = !state.menuOpen; renderAside(route()); relayout(); };
+    const contact = cell('contact', contactHtml());
 
     if (MODE === 'desk') {
       // Title block, like the cartouche of a technical drawing:
       // portrait (2 x 3) and name (2 x 3) side by side, then the menu, contact at the bottom.
       state.rowOff = 0;
+      const name = cell('id', `<a href="${HOME}" style="text-decoration:none"><p class="name">${o.name.map(n => `<span>${esc(n)}</span>`).join('')}</p></a><p class="k role">${esc(o.role)}</p>`);
+      const photo = cell('photo fixed', photoHtml());
       const R = Math.floor(window.innerHeight / U);
-      const contact = cell('contact', contactHtml());
       aside.append(photo, name, menu, contact);
       place(photo, 2, 3, 2, 3, 0);
       place(name, 4, 5, 2, 3, 0);
@@ -287,24 +283,36 @@
       contact.classList.toggle('compact', rowsC < contactRows);
       place(contact, 2, 5, rContact, rowsC, 0);
     } else {
-      aside.append(photo, name, menu);
-      place(photo, 2, 4, 2, 3, 0);
-      place(name, 5, 9, 2, 3, 0);
-      place(menu, 2, 9, 6, 1, 0);
+      // Phones: one row that stays at the top of the screen, the name and a "menu" button;
+      // the button opens a panel just under it, over the page: the menu, then the contact.
+      state.rowOff = 1;
+      const name = cell('bar-name', `<a href="${HOME}">${o.name.map(esc).join(' ')}</a>`);
+      const toggle = cell('bar-toggle', `<span>menu ${state.menuOpen ? '−' : '+'}</span>`, 'button',
+        { type: 'button', 'aria-expanded': String(state.menuOpen), 'aria-controls': 'panel' });
+      toggle.onclick = () => { state.menuOpen = !state.menuOpen; renderAside(route()); };
+      aside.append(name, toggle);
+      place(name, 2, 6, 1, 1, 0);
+      place(toggle, 7, 9, 1, 1, 0);
+      if (!state.menuOpen) return;
+      const panel = h('div', { class: 'panel', id: 'panel' });
+      panel.append(menu, contact);
+      aside.append(panel);
+      // the panel is its own grid, from row 2 of the page: rowOffset 1 for the coordinates
+      place(menu, 2, 9, 1, 1, 0, 1);
       const mr = rowsNeeded(menu, 1);
-      place(menu, 2, 9, 6, mr, 0);
-      state.rowOff = 6 + mr;
+      place(menu, 2, 9, 1, mr, 0, 1);
+      place(contact, 2, 9, mr + 1, 1, 0, 1);
+      place(contact, 2, 9, mr + 1, rowsNeeded(contact, 2), 0, 1);
     }
   }
 
   // ---------------------------------------------------------------- blocks
   // A band is a row of blocks laid side by side; c = [first, last] content
   // column (0..13). Bands stack vertically with one empty grid row between.
-  // order (optional): position of the block when cells stack on phones; blocks without one
-  // keep their band order, after the ordered ones.
+  // Phones stack the blocks in reading order (see layout()).
   // tag (optional): an element set on the empty grid row just above the block, outside any
   // cell (see layout()).
-  const B = (el, c, min, order) => ({ el, c, min, order });
+  const B = (el, c, min) => ({ el, c, min });
   function placeTag(b, r) {
     if (!b.tag) return;
     b.tag.style.gridColumn = b.el.style.gridColumn;
@@ -483,7 +491,7 @@
       const named = (b, name) => (b.tag = h('span', { class: 'block-tag' }, esc(name)), b);
       const hero = named(B(cell('', `<h1>${esc(hm.headline)}</h1><p class="lede">${esc(hm.lede)}</p>`), L, 3), 'intro');
       const now = named(B(cell('', `<p style="margin:0 0 10px;font-size:15px;line-height:1.45">${esc(hm.now)}</p><ul class="links"><li><a href="${esc(SITE.owner.cv)}" target="_blank" rel="noopener" data-also-download>↗ read cv</a></li></ul>`), R, 3), 'currently');
-      bands.push(MODE === 'desk' ? [hero, now] : [hero]);
+      bands.push([hero, now]);
       const pages = allPages();
       const wip = pages.filter(p => p.status === 'wip');
       const latest = hm.latest ? pages.find(p => p.id === hm.latest)
@@ -496,7 +504,6 @@
         return named(pinnedCard(p, [T1, T2, T3][i]), `pinned #${i + 1}`);
       }));
       bands.push([
-        MODE === 'mob' ? now : null,
         named(B(cell('', bench), L, 3), 'on the bench'),
         latest ? named(B(cell('', `${latest.date ? `<p class="k">${esc(latest.date)}</p>` : ''}<p class="card-title">${esc(latest.title)}</p><p class="card-sum">${esc(latest.summary || '')}</p>`, 'a', { href: pageHref(latest) }), R, 3), 'last entry') : null
       ].filter(Boolean));
@@ -524,8 +531,8 @@
     }
 
     const p = rt.page;
-    if (rt.type === 'child' && p.layout === 'case') { bands[0][0].order = 0; return bands.concat(await caseBands(rt)); }
-    if ((rt.type === 'child' || rt.type === 'single') && p.layout === 'role') { bands[0][0].order = 0; return bands.concat(await roleBands(rt)); }
+    if (rt.type === 'child' && p.layout === 'case') return bands.concat(await caseBands(rt));
+    if ((rt.type === 'child' || rt.type === 'single') && p.layout === 'role') return bands.concat(await roleBands(rt));
     const body = await loadMd(p);
     const bodyBlock = B(cell('', `<div class="prose">${body}</div>`), L, 6);
 
@@ -582,7 +589,7 @@
   // (columns 1-9) each with an optional box beside it (11-14), then an optional note. Everything comes from page.json in the page folder:
   //   header {label, title, subtitle, tags}, facts {label, rows},
   //   bands [{main {label, md}, aside {label, rows | md, caption}}], note {label, md}.
-  // A missing block takes no cell. Phones: header, first main block, its box, facts, the rest.
+  // A missing block takes no cell.
   async function roleBands(rt) {
     const p = rt.page, base = pagePath(p);
     const d = await loadJson(base + (p.page || 'page.json'));
@@ -626,49 +633,35 @@
     // left, the header then the main blocks; right, the facts then the boxes, each box no
     // higher than the main block it goes with. A main block with "full": true runs across
     // the page, under both columns; what follows starts under it.
-    let order = 1;
     const placed = [];               // in placing order: a cell only refers to cells before it
     let lastL = null, lastR = null;
     const addL = b => { if (lastL) b.after = lastL; lastL = b; placed.push(b); return b; };
     const addR = b => { if (lastR) b.after = lastR; lastR = b; placed.push(b); return b; };
-    const byId = { header: addL(B(head, LM, 2, order++)) };
-    if (factsB) { addR(factsB); byId.facts = factsB; }
+    addL(B(head, LM, 2));
+    if (factsB) addR(factsB);
     bandsIn.forEach((b, i) => {
       const mainEl = b.main ? cell('role-main', k(b.main.label || '') + (b.main.md ? `<div class="prose case-list">${mains[i]}</div>` : '') +
         (b.main.rows ? dl(b.main.rows, b.main.stacked) : '')) : null;
       let mainB = null;
       if (mainEl && b.main.full) {
-        const w = B(mainEl, FULL, 2, order++);
+        const w = B(mainEl, FULL, 2);
         const above = [lastL, lastR].filter(Boolean);
         w.under = () => above;
         placed.push(w); lastL = lastR = w;
-      } else if (mainEl) mainB = addL(B(mainEl, LM, 2, order++));
-      if (mainEl && b.main.id) byId[b.main.id] = mainB || placed[placed.length - 1];
+      } else if (mainEl) mainB = addL(B(mainEl, LM, 2));
       if (b.aside) {
         const a = B(cell('role-aside', k(b.aside.label || 'at a glance') +
           (b.aside.rows ? dl(b.aside.rows, b.aside.stacked) : '') + (b.aside.md ? `<div class="prose case-list">${asides[i]}</div>` : '') +
-          (b.aside.caption ? `<p class="caption">${esc(b.aside.caption)}</p>` : '')), mainB ? RA : LM, 2, order++);
+          (b.aside.caption ? `<p class="caption">${esc(b.aside.caption)}</p>` : '')), mainB ? RA : LM, 2);
         if (mainB) { a.with = mainB; addR(a); } else addL(a);
-        if (b.aside.id) byId[b.aside.id] = a;
       }
-      // the facts come after the first band on phones
-      if (i === 0 && factsB) factsB.order = order++;
     });
-    if (factsB && factsB.order === undefined) factsB.order = order++;
     // the note: under the main blocks ("column": "main"), or across the page
     const noteEl = d.note ? cell('', k(d.note.label || 'note') + `<div class="prose">${note}</div>`) : null;
-    if (noteEl && d.note.column === 'main') addL(B(noteEl, LM, 1, order++));
-    // "phoneOrder": ids of the blocks that come first on phones, in that order (header,
-    // facts, and the "id" given to a main block or a box); the others follow in band order
-    if (Array.isArray(d.phoneOrder)) {
-      const first = d.phoneOrder.map(id => byId[id]).filter(Boolean);
-      first.forEach((b, i) => { b.order = i + 1; });
-      placed.filter(b => !first.includes(b)).sort((x, y) => x.order - y.order).forEach((b, i) => { b.order = first.length + 1 + i; });
-      order = placed.length + 1;
-    }
+    if (noteEl && d.note.column === 'main') addL(B(noteEl, LM, 1));
     const bands = [placed];
-    if (noteEl && d.note.column !== 'main') bands.push([B(noteEl, FULL, 1, order++)]);
-    if (rt.type === 'child') bands.push(siblings(rt).map(b => (b.order = order++, b)));
+    if (noteEl && d.note.column !== 'main') bands.push([B(noteEl, FULL, 1)]);
+    if (rt.type === 'child') bands.push(siblings(rt));
     return bands;
   }
 
@@ -679,9 +672,8 @@
   async function roleEntries(rt, d, { k, dl, md }) {
     const p = rt.page;
     const hd = d.header || {};
-    let order = 1;
     const bands = [[B(cell('case-head role-head', k(hd.label || rt.section.title) + `<h1>${esc(hd.title || p.title)}</h1>` +
-      (hd.subtitle ? `<p class="lede">${esc(hd.subtitle)}</p>` : '')), L, 2, order++)]];
+      (hd.subtitle ? `<p class="lede">${esc(hd.subtitle)}</p>` : '')), L, 2)]];
     for (const e of d.entries) {
       const texts = await Promise.all((e.blocks || []).map(b => md(b.md)));
       const card = (cls, html) => `<div class="role-card ${cls}">${html}</div>`;
@@ -690,9 +682,9 @@
           (e.tags && e.tags.length ? `<p class="case-tags">${e.tags.map(esc).join(' · ')}</p>` : '')) +
         (e.facts ? card('re-facts', k(e.facts.label || 'facts') + dl(e.facts.rows)) : '') +
         (e.blocks || []).map((b, i) => card('re-block' + (i === 0 ? ' re-a' : ''), k(b.label || '') + `<div class="prose case-list">${texts[i]}</div>`)).join('');
-      bands.push([B(cell('role-entry', k(e.tag || e.title) + `<div class="re-grid${e.facts ? '' : ' no-facts'}">${cards}</div>`), FULL, 2, order++)]);
+      bands.push([B(cell('role-entry', k(e.tag || e.title) + `<div class="re-grid${e.facts ? '' : ' no-facts'}">${cards}</div>`), FULL, 2)]);
     }
-    bands.push(siblings(rt).map(b => (b.order = order++, b)));
+    bands.push(siblings(rt));
     return bands;
   }
 
@@ -794,22 +786,16 @@
     // page.json (one list of names per band, e.g. [["header", "role"], ["summary", "facts"]];
     // "decisions" stands for all decision bands). Without it, the order of blast-routing:
     // header and facts, the demo preview (or figure), summary and role, how it works,
-    // decisions, limits and resources. Phones stack the cells in the same order, except that
-    // facts set beside the header come after the role (or after the cell named by "factsAfter").
+    // decisions, limits and resources.
     const arrangement = d.arrangement || [['header', 'facts'], ['preview'], ['hint'], ['figure'], ['summary', 'role'], ['how'], ['decisions'], ['limits', 'resources']];
-    const visualFirst = !d.arrangement || ['preview', 'figure'].includes((arrangement[1] || [])[0]);
 
-    // header: on phones, when a visual follows it, the lede and tags move to their own cell
-    // after that visual, so that it still shows on arrival
     const hd = d.header || {};
     const intro = hd.lede ? `<p class="lede">${esc(hd.lede)}</p>` : '';
     const tags = hd.tags ? `<p class="case-tags">${hd.tags.map(esc).join(' · ')}</p>` : '';
-    const phone = MODE !== 'desk';
-    const split = phone && visualFirst;
     const head = cell('case-head' + (hd.class ? ' ' + hd.class : ''),
       k(hd.label || rt.section.title) +
       `<h1>${esc(hd.title || p.title)}</h1>` +
-      (split ? '' : intro) +
+      intro +
       (hd.badge ? `<p class="case-badge">${esc(hd.badge)}</p>` : '') +
       (hasSim(p) && hd.access ? `<p class="case-access">${esc(hd.access)}</p>` : '') +
       '<div class="case-actions">' +
@@ -817,7 +803,7 @@
       (p.pdf ? `<a class="btn" href="${esc(p.pdf)}" target="_blank" rel="noopener">${esc(hd.reportButton || '↗ Read the report')}</a>` : '') +
       (p.repo ? `<a class="btn" href="${esc(p.repo)}" target="_blank" rel="noopener">${esc(hd.codeButton || '↗ Code')}</a>` : '') +
       (hd.buttons || []).filter(x => !x.hidden).map(x => `<a class="btn" href="${esc(x.href || base + x.file)}" target="_blank" rel="noopener">${esc(x.label)}</a>`).join('') +
-      '</div>' + (split ? '' : tags));
+      '</div>' + tags);
     // the demo button opens the demo the same way a click on the preview does
     const demoBtn = head.querySelector('.case-demo');
     if (demoBtn) demoBtn.addEventListener('click', e => {
@@ -932,15 +918,7 @@
 
     // assemble
     const bands = [];
-    let order = 1;
-    let factsB = null, roleDone = false, introDone = !split || !(intro || tags);
-    const visual = ['header', 'preview', 'hint', 'figure'];
     for (const names of arrangement) {
-      // on phones, the lede and tags come right after the header and the visual that follows it
-      if (!introDone && bands.length && !names.some(n => visual.includes(n.split(':')[0]))) {
-        bands.push([B(cell('case-head case-intro', intro + tags), FULL, 1, order++)]);
-        introDone = true;
-      }
       if (names.length === 1 && names[0] === 'decisions:group') {
         const g = d.decisionGroup || {};
         const rows = (d.decisions || []).map((x, i) =>
@@ -952,9 +930,7 @@
         const host = g.toggleIn && cells[g.toggleIn] && cells[g.toggleIn][0];
         if (host) {
           const el = cell('case-group' + (g.relief ? ' relief' : '') + (g.wideText ? ' wide-text' : ''), k(g.label || 'details') + body);
-          // on phones too, right under the block that holds the link
-          const hostB = bands.flat().find(x => x.el === host);
-          const b = B(el, FULL, 2, hostB && hostB.order !== undefined ? hostB.order + 0.5 : order++);
+          const b = B(el, FULL, 2);
           b.hidden = true;
           const btn = h('button', { type: 'button', class: 'case-toggle', 'aria-expanded': 'false' }, esc(g.open || '↓ show the details'));
           btn.addEventListener('click', () => {
@@ -974,18 +950,17 @@
           fold.querySelector('summary').textContent = fold.open ? (g.close || 'hide the details') : (g.open || 'show the details');
           relayout(); fitFormulas();
         });
-        bands.push([B(el, FULL, g.collapsible ? 1 : 2, order++)]);   // as tall as its content
+        bands.push([B(el, FULL, g.collapsible ? 1 : 2)]);   // as tall as its content
         continue;
       }
       if (names.length === 1 && names[0].split(':')[0] === 'decisions') {
-        decisionBands.forEach(band => { band.forEach(b => { b.order = order++; }); bands.push(band); });
+        decisionBands.forEach(band => bands.push(band));
         continue;
       }
       const band = [];
       // a name ending in ":full" spans the whole width, ":0-7" sets the columns (0 to 13);
       // "a>b>c" stacks cells in one column, each under the previous one (one empty row between)
       const stacks = names.map(x => x.split('>').map(y => y.split(':')).filter(([n]) => cells[n])).filter(st => st.length);
-      const withHeader = stacks.some(st => st.some(([n]) => n === 'header'));
       stacks.forEach((st, i) => {
         let prev = null;
         st.forEach(([n, width]) => {
@@ -994,20 +969,14 @@
           const b = B(el, span || (width === 'full' ? FULL : stacks.length > 1 ? (i === 0 ? left : right) : left), min);
           if (prev) b.after = prev;
           prev = b;
-          // facts beside the header: on phones they come after the role (or after "factsAfter")
-          if (n === 'facts' && withHeader) factsB = b;
-          else b.order = order++;
-          if (n === (d.factsAfter || 'role')) roleDone = true;
-          if (roleDone && factsB && factsB.order === undefined) factsB.order = order++;
           band.push(b);
         });
       });
       if (band.length) bands.push(band);
     }
-    if (factsB && factsB.order === undefined) factsB.order = order++;
 
     // neighbours
-    bands.push(siblings(rt).map(b => (b.order = order++, b)));
+    bands.push(siblings(rt));
     return bands;
   }
 
@@ -1058,9 +1027,14 @@
       }
     }
     if (MODE !== 'desk') {
-      const flat = state.bands.flat();
-      const key = (b, i) => b.order !== undefined ? b.order : 1e6 + i;
-      const order = flat.map((b, i) => [key(b, i), b]).sort((x, y) => x[0] - y[0]).map(x => x[1]);
+      // Phones: one column, in reading order, band after band and, within a band, from top to
+      // bottom then from left to right. A block's level is its place in the band's columns:
+      // a block stacked under another ("after", "under") is one level lower, a block beside
+      // another ("with") on the same level.
+      const level = b => b.level !== undefined ? b.level : (b.level = Math.max(0,
+        b.after ? level(b.after) + 1 : 0, b.with ? level(b.with) : 0,
+        ...(b.under ? b.under().map(u => level(u) + 1) : [])));
+      const order = state.bands.flatMap(band => band.slice().sort((x, y) => level(x) - level(y) || x.c[0] - y.c[0]));
       for (const b of order) {
         b.el.style.display = b.hidden ? 'none' : '';
         if (b.tag) b.tag.style.display = b.hidden ? 'none' : '';
@@ -1157,6 +1131,7 @@
     const id = ++renderId;
     const rt = route();
     state.openSec = undefined;
+    if (location.pathname !== state.lastPath) state.menuOpen = false;   // the phone menu closes on a new page
     if (rt.alias) history.replaceState(null, '', rt.type === 'sim' ? simHref(rt.page) : pageHref(rt.page));
     stopPreviews();
     stopVideos();
@@ -1165,11 +1140,6 @@
     renderAside(rt);
     const main = $('#main');
     main.innerHTML = '';
-    if (MODE === 'mob') {
-      // tall enough for even gaps that the mail addresses can unfold into
-      const contact = B(cell('contact', '<p class="k">contact</p>' + contactHtml()), FULL, 6);
-      bands.push([contact]);
-    }
     // Every block is named from above: a label at the top of a cell (.k) leaves the cell and
     // floats on the grid, in the empty row just above it (blocks named already keep theirs).
     bands.forEach(b => b.forEach(x => {
@@ -1238,6 +1208,10 @@
       const d = h('a', { href: a.getAttribute('href'), download: '' });
       document.body.append(d); d.click(); d.remove();
     });
+    // phones: a tap outside the open menu, or Escape, closes it
+    const closeMenu = () => { if (state.menuOpen) { state.menuOpen = false; renderAside(route()); } };
+    document.addEventListener('click', e => { if (!e.composedPath().includes($('#aside'))) closeMenu(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
     // "+" / "−" in the menu unfold or fold the list of pages of a section, without leaving the page.
     document.addEventListener('click', e => {
       const b = e.target.closest && e.target.closest('button[data-fold]');
