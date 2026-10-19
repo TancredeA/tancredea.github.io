@@ -394,7 +394,8 @@
 
   // Phones: every page ends with a footer across the whole width (A to J), its cells glued
   // together: on a page of a section, one row with the previous page, the section and the
-  // page's place in it, and the next page; then the contact block.
+  // page's place in it, and the next page; then the contact block, the CV in its bottom
+  // right corner. Nothing comes under it (see layout()).
   function footer(rt) {
     let nav = null;
     if (rt.type === 'child') {
@@ -407,8 +408,7 @@
         cell('foot-nav', '→', 'a', { href: pageHref(next), title: next.title, 'aria-label': 'Next page: ' + next.title })
       ];
     }
-    const contact = cell('contact-box foot-contact', `<p class="k">contact</p><p class="foot-name">${SITE.owner.name.map(esc).join(' ')}</p>` +
-      contactCard() + `<div class="case-actions">${cvButton()}</div>`);
+    const contact = cell('foot-contact', `<p class="foot-name">${SITE.owner.name.map(esc).join(' ')}</p>` + contactCard(cvButton('↗ read cv')));
     return { nav, contact };
   }
 
@@ -722,7 +722,8 @@
 
   // The owner's contact card, from site.json: the mails, "phone", "based" (one line or a
   // list of lines) and the web profiles of "contact".
-  function contactCard() {
+  // "cv": a link set at the end of the last row, on its right.
+  function contactCard(cv) {
     const o = SITE.owner, rows = [];
     const mails = o.contact.flatMap(c => c.emails || []);
     if (mails.length) rows.push(['mail', mails.map(m => `<a href="mailto:${esc(m)}">${esc(m)}</a>`).join('<br>')]);
@@ -730,7 +731,8 @@
     if (o.based) rows.push(['based', [].concat(o.based).map(esc).join('<br>')]);
     const web = o.contact.filter(c => /^https?:/.test(c.href || ''));
     if (web.length) rows.push(['profiles', web.map(c => `<a href="${esc(c.href)}" target="_blank" rel="noopener">${esc(c.label)}</a>`).join(' · ')]);
-    return `<dl class="meta contact-card">${rows.map(([t, v]) => `<dt>${t}</dt><dd>${v}</dd>`).join('')}</dl>`;
+    if (cv && rows.length) rows[rows.length - 1][1] = `<span>${rows[rows.length - 1][1]}</span>${cv}`;
+    return `<dl class="meta contact-card${cv ? ' with-cv' : ''}">${rows.map(([t, v]) => `<dt>${t}</dt><dd>${v}</dd>`).join('')}</dl>`;
   }
   // The CV of site.json: opened in a new tab and downloaded.
   const cvButton = (label = '↗ Read CV') =>
@@ -1116,21 +1118,31 @@
         placeTag(b, r);
         r += n + 1;
       }
+      // The footer ends the page, its contact block down to the very bottom: on a short page
+      // the footer goes down to the bottom of the screen; on a long one the page ends with
+      // it, a whole number of rows lower than the screen's height so that, scrolled to the
+      // end, the cells still sit on the grid lines. The contact block takes the leftover
+      // fraction of a row.
       const f = state.footer;
-      if (f && f.nav) {
-        [[1, 2], [3, 8], [9, 10]].forEach(([c0, c1], i) => place(f.nav[i], c0, c1, r, 1, letterOffset, state.rowOff));
-        r += 1;
-      }
       if (f) {
-        place(f.contact, 1, 10, r, 4, letterOffset, state.rowOff);
-        const n = rowsNeeded(f.contact, 4);
-        place(f.contact, 1, 10, r, n, letterOffset, state.rowOff);
-        r += n + 1;
+        const top = state.rowOff * U, vh = window.innerHeight, nav = f.nav ? 1 : 0;
+        f.contact.style.height = '';
+        place(f.contact, 1, 10, r + nav, 1, letterOffset, state.rowOff);
+        const n = rowsNeeded(f.contact, 1);
+        const end = top + (r - 1 + nav + n) * U;
+        const page = vh + Math.max(0, Math.ceil((end - vh) / U)) * U;
+        const down = Math.floor((page - end) / U);
+        r += down;
+        if (f.nav) [[1, 2], [3, 8], [9, 10]].forEach(([c0, c1], i) => place(f.nav[i], c0, c1, r, 1, letterOffset, state.rowOff));
+        place(f.contact, 1, 10, r + nav, n, letterOffset, state.rowOff);
+        f.contact.style.height = (page - end - down * U + n * U) + 'px';
+        main.style.minHeight = main.style.height = (page - top) + 'px';
+        return;
       }
     }
     // keep the sheet at least as tall as the viewport so the grid never ends abruptly
-    main.style.gridTemplateRows = '';
-        // page height = viewport + whole rows, so the bottom of the page also lands on the grid
+    main.style.height = '';
+    // page height = viewport + whole rows, so the bottom of the page also lands on the grid
     const extra = Math.max(0, Math.ceil(((r + 1) * U - window.innerHeight) / U) * U);
     main.style.minHeight = (window.innerHeight + extra) + 'px';
   }
