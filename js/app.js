@@ -714,7 +714,7 @@
     const o = SITE.owner, rows = [];
     if (o.based) rows.push(['based', [].concat(o.based).map(esc).join('<br>')]);
     const web = o.contact.filter(c => /^https?:/.test(c.href || ''));
-    if (web.length) rows.push(['profiles', web.map(c => `<a href="${esc(c.href)}" target="_blank" rel="noopener">${esc(c.label)}</a>`).join(' · ')]);
+    if (web.length) rows.push(['profiles', web.map(c => `<a href="${esc(c.href)}" target="_blank" rel="noopener">${esc(c.label)}</a>`).join('<span class="sep"> · </span>')]);
     if (cv && rows.length) rows[rows.length - 1][1] = `<span>${rows[rows.length - 1][1]}</span>${cv}`;
     return `<dl class="meta contact-card${cv ? ' with-cv' : ''}">${rows.map(([t, v]) => `<dt class="c-${t}">${t}</dt><dd class="c-${t}">${v}</dd>`).join('')}</dl>`;
   }

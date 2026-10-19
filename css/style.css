@@ -264,6 +264,8 @@ dl.contact-card.with-cv .btn:hover { color: var(--accent); text-decoration: none
 .side-contact dl.contact-card dd { font-size: calc(var(--u) * 0.235); line-height: 1.35; }
 .side-contact > .case-actions { padding-top: calc(var(--u) * 0.08); }
 .side-contact.compact .c-based { display: none; }   /* short windows */
+.side-contact dd.c-profiles a { display: block; }   /* one profile per line */
+.side-contact dd.c-profiles .sep { display: none; }
 .side-contact .btn { font-size: calc(var(--u) * 0.19); padding: calc(var(--u) * 0.07) calc(var(--u) * 0.15); }
 
 /* a text under the lede of a role page header ("md" in header, e.g. who I am on the about page) */

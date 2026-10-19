@@ -9,8 +9,8 @@
     "based": ["Tokyo · JST, 2026–27", "Paris · CET"],
     "contact": [
       { "label": "↗ read cv", "href": "assets/placeholder.pdf", "openAndDownload": true },
-      { "label": "↗ github", "href": "https://github.com/your-handle", "group": "profiles" },
-      { "label": "↗ linkedin", "href": "https://www.linkedin.com/in/tancrede-amiel-aa5264291/", "group": "profiles" }
+      { "label": "↗ linkedin", "href": "https://www.linkedin.com/in/tancrede-amiel-aa5264291/", "group": "profiles" },
+      { "label": "↗ github", "href": "https://github.com/your-handle", "group": "profiles" }
     ]
   },
 
