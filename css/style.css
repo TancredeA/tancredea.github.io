@@ -246,7 +246,6 @@ dl.contact-card.with-cv .btn:hover { color: var(--accent); text-decoration: none
 .tree a:hover { color: var(--ink); }
 .tree a.trail { color: var(--ink); font-weight: 600; }               /* home ... up to the page shown, included */
 .tree .tag { color: var(--accent); }
-.tree a, .tree-fold { font-size: min(13px, calc(var(--u) * 0.218)); }   /* the longest names fit the 4-column menu */
 /* section with pages: "+" / "−" button (folds the list), then the name (links to the section) */
 .tree .tree-row { display: flex; }
 .tree .tree-row a { flex: 1 1 auto; min-width: 0; }

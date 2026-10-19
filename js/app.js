@@ -34,13 +34,10 @@
     const vw = document.documentElement.clientWidth;
     MODE = vw >= DESK_MIN ? 'desk' : 'mob';
     const tc = MODE === 'desk' ? 21 : 10;
-    // on desktop the module also depends on the height, so the home demos land above the fold;
-    // it is then shrunk a little so that the window holds a whole number of rows: the page can
-    // end exactly one row under its last block and still stop on the grid lines
-    if (MODE === 'desk') {
-      const u = Math.max(42, Math.min(76, Math.floor(vw / tc), Math.floor(window.innerHeight / 12.5)));
-      U = window.innerHeight / Math.ceil(window.innerHeight / u);
-    } else U = vw / tc;
+    // on desktop the module also depends on the height, so the home demos land above the fold
+    U = MODE === 'desk'
+      ? Math.max(42, Math.min(76, Math.floor(vw / tc), Math.floor(window.innerHeight / 12.5)))
+      : vw / tc;
     const ox = MODE === 'desk' ? Math.floor((vw - tc * U) / 2) : 0;
     document.documentElement.style.setProperty('--u', U + 'px');
     document.documentElement.style.setProperty('--ox', ox + 'px');
@@ -248,16 +245,15 @@
       const menu = cell('menu');
       menu.append(buildTree(rt));
       const contact = cell('contact contact-box side-contact', contactCard() + `<div class="case-actions">${cvButton()}</div>`);
-      // the window holds a whole number of rows (see measure); the sheet keeps one empty row
-      // under it, as above it
-      const R = Math.round(window.innerHeight / U) - 1;
+      const R = Math.floor(window.innerHeight / U);
       aside.append(photo, name, menu, contact);
       place(photo, 2, 3, 2, 3, 0);
       place(name, 4, 5, 2, 3, 0);
       // the menu keeps the height of its tallest state so nothing jumps between pages
       const menuRows = menuMaxRows(menu, rt);
       // contact: the contact card of the about page without its name and intro, as tall as
-      // it needs (its type follows the grid module), down to row R, never over the menu. The three blocks are glued: the menu starts under the
+      // it needs (its type follows the grid module), down to the last full row of the
+      // window, never over the menu. The three blocks are glued: the menu starts under the
       // portrait and stretches down to the contact.
       place(contact, 2, 5, 1, 1, 0);
       let contactRows = rowsNeeded(contact, 3);
@@ -1139,10 +1135,12 @@
         return;
       }
     }
-    // Desktop: the page ends one empty row under its last block, as it starts one row above
-    // its first (r is two rows past the last block); never shorter than the window. The
-    // window being a whole number of rows (see measure), the end lands on the grid lines.
-    main.style.height = main.style.minHeight = Math.max(window.innerHeight, (r - 1) * U) + 'px';
+    // Page height = viewport + whole rows, so the bottom of the page also lands on the grid;
+    // just enough rows for the last block to show whole: under it, at most the partial row
+    // the window leaves. (r is two rows past the last block, which ends at (r - 2) * U.)
+    main.style.height = '';
+    const extra = Math.max(0, Math.ceil(((r - 2) * U + 1 - window.innerHeight) / U) * U);
+    main.style.minHeight = main.style.height = (window.innerHeight + extra) + 'px';
   }
   const relayout = () => { if (state.bands.length) layout(); };
 
