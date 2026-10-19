@@ -213,30 +213,6 @@
       <path d="M14 100 Q50 52 86 100Z" fill="var(--accent)"/></svg>`;
   }
 
-  // Contact links in groups ("mail" with its addresses, the CV, the profiles...): links that
-  // share a "group" in site.json sit together, tightly; the groups are spread evenly down the
-  // block. A link with "openAndDownload" opens the file in a new tab and downloads it.
-  function contactHtml() {
-    const groups = [];
-    for (const c of SITE.owner.contact) {
-      const last = groups[groups.length - 1];
-      if (c.group && last && last.key === c.group) last.items.push(c);
-      else groups.push({ key: c.group || null, items: [c] });
-    }
-    const line = c => {
-      if (c.emails) return `<li><span class="contact-label">${esc(c.label)}</span></li>` + c.emails.map(e =>
-        `<li class="email"><a href="mailto:${esc(e)}">${esc(e).replace('@', '@</span><wbr><span>').replace(/^/, '<span>')}</span></a></li>`).join('');
-      const ext = /^https?:/.test(c.href) ? ' target="_blank" rel="noopener"' : '';
-      return '<li>' + (c.openAndDownload
-        ? `<a href="${esc(c.href)}" target="_blank" rel="noopener" data-also-download>${esc(c.label)}</a>`
-        : `<a href="${esc(c.href)}"${ext}${c.download ? ' download' : ''}>${esc(c.label)}</a>`) + '</li>';
-    };
-    return `<div class="contact-links">${groups.map(g => `<ul class="contact-group">${g.items.map(line).join('')}</ul>`).join('')}</div>`;
-  }
-
-
-
-
   function menuMaxRows(menu, rt) {
     place(menu, 2, 5, 1, 1, 0);
     const current = menu.querySelector('.tree');
@@ -265,29 +241,30 @@
       const name = cell('id', `<a href="${HOME}" style="text-decoration:none"><p class="name">${o.name.map(n => `<span>${esc(n)}</span>`).join('')}</p></a><p class="k role">${esc(o.role)}</p>`);
       const menu = cell('menu');
       menu.append(buildTree(rt));
-      const contact = cell('contact', contactHtml());
+      const contact = cell('contact contact-box side-contact', contactCard() + `<div class="case-actions">${cvButton()}</div>`);
       const R = Math.floor(window.innerHeight / U);
       aside.append(photo, name, menu, contact);
       place(photo, 2, 3, 2, 3, 0);
       place(name, 4, 5, 2, 3, 0);
       // the menu keeps the height of its tallest state so nothing jumps between pages
       const menuRows = menuMaxRows(menu, rt);
-      // contact: a fixed block of 4 rows (it does not grow when the mail addresses open),
-      // down to the last full row of the window, never over the menu. The three blocks are
-      // glued: the menu starts under the portrait and stretches down to the contact.
-      const contactRows = 4;
+      // contact: the contact card of the about page without its name and intro, as tall as
+      // it needs (its type follows the grid module), down to the last full row of the
+      // window, never over the menu. The three blocks are glued: the menu starts under the
+      // portrait and stretches down to the contact.
+      place(contact, 2, 5, 1, 1, 0);
+      let contactRows = rowsNeeded(contact, 3);
       const rMenu = 5;
+      // a window too short for both: the contact block leaves out the place (.compact)
+      if (rMenu + menuRows + contactRows - 1 > R) { contact.classList.add('compact'); contactRows = rowsNeeded(contact, 3); }
       const rContact = Math.max(rMenu + menuRows, R - contactRows + 1);
       place(menu, 2, 5, rMenu, rContact - rMenu, 0);
-      // in a short window it gives up one row and tightens its spacing (.compact)
-      const rowsC = Math.max(3, Math.min(contactRows, R - rContact + 1));
-      contact.classList.toggle('compact', rowsC < contactRows);
-      place(contact, 2, 5, rContact, rowsC, 0);
+      place(contact, 2, 5, rContact, contactRows, 0);
     } else {
       // Phones: a header of 10 x 3 cells that stays at the top of the screen (A1:J3): the
       // portrait, the name and school mail, "read cv", the menu button, and the breadcrumb
       // (the role on the home page). The menu button opens a drawer under the header, over
-      // the page: the pages, then every contact link.
+      // the page: the pages, then the contact card.
       state.rowOff = 3;
       const mail = o.barEmail ? `<a class="bar-mail" href="mailto:${esc(o.barEmail)}"><span>${esc(o.barEmail).replace('@', '@</span><wbr><span>')}</span></a>` : '';
       const name = cell('bar-name', `<a class="bar-who" href="${HOME}">${o.name.map(esc).join(' ')}</a>${mail}`);
@@ -315,7 +292,7 @@
       panel.addEventListener('click', e => { if (e.target === panel) { state.menuOpen = false; renderAside(route()); } });
       const menu = cell('menu', '<p class="k">pages</p>');
       menu.append(buildTree(rt));
-      const contact = cell('contact', '<p class="k">contact</p>' + contactHtml());
+      const contact = cell('contact contact-box', '<p class="k">contact</p>' + contactCard() + `<div class="case-actions">${cvButton()}</div>`);
       panel.append(menu, contact);
       aside.append(panel);
       place(menu, 1, 10, 1, 1, 0, 3);
@@ -725,13 +702,14 @@
   function contactCard(cv) {
     const o = SITE.owner, rows = [];
     const mails = o.contact.flatMap(c => c.emails || []);
-    if (mails.length) rows.push(['mail', mails.map(m => `<a href="mailto:${esc(m)}">${esc(m)}</a>`).join('<br>')]);
+    // an address too long for its line breaks after the @ only
+    if (mails.length) rows.push(['mail', mails.map(m => `<a class="mail" href="mailto:${esc(m)}"><span>${esc(m).replace('@', '@</span><wbr><span>')}</span></a>`).join('<br>')]);
     if (o.phone) rows.push(['phone', `<a href="tel:${esc(o.phone.replace(/[^+\d]/g, ''))}">${esc(o.phone)}</a>`]);
     if (o.based) rows.push(['based', [].concat(o.based).map(esc).join('<br>')]);
     const web = o.contact.filter(c => /^https?:/.test(c.href || ''));
     if (web.length) rows.push(['profiles', web.map(c => `<a href="${esc(c.href)}" target="_blank" rel="noopener">${esc(c.label)}</a>`).join(' · ')]);
     if (cv && rows.length) rows[rows.length - 1][1] = `<span>${rows[rows.length - 1][1]}</span>${cv}`;
-    return `<dl class="meta contact-card${cv ? ' with-cv' : ''}">${rows.map(([t, v]) => `<dt>${t}</dt><dd>${v}</dd>`).join('')}</dl>`;
+    return `<dl class="meta contact-card${cv ? ' with-cv' : ''}">${rows.map(([t, v]) => `<dt class="c-${t}">${t}</dt><dd class="c-${t}">${v}</dd>`).join('')}</dl>`;
   }
   // The CV of site.json: opened in a new tab and downloaded.
   const cvButton = (label = '↗ Read CV') =>
