@@ -392,11 +392,11 @@
 
   // Preview cards (home "try it" and section cards with demos)
   const previews = [];
-  // Cards with a cover (video, animation or photo): a fixed 6-row block on desktop; on phones
-  // the cover is a full-width square and the card grows to fit it ("media-card").
-  const coverCard = () => MODE === 'desk' ? 'fixed' : 'media-card';
+  // Preview cards of the pages (home, section pages): 6 rows on desktop; on phones a square,
+  // as many rows as the 8 columns it spans.
+  const cardRows = () => MODE === 'desk' ? 6 : 8;
   function previewCard(p, kicker, c) {
-    const e = cell(coverCard(), `<p class="k">${esc(kicker)}</p><p class="card-title">▶ ${esc(p.title)}</p>`, 'a', { href: pageHref(p) });
+    const e = cell('fixed', `<p class="k">${esc(kicker)}</p><p class="card-title">▶ ${esc(p.title)}</p>`, 'a', { href: pageHref(p) });
     if (p.video) {
       // recorded run: just plays (muted, looping) while the card is on screen
       const v = h('video', { class: 'preview', muted: '', loop: '', playsinline: '', preload: 'metadata', poster: p.poster || null, 'aria-hidden': 'true' });
@@ -410,7 +410,7 @@
       e.append(cv, h('p', { class: 'caption' }, esc(p.caption || '')));
       previews.push({ el: e, canvas: cv, demo: p.demo, step: null });
     }
-    return B(e, c, 6);
+    return B(e, c, cardRows());
   }
 
   // Home: pinned pages (home.pinned in site.json, "section/page" paths). Same block as the
@@ -450,14 +450,14 @@
       b.el.querySelector('.caption').innerHTML = desc;
       return b;
     }
-    const e = cell(p.cover ? coverCard() : 'fixed', `<p class="k">${meta}</p><p class="card-title">${title}</p>`, 'a', { href: pageHref(p) });
+    const e = cell('fixed', `<p class="k">${meta}</p><p class="card-title">${title}</p>`, 'a', { href: pageHref(p) });
     if (p.cover) {
       e.append(h('img', { class: 'preview', src: pagePath(p) + p.cover, alt: p.coverAlt || '' }), h('p', { class: 'caption' }, desc));
     } else {
       e.append(h('p', { class: 'pin-text' }, desc));
     }
     e.insertAdjacentHTML('beforeend', projectTags(p));
-    return B(e, c, 6);
+    return B(e, c, cardRows());
   }
 
   // Section pages: the card's kind ("write-up", "document"...) names the block from above;
@@ -465,8 +465,8 @@
   function staticCard(p, c) {
     const kind = p.layout === 'document' ? 'document' : p.status === 'wip' ? 'in progress' : 'write-up';
     const meta = projectMeta(p);
-    const e = cell('', (meta ? `<p class="k">${meta}</p>` : '') + `<p class="card-title">${esc(p.title)}</p><p class="card-sum">${val(p.summary || '')}</p>${projectTags(p)}`, 'a', { href: pageHref(p) });
-    const b = B(e, c, 4);
+    const e = cell(MODE === 'desk' ? '' : 'fixed', (meta ? `<p class="k">${meta}</p>` : '') + `<p class="card-title">${esc(p.title)}</p><p class="card-sum">${val(p.summary || '')}</p>${projectTags(p)}`, 'a', { href: pageHref(p) });
+    const b = B(e, c, MODE === 'desk' ? 4 : cardRows());     // phones: a square too
     b.tag = h('span', { class: 'block-tag' }, kind);
     return b;
   }

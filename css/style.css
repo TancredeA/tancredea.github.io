@@ -602,8 +602,9 @@ code.tex { font: 12px/1.5 var(--mono); white-space: pre-wrap; }
   .contact-box.fixed > .case-actions { padding-top: calc(var(--u) * 0.2); }
   .contact-box.fixed .btn { font-size: calc(var(--u) * 0.31); padding: calc(var(--u) * 0.13) calc(var(--u) * 0.26); }
   .dd { grid-template-columns: 1fr; }
-  /* cards with a cover: a full-width square, so photos, videos and animations show */
-  .media-card .preview { flex: none; aspect-ratio: 1; height: auto; object-fit: cover; }
+  /* square preview cards: the summary keeps at most 4 lines so the cover keeps some room */
+  a.cell.fixed > .caption, a.cell.fixed > .pin-text { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden; }
+  a.cell.fixed > .preview { min-height: calc(var(--u) * 1.5); }
   .lede { font-size: 17px; }
 }
 
