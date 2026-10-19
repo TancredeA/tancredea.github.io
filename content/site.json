@@ -22,7 +22,7 @@
     "lede": "CentraleSupélec engineering student in data science and AI. I like problems where a clean formulation decides whether the code works at all.",
     "now": "AI/ML engineering intern at Dassault Systèmes K.K., Tokyo, until February 2027. Applying for master's programmes starting in 2027.",
     "latest": null,
-    "pinned": ["projects/blast-routing", "projects/digits", "projects/media-tool"],
+    "pinned": ["research/vtnn-notes", "projects/autogear", "projects/blast-routing"],
     "benchFallback": "Nothing marked as in progress. Set \"status\": \"wip\" on a page to show it here."
   },
 
@@ -42,6 +42,7 @@
       "children": [
         {
           "id": "blast-routing",
+          "start": "2026-02",
           "aliases": ["pipeline-3d"],
           "title": "Blast-aware routing",
           "subtitle": "Routing an unexploded device at minimum expected damage, with the CEA-DAM",
@@ -71,6 +72,7 @@
         },
         {
           "id": "digits",
+          "start": "2026",
           "kind": "TODO",
           "title": "digits",
           "subtitle": "Handwritten digit recognition with a tensor-network classifier",
@@ -106,11 +108,14 @@
         },
         {
           "id": "autogear",
+          "start": "2025-01",
           "title": "Autogear",
           "subtitle": "An automatic derailleur that learns when to shift",
           "summary": "A startup idea turned R&D: a plug-and-play box that shifts a regular bike's gears by itself, without a torque sensor, using a model that imitates an experienced cyclist on an Arduino.",
           "tags": ["Embedded ML", "Learning from demonstration", "Arduino", "Product R&D"],
           "layout": "case",
+          "cover": "bench.jpg",
+          "coverAlt": "A student pedals the Autogear prototype on a home trainer while a teammate watches the data",
           "page": "page.json",
           "kind": "entrepreneurship",
           "period": "Jan 2025 – present",
@@ -123,6 +128,7 @@
         },
         {
           "id": "absorber-placement",
+          "start": "2025-11",
           "aliases": ["acoustics"],
           "title": "Concert hall absorbers",
           "subtitle": "Optimal placement of absorbing material in a concert hall",
@@ -152,12 +158,17 @@
       "children": [
         {
           "id": "vtnn-notes",
+          "start": "2026-06",
           "title": "Variational Tensor Neural Networks: A Critical Analysis",
           "menuTitle": "VTNN analysis",
           "subtitle": "A close reading of Jahromi & Orús, Scientific Reports (2024)",
-          "summary": "A critical analysis of a paper that trains tensor-network layers with DMRG inside ordinary deep networks: no breakthrough in compression or scalability, but a new way to read a network while it trains.",
+          "cardTitle": "Variational Tensor Neural Networks",
+          "summary": "A critical analysis: tensor layers trained like DMRG inside deep networks, a new way to read a network while it trains.",
           "tags": ["Tensor networks", "Quantum information", "Interpretability", "Critical reading"],
           "layout": "case",
+          "kind": "academic",
+          "cover": "fig-spiral.png",
+          "coverAlt": "Three intertwined spirals classified by a tensor neural network (figure from Jahromi and Orús, 2024)",
           "page": "page.json",
           "period": "June 2026",
           "date": "2026",
@@ -167,6 +178,7 @@
         },
         {
           "id": "tfjm-2022",
+          "start": "2022-01",
           "title": "TFJM² 2022: The Confined Professor",
           "menuTitle": "TFJM² 2022",
           "subtitle": "Problem 3: The Confined Professor",
@@ -197,6 +209,7 @@
       "children": [
         {
           "id": "dassault",
+          "start": "2026-09",
           "title": "Dassault Systèmes K.K.",
           "subtitle": "AI/ML engineer, AI solution design and deployment · Tokyo",
           "summary": "Forward-deployed AI engineering inside the company: RAG, knowledge graphs and MCP servers to streamline internal processes.",
@@ -210,6 +223,7 @@
         },
         {
           "id": "iagrim",
+          "start": "2024-07",
           "title": "IAgriM",
           "subtitle": "Deputy project manager and solution architect · Danew Talla Electronics · Paris – Bamako",
           "summary": "An offline, voice-based AI assistant for Malian farmers: designed, defended before ministers, now on hold.",
@@ -223,6 +237,7 @@
         },
         {
           "id": "teaching",
+          "start": "2024-09",
           "title": "Teaching",
           "subtitle": "Oral examiner in mathematics and private tutor · Paris",
           "summary": "Oral exams in PC* and PCSI, and private tutoring from middle school to the end of prépa.",
@@ -236,6 +251,7 @@
         },
         {
           "id": "cheerup",
+          "start": "2024-10",
           "title": "Volunteer work",
           "subtitle": "Student associations I have volunteered with",
           "summary": "Volunteering with young cancer patients, and communication, art direction and partnerships for fundraising events.",
