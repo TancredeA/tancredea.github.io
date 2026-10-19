@@ -38,6 +38,8 @@ Sous 960 px de large, la grille passe à 10 colonnes et la page tient en une col
 
 - la bande de gauche devient un en-tête de 10 × 3 cellules qui reste en haut de l'écran (A1:J3) : le portrait, le nom (lien vers l'accueil) et le mail de `owner.barEmail` dans `site.json`, « read cv », le bouton « menu + » et le fil d'Ariane sans « home » (sur l'accueil, le rôle à la place) ; un fil trop long pour sa rangée perd ses premiers noms, puis le dernier est coupé par « … » ;
 - le bouton « menu + » ouvre, sous l'en-tête et par-dessus la page voilée, un tiroir en deux blocs : « pages » (le menu) puis « contact » (toutes les adresses et tous les liens de `owner.contact`) ; un toucher sur le voile, la touche Échap ou le passage à une autre page le referme ;
+- toute page se termine par un pied de page sur toute la largeur (A à J), ses cellules collées : sur une page d'une section, une rangée « ← | section · 3 / 5 | → » (page précédente, la section et la place de la page, page suivante ; elle remplace les blocs previous / parent / next), puis le bloc contact (mails, téléphone, lieu, profils et « Read CV » en bas à droite, tirés de `owner` dans `site.json`) ;
+- sur une page dont l'en-tête est la fiche de contact (`header.contact`, la page about), cette fiche garde 9 rangées (B5:I13), son texte suivant la taille de la grille ;
 - les blocs de la partie de droite s'empilent dans l'ordre de lecture de la version ordinateur : bande après bande, et dans une bande de haut en bas puis de gauche à droite (un bloc posé sous un autre vient après les blocs placés à côté de celui-ci). Pour changer leur ordre sur téléphone, changer leur place sur ordinateur (`arrangement`, `bands`).
 
 ## Adresses

@@ -379,7 +379,9 @@
     return B(cell('', `<p class="k">${esc(kicker)}</p><h1>${esc(title)}</h1>${lede ? `<p class="lede">${esc(lede)}</p>` : ''}`), L, 2);
   }
 
+  // Phones: none here, the footer bar takes their place (see footer).
   function siblings(rt) {
+    if (MODE !== 'desk') return [];
     const ks = rt.section.children, i = ks.indexOf(rt.page);
     const prev = ks[(i - 1 + ks.length) % ks.length], next = ks[(i + 1) % ks.length];
     const link = (p, k, txt, cls) => cell('sib ' + (cls || ''), `<p class="k">${k}</p><p class="mono" style="margin:0">${txt}</p>`, 'a', { href: p });
@@ -388,6 +390,26 @@
       B(link(sectionHref(rt.section), 'parent', '↑ ' + esc(rt.section.title)), T2, 1),
       B(link(pageHref(next), 'next', esc(next.title) + ' →', 'right'), T3, 1)
     ];
+  }
+
+  // Phones: every page ends with a footer across the whole width (A to J), its cells glued
+  // together: on a page of a section, one row with the previous page, the section and the
+  // page's place in it, and the next page; then the contact block.
+  function footer(rt) {
+    let nav = null;
+    if (rt.type === 'child') {
+      const ks = rt.section.children, i = ks.indexOf(rt.page);
+      const prev = ks[(i - 1 + ks.length) % ks.length], next = ks[(i + 1) % ks.length];
+      nav = [
+        cell('foot-nav', '←', 'a', { href: pageHref(prev), title: prev.title, 'aria-label': 'Previous page: ' + prev.title }),
+        cell('foot-nav foot-mid', `${esc(rt.section.title)} · ${i + 1} / ${ks.length}`, 'a',
+          { href: sectionHref(rt.section), 'aria-label': `All ${rt.section.title} (page ${i + 1} of ${ks.length})` }),
+        cell('foot-nav', '→', 'a', { href: pageHref(next), title: next.title, 'aria-label': 'Next page: ' + next.title })
+      ];
+    }
+    const contact = cell('contact-box foot-contact', `<p class="k">contact</p><p class="foot-name">${SITE.owner.name.map(esc).join(' ')}</p>` +
+      contactCard() + `<div class="case-actions">${cvButton()}</div>`);
+    return { nav, contact };
   }
 
   // Preview cards (home "try it" and section cards with demos)
@@ -634,7 +656,7 @@
 
     const hd = d.header || {};
     // "contact": true makes the header the owner's contact card (see contactCard)
-    const head = cell('case-head role-head', k(hd.label || rt.section.title) +
+    const head = cell('case-head role-head' + (hd.contact ? ' contact-box' : ''), k(hd.label || rt.section.title) +
       `<h1>${esc(hd.title || (hd.contact ? SITE.owner.name.join(' ') : p.title))}</h1>` +
       (hd.subtitle ? `<p class="lede">${esc(hd.subtitle)}</p>` : '') +
       (hd.tags && hd.tags.length ? `<p class="case-tags">${hd.tags.map(esc).join(' · ')}</p>` : '') +
@@ -667,7 +689,10 @@
     let lastL = null, lastR = null;
     const addL = b => { if (lastL) b.after = lastL; lastL = b; placed.push(b); return b; };
     const addR = b => { if (lastR) b.after = lastR; lastR = b; placed.push(b); return b; };
-    addL(B(head, LM, 2));
+    // phones: the contact card keeps 9 rows (B5:I13)
+    const fixedCard = hd.contact && MODE !== 'desk';
+    if (fixedCard) head.classList.add('fixed');
+    addL(B(head, LM, fixedCard ? 9 : 2));
     if (factsB) addR(factsB);
     bandsIn.forEach((b, i) => {
       const mainEl = b.main ? cell('role-main', k(b.main.label || '') + (b.main.md ? `<div class="prose case-list">${mains[i]}</div>` : '') +
@@ -707,6 +732,9 @@
     if (web.length) rows.push(['profiles', web.map(c => `<a href="${esc(c.href)}" target="_blank" rel="noopener">${esc(c.label)}</a>`).join(' · ')]);
     return `<dl class="meta contact-card">${rows.map(([t, v]) => `<dt>${t}</dt><dd>${v}</dd>`).join('')}</dl>`;
   }
+  // The CV of site.json: opened in a new tab and downloaded.
+  const cvButton = (label = '↗ Read CV') =>
+    `<a class="btn" href="${esc(SITE.owner.cv)}" target="_blank" rel="noopener" data-also-download>${esc(label)}</a>`;
 
   // A "role" page that gathers several engagements of the same kind (e.g. volunteer work):
   // the page header, then one big block per entry, in which the entry's own header, its
@@ -1088,6 +1116,17 @@
         placeTag(b, r);
         r += n + 1;
       }
+      const f = state.footer;
+      if (f && f.nav) {
+        [[1, 2], [3, 8], [9, 10]].forEach(([c0, c1], i) => place(f.nav[i], c0, c1, r, 1, letterOffset, state.rowOff));
+        r += 1;
+      }
+      if (f) {
+        place(f.contact, 1, 10, r, 4, letterOffset, state.rowOff);
+        const n = rowsNeeded(f.contact, 4);
+        place(f.contact, 1, 10, r, n, letterOffset, state.rowOff);
+        r += n + 1;
+      }
     }
     // keep the sheet at least as tall as the viewport so the grid never ends abruptly
     main.style.gridTemplateRows = '';
@@ -1192,6 +1231,8 @@
       first.remove();
     }));
     bands.forEach(b => b.forEach(x => { main.append(x.el); if (x.tag) main.append(x.tag); }));
+    state.footer = MODE === 'desk' ? null : footer(rt);
+    if (state.footer) main.append(...(state.footer.nav || []), state.footer.contact);
     state.bands = bands;
     layout();
     fitFormulas();

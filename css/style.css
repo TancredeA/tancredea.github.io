@@ -194,7 +194,9 @@ dl.meta.stacked dt:first-child { margin-top: 0; }
 dl.contact-card { margin-top: 1em; }
 dl.contact-card a { color: var(--accent); text-decoration: none; }
 dl.contact-card a:hover { text-decoration: underline; text-underline-offset: 3px; }
-dl.contact-card + .case-actions { margin-top: 16px; }
+/* contact blocks: the CV button in the bottom right corner */
+.contact-box { display: flex; flex-direction: column; }
+.contact-box > .case-actions { margin-top: auto; padding-top: 14px; align-self: flex-end; }
 /* compact facts ("compact": true in a case page.json): each term runs into its value, full width */
 .facts-compact p { margin: 0 0 4px; font-size: 13.5px; line-height: 1.35; }
 .fact-term { font: 12px/1.35 var(--mono); color: var(--muted); margin-right: 0.4ch; }
@@ -571,6 +573,21 @@ code.tex { font: 12px/1.5 var(--mono); white-space: pre-wrap; }
   .panel .contact-group > li, .panel .contact-links a { font-size: 14px; line-height: 1.7; }
   .panel .contact-links .email, .panel .contact-links .email a { font-size: 13px; line-height: 1.7; }
   main { grid-template-columns: repeat(10, var(--u)); min-height: 0; }
+  /* footer: the bar previous / section and place / next, glued to the contact block */
+  a.foot-nav { display: flex; align-items: flex-end; justify-content: center; padding: 0 0 calc(var(--u) * 0.16); color: var(--ink); text-decoration: none; font: 500 17px/1 var(--sans); }
+  a.foot-mid { font: 12.5px/1 var(--mono); }
+  a.foot-nav:hover, a.foot-nav:focus-visible { color: var(--accent); }
+  .foot-name { margin: 0 0 0.7em; font: 500 22px/1.1 var(--sans); letter-spacing: -0.015em; }
+  .contact-card dd { overflow-wrap: anywhere; }
+  /* the contact card of a role page keeps 9 rows (B5:I13): its type follows the grid module,
+     so it lays out the same at every phone width */
+  .contact-box.fixed h1 { font-size: calc(var(--u) * 0.62); padding-right: 0; }
+  .contact-box.fixed .lede { font-size: calc(var(--u) * 0.36); line-height: 1.38; margin-top: 0.45em; }
+  .contact-box.fixed dl.contact-card { gap: calc(var(--u) * 0.08) calc(var(--u) * 0.3); margin-top: 0.85em; }
+  .contact-box.fixed dl.contact-card dt { font-size: calc(var(--u) * 0.28); line-height: 1.55; }
+  .contact-box.fixed dl.contact-card dd { font-size: calc(var(--u) * 0.35); line-height: 1.38; }
+  .contact-box.fixed > .case-actions { padding-top: calc(var(--u) * 0.2); }
+  .contact-box.fixed .btn { font-size: calc(var(--u) * 0.31); padding: calc(var(--u) * 0.13) calc(var(--u) * 0.26); }
   .dd { grid-template-columns: 1fr; }
   .lede { font-size: 17px; }
 }
