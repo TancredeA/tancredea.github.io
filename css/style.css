@@ -195,6 +195,19 @@ dl.contact-card { margin-top: 1em; }
 dl.contact-card a { color: var(--accent); text-decoration: none; }
 dl.contact-card a:hover { text-decoration: underline; text-underline-offset: 3px; }
 dl.contact-card .mail span { white-space: nowrap; }
+/* between two addresses: a line break, or " · " where they share a line (desktop contact card) */
+dl.contact-card .mail-sep { display: block; height: 0; overflow: hidden; }
+@media (min-width: 960px) {
+  /* the contact card of a role page keeps 4 rows (G4:O7): its type follows the grid module */
+  .contact-box.fixed { padding-top: calc(var(--u) * 0.2); padding-bottom: calc(var(--u) * 0.2); }
+  .contact-box.fixed h1 { font-size: calc(var(--u) * 0.5); padding-right: 0; }
+  .contact-box.fixed .lede { font-size: calc(var(--u) * 0.25); line-height: 1.35; margin-top: 0.3em; max-width: none; }
+  .contact-box.fixed dl.contact-card { margin-top: calc(var(--u) * 0.16); gap: calc(var(--u) * 0.04) calc(var(--u) * 0.24); }
+  .contact-box.fixed dl.contact-card dt { font-size: calc(var(--u) * 0.19); line-height: 1.65; }
+  .contact-box.fixed dl.contact-card dd { font-size: calc(var(--u) * 0.235); line-height: 1.32; }
+  .contact-box.fixed dl.contact-card .mail-sep { display: inline; height: auto; }
+  .contact-box.fixed dl.contact-card.with-cv .btn { font-size: calc(var(--u) * 0.2); padding: calc(var(--u) * 0.07) calc(var(--u) * 0.15); }
+}
 /* the CV link at the end of the last row, on its right */
 dl.contact-card.with-cv dd:last-of-type { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 8px; }
 dl.contact-card.with-cv .btn { color: var(--ink); text-decoration: none; font: 12px/1 var(--mono); padding: 5px 8px; }

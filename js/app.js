@@ -631,17 +631,20 @@
     if (d.entries) return roleEntries(rt, d, { k, dl, md });
 
     const hd = d.header || {};
+    const cvBtn = hd.contact && (hd.buttons || []).find(x => x.cv);
     // "contact": true makes the header the owner's contact card (see contactCard)
     const head = cell('case-head role-head' + (hd.contact ? ' contact-box' : ''), k(hd.label || rt.section.title) +
       `<h1>${esc(hd.title || (hd.contact ? SITE.owner.name.join(' ') : p.title))}</h1>` +
       (hd.subtitle ? `<p class="lede">${esc(hd.subtitle)}</p>` : '') +
       (hd.tags && hd.tags.length ? `<p class="case-tags">${hd.tags.map(esc).join(' · ')}</p>` : '') +
-      (hd.contact ? contactCard() : ''));
+      (hd.contact ? contactCard(MODE === 'desk' && cvBtn ? cvButton(cvBtn.label) : '') : ''));
     // buttons ({label, href, download, ifExists}): with "ifExists", only once the file is found;
-    // with "cv": true, the CV of site.json, opened in a new tab and downloaded
-    if (hd.buttons && hd.buttons.length) {
+    // with "cv": true, the CV of site.json, opened in a new tab and downloaded (on desktop, the
+    // contact card carries it at the end of its last row instead)
+    const buttons = (hd.buttons || []).filter(x => !(x === cvBtn && MODE === 'desk'));
+    if (buttons.length) {
       const row = h('div', { class: 'case-actions' });
-      for (const x of hd.buttons) {
+      for (const x of buttons) {
         const a = h('a', { class: 'btn', href: x.cv ? SITE.owner.cv : x.href, download: x.download ? '' : null,
           target: x.download ? null : '_blank', rel: x.download ? null : 'noopener', 'data-also-download': x.cv ? '' : null }, esc(x.label));
         if (x.ifExists) {
@@ -665,10 +668,10 @@
     let lastL = null, lastR = null;
     const addL = b => { if (lastL) b.after = lastL; lastL = b; placed.push(b); return b; };
     const addR = b => { if (lastR) b.after = lastR; lastR = b; placed.push(b); return b; };
-    // phones: the contact card keeps 9 rows (B5:I13)
-    const fixedCard = hd.contact && MODE !== 'desk';
-    if (fixedCard) head.classList.add('fixed');
-    addL(B(head, LM, fixedCard ? 9 : 2));
+    // the contact card keeps a fixed size, its type following the grid module: 4 rows on
+    // desktop (G4:O7), 9 on phones (B5:I13)
+    if (hd.contact) head.classList.add('fixed');
+    addL(B(head, LM, hd.contact ? (MODE === 'desk' ? 4 : 9) : 2));
     if (factsB) addR(factsB);
     bandsIn.forEach((b, i) => {
       const mainEl = b.main ? cell('role-main', k(b.main.label || '') + (b.main.md ? `<div class="prose case-list">${mains[i]}</div>` : '') +
@@ -703,7 +706,7 @@
     const o = SITE.owner, rows = [];
     const mails = o.contact.flatMap(c => c.emails || []);
     // an address too long for its line breaks after the @ only
-    if (mails.length) rows.push(['mail', mails.map(m => `<a class="mail" href="mailto:${esc(m)}"><span>${esc(m).replace('@', '@</span><wbr><span>')}</span></a>`).join('<br>')]);
+    if (mails.length) rows.push(['mail', mails.map(m => `<a class="mail" href="mailto:${esc(m)}"><span>${esc(m).replace('@', '@</span><wbr><span>')}</span></a>`).join('<span class="mail-sep"> · </span>')]);
     if (o.phone) rows.push(['phone', `<a href="tel:${esc(o.phone.replace(/[^+\d]/g, ''))}">${esc(o.phone)}</a>`]);
     if (o.based) rows.push(['based', [].concat(o.based).map(esc).join('<br>')]);
     const web = o.contact.filter(c => /^https?:/.test(c.href || ''));
