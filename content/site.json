@@ -6,6 +6,9 @@
     "role": "applied maths / machine learning",
     "photo": null,
     "cv": "assets/placeholder.pdf",
+    "barEmail": "tancrede.amiel@student-cs.fr",
+    "phone": "+33 6 69 99 28 64",
+    "based": ["Tokyo, Japan (2026–27) · JST, UTC+9", "Paris, France · CET, UTC+1"],
     "contact": [
       { "label": "mail", "emails": ["amieltancrede@gmail.com", "tancrede.amiel@student-cs.fr"] },
       { "label": "↗ read cv", "href": "assets/placeholder.pdf", "openAndDownload": true },

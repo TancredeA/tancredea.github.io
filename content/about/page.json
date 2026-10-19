@@ -1,15 +1,13 @@
 {
-  "about": "About page (layout \"role\" in site.json, a single page without children). Texts live here and in the .md files next to this one. Links written \"#/section/page\" in a .md file point to pages of the site, and stay plain text while the page does not exist. The CV button only shows once assets/cv.pdf exists.",
+  "about": "About page (layout \"role\" in site.json, a single page without children). Texts live here and in the .md files next to this one. Links written \"#/section/page\" in a .md file point to pages of the site, and stay plain text while the page does not exist. The header is the contact card: name, mails, phone, place and profiles come from \"owner\" in content/site.json, the CV button opens owner.cv.",
   "header": {
-    "label": "about",
-    "title": "About",
-    "subtitle": "Engineering student at CentraleSupélec, working where mathematics meets deployed machine learning.",
+    "label": "contact",
+    "contact": true,
+    "subtitle": "Engineering student at CentraleSupélec, AI engineer intern at Dassault Systèmes K.K.",
     "buttons": [
       {
-        "label": "↓ Download CV",
-        "href": "assets/cv.pdf",
-        "download": true,
-        "ifExists": true
+        "label": "↗ Read CV",
+        "cv": true
       }
     ]
   },

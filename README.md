@@ -36,7 +36,8 @@ projects/, research/, experience/, about/   GÉNÉRÉS par tools/build_pages.py
 
 Sous 960 px de large, la grille passe à 10 colonnes et la page tient en une colonne :
 
-- la bande de gauche devient une rangée qui reste en haut de l'écran : le nom (lien vers l'accueil) et un bouton « menu + » ; ce bouton ouvre, juste en dessous et par-dessus la page, le menu puis les liens de contact ; un toucher en dehors, la touche Échap ou le passage à une autre page le referme ;
+- la bande de gauche devient un en-tête de 10 × 3 cellules qui reste en haut de l'écran (A1:J3) : le portrait, le nom (lien vers l'accueil) et le mail de `owner.barEmail` dans `site.json`, « read cv », le bouton « menu + » et le fil d'Ariane sans « home » (sur l'accueil, le rôle à la place) ; un fil trop long pour sa rangée perd ses premiers noms, puis le dernier est coupé par « … » ;
+- le bouton « menu + » ouvre, sous l'en-tête et par-dessus la page voilée, un tiroir en deux blocs : « pages » (le menu) puis « contact » (toutes les adresses et tous les liens de `owner.contact`) ; un toucher sur le voile, la touche Échap ou le passage à une autre page le referme ;
 - les blocs de la partie de droite s'empilent dans l'ordre de lecture de la version ordinateur : bande après bande, et dans une bande de haut en bas puis de gauche à droite (un bloc posé sous un autre vient après les blocs placés à côté de celui-ci). Pour changer leur ordre sur téléphone, changer leur place sur ordinateur (`arrangement`, `bands`).
 
 ## Adresses
@@ -155,7 +156,8 @@ Un bloc absent ne s'affiche pas et ne laisse pas de cellule vide. Sur téléphon
 
 Le gabarit sert aussi à une page sans pages filles (exemple : `about`, avec `"layout": "role"` sur la section elle-même ; pas de liens précédent / suivant). Options en plus :
 
-- `header.buttons` : des boutons sous l'accroche (`{ "label", "href", "download": true }`) ; avec `"ifExists": true`, le bouton n'apparaît que si le fichier existe (exemple : « ↓ Download CV » vers `assets/cv.pdf`) ;
+- `header.buttons` : des boutons sous l'accroche (`{ "label", "href", "download": true }`) ; avec `"ifExists": true`, le bouton n'apparaît que si le fichier existe ; avec `"cv": true`, le bouton ouvre le CV de `owner.cv` et le télécharge ;
+- `header.contact: true` : l'en-tête devient la fiche de contact (exemple : `about`) : le nom pour titre, puis les mails et les profils de `owner.contact`, `owner.phone` et `owner.based` (une ligne ou une liste de lignes) pris dans `site.json` ;
 - `"stacked": true` sur un `aside` à `rows` : chaque terme au-dessus de sa valeur, pour les termes longs ;
 - un `main` peut aussi porter `rows` (une liste de définitions) au lieu d'un `md`, par exemple sur toute la largeur avec `"full": true` (« languages & tools » de `about`) ;
 - dans un `.md`, un lien écrit `#/section/page` pointe vers une page du site ; si la page n'existe pas, le texte reste sans lien.

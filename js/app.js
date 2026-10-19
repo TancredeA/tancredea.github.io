@@ -255,16 +255,17 @@
     const aside = $('#aside');
     aside.innerHTML = '';
     const o = SITE.owner;
-    const menu = cell('menu');
-    menu.append(buildTree(rt));
-    const contact = cell('contact', contactHtml());
+    const photo = cell('photo fixed', photoHtml());
+    document.documentElement.classList.toggle('menu-open', MODE !== 'desk' && state.menuOpen);
 
     if (MODE === 'desk') {
       // Title block, like the cartouche of a technical drawing:
       // portrait (2 x 3) and name (2 x 3) side by side, then the menu, contact at the bottom.
       state.rowOff = 0;
       const name = cell('id', `<a href="${HOME}" style="text-decoration:none"><p class="name">${o.name.map(n => `<span>${esc(n)}</span>`).join('')}</p></a><p class="k role">${esc(o.role)}</p>`);
-      const photo = cell('photo fixed', photoHtml());
+      const menu = cell('menu');
+      menu.append(buildTree(rt));
+      const contact = cell('contact', contactHtml());
       const R = Math.floor(window.innerHeight / U);
       aside.append(photo, name, menu, contact);
       place(photo, 2, 3, 2, 3, 0);
@@ -283,26 +284,45 @@
       contact.classList.toggle('compact', rowsC < contactRows);
       place(contact, 2, 5, rContact, rowsC, 0);
     } else {
-      // Phones: one row that stays at the top of the screen, the name and a "menu" button;
-      // the button opens a panel just under it, over the page: the menu, then the contact.
-      state.rowOff = 1;
-      const name = cell('bar-name', `<a href="${HOME}">${o.name.map(esc).join(' ')}</a>`);
-      const toggle = cell('bar-toggle', `<span>menu ${state.menuOpen ? '−' : '+'}</span>`, 'button',
+      // Phones: a header of 10 x 3 cells that stays at the top of the screen (A1:J3): the
+      // portrait, the name and school mail, "read cv", the menu button, and the breadcrumb
+      // (the role on the home page). The menu button opens a drawer under the header, over
+      // the page: the pages, then every contact link.
+      state.rowOff = 3;
+      const mail = o.barEmail ? `<a class="bar-mail" href="mailto:${esc(o.barEmail)}"><span>${esc(o.barEmail).replace('@', '@</span><wbr><span>')}</span></a>` : '';
+      const name = cell('bar-name', `<a class="bar-who" href="${HOME}">${o.name.map(esc).join(' ')}</a>${mail}`);
+      const cv = cell('bar-btn', '↗ read cv', 'a', { href: o.cv, target: '_blank', rel: 'noopener', 'data-also-download': '' });
+      const toggle = cell('bar-btn bar-toggle', `menu ${state.menuOpen ? '−' : '+'}`, 'button',
         { type: 'button', 'aria-expanded': String(state.menuOpen), 'aria-controls': 'panel' });
       toggle.onclick = () => { state.menuOpen = !state.menuOpen; renderAside(route()); };
-      aside.append(name, toggle);
-      place(name, 2, 6, 1, 1, 0);
-      place(toggle, 7, 9, 1, 1, 0);
+      const bits = crumbBits(rt, true);
+      const trail = cell('bar-crumb', bits.length ? bits.join('<span>/</span>') : `<span class="muted">${esc(o.role)}</span>`,
+        'nav', { 'aria-label': 'Breadcrumb' });
+      aside.append(photo, name, cv, toggle, trail);
+      place(photo, 1, 2, 1, 3, 0);
+      place(name, 3, 7, 1, 2, 0);
+      place(cv, 8, 10, 1, 1, 0);
+      place(toggle, 8, 10, 2, 1, 0);
+      place(trail, 3, 10, 3, 1, 0);
+      // a breadcrumb too long for its row loses its first names, then the last one is cut
+      const items = () => [...trail.children].filter(e => !e.classList.contains('coord'));
+      const cut = () => { const l = items().pop(); return l.scrollWidth > l.clientWidth; };
+      while (items().length > 1 && cut()) { items()[0].remove(); items()[0].remove(); }
       if (!state.menuOpen) return;
+      // the drawer is its own grid, from row 4 of the page (rowOffset 3 for the coordinates);
+      // a tap on the veiled page around it closes it
       const panel = h('div', { class: 'panel', id: 'panel' });
+      panel.addEventListener('click', e => { if (e.target === panel) { state.menuOpen = false; renderAside(route()); } });
+      const menu = cell('menu', '<p class="k">pages</p>');
+      menu.append(buildTree(rt));
+      const contact = cell('contact', '<p class="k">contact</p>' + contactHtml());
       panel.append(menu, contact);
       aside.append(panel);
-      // the panel is its own grid, from row 2 of the page: rowOffset 1 for the coordinates
-      place(menu, 2, 9, 1, 1, 0, 1);
+      place(menu, 1, 10, 1, 1, 0, 3);
       const mr = rowsNeeded(menu, 1);
-      place(menu, 2, 9, 1, mr, 0, 1);
-      place(contact, 2, 9, mr + 1, 1, 0, 1);
-      place(contact, 2, 9, mr + 1, rowsNeeded(contact, 2), 0, 1);
+      place(menu, 1, 10, 1, mr, 0, 3);
+      place(contact, 1, 10, mr + 1, 1, 0, 3);
+      place(contact, 1, 10, mr + 1, rowsNeeded(contact, 2), 0, 3);
     }
   }
 
@@ -320,12 +340,18 @@
   }
   const L = [0, 8], R = [10, 13], FULL = [0, 13], T1 = [0, 3], T2 = [5, 8], T3 = [10, 13];
 
-  function crumb(rt) {
-    const bits = [`<a href="${HOME}" class="crumb-home">home</a>`];
+  // The path to the page shown, home left out; "short": the menu titles of the pages.
+  function crumbBits(rt, short) {
+    const bits = [];
     const deep = rt.type === 'child' || rt.type === 'sim';
+    const title = p => esc(short && p.menuTitle || p.title);
     if (rt.section) bits.push(deep ? `<a href="${sectionHref(rt.section)}">${esc(rt.section.title)}</a>` : `<span class="here">${esc(rt.section.title)}</span>`);
-    if (rt.type === 'child') bits.push(`<span class="here">${esc(rt.page.title)}</span>`);
-    if (rt.type === 'sim') bits.push(`<a href="${pageHref(rt.page)}">${esc(rt.page.title)}</a>`, '<span class="here">simulation</span>');
+    if (rt.type === 'child') bits.push(`<span class="here">${title(rt.page)}</span>`);
+    if (rt.type === 'sim') bits.push(`<a href="${pageHref(rt.page)}">${title(rt.page)}</a>`, '<span class="here">simulation</span>');
+    return bits;
+  }
+  function crumb(rt) {
+    const bits = [`<a href="${HOME}" class="crumb-home">home</a>`].concat(crumbBits(rt));
     return B(cell('crumb', bits.join('<span>/</span>'), 'nav', { 'aria-label': 'Breadcrumb' }), FULL, 1);
   }
 
@@ -510,7 +536,7 @@
       return bands;
     }
 
-    const bands = [[crumb(rt)]];
+    const bands = MODE === 'desk' ? [[crumb(rt)]] : [];   // phones: the breadcrumb is in the header
 
     if (rt.type === 'section') {
       const s = rt.section;
@@ -607,15 +633,19 @@
     if (d.entries) return roleEntries(rt, d, { k, dl, md });
 
     const hd = d.header || {};
-    const head = cell('case-head role-head', k(hd.label || rt.section.title) + `<h1>${esc(hd.title || p.title)}</h1>` +
+    // "contact": true makes the header the owner's contact card (see contactCard)
+    const head = cell('case-head role-head', k(hd.label || rt.section.title) +
+      `<h1>${esc(hd.title || (hd.contact ? SITE.owner.name.join(' ') : p.title))}</h1>` +
       (hd.subtitle ? `<p class="lede">${esc(hd.subtitle)}</p>` : '') +
-      (hd.tags && hd.tags.length ? `<p class="case-tags">${hd.tags.map(esc).join(' · ')}</p>` : ''));
-    // buttons ({label, href, download, ifExists}): with "ifExists", only once the file is found
+      (hd.tags && hd.tags.length ? `<p class="case-tags">${hd.tags.map(esc).join(' · ')}</p>` : '') +
+      (hd.contact ? contactCard() : ''));
+    // buttons ({label, href, download, ifExists}): with "ifExists", only once the file is found;
+    // with "cv": true, the CV of site.json, opened in a new tab and downloaded
     if (hd.buttons && hd.buttons.length) {
       const row = h('div', { class: 'case-actions' });
       for (const x of hd.buttons) {
-        const a = h('a', { class: 'btn', href: x.href, download: x.download ? '' : null,
-          target: x.download ? null : '_blank', rel: x.download ? null : 'noopener' }, esc(x.label));
+        const a = h('a', { class: 'btn', href: x.cv ? SITE.owner.cv : x.href, download: x.download ? '' : null,
+          target: x.download ? null : '_blank', rel: x.download ? null : 'noopener', 'data-also-download': x.cv ? '' : null }, esc(x.label));
         if (x.ifExists) {
           a.style.display = 'none';
           fetch(x.href, { method: 'HEAD', cache: 'no-cache' }).then(r => { if (r.ok) { a.style.display = ''; relayout(); } }).catch(() => {});
@@ -663,6 +693,19 @@
     if (noteEl && d.note.column !== 'main') bands.push([B(noteEl, FULL, 1)]);
     if (rt.type === 'child') bands.push(siblings(rt));
     return bands;
+  }
+
+  // The owner's contact card, from site.json: the mails, "phone", "based" (one line or a
+  // list of lines) and the web profiles of "contact".
+  function contactCard() {
+    const o = SITE.owner, rows = [];
+    const mails = o.contact.flatMap(c => c.emails || []);
+    if (mails.length) rows.push(['mail', mails.map(m => `<a href="mailto:${esc(m)}">${esc(m)}</a>`).join('<br>')]);
+    if (o.phone) rows.push(['phone', `<a href="tel:${esc(o.phone.replace(/[^+\d]/g, ''))}">${esc(o.phone)}</a>`]);
+    if (o.based) rows.push(['based', [].concat(o.based).map(esc).join('<br>')]);
+    const web = o.contact.filter(c => /^https?:/.test(c.href || ''));
+    if (web.length) rows.push(['profiles', web.map(c => `<a href="${esc(c.href)}" target="_blank" rel="noopener">${esc(c.label)}</a>`).join(' · ')]);
+    return `<dl class="meta contact-card">${rows.map(([t, v]) => `<dt>${t}</dt><dd>${v}</dd>`).join('')}</dl>`;
   }
 
   // A "role" page that gathers several engagements of the same kind (e.g. volunteer work):

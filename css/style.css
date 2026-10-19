@@ -190,6 +190,11 @@ dl.meta dd { margin: 0; font-size: 14.5px; line-height: 1.45; }
 dl.meta.stacked { display: block; }
 dl.meta.stacked dt { margin-top: 8px; }
 dl.meta.stacked dt:first-child { margin-top: 0; }
+/* the contact card (header "contact": true on a role page) */
+dl.contact-card { margin-top: 1em; }
+dl.contact-card a { color: var(--accent); text-decoration: none; }
+dl.contact-card a:hover { text-decoration: underline; text-underline-offset: 3px; }
+dl.contact-card + .case-actions { margin-top: 16px; }
 /* compact facts ("compact": true in a case page.json): each term runs into its value, full width */
 .facts-compact p { margin: 0 0 4px; font-size: 13.5px; line-height: 1.35; }
 .fact-term { font: 12px/1.35 var(--mono); color: var(--muted); margin-right: 0.4ch; }
@@ -527,28 +532,44 @@ code.tex { font: 12px/1.5 var(--mono); white-space: pre-wrap; }
   .case-group.relief .case-sub-math { border-top: 1px solid var(--ink); }
   .case-panels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .page { grid-template-columns: 1fr; width: 100%; margin-left: 0; }
-  /* the left sheet becomes one row that stays at the top: name and "menu" button; the button
-     opens a panel just under it, over the page (menu, then contact) */
+  /* the left sheet becomes a header of 10 x 3 cells that stays at the top (A1:J3); the
+     menu button opens a drawer under it, over the veiled page (pages, then contact) */
   aside {
     z-index: 10;
-    height: var(--u);
+    height: calc(3 * var(--u));
     grid-template-columns: repeat(10, var(--u));
     overflow: visible;
   }
-  /* text on the bottom of the row, under the coordinates */
-  .bar-name, .bar-toggle { display: flex; align-items: flex-end; padding-top: 0; padding-bottom: calc(var(--u) * 0.16); }
-  .bar-name a { font: 500 clamp(14px, calc(var(--u) * 0.42), 17px)/1 var(--sans); letter-spacing: -0.015em; text-decoration: none; white-space: nowrap; }
-  .bar-toggle { font: 13px/1 var(--mono); color: var(--ink); cursor: pointer; text-align: left; }
-  .bar-toggle:hover, .bar-toggle[aria-expanded="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+  html.menu-open { overflow: hidden; }
+  /* texts on the bottom of their cell, under the coordinates */
+  .bar-name { display: flex; flex-direction: column; justify-content: flex-end; gap: 3px; padding-bottom: calc(var(--u) * 0.16); }
+  .bar-who { font: 500 clamp(13px, calc(var(--u) * 0.42), 17px)/1.05 var(--sans); letter-spacing: -0.015em; color: var(--ink); text-decoration: none; }
+  .bar-mail { font: clamp(10.5px, calc(var(--u) * 0.29), 12px)/1.3 var(--mono); color: var(--accent); text-decoration: none; }
+  .bar-btn, .bar-crumb { display: flex; align-items: flex-end; padding-top: 0; padding-bottom: calc(var(--u) * 0.16); }
+  .bar-btn { font: 12.5px/1 var(--mono); color: var(--accent); text-decoration: none; cursor: pointer; text-align: left; }
+  a.bar-btn { display: flex; }
+  .bar-toggle { color: var(--ink); }
+  .bar-btn:hover, .bar-toggle[aria-expanded="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+  .bar-crumb { gap: 6px; font: 12px/1 var(--mono); color: var(--muted); white-space: nowrap; padding-right: 7ch; }   /* room for the coordinates */
+  .bar-mail span { white-space: nowrap; }                 /* if too long, break after the @ only */
+  .bar-crumb > * { flex: none; line-height: 1.2; }
+  .bar-crumb > :last-child { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; font-weight: 600; color: var(--ink); }
+  .bar-crumb a { color: var(--ink); text-decoration: none; }
+  .bar-crumb .muted { font-weight: 400 !important; color: var(--muted) !important; }
   .panel {
-    position: absolute; top: var(--u); left: 0; width: calc(10 * var(--u));
-    max-height: calc(100vh - var(--u)); max-height: calc(100dvh - var(--u));
+    position: absolute; top: calc(3 * var(--u)); left: 0; width: calc(10 * var(--u));
+    height: calc(100vh - 3 * var(--u)); height: calc(100dvh - 3 * var(--u));
     overflow-y: auto; overscroll-behavior: contain;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
     display: grid; grid-template-columns: repeat(10, var(--u)); grid-auto-rows: var(--u); align-content: start;
-    padding-bottom: 6px;                  /* room for the last border and the shadow */
-    filter: drop-shadow(5px 5px 0 var(--ink));
+    padding-bottom: 1px;                  /* room for the last border */
   }
-  .panel .contact-links { margin: 0; gap: 12px; justify-content: flex-start; }
+  /* bigger touch targets in the drawer */
+  .panel .tree a, .panel .tree-fold { font-size: 14px; line-height: 2.1; }
+  .panel .tree-fold { flex-basis: 2.5ch; }
+  .panel .contact-links { margin: 4px 0 0; gap: 14px; justify-content: flex-start; }
+  .panel .contact-group > li, .panel .contact-links a { font-size: 14px; line-height: 1.7; }
+  .panel .contact-links .email, .panel .contact-links .email a { font-size: 13px; line-height: 1.7; }
   main { grid-template-columns: repeat(10, var(--u)); min-height: 0; }
   .dd { grid-template-columns: 1fr; }
   .lede { font-size: 17px; }
