@@ -25,7 +25,7 @@
     "rows": [
       ["track", "CentraleSupélec entrepreneurship track"],
       ["team", "4 students (credits below)"],
-      ["period", "Jan 2025 – present"],
+      ["period", "Jan 2025 – June 2026"],
       ["grade", "17/20"],
       ["hardware", "Arduino Nano 33 BLE Sense Rev2, cadence sensor, servo"],
       ["stack", "Python (pandas, scikit-learn, XGBoost), C++ (Arduino)"]

@@ -118,13 +118,13 @@
           "coverAlt": "A student pedals the Autogear prototype on a home trainer while a teammate watches the data",
           "page": "page.json",
           "kind": "entrepreneurship",
-          "period": "Jan 2025 – present",
+          "period": "Jan 2025 – June 2026",
           "metaTitle": "Autogear, an Automatic Derailleur That Learns When to Shift · Tancrède Amiel",
           "metaDescription": "An entrepreneurship project turned embedded-ML R&D: a plug-and-play automatic bicycle derailleur without a torque sensor, driven by a two-stage model that imitates an experienced cyclist on an Arduino.",
           "updated": "2026-10-19",
           "repo": "",
           "date": null,
-          "status": "current"
+          "status": "done"
         },
         {
           "id": "absorber-placement",
