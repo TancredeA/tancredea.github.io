@@ -155,14 +155,14 @@
           "title": "Variational Tensor Neural Networks: A Critical Analysis",
           "menuTitle": "VTNN analysis",
           "subtitle": "A close reading of Jahromi & Orús, Scientific Reports (2024)",
-          "summary": "A critical analysis of a paper that trains tensor-network layers with DMRG: its real contribution is interpretability, not scalability.",
+          "summary": "A critical analysis of a paper that trains tensor-network layers with DMRG inside ordinary deep networks: no breakthrough in compression or scalability, but a new way to read a network while it trains.",
           "tags": ["Tensor networks", "Quantum information", "Interpretability", "Critical reading"],
           "layout": "case",
           "page": "page.json",
           "period": "June 2026",
           "date": "2026",
           "metaTitle": "Variational Tensor Neural Networks, a Critical Analysis · Tancrède Amiel",
-          "metaDescription": "A critical analysis of Jahromi & Orús (Scientific Reports, 2024) for the Information & Physics course at CentraleSupélec: tensor-network layers trained with DMRG, whose real contribution is interpretability.",
+          "metaDescription": "A critical analysis of Jahromi & Orús (Scientific Reports, 2024) for the Information & Physics course at CentraleSupélec: no breakthrough in compression or scalability, but tensor layers trained like DMRG inside hybrid networks, which make entanglement readable during training.",
           "status": "done"
         },
         {

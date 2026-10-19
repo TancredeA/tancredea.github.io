@@ -1,90 +1,146 @@
 {
-  "about": "Case-study page (layout \"case\" in site.json), like research/tfjm-2022. Text lives here and in the .md files next to this one. Formulas use LaTeX (KaTeX): in .md files between $...$ or $$...$$, here in the \"formula\" fields (a list = lines set one under the other; no dollars, backslashes doubled because this is JSON). The two figures are reproduced unmodified from the article (Sci. Rep. 14, 19017, 2024), licensed CC BY-NC-ND 4.0: keep the credit in their captions.",
-
+  "about": "Case-study page (layout \"case\" in site.json), like research/tfjm-2022. Text lives here and in the .md files next to this one. Formulas use LaTeX (KaTeX): in .md files between $...$ or $$...$$, here in the \"formula\" fields (a list = lines set one under the other; no dollars, backslashes doubled because this is JSON). The spiral figure is reproduced unmodified from the article (Sci. Rep. 14, 19017, 2024), licensed CC BY-NC-ND 4.0: keep the credit in its caption.",
   "arrangement": [
-    ["header", "facts"],
-    ["exercise:full"],
-    ["paper:full"],
-    ["figure"],
-    ["reading:full"],
-    ["decisions:group"],
-    ["takeaways:0-7", "documents:9-13"]
+    [
+      "header",
+      "facts"
+    ],
+    [
+      "exercise:full"
+    ],
+    [
+      "paper:full"
+    ],
+    [
+      "reading:full"
+    ],
+    [
+      "decisions:group"
+    ],
+    [
+      "takeaways:0-7",
+      "documents:9-13"
+    ]
   ],
-
   "header": {
     "label": "research",
     "title": "Variational Tensor Neural Networks: A Critical Analysis",
-    "lede": "A close reading of a 2024 paper that trains tensor-network layers with an algorithm from quantum physics. Its real contribution is not the scalability its abstract claims, but a quantitative window on what a trained network has learned.",
-    "tags": ["Tensor networks", "Quantum information", "Interpretability", "Critical reading"],
+    "lede": "A close reading of a 2024 paper that trains tensor-network layers with an algorithm from quantum physics. It brings no breakthrough in compression or scalability; what is new is a combination, tensor layers trained like DMRG inside ordinary deep networks, that lets one read the network's entanglement while it trains.",
+    "tags": [
+      "Tensor networks",
+      "Quantum information",
+      "Interpretability",
+      "Critical reading"
+    ],
     "buttons": [
-      { "label": "↗ Read my paper", "file": "report.pdf" },
-      { "label": "↗ Original article", "href": "https://doi.org/10.1038/s41598-024-69366-8" }
+      {
+        "label": "↗ Read my paper",
+        "file": "report.pdf"
+      },
+      {
+        "label": "↗ Original article",
+        "href": "https://doi.org/10.1038/s41598-024-69366-8"
+      }
     ]
   },
-
   "facts": {
     "label": "facts",
     "rows": [
-      ["course", "Information & Physics, CentraleSupélec"],
-      ["teachers", "Zeno Toffano, Antoine Berthet"],
-      ["article", "S. S. Jahromi, R. Orús, *Scientific Reports* 14, 19017 (2024)"],
-      ["format", "written critical analysis (5 pp., LaTeX) and oral presentation"],
-      ["period", "June 2026"],
-      ["work", "individual"]
+      [
+        "course",
+        "Information & Physics, CentraleSupélec"
+      ],
+      [
+        "teachers",
+        "Zeno Toffano, Antoine Berthet"
+      ],
+      [
+        "article",
+        "S. S. Jahromi, R. Orús, *Scientific Reports* 14, 19017 (2024)"
+      ],
+      [
+        "format",
+        "written critical analysis (5 pp., LaTeX) and oral presentation"
+      ],
+      [
+        "period",
+        "June 2026"
+      ],
+      [
+        "work",
+        "individual"
+      ]
     ]
   },
-
   "blocks": {
-    "exercise": { "label": "the exercise", "md": "exercise.md", "list": true },
-    "paper": { "label": "the article in brief", "md": "paper.md" },
+    "exercise": {
+      "label": "the exercise",
+      "md": "exercise.md",
+      "list": true
+    },
+    "paper": {
+      "label": "the article in brief",
+      "md": "paper.md"
+    },
     "reading": {
-      "label": "my reading", "md": "reading.md", "list": true,
+      "label": "my reading",
+      "md": "reading.md",
+      "list": true,
       "image": "fig-spiral.png",
       "imageAlt": "Three intertwined spirals of red, green and blue points, with the decision regions learned by the tensor neural network",
       "imageCaption": "Three intertwined spirals, classified at about 95 %: the entropy of the trained weights stays near 0.7–0.8. Fig. 13 of Jahromi & Orús (2024), CC BY-NC-ND 4.0."
     },
-    "takeaways": { "label": "what I take from it", "md": "takeaways.md", "list": true }
+    "takeaways": {
+      "label": "what I take from it",
+      "md": "takeaways.md",
+      "list": true
+    }
   },
-
-  "figure": {
-    "label": "the construction",
-    "panelWidth": 560,
-    "panels": [
-      { "src": "fig-tensorize.png", "alt": "Diagram: a dense layer is tensorized; its 216 by 216 weight matrix is reshaped and split by SVDs into three small tensors joined by bonds of dimension chi", "caption": "(a) dense layer → tensor diagram · (b) the weight matrix split by SVDs into an MPO · (c) the resulting forward pass" }
-    ],
-    "caption": "How a dense layer becomes a tensor-network layer: the 216 × 216 weight matrix is reshaped and split into three small tensors linked by bonds of dimension χ. Fig. 5 of Jahromi & Orús (2024), CC BY-NC-ND 4.0."
+  "decisionGroup": {
+    "label": "my findings in detail",
+    "toggleIn": "reading",
+    "relief": true,
+    "open": "↓ my findings in detail, with their math",
+    "close": "↑ hide the findings"
   },
-
-  "decisionGroup": { "label": "my findings in detail", "toggleIn": "reading", "relief": true, "open": "↓ my findings in detail, with their math", "close": "↑ hide the findings" },
-
   "decisions": [
     {
-      "title": "Old ingredients",
+      "title": "Compression and hybrid stacks were already there",
       "md": "finding-1.md",
-      "formula": "M = U S V^\\dagger = L R,\\qquad L = U\\sqrt{S},\\quad R = \\sqrt{S}\\,V^\\dagger",
-      "caption": "A weight matrix split by SVD; keeping the χ largest singular values λᵢ in S sets the bond dimension, the compression and the correlations allowed between tensors."
+      "formula": [
+        "M = U S V^\\dagger = L R",
+        "\\\\[4pt]",
+        "L = U\\sqrt{S},\\qquad R = \\sqrt{S}\\,V^\\dagger"
+      ],
+      "caption": "A weight matrix split by SVD; keeping the χ largest singular values λᵢ in S sets the bond dimension. Tensorised layers built this way date back to 2015."
     },
     {
-      "title": "The move that matters: a two-site update",
+      "title": "What is new: variational training inside a hybrid network",
       "md": "finding-2.md",
-      "formula": ["B'_{i,i+1} = B_{i,i+1} - \\alpha\\,\\Delta B,\\qquad \\Delta B = -\\frac{\\partial \\mathcal{L}_{\\mathrm{MSE}}}{\\partial B}", "\\\\[6pt]", "B' = U' S' V'^\\dagger\\ \\text{(truncated to } \\chi\\text{)}"],
-      "caption": "Two neighbouring tensors are contracted into a bond tensor B, updated by a local gradient step, then split again by SVD: the singular values are exposed at every step of training."
+      "formula": [
+        "\\frac{\\partial \\mathcal{L}_{\\mathrm{MSE}}}{\\partial B} = -\\frac{2}{N_s}\\sum_{n=1}^{N_s}\\big(y^{(n)}-y_p^{(n)}\\big)E^{(n)}",
+        "\\\\[6pt]",
+        "B' = B - \\alpha\\,\\frac{\\partial \\mathcal{L}_{\\mathrm{MSE}}}{\\partial B},\\qquad B' = U'S'V'^\\dagger"
+      ],
+      "caption": "Two neighbouring tensors are merged into a bond tensor B, moved by a gradient step, then split again by SVD: the singular values come out at every step. E is the rest of the network. The article's Eq. (7), taken literally, climbs the loss; the consistent form is shown."
     },
     {
-      "title": "A number that reads the data",
+      "title": "Interpretability while the network trains",
       "md": "finding-3.md",
-      "formula": "S = -\\sum_i \\lambda_i^2 \\log \\lambda_i^2",
-      "caption": "Entanglement entropy at a bond. Gaussian blobs: S ≈ 0 at 99 % accuracy. Three spirals: S settles around 0.7–0.8 at about 95 %."
+      "formula": "S = -\\sum_i \\lambda_i^2 \\log \\lambda_i^2,\\qquad \\sum_i \\lambda_i^2 = 1",
+      "caption": "Entanglement entropy at a bond, from the normalised singular values. Gaussian blobs: S ≈ 0 at 99 % accuracy. Three spirals: S settles around 0.7–0.8 at about 95 %."
     },
     {
-      "title": "MNIST is a proof of concept",
+      "title": "No case for scalability",
       "md": "finding-4.md",
-      "formula": "\\begin{array}{l|c} \\text{model} & \\text{accuracy} \\\\ \\hline \\text{TNN, 1 epoch} & 95.8\\,\\% \\\\ \\text{dense, 1 epoch} & 94.2\\,\\% \\\\ \\text{dense, 60 epochs} & 97.6\\,\\% \\end{array}",
-      "caption": "The TNN wins only the single-epoch comparison; its DMRG training time per epoch grows exponentially with the number of MPO tensors, against about ten seconds per epoch for the dense baseline."
+      "formula": "\\begin{array}{l|c} \\text{model} & \\text{accuracy} \\\\ \\hline \\text{TNN, 1 epoch} & 95.8\\,\\% \\\\ \\text{dense, 1 epoch} & 94.2\\,\\% \\\\ \\text{dense, 60 epochs} & 97.6\\,\\% \\\\ \\text{MPS (2016)} & > 99\\,\\% \\end{array}",
+      "caption": "The TNN wins only the single-epoch comparison; Stoudenmire & Schwab's MPS classifier already reported under 1 % test error. Its training time per epoch grows exponentially with the number of MPO tensors."
     }
   ],
-  "decisionLabels": { "text": "finding", "math": "math" },
-
+  "decisionLabels": {
+    "text": "finding",
+    "math": "math"
+  },
   "resources": {
     "label": "resources",
     "documents": [
@@ -92,13 +148,16 @@
         "file": "report.pdf",
         "thumb": "report-p1.png",
         "title": "Critical Analysis: On Variational Tensor Neural Networks for Deep Learning",
-        "meta": "written analysis, 5 pp., June 2026",
+        "meta": "written analysis, 6 pp., June 2026",
         "readAndDownload": true,
         "readLabel": "↗ read my paper"
       }
     ],
     "links": [
-      { "label": "↗ original article (Scientific Reports, 2024)", "href": "https://doi.org/10.1038/s41598-024-69366-8" }
+      {
+        "label": "↗ original article (Scientific Reports, 2024)",
+        "href": "https://doi.org/10.1038/s41598-024-69366-8"
+      }
     ]
   }
 }
