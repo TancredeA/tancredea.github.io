@@ -1,0 +1,4 @@
+- **Framework, not full theory.** The study fixes the functional framework and the gradient formula; existence of minimizers and a finite-difference check of the discrete gradient are the next steps.
+- **Pre-fractal, not fractal.** The framework is stated for fractal walls, but the proofs assume a Lipschitz domain, that is a finite pre-fractal level; constants uniform in the level remain to be established.
+- **A 2D slice, one kind of source.** Measured directivities, several instruments and three dimensions would bring the model closer to a real hall.
+- **Lesson.** <span class="todo">[TO CONFIRM]</span> I would check the discrete gradient against finite differences before running the parametric study.

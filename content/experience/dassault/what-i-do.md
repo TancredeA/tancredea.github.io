@@ -1,0 +1,4 @@
+- **Process automation architectures.** For processes such as answering RFx (requests for information, proposal or quotation), I design pipelines that combine retrieval-augmented generation (RAG), a knowledge-graph database, and purpose-built tools and skills on top of foundation models.
+- **MCP servers.** I build Model Context Protocol servers that connect internal models to company tools and data.
+- **Use-case prioritization.** I rank candidate use cases by impact and complexity to decide what to build first.
+- **On-premise hosting.** I size and cost the company servers needed to host the models on premises for a few hundred users, and prepare the quotations.

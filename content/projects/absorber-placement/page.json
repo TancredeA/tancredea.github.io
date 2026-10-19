@@ -1,0 +1,130 @@
+{
+  "about": "Case-study page (layout \"case\" in site.json), like projects/blast-routing. Text lives here and in the .md files next to this one. Formulas use LaTeX (KaTeX): in .md files between $...$ or $$...$$, here in the \"formula\" fields (no dollars, backslashes doubled because this is JSON).",
+
+  "arrangement": [
+    ["header", "facts"],
+    ["overview:full"],
+    ["role:full"],
+    ["decisions:group"],
+    ["figure"],
+    ["limits", "report"],
+    ["credits", "related"]
+  ],
+
+  "blocks": {
+    "overview": {
+      "label": "the project", "md": "overview.md", "list": true,
+      "image": "concertgebouw.jpg",
+      "imageAlt": "The main hall of the Concertgebouw in Amsterdam during a concert",
+      "imageCaption": "The Concertgebouw, Amsterdam: the shoebox hall the model is based on."
+    }
+  },
+
+  "decisionGroup": { "label": "my contributions in detail", "toggleIn": "role", "relief": true, "open": "↓ my contributions in detail, with their math", "close": "↑ hide my contributions in detail" },
+
+  "header": {
+    "label": "projects",
+    "title": "Optimal Placement of Absorbing Material in a Concert Hall",
+    "lede": "How to spread a limited amount of sound-absorbing material over the walls of a concert hall so that it soaks up as much sound as possible: a wave model, an adjoint gradient and a pre-fractal wall answer it.",
+    "tags": ["Helmholtz equation", "PDE analysis", "Adjoint optimization", "Architectural acoustics"],
+    "reportButton": "↗ Read the report"
+  },
+
+  "facts": {
+    "label": "facts",
+    "rows": [
+      ["course", "CentraleSupélec ST5, Theory and Algorithmics for Wave Control"],
+      ["team", "6 students (credits below)"],
+      ["period", "Nov 2025"],
+      ["grade", "A+ 15/20"],
+      ["stack", "Python, NumPy/SciPy, LaTeX"]
+    ]
+  },
+
+  "figure": {
+    "label": "key result",
+    "panels": [
+      { "src": "fig-a.png", "caption": "(a) initial layout χ₀" },
+      { "src": "fig-b.png", "caption": "(b) field |u₀|" },
+      { "src": "fig-c.png", "caption": "(c) optimized layout χₙ" },
+      { "src": "fig-d.png", "caption": "(d) field |uₙ|" }
+    ],
+    "caption": "Before (a, b) and after (c, d) optimization, with the same amount of material: the layout fragments and localizes, and the field spreads out with lower peaks. Team computation."
+  },
+
+  "summary": { "label": "summary", "md": "summary.md" },
+  "role": { "label": "my part", "md": "role.md" },
+
+  "how": {
+    "label": "how it works",
+    "md": "how.md",
+    "diagram": {
+      "boxWidth": 196,
+      "minWidth": 780,
+      "modules": [
+        { "id": "g", "name": "Source g", "col": 0, "row": 0, "style": "filled" },
+        { "id": "direct", "name": "Direct problem", "sub": ["Helmholtz + Robin wall,", "pressure p"], "col": 1, "row": 0, "style": "outline" },
+        { "id": "adjoint", "name": "Adjoint problem", "sub": ["q, gradient J′(χ)"], "col": 2, "row": 0, "style": "outline" },
+        { "id": "descent", "name": "Projected descent", "sub": ["+ binarization"], "col": 3, "row": 0 }
+      ],
+      "edges": [
+        { "from": "g", "to": "direct" },
+        { "from": "direct", "to": "adjoint" },
+        { "from": "adjoint", "to": "descent" },
+        { "from": "descent", "to": "direct", "label": "new layout χ", "loop": true }
+      ],
+      "below": "Design cascade (team): material → quantity β → wall shape",
+      "caption": "Filled: with H. de Ruffray. Accent outline: with P. Blanc. Plain: team."
+    }
+  },
+
+  "decisions": [
+    {
+      "title": "A source with the physics of an instrument",
+      "md": "contribution-1.md",
+      "formula": "g(y,\\omega)=\\sum_{i=1}^{9}A_i\\,e^{-\\frac{(\\omega-\\omega_i)^2}{\\Delta\\omega_i^2}}\\,e^{-\\frac{(y-y_0)^2}{\\ell_i(\\omega)^2}},\\qquad \\ell_i(\\omega)=L_0\\,\\frac{\\omega_i}{\\omega+\\omega_i}",
+      "caption": "ℓ_i(ω_i) = L₀/2, then ℓ_i decays like 1/ω above the note's own frequency."
+    },
+    {
+      "title": "A wave problem that is not coercive, yet well posed",
+      "md": "contribution-2.md",
+      "formula": "\\operatorname{Im}\\alpha\\int_{\\Gamma_{\\mathrm{abs}}}\\chi\\,|\\operatorname{Tr}p|^2\\,dm_d=0 \\;\\Rightarrow\\;\\operatorname{Tr}p=\\partial_n p=0\\ \\text{on }\\Sigma \\;\\Rightarrow\\;p\\equiv 0",
+      "caption": "Imaginary part of the energy identity for the homogeneous problem, with Im α ≠ 0 and χ > 0 on Σ; the last step is unique continuation."
+    },
+    {
+      "title": "The gradient for the price of two solves",
+      "md": "contribution-3.md",
+      "formula": "\\Delta q+k^2q=-2\\,\\overline{p}\\ \\text{in }\\Omega,\\qquad J'(\\chi)=-\\operatorname{Re}\\{\\alpha\\,p\\,q\\}\\ \\text{on }\\Gamma_{\\mathrm{abs}}",
+      "caption": "J(χ) = ∫|p|². The bilinear form is symmetric, not Hermitian, so q solves the direct operator with source −2p̄; using −2p gives a wrong gradient."
+    },
+    {
+      "title": "One formula, two situations",
+      "md": "contribution-4.md",
+      "formula": "-k\\int_{\\Gamma_{\\mathrm{lat}}}|\\operatorname{Tr}p|^2+\\operatorname{Im}\\alpha\\int_{\\Gamma_{\\mathrm{abs}}}\\chi\\,|\\operatorname{Tr}p|^2=0,\\qquad \\operatorname{Im}\\alpha\\le0",
+      "caption": "Both terms are nonpositive, so Tr p = 0 on Γ_lat; with ∂ₙp = ik Tr p, the Cauchy data vanish and p ≡ 0."
+    }
+  ],
+  "decisionLabels": { "text": "contribution", "math": "math" },
+
+  "limits": { "label": "limits and lessons", "md": "limits.md" },
+
+  "resources": {
+    "label": "resources",
+    "report": {
+      "file": "report.pdf",
+      "thumb": "report-p1.png",
+      "title": "Controlling Indoor Acoustic Pollution by Optimal Placement of Absorbing Material",
+      "meta": "contributions report, 11 pp., about 25 min",
+      "readAndDownload": true,
+      "readLabel": "↗ read pdf"
+    },
+    "repo": "",
+    "repoLabel": "↗ code",
+    "credits": { "label": "credits", "md": "credits.md" },
+    "related": {
+      "label": "related",
+      "page": "projects/blast-routing",
+      "text": "Blast-aware routing (ST7): the nonlinear Euler equations, whose linearization at a single frequency gives the Helmholtz problem studied here."
+    }
+  }
+}

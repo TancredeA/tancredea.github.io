@@ -1,0 +1,1 @@
+From September 2024 to June 2026, I tutored more than ten students in mathematics and physics, from middle school to the end of preparatory classes. One of them, a PCSI/PC* student at Collège Stanislas, I followed through his two-year intensive program until his admission to the top-ranked engineering grande école in France.

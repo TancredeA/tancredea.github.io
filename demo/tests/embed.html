@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Embed check</title>
+<!-- Checks the demo inside an iframe, as the portfolio will embed it (see README, "Embedding"). -->
+<style>body { margin: 0; padding: 24px; background: #FBFAF7; font: 13px monospace; } iframe { display: block; width: 100%; height: 960px; border: 1px solid #333539; }</style>
+</head>
+<body>
+<p>iframe height: <span id="h">–</span></p>
+<iframe id="blast-demo" src="../?seed=42&amp;theme=light" title="Blast-aware route planning, interactive demo" loading="lazy"></iframe>
+<script>
+  addEventListener('message', e => {
+    const f = document.getElementById('blast-demo');
+    if (f && e.source === f.contentWindow && e.data && e.data.type === 'blast-demo:height') {
+      f.style.height = e.data.height + 'px';
+      document.getElementById('h').textContent = e.data.height + ' px';
+    }
+  });
+</script>
+</body>
+</html>

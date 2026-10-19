@@ -1,0 +1,553 @@
+/* Self-hosted fonts (SIL Open Font License, see assets/fonts) */
+@font-face { font-family: 'Space Grotesk'; src: url(../assets/fonts/space-grotesk-latin-400-normal.woff2) format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Space Grotesk'; src: url(../assets/fonts/space-grotesk-latin-500-normal.woff2) format('woff2'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; src: url(../assets/fonts/ibm-plex-mono-latin-400-normal.woff2) format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; src: url(../assets/fonts/ibm-plex-mono-latin-500-normal.woff2) format('woff2'); font-weight: 500; font-display: swap; }
+
+/* ------------------------------------------------------------------
+   Tokens
+   ------------------------------------------------------------------ */
+:root {
+  /* PALETTE — the only place to edit colors (6-digit hex). Everything else (cells, demos,
+     photo filter, tints) is derived from these five values. */
+  --bg: #FBFAF7;          /* ecru, barely off-white: page and cell background */
+  --line: #ECE7DB;        /* fine grid lines (unmerged cells) */
+  --ink: #333539;         /* anthracite: text and merged-cell borders */
+  --muted: #717274;       /* secondary text, coordinates; keep >= 4.5:1 on --bg */
+  --accent: #346560;      /* green: active cell, links, demo highlights */
+
+  /* derived, do not edit */
+  --accent-soft: color-mix(in srgb, var(--accent) 10%, transparent);
+
+  --sans: 'Space Grotesk', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  --u: 56px;              /* grid module, set by JS from the viewport */
+  --ox: 0px;              /* horizontal offset of the grid origin, set by JS */
+  --pad: calc(var(--u) * 0.24);
+}
+
+* { box-sizing: border-box; }
+
+html { background-color: var(--bg); }
+
+/* The grid is a fixed layer: it stays still while the cells scroll over it.
+   (A fixed pseudo-element rather than background-attachment: fixed, which iOS ignores.) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: var(--u) var(--u);
+  background-position: var(--ox) 0;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+::selection { background: var(--accent); color: var(--bg); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ------------------------------------------------------------------
+   Page frame: fixed left sheet + scrolling right sheet
+   ------------------------------------------------------------------ */
+.page {
+  display: grid;
+  grid-template-columns: calc(6 * var(--u)) calc(15 * var(--u));
+  width: calc(21 * var(--u));
+  margin-left: var(--ox);
+  position: relative;
+  z-index: 1;
+}
+
+aside {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(6, var(--u));
+  grid-auto-rows: var(--u);
+  align-content: start;
+  overflow: hidden;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(15, var(--u));
+  grid-auto-rows: var(--u);
+  align-content: start;
+  min-height: 100vh;
+  outline: none;
+}
+main:focus, main:focus-visible { outline: none; }
+
+/* ------------------------------------------------------------------
+   Merged cells
+   ------------------------------------------------------------------ */
+.cell {
+  position: relative;
+  min-width: 0;
+  margin: 0 -1px -1px 0;               /* cover the next grid line */
+  padding: var(--pad) calc(var(--pad) * 1.15);
+  background: var(--bg);
+  border: 1px solid var(--ink);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.cell.fixed { display: flex; flex-direction: column; }
+
+.cell > .coord + .k, .cell > .coord + .menu-toggle, .cell > .coord + h1 { padding-right: 8ch; }
+
+.coord {
+  position: absolute;
+  top: 5px;
+  right: 7px;
+  font: 11px/1 var(--mono);
+  color: var(--muted);
+  pointer-events: none;
+}
+
+a.cell { display: block; text-decoration: none; }
+a.cell.fixed { display: flex; }
+a.cell:hover, a.cell:focus-visible { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); outline: none; }
+.cell.active { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+
+/* ------------------------------------------------------------------
+   Type
+   ------------------------------------------------------------------ */
+.k {
+  margin: 0 0 0.35em;
+  font: 12px/1.5 var(--mono);
+  color: var(--muted);
+}
+
+.name {
+  margin: 0;
+  font: 500 calc(var(--u) * 0.4)/1 var(--sans);
+  letter-spacing: -0.025em;
+}
+.name span { display: block; }
+.cell.id { display: flex; flex-direction: column; justify-content: space-between; }
+.cell.id .name { margin-top: 12px; font-size: calc(var(--u) * 0.31); overflow-wrap: anywhere; }
+.cell.id .role { margin: 0; font-size: 11.5px; line-height: 1.35; }
+
+h1, .h1 {
+  margin: 0;
+  font: 500 clamp(28px, calc(var(--u) * 0.62), 46px)/1.04 var(--sans);
+  letter-spacing: -0.025em;
+}
+
+h2, h3 { font-weight: 500; letter-spacing: -0.01em; }
+
+.lede {
+  margin: 0.55em 0 0;
+  font-size: 18px;
+  line-height: 1.42;
+  max-width: 46ch;
+}
+
+.card-title { margin: 0.1em 0 0.25em; font: 500 21px/1.15 var(--sans); letter-spacing: -0.015em; }
+.card-sum { margin: 0; font-size: 15px; line-height: 1.45; }
+/* home: category and date in bold anthracite, keywords in bold green */
+.meta-strong { color: var(--ink); font-weight: 600; }
+.card-tags { margin: 0.4em 0 0; font: 600 12px/1.45 var(--mono); color: var(--accent); }
+.card-tags b { font-weight: 600; }
+
+.mono { font-family: var(--mono); font-size: 13px; }
+.muted { color: var(--muted); }
+
+/* Long-form markdown */
+.prose { max-width: 68ch; }
+.prose > :first-child { margin-top: 0; }
+.prose p, .prose li { font-size: 16.5px; line-height: 1.62; }
+.prose h2 { font-size: 22px; margin: 1.6em 0 0.4em; }
+.prose h3 { font-size: 18px; margin: 1.3em 0 0.3em; }
+.prose a { color: var(--accent); text-underline-offset: 3px; }
+.prose code { font: 0.88em var(--mono); background: var(--accent-soft); padding: 0.05em 0.3em; }
+.prose pre { font: 13px/1.5 var(--mono); padding: 12px 14px; border: 1px solid var(--line); overflow-x: auto; }
+.prose pre code { background: none; padding: 0; }
+.prose img { max-width: 100%; display: block; border: 1px solid var(--ink); }
+.prose blockquote { margin: 1em 0; padding-left: 14px; border-left: 2px solid var(--accent); color: var(--muted); }
+.prose .todo, .todo { color: var(--accent); font-family: var(--mono); font-size: 0.85em; }
+
+/* Definition lists in meta cells */
+dl.meta { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; }
+dl.meta dt { font: 12px/1.6 var(--mono); color: var(--muted); }
+dl.meta dd { margin: 0; font-size: 14.5px; line-height: 1.45; }
+/* long terms: each term above its value ("stacked": true on a role box) */
+dl.meta.stacked { display: block; }
+dl.meta.stacked dt { margin-top: 8px; }
+dl.meta.stacked dt:first-child { margin-top: 0; }
+/* compact facts ("compact": true in a case page.json): each term runs into its value, full width */
+.facts-compact p { margin: 0 0 4px; font-size: 13.5px; line-height: 1.35; }
+.fact-term { font: 12px/1.35 var(--mono); color: var(--muted); margin-right: 0.4ch; }
+
+/* Link lists */
+.links { list-style: none; margin: 0; padding: 0; }
+.links li { margin: 0 0 6px; }
+.links a { font: 13.5px/1.5 var(--mono); color: var(--accent); text-decoration: none; }
+.links a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.figure { margin: 0 0 14px; }
+.figure img { width: 100%; display: block; border: 1px solid var(--ink); }
+
+/* ------------------------------------------------------------------
+   Aside: identity, tree menu, contact
+   ------------------------------------------------------------------ */
+.photo { padding: 0; }
+.photo img, .photo svg { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo img { filter: url(#duotone); }
+
+.tree { margin: 0; padding: 0; list-style: none; }
+.tree a {
+  display: block;
+  font: 13px/1.6 var(--mono);
+  color: var(--muted);
+  text-decoration: none;
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tree a:hover { color: var(--ink); }
+.tree a.trail { color: var(--ink); font-weight: 600; }               /* home ... up to the page shown, included */
+.tree .tag { color: var(--accent); }
+/* section with pages: "+" / "−" button (folds the list), then the name (links to the section) */
+.tree .tree-row { display: flex; }
+.tree .tree-row a { flex: 1 1 auto; min-width: 0; }
+.tree-fold {
+  flex: 0 0 2ch; padding: 0; margin: 0; border: 0; background: none; text-align: left;
+  font: 13px/1.6 var(--mono); color: var(--muted); cursor: pointer;
+}
+.tree-fold:hover { color: var(--ink); }
+.tree-fold.trail { color: var(--ink); font-weight: 600; }
+
+.menu-toggle { display: none; }
+
+.contact { display: flex; flex-direction: column; }
+.contact-links ul { list-style: none; margin: 0; padding: 0; }
+/* groups of links (js/app.js, contactHtml), spread evenly from the top of the block to its bottom */
+.contact-links {
+  flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: space-evenly;
+  margin: calc(var(--pad) * -1) 0;   /* over the cell's padding: equal space above, between and below the groups */
+}
+.contact.compact .contact-links { margin: -6px 0; }
+.contact-group > li { font: 13px/1.5 var(--mono); color: var(--ink); }
+.contact-group > li + li { margin-top: 6px; }
+.contact-links a {
+  font: 13px/1.5 var(--mono); color: var(--ink); text-decoration: none;
+}
+.contact-links a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.contact-links .email { padding-left: 1.5ch; }
+.contact-links .email, .contact-links .email a { font-size: 12px; line-height: 1.4; }
+.contact-group > li.email + li.email { margin-top: 4px; }
+.contact-links .email a span { white-space: nowrap; }             /* if too long, break after the @ only */
+/* short windows: the contact block has 3 rows instead of 4 */
+.contact.compact { padding-top: 6px; padding-bottom: 6px; }
+.contact.compact .contact-group > li, .contact.compact .contact-links a { line-height: 1.35; }
+.contact.compact .contact-links .email { padding-left: 0; }
+.contact.compact .contact-links .email, .contact.compact .contact-links .email a { font-size: 11px; line-height: 1.2; }
+
+/* experience pages ("role" layout): main blocks set a little tighter */
+.role-main .prose p, .role-main .prose li { line-height: 1.42; }
+.role-main .case-list li { margin-bottom: 0.1em; }
+.role-main .case-list li:last-child, .role-main .prose > :last-child { margin-bottom: 0; }
+
+/* "role" page with entries (e.g. volunteer work): one big block per entry, its parts as
+   raised cards on a regular grid: header and facts on top, the first text under the header
+   (beside the facts), the other texts across the block */
+.re-grid {
+  display: grid; grid-template-columns: minmax(0, 9fr) minmax(0, 5fr); gap: 20px 22px;
+  grid-template-areas: "head facts" "a facts"; align-items: start; margin-top: 6px; padding: 0 6px 6px 0;
+}
+.re-grid.no-facts { grid-template-areas: "head head" "a a"; }
+.re-grid > .re-head { grid-area: head; }
+.re-grid > .re-facts { grid-area: facts; align-self: stretch; }
+.re-grid > .re-a { grid-area: a; }
+.re-grid > .re-block:not(.re-a) { grid-column: 1 / -1; }
+.role-card { border: 1px solid var(--ink); background: var(--bg); box-shadow: 5px 5px 0 var(--ink); padding: 12px 16px; min-width: 0; }
+.role-card .k { margin-bottom: 0.3em; }
+.re-title { margin: 0; font-size: clamp(22px, calc(var(--u) * 0.4), 30px); line-height: 1.08; }
+.re-head .lede { font-size: 14.5px; line-height: 1.42; margin: 0.4em 0 0; }
+.re-head .case-tags { margin-top: 0.5em; }
+.role-card .prose p, .role-card .prose li { line-height: 1.45; }
+.role-card .case-list li { margin-bottom: 0.15em; }
+.role-card .prose > :last-child, .role-card .case-list li:last-child { margin-bottom: 0; }
+@media (max-width: 959px) {
+  .re-grid, .re-grid.no-facts { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "a" "facts"; gap: 16px; }
+}
+
+/* an entry with its dates and place in monospace (e.g. education on the about page) */
+.edu { margin: 0 0 0.9em; }
+.edu:last-child { margin-bottom: 0; }
+.edu p { margin: 0; }
+.edu-meta { display: inline-block; margin-left: 0.6ch; font: 12.5px/1.5 var(--mono); color: var(--muted); }
+
+/* Breadcrumb */
+.crumb { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; font: 13px/1.3 var(--mono); color: var(--muted); padding-right: 9ch; }  /* room for the coordinates */
+.crumb a { color: var(--ink); text-decoration: none; }
+.crumb a:hover { color: var(--accent); }
+.crumb .here { color: var(--ink); }
+.crumb a:not(.crumb-home), .crumb .here { font-weight: 600; color: var(--ink); }   /* all but home in bold anthracite */
+
+/* Sibling navigation */
+a.cell.sib, .sib { display: flex; flex-direction: column; justify-content: flex-end; padding-top: 6px; padding-bottom: 8px; }   /* text below the coordinates */
+.sib .k { margin: 0; }
+.sib .mono { color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sib.right { text-align: right; }
+
+/* ------------------------------------------------------------------
+   Demo previews and interactive demos
+   ------------------------------------------------------------------ */
+.preview { flex: 1 1 0; min-height: 0; width: 100%; display: block; margin: 8px 0; }
+.caption { margin: 0; font: 12px/1.45 var(--mono); color: var(--muted); }
+video.preview { object-fit: contain; background: var(--bg); }
+img.preview { object-fit: cover; border: 1px solid var(--line); }
+/* Block name ("pinned #1", "currently"...): floats on the grid, in the empty row just above its block */
+.block-tag {
+  align-self: end; justify-self: start; position: relative; z-index: 1;
+  margin: 0 0 5px -1px; padding: 1px 4px 1px 0;
+  font: 12px/1.3 var(--mono); color: var(--accent); background: var(--bg);
+  pointer-events: none;
+}
+/* pinned card without a preview: the description fills the preview area */
+.pin-text { flex: 1 1 0; min-height: 0; margin: 10px 0 0; font-size: 17px; line-height: 1.45; overflow: hidden; }
+
+/* Recorded run on a project page: the video links to the live simulation page */
+.rec { position: relative; display: block; width: min(100%, 720px); margin: 4px auto 0; border: 1px solid var(--ink); }
+.rec video { display: block; width: 100%; aspect-ratio: 1; background: var(--bg); }
+.rec-badge {
+  position: absolute; top: 10px; left: 10px; padding: 4px 8px;
+  font: 11.5px/1 var(--mono); color: var(--ink); background: var(--bg); border: 1px solid var(--ink);
+}
+.rec:hover, .rec:focus-visible { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.rec-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 18px; width: min(100%, 720px); margin: 10px auto 4px; }
+.rec-bar .caption { flex: 1 1 260px; }
+.rec-go { text-decoration: none; background: var(--ink); color: var(--bg); border-color: var(--ink); padding: 10px 14px; }
+.rec-go:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+
+.demo-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin: 0 0 12px; }
+.demo-bar label { display: inline-flex; align-items: center; gap: 8px; font: 12px var(--mono); color: var(--muted); }
+.demo-bar output { color: var(--ink); min-width: 2ch; }
+.demo-bar input[type=range] { accent-color: var(--accent); width: 110px; }
+
+.btn, .seg button {
+  font: 12.5px/1 var(--mono);
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--ink);
+  padding: 7px 10px;
+  cursor: pointer;
+}
+.btn:hover, .seg button:hover { border-color: var(--accent); color: var(--accent); }
+.seg { display: inline-flex; }
+.seg button + button { border-left: none; }
+.seg button.on { background: var(--ink); color: var(--bg); }
+
+.demo-canvas { width: 100%; display: block; border: 1px solid var(--ink); touch-action: none; cursor: crosshair; }
+.readout { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 10px; font: 12.5px/1.5 var(--mono); color: var(--muted); }
+.readout b { font-weight: 500; color: var(--ink); }
+.readout .acc { color: var(--accent); }
+
+.dd { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
+.dd .pad { width: 100%; max-width: 340px; aspect-ratio: 1; }
+.dd .seen { width: 120px; height: 120px; display: block; border: 1px solid var(--ink); margin-bottom: 14px; image-rendering: pixelated; }
+.bars { display: grid; grid-template-columns: 1.5ch 1fr 4.5ch; gap: 3px 10px; align-items: center; font: 12px/1.4 var(--mono); }
+.bars .bar { height: 10px; background: var(--line); position: relative; }
+.bars .bar i { position: absolute; inset: 0 auto 0 0; background: var(--muted); }
+.bars .top i { background: var(--accent); }
+.bars .top { color: var(--accent); }
+.guess { margin-top: 12px; font: 500 34px/1 var(--sans); }
+
+.file-btn { position: relative; overflow: hidden; }
+.file-btn input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+
+.notice { font: 13px/1.6 var(--mono); }
+.notice code { background: var(--accent-soft); padding: 2px 5px; }
+
+/* ------------------------------------------------------------------
+   Small screens: one sheet, stacked cells
+   ------------------------------------------------------------------ */
+/* ------------------------------------------------------------------
+   Case-study pages (layout "case")
+   ------------------------------------------------------------------ */
+/* compact header: the demo preview below it must show on arrival, even at 1280 x 720 */
+.case-head h1 { font-size: clamp(24px, calc(var(--u) * 0.46), 34px); line-height: 1.04; max-width: 26ch; }
+.case-head .lede { font-size: 14.5px; line-height: 1.42; max-width: none; margin-top: 0.4em; }
+.case-tags { margin: 0.5em 0 0; font: 600 12px/1.5 var(--mono); color: var(--accent); }
+.case-access { margin: 0.3em 0 0.25em; font-size: 13px; line-height: 1.4; }
+.case-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.case-intro .lede { margin-top: 0; }
+.case-actions .btn { text-decoration: none; display: inline-block; padding: 6px 10px; }
+/* header with more air between its lines ("class": "case-head-airy" in page.json) */
+.case-head-airy { display: flex; flex-direction: column; justify-content: space-between; }   /* lines spread over the cell */
+.case-head-airy > * { margin-top: 0; margin-bottom: 0; }
+.case-head-airy .case-badge { align-self: flex-start; }
+.case-actions .case-demo { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.case-actions .case-demo:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+
+.case-hint p { margin: 0; font-size: 14.5px; line-height: 1.45; }
+.case-hint .caption { margin-top: 2px; }
+.case-hint.in-preview { width: min(100%, 720px); margin: 12px auto 0; }   /* under the video, aligned with it */
+.case-report-cell .case-thumb { width: min(100%, 200px); }
+
+.case-h3 { margin: 0.1em 0 0.45em; font-size: 19px; line-height: 1.2; }
+.case-list ul { margin: 0; padding-left: 1.1em; }
+.case-list li { margin: 0 0 0.5em; }
+.case-small, .case-small p { font-size: 13.5px; line-height: 1.45; margin: 0 0 0.6em; }
+.case-small a { color: var(--accent); }
+
+.case-formula { overflow-x: auto; overflow-y: hidden; padding: 4px 0; }
+.case-formula .katex-display { margin: 0.4em 0; }
+/* a formula wider than its cell scrolls; keep a thin scrollbar visible so that it shows */
+.case-formula.scrolls { scrollbar-width: thin; scrollbar-color: var(--muted) transparent; padding-bottom: 6px; }
+.case-formula.scrolls::-webkit-scrollbar { height: 5px; }
+.case-formula.scrolls::-webkit-scrollbar-thumb { background: var(--muted); }
+.case-formula.scrolls::-webkit-scrollbar-track { background: transparent; }
+.case-math .caption { margin-top: 6px; }
+code.tex { font: 12px/1.5 var(--mono); white-space: pre-wrap; }
+
+.case-thumb { display: block; width: min(100%, 220px); margin: 2px 0 8px; }
+.case-thumb img { display: block; width: 100%; border: 1px solid var(--ink); }
+.case-thumb:hover img, .case-thumb:focus-visible img { border-color: var(--accent); }
+.case-report { margin: 0 0 6px; font-size: 14px; line-height: 1.4; }
+.case-report .muted { font: 12px/1.5 var(--mono); }
+.case-more { margin: 10px 0 12px; }
+
+/* result badge under the lede (e.g. a ranking): framed, monospace, no background */
+.case-badge { display: inline-block; margin: 0.55em 0 0.2em; padding: 2px 7px; font: 12px/1.5 var(--mono); color: var(--ink); border: 1px solid var(--ink); }
+/* list labelled (a), (b)... */
+.letter-list { list-style: none; margin: 0; padding: 0; }
+.letter-list li { display: grid; grid-template-columns: 3.2ch 1fr; margin: 0 0 0.55em; }
+.letter-list li > span { font-family: var(--mono); font-size: 0.92em; }
+
+/* steps ("class": "case-steps" on a block): the numbered list in a row; stacked on phones */
+.case-steps ol { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 28px; margin: 0.9em 0 0; padding: 0; list-style: none; counter-reset: step; max-width: none; }
+.case-steps ol li { counter-increment: step; margin: 0; padding-top: 8px; border-top: 1px solid var(--ink); }
+.case-steps ol li > strong:first-child { display: block; margin-bottom: 2px; }
+.case-steps ol li::before { content: counter(step); display: block; margin-bottom: 4px; font: 500 12px/1.4 var(--mono); color: var(--accent); }
+.case-steps .prose { max-width: none; }
+.case-steps .prose > p { max-width: 68ch; }
+@media (max-width: 959px) {
+  .case-steps ol { grid-template-columns: 1fr; gap: 14px; }
+}
+
+.prose p.caption { margin-top: 0.8em; font: 12px/1.45 var(--mono); color: var(--muted); }   /* caption written inside a text */
+
+/* documents side by side */
+/* the report in its own cell: thumbnail, title and link centred */
+.case-docs-cell { display: flex; flex-direction: column; }
+.case-docs-cell .case-docs { flex: 1 0 auto; align-self: stretch; width: 100%; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); justify-items: center; text-align: center; margin: 0 auto; }
+.case-docs-cell .case-doc { display: flex; flex-direction: column; align-items: center; }
+.case-docs-cell .case-thumb { margin: 2px auto 0; }
+/* title and subtitle with room around them; the links grouped near the bottom */
+.case-docs-cell .case-report { margin: 18px 0 0; font-size: 15px; line-height: 1.45; }
+.case-docs-cell .case-report .muted { display: inline-block; margin-top: 6px; }
+.case-docs-cell .case-doc .links { margin-top: auto; padding-top: 22px; }
+.case-docs-cell .links li { margin: 0 0 2px; }
+.case-docs-cell .case-doc-links { margin-top: 0; text-align: center; }
+.case-docs { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px 32px; max-width: 640px; }
+.case-doc-links { margin-top: 10px; }
+
+/* pipeline diagram */
+.pipe-wrap { overflow-x: auto; margin: 6px 0 12px; }
+.pipe { display: block; width: 100%; height: auto; min-width: 640px; max-width: 1040px; }
+.pipe-box rect { fill: var(--bg); stroke: var(--ink); stroke-width: 1; }
+.pipe-box.accent rect { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2; }
+.pipe-n { font: 11px var(--mono); fill: var(--muted); }
+.pipe-box.accent .pipe-n { fill: var(--accent); }
+.pipe-name { font: 500 14px var(--sans); fill: var(--ink); }
+.pipe-sub { font: 11.5px var(--mono); fill: var(--muted); }
+.pipe-edge { fill: none; stroke: var(--ink); stroke-width: 1.2; }
+.pipe-edge.dashed { stroke-dasharray: 5 4; stroke: var(--muted); }
+.pipe-head { fill: var(--ink); }
+.pipe-label { font: 11px var(--mono); fill: var(--muted); }
+/* authorship styles: filled = my work, thick accent outline = shared, plain = team */
+.pipe-box.filled rect { fill: var(--accent); stroke: var(--accent); stroke-width: 1; }
+.pipe-box.filled text { fill: var(--bg); }
+.pipe-box.outline rect { fill: var(--bg); stroke: var(--accent); stroke-width: 3; }
+.pipe-below { margin: 0 0 4px; font: 12.5px/1.5 var(--mono); color: var(--ink); }
+.pipe-caption { margin: 0 0 12px; }
+
+/* case pages: a text block with an image beside it ("blocks" with "image") */
+.case-block-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 280px); gap: 24px; align-items: start; }
+.case-block-fig { margin: 0; }
+.case-block-fig img { display: block; width: 100%; height: auto; border: 1px solid var(--ink); }
+.case-block-fig figcaption { margin-top: 6px; }
+
+/* case pages: decisions folded until the reader opens them */
+/* link at the bottom of a block that shows or hides the details block under it ("toggleIn") */
+.case-toggle {
+  display: inline-block; margin: 14px 0 0; padding: 4px 0; border: 0; background: none; cursor: pointer;
+  font: 13px/1.5 var(--mono); color: var(--accent); text-align: left;
+}
+.case-toggle:hover, .case-toggle:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+.case-fold > summary {
+  display: inline-block; cursor: pointer; list-style: none;
+  font: 13px/1.5 var(--mono); color: var(--ink); padding: 4px 0;
+}
+.case-fold > summary::-webkit-details-marker { display: none; }
+.case-fold > summary:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.case-fold[open] > summary { margin-bottom: 10px; }
+
+/* case pages: several decisions as sub-blocks of one full-width block ("decisions:group") */
+.case-subs { display: grid; gap: 14px; margin-top: 4px; }
+.case-sub { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 6fr); border: 1px solid var(--ink); }
+.case-sub-text, .case-sub-math { padding: 12px 14px; min-width: 0; }
+.case-sub-math { border-left: 1px solid var(--ink); }
+.case-sub .k { margin-bottom: 0.25em; }
+/* "relief": the text and the math as two raised cards inside the big block */
+.case-group.relief .case-subs { margin-top: 2px; }
+.case-group.relief .case-sub { gap: 22px; border: 0; padding: 0 6px 6px 0; }
+.case-group.wide-text .case-sub { grid-template-columns: minmax(0, 8fr) minmax(0, 5fr); }   /* "wideText": more room for the text */
+.case-group.relief .case-sub-text, .case-group.relief .case-sub-math {
+  border: 1px solid var(--ink); background: var(--bg); box-shadow: 5px 5px 0 var(--ink); padding: 10px 16px;
+}
+
+/* case pages: static figure (key result) instead of a demo preview */
+.case-panels { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 4px 0 8px; }
+.case-panels figure { margin: 0; }
+.case-panels img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+.case-panels figcaption { margin-top: 4px; font: 12px/1.4 var(--mono); color: var(--ink); text-align: center; }
+
+@media (max-width: 959px) {
+  .case-block-body { grid-template-columns: minmax(0, 1fr); }
+  .case-block-fig { max-width: 320px; }
+  .case-sub { grid-template-columns: minmax(0, 1fr); }
+  .case-sub-math { border-left: 0; border-top: 1px solid var(--ink); }
+  .case-group.relief .case-sub, .case-group.wide-text .case-sub { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .case-group.relief .case-sub-math { border-top: 1px solid var(--ink); }
+  .case-panels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .page { grid-template-columns: 1fr; width: 100%; margin-left: 0; }
+  aside {
+    position: static;
+    height: auto;
+    grid-template-columns: repeat(10, var(--u));
+    overflow: visible;
+  }
+  main { grid-template-columns: repeat(10, var(--u)); min-height: 0; }
+  .menu-toggle {
+    display: flex; justify-content: space-between; align-items: center; width: 100%;
+    font: 13px/1 var(--mono); color: var(--ink); background: none; border: none; padding: 0; cursor: pointer;
+  }
+  .menu .tree { margin-top: 10px; }
+  .menu:not(.open) .tree { display: none; }
+  .dd { grid-template-columns: 1fr; }
+  .cell.id .name { font-size: calc(var(--u) * 0.66); }
+  .lede { font-size: 17px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

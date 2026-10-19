@@ -1,0 +1,1 @@
+In June 2025 and June 2026, I was a colleur in mathematics at Collège Stanislas, in the PC* and PCSI classes I had attended myself from 2022 to 2024. A colle is an oral exam at the board in the French preparatory classes: students solve exercises while the examiner questions their reasoning. I examined about fifty students, two to four hours a week.

@@ -1,0 +1,1 @@
+Outside work, I love music, cinema, literature, art and design. A good album on repeat, a film that stays with me for days, a novel I can't put down, an exhibition that changes how I look at a street: that is where I recharge. Design in particular follows me everywhere, from posters and visuals for student events to the small details of this site.

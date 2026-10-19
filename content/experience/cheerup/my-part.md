@@ -1,0 +1,3 @@
+- **Communication.** I developed communication strategies for the association's fundraising events.
+- **Art direction.** For the events, I created original visuals, posters, Instagram posts and videos.
+- **Partnerships.** I built relationships with partner companies: Spie Batignolles and EDF.

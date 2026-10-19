@@ -1,0 +1,3 @@
+- **Solution architecture.** I conceptualized the whole solution in detail. The tool itself was designed, not built: implementation was to follow the funding.
+- **Pitch and approvals.** During a trip to Mali, I defended the project before ministers and investors, to secure the authorities' approval and funding. The concept was approved by the Ministers of Digital Economy and of Employment.
+- **Partnerships.** I took part in opening relations with the Mali Center for AI and Robotics (CIAR) and in forming a consortium with it and the NGO AgriCap.

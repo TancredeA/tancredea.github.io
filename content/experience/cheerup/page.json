@@ -1,0 +1,52 @@
+{
+  "about": "Experience page (layout \"role\" in site.json). Texts live here and in the .md files next to this one; js/app.js (roleBands) only lays them out: header and facts, then bands of a main block with an optional box, then an optional note. A block left out takes no cell. With \"entries\", the page gathers several engagements of the same kind: one big block each (tag, title, subtitle, tags, facts, blocks); add an entry to add a block.",
+  "header": {
+    "label": "experience",
+    "title": "Volunteer work",
+    "subtitle": "Student associations I have volunteered with."
+  },
+  "entries": [
+    {
+      "tag": "Oct 2024 – Feb 2026",
+      "title": "CheerUp! CentraleSupélec",
+      "subtitle": "Volunteer · student association",
+      "tags": [
+        "Volunteering",
+        "Communication",
+        "Art direction",
+        "Partnerships"
+      ],
+      "facts": {
+        "label": "facts",
+        "rows": [
+          [
+            "type",
+            "volunteer work"
+          ],
+          [
+            "period",
+            "Oct 2024 – Feb 2026"
+          ],
+          [
+            "place",
+            "CentraleSupélec, Paris area"
+          ],
+          [
+            "partners",
+            "Spie Batignolles, EDF"
+          ]
+        ]
+      },
+      "blocks": [
+        {
+          "label": "what we do",
+          "md": "what-we-do.md"
+        },
+        {
+          "label": "my part",
+          "md": "my-part.md"
+        }
+      ]
+    }
+  ]
+}

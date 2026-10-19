@@ -1,0 +1,4 @@
+- **Solution architecture**: split the problem into surrogate modeling, active learning and path search, and designed the end-to-end workflow before implementation.
+- **Problem formulation**: the objective function (cumulative damage plus turn penalty), its nondimensionalization, and the damage scoring.
+- **HPC pipeline**: contributed to its implementation on the partner's cluster.
+- **Coordination** of the team and of the strategic choices on the overall approach.

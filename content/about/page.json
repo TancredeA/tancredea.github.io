@@ -1,0 +1,123 @@
+{
+  "about": "About page (layout \"role\" in site.json, a single page without children). Texts live here and in the .md files next to this one. Links written \"#/section/page\" in a .md file point to pages of the site, and stay plain text while the page does not exist. The CV button only shows once assets/cv.pdf exists.",
+  "header": {
+    "label": "about",
+    "title": "About",
+    "subtitle": "Engineering student at CentraleSupélec, working where mathematics meets deployed machine learning.",
+    "buttons": [
+      {
+        "label": "↓ Download CV",
+        "href": "assets/cv.pdf",
+        "download": true,
+        "ifExists": true
+      }
+    ]
+  },
+  "facts": {
+    "label": "facts",
+    "rows": [
+      [
+        "now",
+        "AI/ML engineer, Dassault Systèmes K.K."
+      ],
+      [
+        "based",
+        "Tokyo, Japan (2026–27) · Paris, France"
+      ],
+      [
+        "school",
+        "CentraleSupélec"
+      ],
+      [
+        "languages",
+        "French, English, Spanish"
+      ]
+    ]
+  },
+  "bands": [
+    {
+      "main": {
+        "id": "who",
+        "label": "who I am",
+        "md": "who-i-am.md"
+      },
+      "aside": {
+        "id": "interests",
+        "label": "research interests",
+        "md": "research-interests.md"
+      }
+    },
+    {
+      "main": {
+        "label": "education",
+        "md": "education.md"
+      },
+      "aside": {
+        "label": "coursework",
+        "rows": [
+          [
+            "probability & statistics",
+            "probability, statistics, machine learning"
+          ],
+          [
+            "optimization & analysis",
+            "optimization, PDEs"
+          ],
+          [
+            "information & quantum",
+            "information theory, quantum physics and computing"
+          ],
+          [
+            "computing",
+            "algorithms, HPC, cloud"
+          ]
+        ],
+        "stacked": true
+      }
+    },
+    {
+      "main": {
+        "id": "next",
+        "label": "what's next",
+        "md": "whats-next.md"
+      }
+    },
+    {
+      "main": {
+        "label": "languages & tools",
+        "full": true,
+        "rows": [
+          [
+            "languages",
+            "French (native) · English (bilingual, C1/C2) · Spanish (B2, DELE)"
+          ],
+          [
+            "Python",
+            "pandas, NumPy, SciPy, scikit-learn, mpi4py, PyVista"
+          ],
+          [
+            "HPC & systems",
+            "OpenMP/MPI, SLURM, Linux CLI, Git, Docker"
+          ],
+          [
+            "basics",
+            "C++, JavaScript, CSS, HTML"
+          ]
+        ]
+      }
+    },
+    {
+      "main": {
+        "label": "beyond work",
+        "md": "beyond-work.md"
+      }
+    }
+  ],
+  "phoneOrder": [
+    "header",
+    "who",
+    "interests",
+    "next",
+    "facts"
+  ]
+}

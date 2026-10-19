@@ -1,0 +1,151 @@
+{
+  "about": "Case-study page (layout \"case\" in site.json). The page tells the tournament and the problem (format taken from tfjm.org), one example of reasoning from our report (Theorem 1.2), and what I learnt. Formulas use LaTeX (KaTeX): in .md files between $...$ or $$...$$, here in the \"formula\" fields (a list = lines set one under the other; no dollars, backslashes doubled because this is JSON). The French report is hidden (\"hidden\": true) until write-up-fr.pdf and report-fr-p1.png are in this folder.",
+  "arrangement": [
+    [
+      "header>tournament>problem",
+      "facts>debate"
+    ],
+    [
+      "steps:full"
+    ],
+    [
+      "decisions:group"
+    ],
+    [
+      "takeaways:0-7",
+      "documents:9-13"
+    ]
+  ],
+  "factsAfter": "problem",
+  "header": {
+    "label": "research",
+    "title": "TFJM² 2022: The Confined Professor",
+    "lede": "A research tournament for high-school students: months on an open problem, then a debate in front of a jury. My first experience of research.",
+    "badge": "3rd · regional tournament",
+    "tags": [
+      "Research tournament",
+      "Combinatorics",
+      "Proof",
+      "Debate"
+    ],
+    "buttons": [
+      {
+        "label": "↗ Read the write-up (English)",
+        "file": "write-up-en.pdf"
+      },
+      {
+        "label": "↗ Original report (French)",
+        "file": "write-up-fr.pdf",
+        "hidden": true
+      },
+      {
+        "label": "↗ TFJM² (Animath)",
+        "href": "https://tfjm.org/"
+      }
+    ],
+    "class": "case-head-airy"
+  },
+  "facts": {
+    "label": "facts",
+    "rows": [
+      [
+        "event",
+        "TFJM² 2022, Tournoi Français des Jeunes Mathématiciennes et Mathématiciens (Animath)"
+      ],
+      [
+        "problem",
+        "Problem 3, *Professeur confiné*"
+      ],
+      [
+        "team",
+        "SLG — Duo: Tancrède Amiel, Luigi de Alfaro"
+      ],
+      [
+        "level",
+        "high school"
+      ],
+      [
+        "duration",
+        "Jan. – June 2022"
+      ],
+      [
+        "result",
+        "3rd, regional tournament"
+      ]
+    ]
+  },
+  "blocks": {
+    "tournament": {
+      "label": "the tournament",
+      "md": "tournament.md"
+    },
+    "problem": {
+      "label": "the problem",
+      "md": "problem.md"
+    },
+    "debate": {
+      "label": "the debates",
+      "md": "debate.md",
+      "list": true
+    },
+    "steps": {
+      "label": "our year, from research to debate",
+      "md": "steps.md",
+      "class": "case-steps"
+    },
+    "takeaways": {
+      "label": "what it taught me",
+      "md": "takeaways.md",
+      "list": true
+    }
+  },
+  "decisions": [
+    {
+      "title": "One bit per answer",
+      "md": "reasoning-1.md",
+      "formula": [
+        "k = \\lfloor \\log_2(n!) \\rfloor + 1",
+        "\\\\[6pt]",
+        "n = 3:\\quad \\begin{array}{c|c} \\text{plan} & \\text{number in base 2} \\\\ \\hline 123 & 000 \\\\ 132 & 001 \\\\ 213 & 010 \\\\ 231 & 011 \\\\ 312 & 100 \\\\ 321 & 101 \\end{array}"
+      ],
+      "caption": "For n = 3, the 3! = 6 plans fit on 3 bits: ⌊log₂ 6⌋ + 1 = 3 questions. For n ≥ 3, n! is divisible by 3, so it is never a power of 2: hence the + 1."
+    }
+  ],
+  "decisionLabels": {
+    "text": "reasoning",
+    "math": "math"
+  },
+  "resources": {
+    "label": "resources",
+    "documents": [
+      {
+        "file": "write-up-en.pdf",
+        "thumb": "report-en-p1.png",
+        "title": "Problem 3: The Confined Professor",
+        "meta": "English adapted version, 21 pp., May 2022",
+        "readAndDownload": true,
+        "readLabel": "↗ read the report"
+      },
+      {
+        "file": "write-up-fr.pdf",
+        "thumb": "report-fr-p1.png",
+        "title": "Problème 3 : Professeur confiné",
+        "meta": "original French report, 29 pp., May 2022",
+        "hidden": true,
+        "readAndDownload": true,
+        "readLabel": "↗ read the report"
+      }
+    ],
+    "links": [
+      {
+        "label": "↗ TFJM² (Animath)",
+        "href": "https://tfjm.org/"
+      }
+    ]
+  },
+  "decisionGroup": {
+    "label": "an example of reasoning",
+    "relief": true,
+    "wideText": true
+  }
+}

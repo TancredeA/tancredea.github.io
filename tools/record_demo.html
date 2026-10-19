@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Record the demo</title>
+<!-- Served by tools/record_demo.py, which receives the frames and runs ffmpeg.
+     The demo runs in the iframe; its requestAnimationFrame is replaced by a virtual clock,
+     so the video has exactly `fps` frames per second of playback whatever the machine,
+     and time does not advance while the workers compute. -->
+<style>
+  body { margin: 16px; font: 13px/1.5 monospace; background: #FBFAF7; color: #333539; }
+  iframe { width: 1100px; height: 820px; border: 1px solid #333539; display: block; margin-top: 10px; pointer-events: none; }  /* no hover box in the video */
+</style>
+</head>
+<body>
+<p id="log">loading the demo…</p>
+<iframe id="demo"></iframe>
+<script>
+(async () => {
+  const P = new URLSearchParams(location.search);
+  const seed = P.get('seed') || '19', speed = P.get('speed') || '2';
+  const fps = +(P.get('fps') || 30), size = +(P.get('size') || 720), tail = 2.5;   // seconds held on the result
+  const log = t => { document.getElementById('log').textContent = t; };
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const frame = document.getElementById('demo');
+  frame.src = `../demo/?seed=${seed}&theme=light`;
+  await new Promise(r => frame.addEventListener('load', r, { once: true }));
+  const w = frame.contentWindow, d = w.document;
+  // wait for the scene, the danger map and the solver calibration
+  while (d.getElementById('stepTitle').textContent === 'Loading…' || !d.getElementById('busy').hidden) await sleep(100);
+  await sleep(300);
+
+  await fetch('/__reset', { method: 'POST' });
+  const queue = [];
+  w.requestAnimationFrame = cb => { queue.push(cb); return queue.length; };
+  d.querySelector(`[data-speed="${speed}"]`).click();
+  d.getElementById('play').click();                  // starts from the suggested spot
+
+  const map = d.getElementById('map');
+  const rec = document.createElement('canvas');
+  rec.width = rec.height = size;
+  const ctx = rec.getContext('2d');
+  let t = w.performance.now(), n = 0, after = -1;
+  const send = async () => {
+    ctx.fillStyle = '#FBFAF7'; ctx.fillRect(0, 0, size, size);
+    ctx.drawImage(map, 0, 0, size, size);
+    const blob = await new Promise(r => rec.toBlob(r, 'image/jpeg', 0.92));
+    await fetch(`/__frame?n=${n}`, { method: 'POST', body: blob });
+    n++;
+  };
+  for (;;) {
+    if (w.__demoRun && after < 0) after = n;
+    if (after >= 0 && n - after >= tail * fps) break;
+    if (!queue.length && after < 0) { await sleep(20); continue; }   // workers computing: time stands still
+    t += 1000 / fps;
+    for (const cb of queue.splice(0)) cb(t);
+    for (const cb of queue.splice(0)) cb(t);                       // the redraws those updates asked for
+    await send();
+    if (n % 30 === 0) log(`frame ${n} · ${d.getElementById('stepNo').textContent} · ${d.getElementById('stepTitle').textContent}`);
+  }
+  log(`${n} frames, assembling the video…`);
+  const r = await (await fetch('/__done', { method: 'POST', body: JSON.stringify({ fps, last: n - 1 }) })).json();
+  log('done: ' + JSON.stringify(r));
+  window.__recordDone = r;
+})();
+</script>
+</body>
+</html>

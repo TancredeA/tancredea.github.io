@@ -1,0 +1,130 @@
+{
+  "about": "Case-study page (layout \"case\" in site.json). Text lives here and in the .md files next to this one; js/app.js only lays it out. Formulas use LaTeX (KaTeX): in .md files between $...$ or $$...$$, here in the \"formula\" fields (no dollars, backslashes doubled because this is JSON).",
+
+  "arrangement": [
+    ["header", "facts"],
+    ["preview"],
+    ["hint"],
+    ["overview:full"],
+    ["role:full"],
+    ["decisions:group"],
+    ["limits", "report"],
+    ["credits", "related"]
+  ],
+
+  "blocks": {
+    "overview": { "label": "the project", "md": "overview.md", "list": true }
+  },
+
+  "decisionGroup": { "label": "the decisions in detail", "toggleIn": "role", "relief": true, "open": "↓ the decisions in detail, with their math", "close": "↑ hide the decisions in detail" },
+
+  "header": {
+    "label": "projects",
+    "title": "Routing an Unexploded Device at Minimum Expected Damage",
+    "lede": "Moving a device that may detonate across a built-up area, along the route that minimizes expected damage to the surrounding buildings, with a handful of expensive blast simulations instead of thousands.",
+    "tags": ["Bayesian optimization", "Gaussian processes", "Path planning", "HPC"],
+    "access": "↓ The animation below is a preview: click it to open the interactive demo.",
+    "demoButton": "▶ Open the interactive demo",
+    "reportButton": "↗ Read the report",
+    "codeButton": "↗ Code"
+  },
+
+  "facts": {
+    "label": "facts",
+    "compact": true,
+    "rows": [
+      ["with", "CEA-DAM"],
+      ["course", "CentraleSupélec ST7, HPC optimization"],
+      ["period", "Feb–Apr 2026"],
+      ["team", "6 students (credits below)"],
+      ["grade", "19/20"],
+      ["stack", "Python, NumPy/SciPy, scikit-learn, mpi4py, SLURM, PyVista"]
+    ],
+    "note": "To keep the demo preview in view on arrival, status sits under resources (resources.more)."
+  },
+
+  "hint": {
+    "inPreview": true,
+    "text": "↑ Click the animation to run the demo yourself. Choose where the device was found, then watch the simulations run one by one, the uncertainty fall and the route settle.",
+    "caption": "Toy reimplementation on a synthetic scene: same method as the project, none of its data."
+  },
+
+  "summary": { "label": "summary", "md": "summary.md" },
+  "role": { "label": "my part", "md": "role.md" },
+
+  "how": {
+    "label": "how it works",
+    "md": "how.md",
+    "diagram": {
+      "modules": [
+        { "n": "00", "name": "Scene", "sub": "geometry, terrain", "col": 0, "row": 0 },
+        { "n": "01", "name": "Nodes", "sub": "grid, validity", "col": 1, "row": 0 },
+        { "n": "02", "name": "KB surrogate", "sub": "prior map", "col": 2, "row": 0 },
+        { "n": "03", "name": "Gaussian process", "sub": "residual + acquisition", "col": 3, "row": 0 },
+        { "n": "04", "name": "ARMEN simulation", "sub": "HPC batch jobs", "col": 3, "row": 1, "accent": true },
+        { "n": "05", "name": "Path search", "sub": "Δ-stepping / A*", "col": 4, "row": 0 }
+      ],
+      "edges": [
+        { "from": "00", "to": "01" },
+        { "from": "01", "to": "02" },
+        { "from": "02", "to": "03" },
+        { "from": "03", "to": "05" },
+        { "from": "03", "to": "04", "label": "next point" },
+        { "from": "04", "to": "03", "label": "observation" },
+        { "from": "05", "to": "04", "label": "corridor (2D)", "dashed": true }
+      ]
+    }
+  },
+
+  "decisions": [
+    {
+      "title": "What \"safest\" means",
+      "md": "decision-1.md",
+      "formula": "\\mathbb{E}[D(\\gamma)] = \\int_0^L \\lambda e^{-\\lambda s}\\, S(\\gamma(s))\\,ds = \\lambda \\int_0^L S(\\gamma(s))\\,ds + R,\\qquad |R| \\le \\tfrac12 \\lambda^2 L^2 \\max S",
+      "caption": "S(x): criticality-weighted damage if the device detonates at x. First order in λL ≪ 1."
+    },
+    {
+      "title": "Learn the correction, not the field",
+      "md": "decision-2.md",
+      "formula": "r(x) = f_{\\text{ARMEN}}(x) - f_{\\text{KB}}(x),\\quad r \\sim \\mathcal{GP}(0, k),\\quad \\mu_{\\text{post}}(x) = f_{\\text{KB}}(x) + \\bar r(x)",
+      "caption": "k: Matérn 5/2 kernel in 2D, hyperparameters by maximum marginal likelihood."
+    },
+    {
+      "title": "Simulate where the route is uncertain",
+      "md": "decision-3.md",
+      "formula": "\\sigma_{\\text{cum,rel}} = \\frac{\\sum_{c\\in\\mathcal C}\\sigma(c)}{\\sum_{c\\in\\mathcal C}\\mu(c)} < 0.05",
+      "caption": "Since sd(Σ f(c)) ≤ Σ σ(c), this bounds the relative standard deviation of the corridor's total danger from above: the rule is conservative."
+    },
+    {
+      "title": "An exact search that sees turns",
+      "md": "decision-4.md",
+      "formula": "h(v) = w_{\\min}\\,\\lVert v_{xy} - B_{xy}\\rVert_2,\\qquad C(u,v) \\ge h(u) - h(v) \\;\\Rightarrow\\; \\text{A* optimal on } 22\\,500 \\text{ states}"
+    }
+  ],
+  "decisionLabels": { "text": "decision", "math": "math" },
+
+  "limits": { "label": "limits and lessons", "md": "limits.md" },
+
+  "resources": {
+    "label": "resources",
+    "report": {
+      "file": "report.pdf",
+      "thumb": "report-p1.png",
+      "title": "Optimal Routing under Blast-Exposure Constraints",
+      "meta": "public version, 27 pp., about 30 min",
+      "readAndDownload": true,
+      "readLabel": "↗ read pdf"
+    },
+    "more": [
+      ["status", "completed, public version"]
+    ],
+    "repo": "",
+    "repoLabel": "↗ Public reimplementation (not the original code)",
+    "credits": { "label": "credits", "md": "credits.md" },
+    "related": {
+      "label": "related",
+      "page": "projects/absorber-placement",
+      "text": "Concert hall absorbers (ST5): acoustics is the linearization of the same Euler equations, at a single frequency."
+    }
+  }
+}

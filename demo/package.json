@@ -1,0 +1,9 @@
+{
+  "name": "blast-route-demo",
+  "private": true,
+  "type": "module",
+  "description": "Only here so that `node --test` treats the .js files as ES modules. No dependencies.",
+  "scripts": {
+    "test": "node --test tests/"
+  }
+}

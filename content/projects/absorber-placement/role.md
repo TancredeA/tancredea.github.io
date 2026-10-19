@@ -1,0 +1,4 @@
+- **Source model** (with Hugues de Ruffray): directivity that sharpens with frequency, spectral spreading and harmonics, checked against a second chord.
+- **Well-posedness** (with Paul Blanc): functional framework, lifting of the source, existence and uniqueness with an absorbing wall.
+- **Adjoint gradient** (with Paul Blanc): the formula used by the team's optimizer.
+- **Open-air extension** (with Paul Blanc): a new radiation condition, the same gradient.

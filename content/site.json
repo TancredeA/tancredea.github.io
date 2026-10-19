@@ -1,0 +1,246 @@
+{
+  "baseUrl": "https://<handle>.github.io",
+
+  "owner": {
+    "name": ["Tancrède", "Amiel"],
+    "role": "applied maths / machine learning",
+    "photo": null,
+    "cv": "assets/placeholder.pdf",
+    "contact": [
+      { "label": "mail", "emails": ["amieltancrede@gmail.com", "tancrede.amiel@student-cs.fr"] },
+      { "label": "↗ read cv", "href": "assets/placeholder.pdf", "openAndDownload": true },
+      { "label": "↗ github", "href": "https://github.com/your-handle", "group": "profiles" },
+      { "label": "↗ linkedin", "href": "https://www.linkedin.com/in/tancrede-amiel-aa5264291/", "group": "profiles" }
+    ]
+  },
+
+  "home": {
+    "headline": "Applied mathematics, turned into working models.",
+    "lede": "CentraleSupélec engineering student in data science and AI. I like problems where a clean formulation decides whether the code works at all.",
+    "now": "AI/ML engineering intern at Dassault Systèmes K.K., Tokyo, until February 2027. Applying for master's programmes starting in 2027.",
+    "latest": null,
+    "pinned": ["projects/blast-routing", "projects/digits", "projects/media-tool"],
+    "benchFallback": "Nothing marked as in progress. Set \"status\": \"wip\" on a page to show it here."
+  },
+
+  "sections": [
+    {
+      "id": "about",
+      "title": "about",
+      "layout": "role",
+      "page": "page.json",
+      "metaTitle": "About · Tancrède Amiel",
+      "metaDescription": "Engineering student at CentraleSupélec and AI/ML engineer at Dassault Systèmes K.K., working where mathematics meets deployed machine learning."
+    },
+    {
+      "id": "projects",
+      "title": "projects",
+      "intro": "Engineering and research projects. The ones marked ▶ have a live demo: each runs a simplified version of the idea in your browser, and the full write-up sits below it.",
+      "children": [
+        {
+          "id": "blast-routing",
+          "aliases": ["pipeline-3d"],
+          "title": "Blast-aware routing",
+          "subtitle": "Routing an unexploded device at minimum expected damage, with the CEA-DAM",
+          "summary": "A device that may detonate, routed at minimum expected damage with 19 simulations out of 10,000 candidates.",
+          "tags": ["Bayesian optimization", "Gaussian processes", "Path planning", "HPC"],
+          "layout": "case",
+          "page": "page.json",
+          "metaTitle": "Routing an Unexploded Device at Minimum Expected Damage · Tancrède Amiel",
+          "metaDescription": "Gaussian-process active learning and graph search route a device at minimum expected damage with 19 blast simulations instead of 10,000. CEA-DAM project.",
+          "ogImage": "content/projects/blast-routing/og.png",
+          "kind": "academic",
+          "period": "Feb–Apr 2026",
+          "partner": "CEA-DAM",
+          "updated": "2026-10-15",
+          "pdf": "content/projects/blast-routing/report.pdf",
+          "repo": "",
+          "demo": "path",
+          "caption": "a few simulations, spent where they change the route",
+          "demoNote": "toy model: synthetic scene, 2D acoustic solver instead of the CEA-DAM code",
+          "video": "assets/video/pipeline-3d.mp4",
+          "poster": "assets/video/pipeline-3d.jpg",
+          "liveSeed": 19,
+          "videoCaption": "A recording of one run (seed 19). The live version runs the whole pipeline in your browser: you choose where the device was found.",
+          "liveLede": "The full pipeline, running in your browser: choose where the device was found, then watch the cheap estimate, the simulations and the route search.",
+          "date": null,
+          "status": "done"
+        },
+        {
+          "id": "digits",
+          "kind": "TODO",
+          "title": "digits",
+          "subtitle": "Handwritten digit recognition with a tensor-network classifier",
+          "summary": "Classifying handwritten digits with a matrix product state instead of a dense network.",
+          "bench": "Tensor-network (MPS) classifier on handwritten digits. TODO: where it stands, next step.",
+          "layout": "lab",
+          "demo": "digits",
+          "caption": "a stroke in, ten probabilities out",
+          "demoNote": "placeholder model while the MPS classifier is in progress",
+          "role": "solo",
+          "period": "2026",
+          "stack": ["Python", "NumPy"],
+          "links": [],
+          "status": "wip"
+        },
+        {
+          "id": "media-tool",
+          "kind": "TODO",
+          "title": "media tool",
+          "subtitle": "Photo and video processing software",
+          "summary": "TODO: one line on what the tool does.",
+          "layout": "lab",
+          "demo": "media",
+          "caption": "original frame against processed output",
+          "demoNote": "browser re-implementation of a few filters",
+          "role": "TODO",
+          "period": "TODO",
+          "date": null,
+          "stack": ["TODO"],
+          "links": [],
+          "pdf": null,
+          "status": "done"
+        },
+        {
+          "id": "autogear",
+          "title": "Autogear",
+          "subtitle": "A smart bicycle derailleur",
+          "summary": "How we reasoned about automatic gear shifting, and where models entered the loop.",
+          "layout": "article",
+          "role": "TODO",
+          "team": "TODO",
+          "period": "TODO",
+          "date": null,
+          "stack": ["TODO"],
+          "links": [],
+          "pdf": "assets/placeholder.pdf",
+          "status": "done"
+        },
+        {
+          "id": "absorber-placement",
+          "aliases": ["acoustics"],
+          "title": "Concert hall absorbers",
+          "subtitle": "Optimal placement of absorbing material in a concert hall",
+          "summary": "Where to put a fixed amount of porous material: Helmholtz model, well-posedness and adjoint gradient.",
+          "tags": ["Helmholtz equation", "PDE analysis", "Adjoint optimization", "Architectural acoustics"],
+          "layout": "case",
+          "page": "page.json",
+          "kind": "academic",
+          "period": "Nov 2025",
+          "metaTitle": "Optimal Placement of Absorbing Material in a Concert Hall · Tancrède Amiel",
+          "metaDescription": "Helmholtz model, well-posedness proof and adjoint gradient to place porous material on concert-hall walls. CentraleSupélec ST5; my part: source model and theory.",
+          "ogImage": "content/projects/absorber-placement/og.png",
+          "cover": "concertgebouw.jpg",
+          "coverAlt": "The main hall of the Concertgebouw in Amsterdam during a concert",
+          "updated": "2026-10-15",
+          "pdf": "content/projects/absorber-placement/report.pdf",
+          "repo": "",
+          "date": null,
+          "status": "done"
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "title": "research",
+      "intro": "TODO: two or three sentences on the questions that interest you (tensor networks for learning, applied probability, ...). This section will host the research internship once it starts.",
+      "children": [
+        {
+          "id": "vtnn-notes",
+          "title": "reading notes: VTNN",
+          "subtitle": "Variational tensor neural networks, read closely",
+          "summary": "My analysis of R. Orús and co-authors' paper on variational tensor neural networks.",
+          "layout": "document",
+          "role": "solo",
+          "period": "TODO",
+          "date": null,
+          "links": [{ "label": "original paper", "href": "https://arxiv.org/" }],
+          "pdf": "assets/placeholder.pdf",
+          "status": "done"
+        },
+        {
+          "id": "tfjm-2022",
+          "title": "TFJM² 2022: The Confined Professor",
+          "menuTitle": "TFJM² 2022",
+          "subtitle": "Problem 3: The Confined Professor",
+          "summary": "A research tournament for high-school students: months on an open problem, then a debate in front of a jury. 3rd at the regional tournament.",
+          "tags": ["Research tournament", "Combinatorics", "Proof", "Debate"],
+          "layout": "case",
+          "page": "page.json",
+          "period": "2022",
+          "date": "2022",
+          "metaTitle": "TFJM² 2022: The Confined Professor · Tancrède Amiel",
+          "metaDescription": "My first experience of research, in high school: five months on an open problem for the TFJM², then a debate in front of a jury. 3rd at the regional tournament.",
+          "ogImage": "content/research/tfjm-2022/og.png",
+          "status": "done"
+        },
+        {
+          "id": "internship",
+          "title": "research internship",
+          "subtitle": "To come",
+          "layout": "article",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "id": "experience",
+      "title": "experience",
+      "intro": "Work, teaching and volunteering: what I did, with whom, and what came out of it.",
+      "children": [
+        {
+          "id": "dassault",
+          "title": "Dassault Systèmes K.K.",
+          "subtitle": "AI/ML engineer, AI solution design and deployment · Tokyo",
+          "summary": "Forward-deployed AI engineering inside the company: RAG, knowledge graphs and MCP servers to streamline internal processes.",
+          "tags": ["Generative AI", "RAG", "Knowledge graphs", "MCP", "Solution architecture"],
+          "layout": "role",
+          "page": "page.json",
+          "period": "Sept 2026 – Feb 2027",
+          "date": "2026-09",
+          "metaTitle": "Dassault Systèmes K.K. · Tancrède Amiel",
+          "status": "current"
+        },
+        {
+          "id": "iagrim",
+          "title": "IAgriM",
+          "subtitle": "Deputy project manager and solution architect · Danew Talla Electronics · Paris – Bamako",
+          "summary": "An offline, voice-based AI assistant for Malian farmers: designed, defended before ministers, now on hold.",
+          "tags": ["AI for development", "Speech AI", "Offline AI", "Solution architecture"],
+          "layout": "role",
+          "page": "page.json",
+          "period": "since July 2024",
+          "date": "2024-07",
+          "metaTitle": "IAgriM · Tancrède Amiel",
+          "status": "on hold"
+        },
+        {
+          "id": "teaching",
+          "title": "Teaching",
+          "subtitle": "Oral examiner in mathematics and private tutor · Paris",
+          "summary": "Oral exams in PC* and PCSI, and private tutoring from middle school to the end of prépa.",
+          "tags": ["Mathematics", "Physics", "Pedagogy", "Oral examination"],
+          "layout": "role",
+          "page": "page.json",
+          "period": "Sept 2024 – June 2026",
+          "date": "2024-09",
+          "metaTitle": "Teaching · Tancrède Amiel",
+          "status": "done"
+        },
+        {
+          "id": "cheerup",
+          "title": "Volunteer work",
+          "subtitle": "Student associations I have volunteered with",
+          "summary": "Volunteering with young cancer patients, and communication, art direction and partnerships for fundraising events.",
+          "tags": ["Volunteering", "Communication", "Art direction", "Partnerships"],
+          "layout": "role",
+          "page": "page.json",
+          "period": "Oct 2024 – Feb 2026",
+          "date": "2024-10",
+          "metaTitle": "Volunteer work · Tancrède Amiel",
+          "status": "done"
+        }
+      ]
+    }
+  ]
+}

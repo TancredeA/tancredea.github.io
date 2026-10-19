@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blast-aware routing</title>
+<meta name="description" content="Interactive proof of concept: route planning under blast-exposure constraints, with a cheap surrogate, a few simulations and Bayesian optimisation, all in the browser.">
+<link rel="preload" href="fonts/space-grotesk-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/ibm-plex-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script>
+  // ?theme=light|dark lets an embedding page force the theme before the first paint
+  (function () {
+    var t = new URLSearchParams(location.search).get('theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+</head>
+<body>
+<div class="app">
+  <div class="stage">
+    <div class="map-wrap" id="mapWrap">
+      <canvas id="map" tabindex="0" role="img" aria-label="Map of a synthetic neighbourhood. Use the arrow keys to move the cursor and Enter to place the device." aria-describedby="mapHelp"></canvas>
+      <p class="sr-only" id="mapHelp">Arrow keys move the cursor on the map, Enter places the device. Space plays or pauses, the right arrow key steps forward when the map is not focused.</p>
+      <div class="tip" id="tip" hidden></div>
+      <div class="busy" id="busy" hidden>computing…</div>
+    </div>
+  </div>
+
+  <div class="side">
+    <section class="panel narr" aria-labelledby="stepTitle">
+      <div class="stepline"><span id="stepNo">step 0 / 6</span><span id="stepIter"></span></div>
+      <h1 id="stepTitle">Loading…</h1>
+      <p id="stepBody" aria-live="polite"></p>
+      <button class="why" id="why" type="button" aria-expanded="false" aria-controls="whyText">Why? <span class="term" id="whyTerm"></span></button>
+      <p class="whytext" id="whyText" hidden></p>
+      <div id="summary" hidden></div>
+      <div class="controls" role="toolbar" aria-label="Playback">
+        <button class="btn" id="play" type="button" aria-label="Pause" title="Play / pause (space)">
+          <svg viewBox="0 0 14 14" aria-hidden="true" id="iconPause"><rect x="2" y="1.5" width="3.5" height="11"/><rect x="8.5" y="1.5" width="3.5" height="11"/></svg>
+          <svg viewBox="0 0 14 14" aria-hidden="true" id="iconPlay" hidden><path d="M3 1.5 L12.5 7 L3 12.5 Z"/></svg>
+        </button>
+        <button class="btn" id="step" type="button" aria-label="Step forward" title="Step forward (→)">
+          <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 1.5 L9 7 L2 12.5 Z"/><rect x="10" y="1.5" width="2.5" height="11"/></svg>
+        </button>
+        <div class="seg" role="group" aria-label="Playback speed">
+          <button type="button" data-speed="0.5" aria-pressed="false">0.5×</button>
+          <button type="button" data-speed="1" aria-pressed="true">1×</button>
+          <button type="button" data-speed="2" aria-pressed="false">2×</button>
+        </div>
+        <button class="btn" id="replay" type="button" title="New random map, then choose where the device was found">new start</button>
+        <button class="btn" id="restart" type="button" title="Run again from the beginning">restart</button>
+      </div>
+      <p class="counter" id="counter"></p>
+    </section>
+
+    <section class="minis" id="minis" aria-label="Model maps">
+      <figure id="figMu">
+        <canvas class="mini" id="miniMu" role="img" aria-label="Estimated danger map"></canvas>
+        <figcaption><b>μ</b> estimated danger
+          <canvas class="leg" id="legMu" aria-hidden="true"></canvas>
+          <span class="ticks"><span>0</span><span id="maxMu"></span></span></figcaption>
+      </figure>
+      <figure id="figSigma">
+        <canvas class="mini" id="miniSigma" role="img" aria-label="Uncertainty map"></canvas>
+        <figcaption><b>σ</b> uncertainty
+          <canvas class="leg" id="legSigma" aria-hidden="true"></canvas>
+          <span class="ticks"><span>0</span><span id="maxSigma"></span></span></figcaption>
+      </figure>
+      <figure id="figAcq">
+        <canvas class="mini" id="miniAcq" role="img" aria-label="Acquisition score map"></canvas>
+        <figcaption><b>a</b> acquisition score
+          <canvas class="leg" id="legAcq" aria-hidden="true"></canvas>
+          <span class="ticks"><span>0</span><span>1</span></span></figcaption>
+      </figure>
+    </section>
+
+    <section class="panel info" aria-label="Scene information">
+      <dl class="facts">
+        <dt>charge W</dt><dd id="factW"></dd>
+        <dt>seed</dt><dd><span id="factSeed"></span> · <a href="#" id="newMap">new map</a></dd>
+        <dt>buildings</dt><dd id="factBld"></dd>
+      </dl>
+      <ul class="legend" id="legendCats"></ul>
+      <ul class="legend">
+        <li><span class="ln kb"></span>first guess (cheap map only)</li>
+        <li><span class="ln ghost"></span>previous route</li>
+        <li><span class="ln"></span>current route</li>
+      </ul>
+      <details>
+        <summary>About this demo</summary>
+        <p>A device that may detonate has to be moved from A to the disposal site B. The best route is the one that minimises the damage an accidental detonation along the way would cause to the buildings around it, weighted by how critical they are.</p>
+        <p>The pipeline has three layers, as in the original project: a cheap empirical blast law with building masking (Kinney–Graham, a Kingery–Bulmash-type scaled-distance law); a Gaussian process that learns only the residual between a simulator and that law, with an acquisition rule that picks the few positions worth simulating for the current route; and a Delta-Stepping shortest-path search on the corrected danger map.</p>
+        <p>The simulator here is a toy oracle: a linear 2D acoustic wave solver (no shocks), calibrated so that in open space it reproduces the blast law exactly. It differs from the law only through reflections, diffraction and shadowing, which is what the Gaussian process has to learn.</p>
+        <p class="muted" id="aboutNumbers"></p>
+        <p class="muted" id="disclaimerFull"></p>
+      </details>
+    </section>
+  </div>
+
+  <footer class="foot" id="foot">Toy reimplementation for illustration only: synthetic scene, simple 2D acoustic solver; no code, data or results from the original CEA-DAM project.</footer>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

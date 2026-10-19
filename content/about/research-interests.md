@@ -1,0 +1,3 @@
+- **Mathematics for machine learning:** optimization, probability, information theory.
+- **Random matrices and tensors.**
+- **AI for robotics:** physical AI, reinforcement learning.

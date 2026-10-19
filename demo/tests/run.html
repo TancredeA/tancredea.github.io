@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo tests</title>
+<!-- Runs the same *.test.js files as `node --test`, in a browser, by mapping the two
+     node: modules they import onto small shims. Serve the repo root over HTTP first. -->
+<script type="importmap">
+{ "imports": { "node:test": "./shim/node-test.js", "node:assert/strict": "./shim/assert.js" } }
+</script>
+<style>
+  body { font: 13px/1.5 ui-monospace, monospace; margin: 16px; background: #FBFAF7; color: #333539; }
+  .ok { color: #346560; } .ko { color: #a33; } pre { white-space: pre-wrap; margin: 0 0 8px 2ch; }
+</style>
+</head>
+<body>
+<p id="sum">running…</p>
+<div id="out"></div>
+<script type="module">
+  import { runAll } from './shim/node-test.js';
+  const files = ['blast', 'damage', 'scene', 'fdtd', 'gp', 'path', 'acquisition', 'pipeline'];
+  const only = new URLSearchParams(location.search).get('only');
+  const out = document.getElementById('out');
+  let pass = 0, failn = 0;
+  for (const f of files) {
+    if (only && !only.split(',').includes(f)) continue;
+    const h = document.createElement('h4'); h.textContent = f + '.test.js'; out.append(h);
+    try { await import(`./${f}.test.js`); }
+    catch (e) { out.insertAdjacentHTML('beforeend', `<div class="ko">failed to load: ${e.message}</div>`); failn++; continue; }
+    await runAll(r => {
+      r.ok ? pass++ : failn++;
+      const d = document.createElement('div');
+      d.className = r.ok ? 'ok' : 'ko';
+      d.textContent = `${r.ok ? '✓' : '✗'} ${r.name} (${r.ms.toFixed(0)} ms)`;
+      out.append(d);
+      if (!r.ok) { const p = document.createElement('pre'); p.textContent = r.err?.stack || String(r.err); out.append(p); }
+    });
+  }
+  document.getElementById('sum').textContent = `${pass} passed, ${failn} failed`;
+  window.__testsDone = { pass, fail: failn };
+</script>
+</body>
+</html>
