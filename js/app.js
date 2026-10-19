@@ -891,6 +891,16 @@
       el.querySelectorAll('img').forEach(img => { if (!img.complete) img.addEventListener('load', relayout); });
       cells.figure = [el, FULL, FULL, 4];
     }
+    // a video of the prototype ("video": {label, src, poster, caption}, files in the page
+    // folder); no cell while "src" is empty
+    if (d.video && d.video.src) {
+      const v = d.video;
+      const el = cell('case-video', k(v.label || 'video') +
+        `<video src="${esc(base + v.src)}"${v.poster ? ` poster="${esc(base + v.poster)}"` : ''} controls playsinline preload="metadata"></video>` +
+        (v.caption ? `<p class="caption">${esc(v.caption)}</p>` : ''));
+      el.querySelector('video').addEventListener('loadedmetadata', relayout);
+      cells.video = [el, FULL, FULL, 6];
+    }
     cells.summary = [cell('', k(d.summary && d.summary.label || 'summary') + `<div class="prose">${summary}</div>`), L, R, 2];
     cells.role = [cell('', k(d.role && d.role.label || 'my part') + `<div class="prose case-list">${role}</div>`), L, R, 2];
     if (d.how) cells.how = [cell('case-how',

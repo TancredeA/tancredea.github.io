@@ -1,0 +1,4 @@
+- **Benchmark in progress.** <span class="todo">[TO CONFIRM: final scores and the model kept on the board]</span>
+- **One reference rider.** The model imitates one experienced cyclist. Learning each rider's own style, or riding “like a pro” from a professional's data, is the next step and the product's promise.
+- **What torque would have told us.** Without it, some situations stay ambiguous. The error analysis should show where, and whether a cheap torque proxy, or a sensor after all, would pay off.
+- **Lesson.** <span class="todo">[TO CONFIRM]</span> Starting from the user and the bill of materials, not from the model, is what made the learning problem worth solving: the missing sensor became the research question.

@@ -1,0 +1,107 @@
+{
+  "about": "Case-study page (layout \"case\" in site.json), like projects/absorber-placement. Text lives here and in the .md files next to this one. Formulas use LaTeX (KaTeX): in .md files between $...$ or $$...$$, here in the \"formula\" fields (no dollars, backslashes doubled because this is JSON). The video: put the file in this folder and its name in video.src (and a still image in video.poster); the block stays off the page while src is empty.",
+
+  "arrangement": [
+    ["header", "facts"],
+    ["video"],
+    ["overview:full"],
+    ["how"],
+    ["role:full"],
+    ["decisions:group"],
+    ["limits", "credits"]
+  ],
+
+  "header": {
+    "label": "projects",
+    "title": "Autogear: An Automatic Derailleur That Learns When to Shift",
+    "lede": "An entrepreneurship project that became R&D in embedded machine learning: a plug-and-play box that shifts a regular bike's gears by itself, without a torque sensor, with a model that imitates an experienced cyclist and runs on an Arduino.",
+    "tags": ["Embedded ML", "Learning from demonstration", "Imbalanced classification", "Arduino", "Product R&D"]
+  },
+
+  "facts": {
+    "label": "facts",
+    "rows": [
+      ["track", "CentraleSupélec entrepreneurship track"],
+      ["team", "4 students (credits below)"],
+      ["period", "Jan 2025 – present"],
+      ["grade", "17/20"],
+      ["board", "Arduino Nano 33 BLE Sense Rev2"],
+      ["stack", "Python (pandas, scikit-learn, XGBoost), C++ (Arduino), 3D printing"]
+    ]
+  },
+
+  "video": {
+    "label": "the prototype on the road",
+    "src": "",
+    "poster": "",
+    "caption": ""
+  },
+
+  "blocks": {
+    "overview": { "label": "the project", "md": "overview.md", "list": true }
+  },
+
+  "how": {
+    "label": "how it works",
+    "md": "how.md",
+    "diagram": {
+      "boxWidth": 176,
+      "minWidth": 820,
+      "modules": [
+        { "id": "sensors", "name": "Sensors", "sub": ["cadence, IMU", "every 200–500 ms"], "col": 0, "row": 0 },
+        { "id": "features", "name": "Features", "sub": ["last seconds: trends,", "slope, torque proxy"], "col": 1, "row": 0, "style": "filled" },
+        { "id": "stage1", "name": "Stage 1", "sub": ["shift or not?", "threshold θ"], "col": 2, "row": 0, "style": "filled" },
+        { "id": "stage2", "name": "Stage 2", "sub": ["up or down?"], "col": 3, "row": 0, "style": "filled" },
+        { "id": "guards", "name": "Safeguards", "sub": ["cooldown, vote,", "gear limits"], "col": 3, "row": 1, "style": "filled" },
+        { "id": "motor", "name": "Motor", "sub": ["moves the derailleur"], "col": 2, "row": 1 }
+      ],
+      "edges": [
+        { "from": "sensors", "to": "features" },
+        { "from": "features", "to": "stage1" },
+        { "from": "stage1", "to": "stage2", "label": "shift" },
+        { "from": "stage2", "to": "guards" },
+        { "from": "guards", "to": "motor" }
+      ],
+      "below": "Trained offline in Python on rides shifted by hand by an experienced cyclist, then exported to C for the board.",
+      "caption": "Filled: my work. Plain: team."
+    }
+  },
+
+  "role": { "label": "my part", "md": "role.md" },
+
+  "decisionGroup": { "label": "the R&D choices in detail", "toggleIn": "role", "relief": true, "open": "↓ the R&D choices in detail, with their math", "close": "↑ hide the R&D choices" },
+
+  "decisions": [
+    {
+      "title": "No torque sensor, by design",
+      "md": "decision-1.md",
+      "formula": ["\\pi_\\theta\\big(a_t \\mid o_{t-k},\\dots,o_t\\big)\\;\\approx\\;\\pi^\\star\\big(a_t \\mid s_t\\big)", "\\\\[4pt]", "s_t=(o_t,\\ \\tau_t)"],
+      "caption": "o: what the box measures (cadence, IMU, current gear); τ: the pedal torque, never measured. The learned policy sees a window of k past observations to make up for it."
+    },
+    {
+      "title": "Two stages for a 95 / 3 / 2 split",
+      "md": "decision-2.md",
+      "formula": "\\hat a_t=\\begin{cases}0 & \\text{if } p_1(x_t)<\\theta\\\\[2pt] \\operatorname{sign}\\big(p_2(x_t)-\\tfrac12\\big) & \\text{otherwise}\\end{cases}",
+      "caption": "p₁: probability of a shift (stage 1); p₂: probability that it is upward (stage 2). θ is calibrated, typically between 0.5 and 0.8; the safeguards then filter â."
+    },
+    {
+      "title": "A model that fits on the board",
+      "md": "decision-3.md",
+      "formula": ["F(x)=\\sum_{k=1}^{K} f_k(x)", "\\\\[4pt]", "K\\le 100,\\quad \\operatorname{depth}(f_k)\\le 4", "\\\\[4pt]", "\\Rightarrow\\;\\le 400\\ \\text{comparisons}"],
+      "caption": "Each tree f_k is at most 4 comparisons deep: the whole ensemble costs at most 400 comparisons per decision, far within the 100 ms budget."
+    },
+    {
+      "title": "Judged like an experiment, not a demo",
+      "md": "decision-4.md",
+      "formula": "\\chi^2=\\frac{\\big(|n_{01}-n_{10}|-1\\big)^2}{n_{01}+n_{10}}",
+      "caption": "McNemar's test. n₀₁, n₁₀: test samples that only one of the two models gets right. Below p = 0.05, the difference between them is real."
+    }
+  ],
+  "decisionLabels": { "text": "choice", "math": "math" },
+
+  "limits": { "label": "limits and next steps", "md": "limits.md" },
+
+  "resources": {
+    "credits": { "label": "credits", "md": "credits.md" }
+  }
+}

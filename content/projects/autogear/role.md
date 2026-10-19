@@ -1,0 +1,4 @@
+- **Decision algorithm**: framing the problem as learning from demonstration under partial observation, the two-stage architecture and the safeguards.
+- **Data**: building and cleaning the dataset of rides labelled with the reference cyclist's shifts; feature engineering.
+- **Models**: benchmark of supervised models (XGBoost, random forest, multinomial logistic regression, SVM) within the board's memory and latency limits, and embedded inference.
+- **Hardware** <span class="todo">[TO CONFIRM]</span>: embedded electronics and firmware of the plug-and-play MVP, 3D-printed parts.

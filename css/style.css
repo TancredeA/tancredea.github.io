@@ -512,6 +512,8 @@ code.tex { font: 12px/1.5 var(--mono); white-space: pre-wrap; }
 
 /* case pages: static figure (key result) instead of a demo preview */
 .case-panels { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 4px 0 8px; }
+/* a video of the prototype (case pages, "video" in page.json) */
+.case-video video { display: block; width: min(100%, 860px); max-height: 75vh; margin: 4px auto 0; border: 1px solid var(--ink); background: var(--ink); }
 .case-panels figure { margin: 0; }
 .case-panels img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
 .case-panels figcaption { margin-top: 4px; font: 12px/1.4 var(--mono); color: var(--ink); text-align: center; }

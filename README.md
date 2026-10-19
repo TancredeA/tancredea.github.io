@@ -119,6 +119,7 @@ Options de `page.json` (exemples : `projects/blast-routing`, `projects/absorber-
 - `blocks.<nom>.image` (+ `imageAlt`, `imageCaption`) : une image à côté du texte du bloc ;
 - `report`, `credits`, `related` : les ressources en cellules séparées, à placer dans `arrangement` (au lieu de `resources` d'un seul tenant) ; `report.readAndDownload: true` remplace « read » et « download » par un seul lien (`readLabel`) qui ouvre le PDF et le télécharge ;
 - `figure` : pour un projet sans démo, une figure statique à la place de l'aperçu (`panels` : images et légendes côte à côte, en 2 × 2 sur téléphone ; `caption` : la légende générale) ;
+- `video` (`label`, `src`, `poster`, `caption`) : une vidéo du projet (fichiers dans le dossier de la page), à placer dans `arrangement` sous le nom `video` ; tant que `src` est vide, le bloc n'apparaît pas (exemple : `projects/autogear`) ;
 - `hint.inPreview: true` : la ligne d'explication de la démo passe dans le bloc de l'aperçu, juste sous la vidéo (exemple : `projects/blast-routing`) ;
 - `facts.compact: true` : la fiche écrit chaque terme devant sa valeur, sur toute la largeur, pour tenir en moins de rangées ;
 - `resources.more` : des lignes de fiche déplacées dans les ressources (pour garder l'aperçu ou la figure visible à l'arrivée) ;
