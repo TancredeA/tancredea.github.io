@@ -372,15 +372,6 @@ img.preview { object-fit: cover; border: 1px solid var(--line); }
 .readout b { font-weight: 500; color: var(--ink); }
 .readout .acc { color: var(--accent); }
 
-.dd { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
-.dd .pad { width: 100%; max-width: 340px; aspect-ratio: 1; }
-.dd .seen { width: 120px; height: 120px; display: block; border: 1px solid var(--ink); margin-bottom: 14px; image-rendering: pixelated; }
-.bars { display: grid; grid-template-columns: 1.5ch 1fr 4.5ch; gap: 3px 10px; align-items: center; font: 12px/1.4 var(--mono); }
-.bars .bar { height: 10px; background: var(--line); position: relative; }
-.bars .bar i { position: absolute; inset: 0 auto 0 0; background: var(--muted); }
-.bars .top i { background: var(--accent); }
-.bars .top { color: var(--accent); }
-.guess { margin-top: 12px; font: 500 34px/1 var(--sans); }
 
 .file-btn { position: relative; overflow: hidden; }
 .file-btn input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
@@ -603,7 +594,6 @@ code.tex { font: 12px/1.5 var(--mono); white-space: pre-wrap; }
   .contact-box.fixed dl.contact-card dd { font-size: calc(var(--u) * 0.35); line-height: 1.38; }
   .contact-box.fixed > .case-actions { padding-top: calc(var(--u) * 0.2); }
   .contact-box.fixed .btn { font-size: calc(var(--u) * 0.31); padding: calc(var(--u) * 0.13) calc(var(--u) * 0.26); }
-  .dd { grid-template-columns: 1fr; }
   /* square preview cards: the summary keeps at most 4 lines so the cover keeps some room */
   a.cell.fixed > .caption, a.cell.fixed > .pin-text { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden; }
   a.cell.fixed > .preview { min-height: calc(var(--u) * 1.5); }

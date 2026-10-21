@@ -68,24 +68,6 @@
           "status": "done"
         },
         {
-          "id": "digits",
-          "start": "2026",
-          "kind": "TODO",
-          "title": "digits",
-          "subtitle": "Handwritten digit recognition with a tensor-network classifier",
-          "summary": "Classifying handwritten digits with a matrix product state instead of a dense network.",
-          "bench": "Tensor-network (MPS) classifier on handwritten digits. TODO: where it stands, next step.",
-          "layout": "lab",
-          "demo": "digits",
-          "caption": "a stroke in, ten probabilities out",
-          "demoNote": "placeholder model while the MPS classifier is in progress",
-          "role": "solo",
-          "period": "2026",
-          "stack": ["Python", "NumPy"],
-          "links": [],
-          "status": "wip"
-        },
-        {
           "id": "media-tool",
           "kind": "TODO",
           "title": "media tool",
