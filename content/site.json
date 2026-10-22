@@ -19,13 +19,13 @@
   "home": {
     "headline": "Applied mathematics, turned into working models.",
     "lede": "CentraleSupélec engineering student in data science and AI. I like problems where a clean formulation decides whether the code works at all.",
-    "now": "AI/ML engineering intern at Dassault Systèmes K.K., Tokyo, until February 2027. Applying for master's programmes starting in 2027.",
+    "now": "Gap year from CentraleSupélec (2026–27): AI/ML engineering intern at Dassault Systèmes K.K., Tokyo, until February 2027. Applying for master's programmes starting in 2027, and for a research internship at RIKEN AIP.",
     "latest": null,
     "pinned": ["research/vtnn-notes", "projects/autogear", "projects/blast-routing"],
     "seeking": {
       "label": "looking for",
       "title": "A research internship",
-      "text": "I am applying for a research internship in Japan, at the intersection of mathematics and machine intelligence, in one of three directions:",
+      "text": "I am applying for a research internship at RIKEN AIP, in Tokyo, at the intersection of mathematics and machine intelligence, in one of three directions:",
       "items": [
         { "label": "Deep learning", "text": "what a network learns, and how to read it while it trains.", "pages": ["research/vtnn-notes"] },
         { "label": "Applied statistics for ML", "text": "uncertainty, active learning and evaluation protocols that hold up.", "pages": ["projects/blast-routing", "projects/autogear"] },
