@@ -244,7 +244,7 @@
       // Title block, like the cartouche of a technical drawing:
       // name and role (B2:E5), then the menu from row 6, contact at the bottom.
       state.rowOff = 0;
-      const name = cell('id', `<a href="${HOME}" style="text-decoration:none"><p class="name">${o.name.map(esc).join(' ')}</p></a><p class="k role">${[].concat(o.role).map(esc).join('<br>')}</p>`);
+      const name = cell('id', `<a href="${HOME}" style="text-decoration:none"><p class="name">${o.name.map(n => `<span>${esc(n)}</span>`).join('')}</p></a><p class="k role">${[].concat(o.role).map(esc).join('<br>')}</p>`);
       const menu = cell('menu');
       menu.append(buildTree(rt));
       const contact = cell('contact contact-box side-contact', contactCard('', { seeking: false }) + `<div class="case-actions">${cvButton()}</div>`);
