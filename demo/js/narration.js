@@ -1,5 +1,5 @@
 // Step texts (English). Each step: a short title, one or two plain sentences, and a "Why?"
-// note for the one technical term it introduces.
+// note for the one technical term it introduces; "action", what the visitor has to do, is set in bold.
 
 export const STEPS = 6;
 
@@ -9,7 +9,8 @@ export function narration(step, c = {}) {
   switch (step) {
     case 0: return {
       title: 'Where was the device found?',
-      body: 'A synthetic neighbourhood, 80 × 80 m. Buildings are coloured by how critical they are; B is the disposal site. Click (or tap) where the device was found.',
+      body: 'A synthetic neighbourhood, 80 × 80 m. Buildings are coloured by how critical they are; B is the disposal site.',
+      action: 'Click (or tap) where the device was found.',
       term: 'disposal site', why: 'Disposal site: the point farthest from any building, among cells at least 3 m from the edge of the map.',
     };
     case 1: return {

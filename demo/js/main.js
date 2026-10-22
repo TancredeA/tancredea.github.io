@@ -131,6 +131,7 @@ function setNarr(step, ctx = {}, iterLabel = '') {
   $('stepIter').textContent = iterLabel;
   $('stepTitle').textContent = n.title;
   $('stepBody').textContent = n.body;
+  if (n.action) $('stepBody').append(' ', Object.assign(document.createElement('strong'), { textContent: n.action }));
   $('whyTerm').textContent = n.term ? `· ${n.term}` : '';
   $('whyText').textContent = n.why || '';
   $('why').hidden = !n.why;
