@@ -1,1 +1,1 @@
-I am in the process of applying for a research internship in Japan, at the intersection of mathematics and machine intelligence.
+I am applying for a research internship at RIKEN AIP in Tokyo, at the intersection of mathematics and machine intelligence, and for postgraduate master's programmes in the UK in AI, machine learning and applied mathematics, starting in 2027.
