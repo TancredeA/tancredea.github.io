@@ -102,7 +102,7 @@
           "metaDescription": "Gear choice without a torque sensor: 100 boosted trees and a hysteresis controller beat a torque-aware table (87.0 % vs 80.8 %) in closed-loop simulation, in 14.9 KB of flash.",
           "updated": "2026-10-22",
           "pdf": "content/projects/autogear/report.pdf",
-          "repo": "",
+          "repo": "https://github.com/TancredeA/autogear-embedded-ml",
           "date": null,
           "status": "done"
         },
