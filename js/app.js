@@ -528,9 +528,15 @@
       const wip = pages.filter(p => p.status === 'wip');
       const latest = hm.latest ? pages.find(p => p.id === hm.latest)
         : pages.filter(p => p.date && p.status !== 'wip').sort((a, b) => b.date.localeCompare(a.date))[0];
-      const bench = wip.length
-        ? wip.map(p => (projectMeta(p) ? `<p class="k">${projectMeta(p)}</p>` : '') + `<p class="card-title"><a href="${pageHref(p)}" style="text-decoration:none">${esc(p.title)}</a></p><p class="card-sum">${val(p.bench || p.summary || '')}</p>` + projectTags(p)).join('<br>')
-        : `<p class="card-sum">${esc(hm.benchFallback || '')}</p>`;
+      // "on the bench": what I am looking for (home.seeking), then the pages in progress
+      const sk = hm.seeking;
+      const pageLink = path => { const r = routeFor(String(path).replace(/^\/+|\/+$/g, '') + '/'); return r && r.page ? `<a href="${pageHref(r.page)}">${esc(r.page.cardTitle || r.page.title)}</a>` : ''; };
+      const seeking = sk ? `<p class="k">${esc(sk.label || 'looking for')}</p><p class="card-title">${esc(sk.title)}</p>` +
+        (sk.text ? `<p class="card-sum">${esc(sk.text)}</p>` : '') +
+        (sk.items ? `<ul class="bench-list">${sk.items.map(x => `<li><b>${esc(x.label)}.</b> ${esc(x.text)}` +
+          ((x.pages || []).length ? ` <span class="muted">(${x.pages.map(pageLink).filter(Boolean).join(', ')})</span>` : '') + '</li>').join('')}</ul>` : '') : '';
+      const wipHtml = wip.map(p => (projectMeta(p) ? `<p class="k">${projectMeta(p)}</p>` : '') + `<p class="card-title"><a href="${pageHref(p)}" style="text-decoration:none">${esc(p.title)}</a></p><p class="card-sum">${val(p.bench || p.summary || '')}</p>` + projectTags(p)).join('<br>');
+      const bench = [seeking, wipHtml].filter(Boolean).join('<br>') || `<p class="card-sum">${esc(hm.benchFallback || '')}</p>`;
       const pinned = pinnedPages();
       if (pinned.length) bands.push(pinned.map((p, i) => {
         return named(pinnedCard(p, [T1, T2, T3][i]), `pinned #${i + 1}`);
@@ -715,11 +721,12 @@
   // "cv": a link set at the end of the last row, on its right.
   function contactCard(cv) {
     const o = SITE.owner, rows = [];
+    if (o.seeking) rows.push(['seeking', esc(o.seeking), 'looking for']);
     if (o.based) rows.push(['based', [].concat(o.based).map(esc).join('<br>')]);
     const web = o.contact.filter(c => /^https?:/.test(c.href || ''));
     if (web.length) rows.push(['profiles', web.map(c => `<a href="${esc(c.href)}" target="_blank" rel="noopener">${esc(c.label)}</a>`).join('<span class="sep"> · </span>')]);
     if (cv && rows.length) rows[rows.length - 1][1] = `<span>${rows[rows.length - 1][1]}</span>${cv}`;
-    return `<dl class="meta contact-card${cv ? ' with-cv' : ''}">${rows.map(([t, v]) => `<dt class="c-${t}">${t}</dt><dd class="c-${t}">${v}</dd>`).join('')}</dl>`;
+    return `<dl class="meta contact-card${cv ? ' with-cv' : ''}">${rows.map(([t, v, label]) => `<dt class="c-${t}">${label || t}</dt><dd class="c-${t}">${v}</dd>`).join('')}</dl>`;
   }
   // The CV of site.json: opened in a new tab and downloaded.
   const cvButton = (label = '↗ Read CV') =>

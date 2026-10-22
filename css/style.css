@@ -160,6 +160,9 @@ h2, h3 { font-weight: 500; letter-spacing: -0.01em; }
 
 .card-title { margin: 0.1em 0 0.25em; font: 500 21px/1.15 var(--sans); letter-spacing: -0.015em; }
 .card-sum { margin: 0; font-size: 15px; line-height: 1.45; }
+.bench-list { margin: 10px 0 0; padding-left: 1.1em; font-size: 14.5px; line-height: 1.45; }
+.bench-list li { margin: 0 0 6px; }
+.bench-list li:last-child { margin-bottom: 0; }
 /* home: category and date in bold anthracite, keywords in bold green */
 .meta-strong { color: var(--ink); font-weight: 600; }
 .card-tags { margin: 0.4em 0 0; font: 600 12px/1.45 var(--mono); color: var(--accent); }
@@ -264,6 +267,8 @@ dl.contact-card.with-cv .btn:hover { color: var(--accent); text-decoration: none
 .side-contact dl.contact-card dd { font-size: calc(var(--u) * 0.235); line-height: 1.35; }
 .side-contact > .case-actions { padding-top: calc(var(--u) * 0.08); }
 .side-contact.compact .c-based { display: none; }   /* short windows */
+.side-contact .c-seeking { grid-column: 1 / -1; }   /* "looking for" over the full width, its text under the term */
+.side-contact dd.c-seeking { margin-top: calc(var(--u) * -0.1); }
 .side-contact dd.c-profiles a { display: block; }   /* one profile per line */
 .side-contact dd.c-profiles .sep { display: none; }
 .side-contact .btn { font-size: calc(var(--u) * 0.19); padding: calc(var(--u) * 0.07) calc(var(--u) * 0.15); }

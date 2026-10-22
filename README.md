@@ -94,7 +94,7 @@ Champs utiles :
 | `video`, `poster` | avec `demo` : la page montre cet enregistrement au lieu de la démo, avec un bouton vers sa page `…/simulation/` où tourne la vraie démo ; sur les cartes de l'accueil et de la section, la vidéo prend son tour dans la rotation des aperçus (5 s chacun, courte pause, puis le suivant, en boucle) ; seul le visiteur l'interrompt : le survol lance une carte et met les autres en pause ; quand la souris la quitte, elle se met aussitôt en pause (en vert) et, après la courte pause, la boucle reprend à la carte suivante |
 | `videoCaption`, `liveLede` | texte sous la vidéo, et chapeau de la page de simulation |
 | `liveSeed` | carte sur laquelle s'ouvre la page de simulation (la même que la vidéo) ; « new start » tire ensuite des cartes aléatoires |
-| `status` | `wip` fait apparaître la page dans « on the bench » sur l'accueil |
+| `status` | `wip` fait apparaître la page dans « on the bench » sur l'accueil, sous le bloc `home.seeking` |
 | `date` | la page la plus récente (hors `wip`) devient « last entry » ; `home.latest` force un choix |
 | `pdf` | ajoute « read the report » et « download pdf » |
 | `hidden` | garde la page en réserve sans l'afficher |
@@ -102,6 +102,8 @@ Champs utiles :
 Dans le Markdown, les images et liens relatifs sont résolus depuis le dossier de la page (`![schéma](schema.png)`).
 
 ## Page d'accueil : les trois cartes épinglées
+
+`home.seeking` dans `content/site.json` remplit « on the bench » sur l'accueil : ce que je cherche (`title`, `text`, et des `items` `{ label, text, pages }` qui renvoient aux pages citées). `owner.seeking` en est la version courte, en tête des blocs contact (« looking for »). Sans les deux et sans page `wip`, le bloc affiche `home.benchFallback`.
 
 `home.pinned` dans `content/site.json` liste les trois pages mises en avant, par leur chemin : `["research/vtnn-notes", "projects/autogear", "projects/blast-routing"]` ; elles s'affichent de la plus récente à la plus ancienne (voir `start`, `end` ci-dessous), quel que soit leur ordre dans la liste. N'importe quelle page peut y figurer (expérience, note de recherche…). Chaque carte affiche, en haut, la catégorie (`kind`), la période (`period`), le partenaire (`partner`, s'il y en a un) et « ongoing » si la page est en cours (`status` `wip` ou `current`) ; puis le nom (précédé de ▶ si la page a une démo) ; puis la description rapide (`summary`). Une page avec démo ou vidéo garde son aperçu animé ; une page sans démo montre son image `cover` si elle en a une, sinon sa description en plus grand. Une valeur `TODO` s'affiche en couleur pour être repérée. Sans `home.pinned`, l'accueil reprend les trois premières pages avec démo.
 

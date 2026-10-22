@@ -7,6 +7,7 @@
     "roleShort": "CentraleSupélec · AI engineer",
     "photo": null,
     "cv": "assets/placeholder.pdf",
+    "seeking": "a research internship in deep learning, applied statistics for ML or quantum-inspired ML",
     "based": ["Tokyo · JST, 2026–27", "Paris · CET"],
     "contact": [
       { "label": "↗ read cv", "href": "assets/placeholder.pdf", "openAndDownload": true },
@@ -21,6 +22,16 @@
     "now": "AI/ML engineering intern at Dassault Systèmes K.K., Tokyo, until February 2027. Applying for master's programmes starting in 2027.",
     "latest": null,
     "pinned": ["research/vtnn-notes", "projects/autogear", "projects/blast-routing"],
+    "seeking": {
+      "label": "looking for",
+      "title": "A research internship",
+      "text": "I am applying for a research internship in Japan, at the intersection of mathematics and machine intelligence, in one of three directions:",
+      "items": [
+        { "label": "Deep learning", "text": "what a network learns, and how to read it while it trains.", "pages": ["research/vtnn-notes"] },
+        { "label": "Applied statistics for ML", "text": "uncertainty, active learning and evaluation protocols that hold up.", "pages": ["projects/blast-routing", "projects/autogear"] },
+        { "label": "Quantum-inspired ML", "text": "tensor networks as layers of a model and as a lens on what it learns.", "pages": ["research/vtnn-notes"] }
+      ]
+    },
     "benchFallback": "Nothing marked as in progress. Set \"status\": \"wip\" on a page to show it here."
   },
 
