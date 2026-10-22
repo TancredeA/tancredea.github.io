@@ -1,5 +1,15 @@
 {
   "about": "About page (layout \"role\" in site.json, a single page without children). Texts live here and in the .md files next to this one. Links written \"#/section/page\" in a .md file point to pages of the site, and stay plain text while the page does not exist. The header is \"who I am\": name, intro, then who-i-am.md. Contact details are in the left sheet (desktop) and the footer (phones).",
+  "columns": {
+    "main": [
+      0,
+      7
+    ],
+    "aside": [
+      9,
+      13
+    ]
+  },
   "header": {
     "label": "who I am",
     "title": "Tancrède Amiel",
@@ -33,6 +43,13 @@
   },
   "bands": [
     {
+      "aside": {
+        "label": "research interests",
+        "md": "research-interests.md",
+        "side": "right"
+      }
+    },
+    {
       "main": {
         "label": "education",
         "md": "education.md"
@@ -64,12 +81,6 @@
       "main": {
         "label": "what's next",
         "md": "whats-next.md"
-      }
-    },
-    {
-      "main": {
-        "label": "research interests",
-        "md": "research-interests.md"
       }
     },
     {
