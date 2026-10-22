@@ -238,27 +238,25 @@
     const aside = $('#aside');
     aside.innerHTML = '';
     const o = SITE.owner;
-    const photo = cell('photo fixed', photoHtml());
     document.documentElement.classList.toggle('menu-open', MODE !== 'desk' && state.menuOpen);
 
     if (MODE === 'desk') {
       // Title block, like the cartouche of a technical drawing:
-      // portrait (2 x 3) and name (2 x 3) side by side, then the menu, contact at the bottom.
+      // name and role (4 x 3), then the menu, contact at the bottom.
       state.rowOff = 0;
       const name = cell('id', `<a href="${HOME}" style="text-decoration:none"><p class="name">${o.name.map(n => `<span>${esc(n)}</span>`).join('')}</p></a><p class="k role">${esc(o.role)}</p>`);
       const menu = cell('menu');
       menu.append(buildTree(rt));
       const contact = cell('contact contact-box side-contact', contactCard() + `<div class="case-actions">${cvButton()}</div>`);
       const R = Math.floor(window.innerHeight / U);
-      aside.append(photo, name, menu, contact);
-      place(photo, 2, 3, 2, 3, 0);
-      place(name, 4, 5, 2, 3, 0);
+      aside.append(name, menu, contact);
+      place(name, 2, 5, 2, 3, 0);
       // the menu keeps the height of its tallest state so nothing jumps between pages
       const menuRows = menuMaxRows(menu, rt);
       // contact: the contact card of the about page without its name and intro, as tall as
       // it needs (its type follows the grid module), down to the last full row of the
       // window, never over the menu. The three blocks are glued: the menu starts under the
-      // portrait and stretches down to the contact.
+      // name and stretches down to the contact.
       place(contact, 2, 5, 1, 1, 0);
       let contactRows = rowsNeeded(contact, 3);
       const rMenu = 5;
@@ -273,13 +271,14 @@
       // (the role on the home page). The menu button opens a drawer under the header, over
       // the page: the pages, then the contact card.
       state.rowOff = 3;
-      const name = cell('bar-name', `<a class="bar-who" href="${HOME}">${o.name.map(esc).join(' ')}</a><span class="bar-role">${esc(o.role)}</span>`);
+      const photo = cell('photo fixed', photoHtml());
+      const name = cell('bar-name', `<a class="bar-who" href="${HOME}">${o.name.map(esc).join(' ')}</a><span class="bar-role">${esc(o.roleShort || o.role)}</span>`);
       const cv = cell('bar-btn', '↗ read cv', 'a', { href: o.cv, target: '_blank', rel: 'noopener', 'data-also-download': '' });
       const toggle = cell('bar-btn bar-toggle', `menu ${state.menuOpen ? '−' : '+'}`, 'button',
         { type: 'button', 'aria-expanded': String(state.menuOpen), 'aria-controls': 'panel' });
       toggle.onclick = () => { state.menuOpen = !state.menuOpen; renderAside(route()); };
       const bits = crumbBits(rt, true);
-      const trail = cell('bar-crumb', bits.length ? bits.join('<span>/</span>') : `<span class="muted">${esc(o.role)}</span>`,
+      const trail = cell('bar-crumb', bits.length ? bits.join('<span>/</span>') : `<span class="muted">${esc(o.roleShort || o.role)}</span>`,
         'nav', { 'aria-label': 'Breadcrumb' });
       aside.append(photo, name, cv, toggle, trail);
       place(photo, 1, 2, 1, 3, 0);

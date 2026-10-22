@@ -183,7 +183,7 @@ puis ouvrir http://localhost:8001/tools/record_demo.html?seed=19&speed=2 et atte
 
 ## Photo
 
-Mettre la photo dans `assets/photo.jpg` et renseigner `"photo": "assets/photo.jpg"` dans `owner`. Un filtre bichrome (vert foncé → écru) l'harmonise automatiquement avec le site.
+Mettre la photo dans `assets/photo.jpg` et renseigner `"photo": "assets/photo.jpg"` dans `owner`. Un filtre bichrome (vert foncé → écru) l'harmonise automatiquement avec le site. Elle n'apparaît que dans l'en-tête des téléphones : sur ordinateur, la barre de gauche commence par le nom et `owner.role` ; l'en-tête des téléphones, plus étroit, affiche `owner.roleShort` à la place s'il existe.
 
 ## Changer les couleurs
 

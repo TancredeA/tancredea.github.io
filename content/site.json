@@ -3,7 +3,8 @@
 
   "owner": {
     "name": ["Tancrède", "Amiel"],
-    "role": "applied maths / machine learning",
+    "role": "Student at CentraleSupélec, AI engineer at Dassault Systèmes K.K.",
+    "roleShort": "CentraleSupélec · AI engineer",
     "photo": null,
     "cv": "assets/placeholder.pdf",
     "based": ["Tokyo · JST, 2026–27", "Paris · CET"],
