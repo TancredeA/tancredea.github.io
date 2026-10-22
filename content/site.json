@@ -96,7 +96,7 @@
           "cover": "bench.jpg",
           "coverAlt": "A student pedals the Autogear prototype on a home trainer while a teammate watches the data",
           "page": "page.json",
-          "kind": "entrepreneurship",
+          "kind": "entrepreneurship → R&D",
           "period": "Jan 2025 – Oct 2026",
           "metaTitle": "Autogear: Learning to Shift Without a Torque Sensor · Tancrède Amiel",
           "metaDescription": "Gear choice without a torque sensor: 100 boosted trees and a hysteresis controller beat a torque-aware table (87.0 % vs 80.8 %) in closed-loop simulation, in 14.9 KB of flash.",
