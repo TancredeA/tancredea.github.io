@@ -74,13 +74,17 @@
       s.children.forEach(c => { c.section = s; });
       // pages inside a section are in reverse chronological order (menu, section grid,
       // previous / next), whatever the order in site.json
-      s.children.sort(byStart);
+      s.children.sort(byEnd);
     }
   }
 
-  // Reverse chronological order, most recent first, on "start" in site.json (YYYY-MM, or
-  // YYYY); pages without one come last, in their site.json order.
-  const byStart = (a, b) => (a.start ? 0 : 1) - (b.start ? 0 : 1) || String(b.start || '').localeCompare(String(a.start || ''));
+  // Reverse chronological order, most recent first, on the end date: "end" in site.json
+  // (YYYY-MM, or YYYY); a page still going on ("current" or "wip") without one counts as
+  // ending now, any other falls back on "start"; pages with neither come last, in their
+  // site.json order.
+  const NOW = new Date().toISOString().slice(0, 7);
+  const endOf = p => p.end || (p.status === 'current' || p.status === 'wip' ? NOW : p.start) || '';
+  const byEnd = (a, b) => (endOf(a) ? 0 : 1) - (endOf(b) ? 0 : 1) || String(endOf(b)).localeCompare(String(endOf(a)));
   const allPages = () => SITE.sections.flatMap(s => s.children);
   const pagePath = p => p.section ? `content/${p.section.id}/${p.id}/` : `content/${p.id}/`;
   // Real addresses, relative to the site root (every page carries <base> pointing at it).
@@ -423,7 +427,7 @@
     return pins.map(path => {
       const rt = routeFor(String(path).replace(/^\/+|\/+$/g, '') + '/');
       return rt && rt.page;
-    }).filter(Boolean).slice(0, 3).sort(byStart);     // most recent first, like everywhere
+    }).filter(Boolean).slice(0, 3).sort(byEnd);     // most recent first, like everywhere
   }
 
   // Project facts shared by the home blocks: category and date in bold anthracite, then

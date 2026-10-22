@@ -40,6 +40,7 @@
         {
           "id": "blast-routing",
           "start": "2026-02",
+          "end": "2026-04",
           "aliases": ["pipeline-3d"],
           "title": "Blast-aware routing",
           "subtitle": "Routing an unexploded device at minimum expected damage, with the CEA-DAM",
@@ -88,6 +89,7 @@
         {
           "id": "autogear",
           "start": "2025-01",
+          "end": "2026-10",
           "title": "Autogear",
           "subtitle": "An automatic derailleur that learns which gear to ride, without a torque sensor",
           "summary": "An automatic derailleur without a torque sensor: we built the hardware, I built the model that chooses the gear. In 14.9 KB of flash, it beats a torque-aware table in closed-loop simulation.",
@@ -109,6 +111,7 @@
         {
           "id": "absorber-placement",
           "start": "2025-11",
+          "end": "2025-11",
           "aliases": ["acoustics"],
           "title": "Concert hall absorbers",
           "subtitle": "Optimal placement of absorbing material in a concert hall",
@@ -139,6 +142,7 @@
         {
           "id": "vtnn-notes",
           "start": "2026-06",
+          "end": "2026-06",
           "title": "Variational Tensor Neural Networks: A Critical Analysis",
           "menuTitle": "VTNN analysis",
           "subtitle": "A close reading of Jahromi & Orús, Scientific Reports (2024)",
@@ -159,6 +163,7 @@
         {
           "id": "tfjm-2022",
           "start": "2022-01",
+          "end": "2022",
           "title": "TFJM² 2022: The Confined Professor",
           "menuTitle": "TFJM² 2022",
           "subtitle": "Problem 3: The Confined Professor",
@@ -190,6 +195,7 @@
         {
           "id": "dassault",
           "start": "2026-09",
+          "end": "2027-02",
           "title": "Dassault Systèmes K.K.",
           "subtitle": "AI/ML engineer, AI solution design and deployment · Tokyo",
           "summary": "Forward-deployed AI engineering inside the company: RAG, knowledge graphs and MCP servers to streamline internal processes.",
@@ -218,6 +224,7 @@
         {
           "id": "teaching",
           "start": "2024-09",
+          "end": "2026-06",
           "title": "Teaching",
           "subtitle": "Oral examiner in mathematics and private tutor · Paris",
           "summary": "Oral exams in PC* and PCSI, and private tutoring from middle school to the end of prépa.",
@@ -232,6 +239,7 @@
         {
           "id": "cheerup",
           "start": "2024-10",
+          "end": "2026-02",
           "title": "Volunteer work",
           "subtitle": "Student associations I have volunteered with",
           "summary": "Volunteering with young cancer patients, and communication, art direction and partnerships for fundraising events.",
