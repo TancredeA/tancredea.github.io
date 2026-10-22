@@ -1,5 +1,5 @@
-*Problem.* Out of 100 samples, about 95 say “keep the gear”, 3 “shift up” and 2 “shift down”. A model that never shifts scores 95 % accuracy and is useless; and a shift at the wrong moment hurts more than a missed one.
+*Problem.* The rides the prototype was to record were never made, and the prototype is no longer available: no first-party data, and no bike to test on.
 
-*Choice.* Stage 1 decides whether to shift, with class weights and a tuned threshold; stage 2, trained only on real shifts (a small but balanced set), decides up or down. Then safeguards: a 1–2 s cooldown, a vote over consecutive samples, no shift below the first gear or above the last.
+*Choice.* Rebuild their closest public equivalent: six public files, 18.9 h at 1 Hz from six riders over nine rides, restricted to what the box can compute. The rider's gear is recovered from the speed-to-cadence ratio by a Viterbi decoder, which trades fidelity to the measured ratio against a cost for each shift.
 
-*Why.* The imbalance is confined to one binary model that handles it explicitly, the threshold becomes a knob between reactivity and caution, and models are scored on macro F1 rather than accuracy.
+*Why.* Labels have to be checked before anything is learned from them. On the one ride with real Shimano Di2 gear data, the reconstruction gives the right gear on 84 % of pedalling seconds, but finds shift events much less well (precision 0.44, recall 0.60): gears are reliable enough to learn from, shift events are not.

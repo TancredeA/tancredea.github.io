@@ -1,5 +1,5 @@
 {
-  "about": "Case-study page (layout \"case\" in site.json), like projects/absorber-placement. Text lives here and in the .md files next to this one. Formulas use LaTeX (KaTeX): in .md files between $...$ or $$...$$, here in the \"formula\" fields (no dollars, backslashes doubled because this is JSON). The video: put the file in this folder and its name in video.src (and a still image in video.poster); the block stays off the page while src is empty.",
+  "about": "Case-study page (layout \"case\" in site.json), like projects/absorber-placement. Text lives here and in the .md files next to this one. Formulas use LaTeX (KaTeX): in .md files between $...$ or $$...$$, here in the \"formula\" fields (no dollars, backslashes doubled because this is JSON). The video: put the file in this folder and its name in video.src (and a still image in video.poster); the block stays off the page while src is empty. Every number about the extension comes from report.pdf.",
 
   "arrangement": [
     ["header", "facts"],
@@ -10,14 +10,15 @@
     ["role:full"],
     ["decisions:group"],
     ["after:full"],
-    ["limits", "credits"]
+    ["limits:full"],
+    ["report", "credits"]
   ],
 
   "header": {
     "label": "projects",
-    "title": "Autogear: An Automatic Derailleur That Learns When to Shift",
-    "lede": "An entrepreneurship project that became R&D in embedded machine learning: a plug-and-play box that shifts a regular bike's gears by itself, without a torque sensor, with a model that imitates an experienced cyclist and runs on an Arduino.",
-    "tags": ["Embedded ML", "Learning from demonstration", "Imbalanced classification", "Arduino", "Product R&D"]
+    "title": "Autogear: Learning to Shift Without a Torque Sensor",
+    "lede": "An automatic derailleur for ordinary bikes, without a torque sensor, that became R&D in embedded machine learning. After the team project, I rebuilt the rides we never recorded from public data and replaced the planned shift classifier with a regression of the target gear and a hysteresis controller: in closed-loop simulation, it beats a decision table given the torque, in 14.9 KB of flash.",
+    "tags": ["Embedded ML", "Imitation learning", "Gradient boosting", "Closed-loop evaluation", "C99 / Arduino"]
   },
 
   "facts": {
@@ -26,9 +27,12 @@
       ["track", "CentraleSupélec entrepreneurship track"],
       ["team", "4 students (credits below)"],
       ["period", "Jan 2025 – June 2026"],
-      ["grade", "17/20"],
+      ["grade", "17/20 (team project)"],
+      ["extension", "Oct 2026, solo, after the project"],
+      ["result", "87.0 % within one gear of the rider, vs 80.8 % for a torque-aware table (closed-loop simulation)"],
+      ["on the board", "14.9 KB of flash, 316 B of RAM"],
       ["hardware", "Arduino Nano 33 BLE Sense Rev2, cadence sensor, servo"],
-      ["stack", "Python (pandas, scikit-learn, XGBoost), C++ (Arduino)"]
+      ["stack", "Python (pandas, scikit-learn, XGBoost), C99, C++ (Arduino)"]
     ]
   },
 
@@ -63,25 +67,24 @@
     "label": "how it works",
     "md": "how.md",
     "diagram": {
-      "boxWidth": 176,
-      "minWidth": 820,
+      "boxWidth": 236,
+      "minWidth": 760,
       "modules": [
-        { "id": "sensors", "name": "Sensors", "sub": ["cadence, IMU", "every 200–500 ms"], "col": 0, "row": 0, "style": "outline" },
-        { "id": "features", "name": "Features", "sub": ["last seconds: trends,", "slope, torque proxy"], "col": 1, "row": 0, "style": "filled" },
-        { "id": "stage1", "name": "Stage 1", "sub": ["shift or not?", "threshold θ"], "col": 2, "row": 0, "style": "filled" },
-        { "id": "stage2", "name": "Stage 2", "sub": ["up or down?"], "col": 3, "row": 0, "style": "filled" },
-        { "id": "guards", "name": "Safeguards", "sub": ["cooldown, vote,", "gear limits"], "col": 3, "row": 1, "style": "filled" },
-        { "id": "motor", "name": "Servo", "sub": ["moves the derailleur"], "col": 2, "row": 1, "style": "outline" }
+        { "id": "sensors", "name": "Sensors, 1 Hz", "sub": ["Hall cadence, barometer,", "IMU acceleration"], "col": 0, "row": 0, "style": "outline" },
+        { "id": "inputs", "name": "14 inputs", "sub": ["speed from cadence × gear,", "slope, acceleration, coasting;", "means and trends over 3–15 s"], "col": 1, "row": 0, "style": "filled" },
+        { "id": "model", "name": "100 boosted trees", "sub": ["depth 4, in C", "target gear, 3 s ahead"], "col": 2, "row": 0, "style": "filled" },
+        { "id": "controller", "name": "Controller", "sub": ["dead band h = 0.6, k = 3 s;", "one step at a time,", "never while coasting"], "col": 2, "row": 1, "style": "filled" },
+        { "id": "servo", "name": "Servo", "sub": ["moves the derailleur"], "col": 1, "row": 1, "style": "outline" }
       ],
       "edges": [
-        { "from": "sensors", "to": "features" },
-        { "from": "features", "to": "stage1" },
-        { "from": "stage1", "to": "stage2", "label": "shift" },
-        { "from": "stage2", "to": "guards" },
-        { "from": "guards", "to": "motor" }
+        { "from": "sensors", "to": "inputs" },
+        { "from": "inputs", "to": "model" },
+        { "from": "model", "to": "controller", "label": "target" },
+        { "from": "controller", "to": "servo", "label": "±1" },
+        { "from": "servo", "to": "inputs", "label": "engaged gear", "dashed": true }
       ],
-      "below": "Trained offline in Python on rides shifted by hand by an experienced cyclist, then exported to C for the board.",
-      "caption": "Filled: my work. Accent outline: embedded electronics, with Vincent Lucien. Plain: team."
+      "below": "Trained on 18.9 h of public rides rebuilt to match the box's sensors, then exported to C arrays (13,904 B) and checked against Python.",
+      "caption": "Filled: my work. Accent outline: embedded electronics, with Vincent Lucien. Dashed: the engaged gear only sets the derived speed, so the inputs do not depend on the gear chosen."
     }
   },
 
@@ -93,26 +96,32 @@
     {
       "title": "No torque sensor, by design",
       "md": "decision-1.md",
-      "formula": ["\\pi_\\theta\\big(a_t \\mid o_{t-k},\\dots,o_t\\big)\\;\\approx\\;\\pi^\\star\\big(a_t \\mid s_t\\big)", "\\\\[4pt]", "s_t=(o_t,\\ \\tau_t)"],
-      "caption": "o: what the box measures (cadence, IMU, current gear); τ: the pedal torque, never measured. The learned policy sees a window of k past observations to make up for it."
+      "formula": ["\\text{R1: }\\ c^\\star=81.8-69.2\\,s", "\\\\[4pt]", "\\text{RT: }\\ c^\\star=73.3-138.8\\,s+0.043\\,P"],
+      "caption": "Two decision tables fitted to the riders: a target cadence c* (rpm) from the slope s, without and with the pedalling power P = torque × angular velocity. Adding P moves agreement within one gear from 80.4 % to 80.8 %."
     },
     {
-      "title": "Two stages for a 95 / 3 / 2 split",
+      "title": "Rebuild the rides that were never recorded",
       "md": "decision-2.md",
-      "formula": "\\hat a_t=\\begin{cases}0 & \\text{if } p_1(x_t)<\\theta\\\\[2pt] \\operatorname{sign}\\big(p_2(x_t)-\\tfrac12\\big) & \\text{otherwise}\\end{cases}",
-      "caption": "p₁: probability of a shift (stage 1); p₂: probability that it is upward (stage 2). θ is calibrated, typically between 0.5 and 0.8; the safeguards then filter â."
+      "formula": ["\\hat g=\\arg\\min_{g}\\ \\sum_t \\Big[\\mathbb{1}_{\\text{pedal}}(t)\\,\\frac{e_t^2}{2\\sigma^2}", "+\\;\\lambda\\,\\mathbb{1}\\big(g_t\\neq g_{t-1}\\big)\\Big]", "\\\\[6pt]", "e_t=\\log d_t-\\log L_{g_t}"],
+      "caption": "Gear recovery, simplified (the full cost also caps the first term and adds a penalty for jumps of several gears). d = 60 v / c: the measured development; L_g: the gear levels found in the ride; σ = 0.05, λ = 15; solved with the Viterbi algorithm."
+    },
+    {
+      "title": "Predict the gear, not the shift",
+      "md": "decision-3.md",
+      "formula": ["\\hat\\ell(t)=f_\\theta\\big(z(t)\\big)", "\\\\[2pt]", "\\approx\\mathbb{E}\\big[\\log L\\big(g^\\star(t+H)\\big)\\mid z(t)\\big]", "\\\\[6pt]", "g(t+1)=C\\big(g(t),\\ \\hat\\ell_{t-k+1:t}\\big)"],
+      "caption": "L(g): development of gear g, in metres per crank turn; g*: the rider's gear; z(t): the 14 inputs; H = 3 s. The controller C shifts one step once the target has stayed beyond the dead band for k = 3 s."
+    },
+    {
+      "title": "Judged in closed loop, not offline",
+      "md": "decision-4.md",
+      "formula": "c^P(t)=c(t)\\,\\dfrac{L\\big(g^\\star(t)\\big)}{L\\big(g^P(t)\\big)}",
+      "caption": "Closed-loop replay: c, the recorded cadence; g*, the rider's gear; g^P, the gear the policy chose. Speed is held fixed, which is sound while the policy stays close to the rider."
     },
     {
       "title": "A model that fits on the board",
-      "md": "decision-3.md",
-      "formula": ["F(x)=\\sum_{k=1}^{K} f_k(x)", "\\\\[4pt]", "K\\le 100,\\quad \\operatorname{depth}(f_k)\\le 4", "\\\\[4pt]", "\\Rightarrow\\;\\le 400\\ \\text{comparisons}"],
-      "caption": "Each tree f_k is at most 4 comparisons deep: the whole ensemble costs at most 400 comparisons per decision, far within the 100 ms budget."
-    },
-    {
-      "title": "Judged like an experiment, not a demo",
-      "md": "decision-4.md",
-      "formula": "\\chi^2=\\frac{\\big(|n_{01}-n_{10}|-1\\big)^2}{n_{01}+n_{10}}",
-      "caption": "McNemar's test. n₀₁, n₁₀: test samples that only one of the two models gets right. Below p = 0.05, the difference between them is real."
+      "md": "decision-5.md",
+      "formula": ["F(z)=F_0+\\eta\\sum_{k=1}^{K} f_k(z)", "\\\\[4pt]", "K=100,\\quad \\operatorname{depth}(f_k)=4", "\\\\[4pt]", "\\Rightarrow\\;400\\ \\text{comparisons},\\ 100\\ \\text{additions}"],
+      "caption": "Each tree f_k is stored as a complete binary tree of depth 4 (unused branches padded), so every decision costs exactly the same, whatever the input. η = 0.1."
     }
   ],
   "decisionLabels": { "text": "choice", "math": "math" },
@@ -120,6 +129,17 @@
   "limits": { "label": "limits and next steps", "md": "limits.md" },
 
   "resources": {
+    "report": {
+      "label": "report",
+      "file": "report.pdf",
+      "thumb": "report-p1.png",
+      "title": "Learning to Shift Without a Torque Sensor: A Data-Driven Extension of the AutoGear Automatic Derailleur Project",
+      "meta": "IEEE format, 10 pp.",
+      "readAndDownload": true,
+      "readLabel": "↗ read pdf"
+    },
+    "repo": "",
+    "repoLabel": "↗ code, data pipeline and firmware on GitHub",
     "credits": { "label": "credits", "md": "credits.md" }
   }
 }

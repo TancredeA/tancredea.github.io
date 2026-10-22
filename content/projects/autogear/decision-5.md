@@ -1,0 +1,5 @@
+*Problem.* The decision runs on an Arduino Nano 33 BLE Sense Rev2 (nRF52840: Cortex-M4F at 64 MHz, 1 MB of flash, 256 KB of RAM), beside the firmware, with no machine-learning runtime.
+
+*Choice.* Budgets set during the project: under 100 KB of flash and 30 KB of RAM for the model, under 100 ms per decision. The retained model, 100 boosted trees of depth 4, is exported to a C99 library with no heap, no recursion and no runtime library; each tree is stored as a complete binary tree, so no child pointers are needed.
+
+*Why.* Tree inference is a fixed sequence of comparisons and additions on raw inputs, with no normalisation to keep consistent between training and firmware. The whole library takes 14,944 B of flash, 13,904 B of which are the model (1.5 % of the board), and 316 B of RAM. Over 14,261 s of rides, the C library reproduces the Python predictions and controller decisions exactly; run entirely in C, it picks the same gear as the Python replay 99.7 % of the time and always stays within one gear of it.

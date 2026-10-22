@@ -1,5 +1,5 @@
-*Problem.* Two models scoring 0.84 and 0.83 on one test set may not differ at all; and riding data are autocorrelated, so a random split leaks the test set into training.
+*Problem.* The gear a policy picks changes the cadence it sees next, and there is no bike to test on. Offline scores miss this: across the tests, the first approach's event F1 correlates only 0.25 with how it actually rides.
 
-*Choice.* Split by whole riding sessions (70 / 15 / 15), tune on validation only, open the test set once per model; compare models pairwise with McNemar's test and bootstrap confidence intervals on macro F1; measure size, latency and the rate of spurious shifts on the board itself.
+*Choice.* Judge every policy in closed-loop replay: it rides each recorded ride second by second with its own gears, its cadence recomputed at unchanged speed. 14 within-rider tests (4 leave-one-ride-out, 10 half-ride tests), decision parameters chosen by nested cross-validation, then frozen. The headline measure is agreement within one gear with the rider, next to shifts per hour and reversals.
 
-*Why.* The model kept for the board has to win on statistics, not on one lucky ride, and the gap between the offline score and the behaviour on the road has to be measured rather than assumed.
+*Why.* A policy then lives with the consequences of its own choices, as on the bike. The retained model wins 13 of 14 tests, with a median margin of +5.7 points over the best decision table of each test, shifts as often as the rider (95 per hour) and reverses 0.2 % of its shifts. If the tests were independent, 13 wins out of 14 would give a sign-test probability of about 0.001; they are not fully independent, so that figure is indicative.
