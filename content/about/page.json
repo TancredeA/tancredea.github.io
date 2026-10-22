@@ -94,7 +94,7 @@
           ],
           [
             "Python",
-            "pandas, NumPy, SciPy, scikit-learn, mpi4py, PyVista"
+            "pandas, NumPy, SciPy, scikit-learn, TensorFlow/Keras, mpi4py"
           ],
           [
             "HPC & systems",
