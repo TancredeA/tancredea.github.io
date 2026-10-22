@@ -140,8 +140,8 @@ a.cell:hover, a.cell:focus-visible { border-color: var(--accent); box-shadow: in
 }
 .name span { display: block; }
 .cell.id { display: flex; flex-direction: column; justify-content: space-between; }
-.cell.id .name { margin-top: 10px; font-size: calc(var(--u) * 0.7); line-height: 0.98; overflow-wrap: anywhere; }
-.cell.id .name span:last-child { font-size: 1.35em; line-height: 1; }   /* the family name, larger */
+.cell.id .name { margin-top: 10px; font-size: calc(var(--u) * 0.6); line-height: 0.98; overflow-wrap: anywhere; }
+.cell.id .name span:last-child { font-size: 1.3em; line-height: 1; }   /* the family name, larger */
 .cell.id .role { margin: 0; font-size: 12px; line-height: 1.4; }
 
 h1, .h1 {
