@@ -41,7 +41,7 @@
   },
 
   "blocks": {
-    "after": { "label": "what actually happened", "md": "after.md", "list": true },
+    "after": { "label": "timeline", "md": "after.md", "list": true },
     "overview": {
       "label": "the project", "md": "overview.md", "list": true,
       "image": "bench.jpg",
