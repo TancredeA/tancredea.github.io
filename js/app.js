@@ -242,15 +242,15 @@
 
     if (MODE === 'desk') {
       // Title block, like the cartouche of a technical drawing:
-      // name and role (4 x 3), then the menu, contact at the bottom.
+      // name and role (B2:E5), then the menu from row 6, contact at the bottom.
       state.rowOff = 0;
-      const name = cell('id', `<a href="${HOME}" style="text-decoration:none"><p class="name">${o.name.map(n => `<span>${esc(n)}</span>`).join('')}</p></a><p class="k role">${esc(o.role)}</p>`);
+      const name = cell('id', `<a href="${HOME}" style="text-decoration:none"><p class="name">${o.name.map(esc).join(' ')}</p></a><p class="k role">${[].concat(o.role).map(esc).join('<br>')}</p>`);
       const menu = cell('menu');
       menu.append(buildTree(rt));
-      const contact = cell('contact contact-box side-contact', contactCard() + `<div class="case-actions">${cvButton()}</div>`);
+      const contact = cell('contact contact-box side-contact', contactCard('', { seeking: false }) + `<div class="case-actions">${cvButton()}</div>`);
       const R = Math.floor(window.innerHeight / U);
       aside.append(name, menu, contact);
-      place(name, 2, 5, 2, 3, 0);
+      place(name, 2, 5, 2, 4, 0);
       // the menu keeps the height of its tallest state so nothing jumps between pages
       const menuRows = menuMaxRows(menu, rt);
       // contact: the contact card of the about page without its name and intro, as tall as
@@ -259,7 +259,7 @@
       // name and stretches down to the contact.
       place(contact, 2, 5, 1, 1, 0);
       let contactRows = rowsNeeded(contact, 3);
-      const rMenu = 5;
+      const rMenu = 6;
       // a window too short for both: the contact block leaves out the place (.compact)
       if (rMenu + menuRows + contactRows - 1 > R) { contact.classList.add('compact'); contactRows = rowsNeeded(contact, 3); }
       const rContact = Math.max(rMenu + menuRows, R - contactRows + 1);
@@ -272,13 +272,13 @@
       // the page: the pages, then the contact card.
       state.rowOff = 3;
       const photo = cell('photo fixed', photoHtml());
-      const name = cell('bar-name', `<a class="bar-who" href="${HOME}">${o.name.map(esc).join(' ')}</a><span class="bar-role">${esc(o.roleShort || o.role)}</span>`);
+      const name = cell('bar-name', `<a class="bar-who" href="${HOME}">${o.name.map(esc).join(' ')}</a><span class="bar-role">${esc(o.roleShort || [].concat(o.role).join(', '))}</span>`);
       const cv = cell('bar-btn', '↗ read cv', 'a', { href: o.cv, target: '_blank', rel: 'noopener', 'data-also-download': '' });
       const toggle = cell('bar-btn bar-toggle', `menu ${state.menuOpen ? '−' : '+'}`, 'button',
         { type: 'button', 'aria-expanded': String(state.menuOpen), 'aria-controls': 'panel' });
       toggle.onclick = () => { state.menuOpen = !state.menuOpen; renderAside(route()); };
       const bits = crumbBits(rt, true);
-      const trail = cell('bar-crumb', bits.length ? bits.join('<span>/</span>') : `<span class="muted">${esc(o.roleShort || o.role)}</span>`,
+      const trail = cell('bar-crumb', bits.length ? bits.join('<span>/</span>') : `<span class="muted">${esc(o.roleShort || [].concat(o.role).join(', '))}</span>`,
         'nav', { 'aria-label': 'Breadcrumb' });
       aside.append(photo, name, cv, toggle, trail);
       place(photo, 1, 2, 1, 3, 0);
@@ -522,7 +522,9 @@
       const hm = SITE.home;
       const named = (b, name) => (b.tag = h('span', { class: 'block-tag' }, esc(name)), b);
       const hero = named(B(cell('', `<h1>${esc(hm.headline)}</h1><p class="lede">${esc(hm.lede)}</p>`), L, 3), 'intro');
-      const now = named(B(cell('', `<p style="margin:0 0 10px;font-size:15px;line-height:1.45">${esc(hm.now)}</p><ul class="links"><li><a href="${esc(SITE.owner.cv)}" target="_blank" rel="noopener" data-also-download>↗ read cv</a></li></ul>`), R, 3), 'currently');
+      // "now": a list of short items, each opening on its keyword in **bold**
+      const nowHtml = [].concat(hm.now).map(t => `<p>${esc(t).replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')}</p>`).join('');
+      const now = named(B(cell('', `<div class="now-list">${nowHtml}</div><ul class="links"><li><a href="${esc(SITE.owner.cv)}" target="_blank" rel="noopener" data-also-download>↗ read cv</a></li></ul>`), R, 3), 'currently');
       bands.push([hero, now]);
       const pages = allPages();
       const wip = pages.filter(p => p.status === 'wip');
@@ -719,9 +721,9 @@
   // The owner's contact card, from site.json: "based" (one line or a list of lines) and the
   // web profiles of "contact". No mail address or phone number is published.
   // "cv": a link set at the end of the last row, on its right.
-  function contactCard(cv) {
+  function contactCard(cv, { seeking = true } = {}) {
     const o = SITE.owner, rows = [];
-    if (o.seeking) rows.push(['seeking', esc(o.seeking), 'looking for']);
+    if (o.seeking && seeking) rows.push(['seeking', esc(o.seeking), 'looking for']);
     if (o.based) rows.push(['based', [].concat(o.based).map(esc).join('<br>')]);
     const web = o.contact.filter(c => /^https?:/.test(c.href || ''));
     if (web.length) rows.push(['profiles', web.map(c => `<a href="${esc(c.href)}" target="_blank" rel="noopener">${esc(c.label)}</a>`).join('<span class="sep"> · </span>')]);

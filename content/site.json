@@ -1,9 +1,9 @@
 {
-  "baseUrl": "https://<handle>.github.io",
+  "baseUrl": "https://tancredea.github.io",
 
   "owner": {
     "name": ["Tancrède", "Amiel"],
-    "role": "Student at CentraleSupélec, AI engineer at Dassault Systèmes K.K.",
+    "role": ["Student at CentraleSupélec", "AI engineer at Dassault Systèmes K.K."],
     "roleShort": "CentraleSupélec · AI engineer",
     "photo": null,
     "cv": "assets/placeholder.pdf",
@@ -12,14 +12,19 @@
     "contact": [
       { "label": "↗ read cv", "href": "assets/placeholder.pdf", "openAndDownload": true },
       { "label": "↗ linkedin", "href": "https://www.linkedin.com/in/tancrede-amiel-aa5264291/", "group": "profiles" },
-      { "label": "↗ github", "href": "https://github.com/your-handle", "group": "profiles" }
+      { "label": "↗ github", "href": "https://github.com/TancredeA", "group": "profiles" }
     ]
   },
 
   "home": {
     "headline": "Applied mathematics, turned into working models.",
     "lede": "CentraleSupélec engineering student in data science and AI. I like problems where a clean formulation decides whether the code works at all.",
-    "now": "Gap year from CentraleSupélec (2026–27): AI/ML engineering intern at Dassault Systèmes K.K., Tokyo, until February 2027. Applying for master's programmes starting in 2027, and for a research internship at RIKEN AIP.",
+    "now": [
+      "**Gap year** from CentraleSupélec, 2026–27.",
+      "**AI/ML engineering intern** at Dassault Systèmes K.K., Tokyo, until February 2027.",
+      "Applying for **master's programmes** starting in 2027,",
+      "and for a **research internship** at RIKEN AIP."
+    ],
     "latest": null,
     "pinned": ["research/vtnn-notes", "projects/autogear", "projects/blast-routing"],
     "seeking": {

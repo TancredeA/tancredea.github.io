@@ -140,7 +140,7 @@ a.cell:hover, a.cell:focus-visible { border-color: var(--accent); box-shadow: in
 }
 .name span { display: block; }
 .cell.id { display: flex; flex-direction: column; justify-content: space-between; }
-.cell.id .name { margin-top: 12px; font-size: calc(var(--u) * 0.42); overflow-wrap: anywhere; }
+.cell.id .name { margin-top: 12px; font-size: calc(var(--u) * 0.36); overflow-wrap: anywhere; }
 .cell.id .role { margin: 0; font-size: 12px; line-height: 1.4; }
 
 h1, .h1 {
@@ -160,6 +160,9 @@ h2, h3 { font-weight: 500; letter-spacing: -0.01em; }
 
 .card-title { margin: 0.1em 0 0.25em; font: 500 21px/1.15 var(--sans); letter-spacing: -0.015em; }
 .card-sum { margin: 0; font-size: 15px; line-height: 1.45; }
+.now-list { margin: 0 0 10px; }
+.now-list p { margin: 0 0 5px; font-size: 14px; line-height: 1.38; }
+.now-list b { font-weight: 500; }
 .bench-list { margin: 10px 0 0; padding-left: 1.1em; font-size: 14.5px; line-height: 1.45; }
 .bench-list li { margin: 0 0 6px; }
 .bench-list li:last-child { margin-bottom: 0; }
