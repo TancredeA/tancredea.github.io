@@ -689,6 +689,13 @@
     // desktop (G4:O7), 9 on phones (B5:I13)
     if (hd.contact) head.classList.add('fixed');
     addL(B(head, LM, hd.contact ? (MODE === 'desk' ? 4 : 9) : 2));
+    // "photo": a square portrait at the top of the right column ({src, alt}; without src, the
+    // owner's photo of site.json, or the placeholder)
+    if (d.photo) {
+      const ph = d.photo, src = ph.src ? base + ph.src : null;
+      const el = cell('photo fixed role-photo', src ? `<img src="${esc(src)}" alt="${esc(ph.alt || 'Portrait of ' + SITE.owner.name.join(' '))}">` : photoHtml());
+      addR(B(el, RA, MODE === 'desk' ? 4 : 8));
+    }
     if (factsB) addR(factsB);
     bandsIn.forEach((b, i) => {
       const mainEl = b.main ? cell('role-main', k(b.main.label || '') + (b.main.md ? `<div class="prose case-list">${mains[i]}</div>` : '') +

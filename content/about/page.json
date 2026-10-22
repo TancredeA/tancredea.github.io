@@ -6,6 +6,10 @@
     "subtitle": "Engineering student at CentraleSupélec, AI engineer intern at Dassault Systèmes K.K.",
     "md": "who-i-am.md"
   },
+  "photo": {
+    "src": null,
+    "alt": "Portrait of Tancrède Amiel"
+  },
   "facts": {
     "label": "facts",
     "rows": [
@@ -28,13 +32,6 @@
     ]
   },
   "bands": [
-    {
-      "aside": {
-        "label": "research interests",
-        "md": "research-interests.md",
-        "side": "right"
-      }
-    },
     {
       "main": {
         "label": "education",
@@ -67,6 +64,12 @@
       "main": {
         "label": "what's next",
         "md": "whats-next.md"
+      }
+    },
+    {
+      "main": {
+        "label": "research interests",
+        "md": "research-interests.md"
       }
     },
     {
