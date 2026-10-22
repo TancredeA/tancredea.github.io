@@ -5,9 +5,9 @@
     ["header", "facts"],
     ["video"],
     ["overview:full"],
+    ["role:full"],
     ["figure"],
     ["how"],
-    ["role:full"],
     ["decisions:group"],
     ["after:full"],
     ["limits:full"],
@@ -17,7 +17,7 @@
   "header": {
     "label": "projects",
     "title": "Autogear: Learning to Shift Without a Torque Sensor",
-    "lede": "An automatic derailleur for ordinary bikes, without a torque sensor, that became R&D in embedded machine learning. After the team project, I rebuilt the rides we never recorded from public data and replaced the planned shift classifier with a regression of the target gear and a hysteresis controller: in closed-loop simulation, it beats a decision table given the torque, in 14.9 KB of flash.",
+    "lede": "An automatic derailleur for ordinary bikes, without a torque sensor. We built the hardware; I built the model that chooses the gear: 100 boosted trees and a hysteresis controller that, in closed-loop simulation, beat a decision table given the torque, and fit in 14.9 KB of flash on the box's Arduino.",
     "tags": ["Embedded ML", "Imitation learning", "Gradient boosting", "Closed-loop evaluation", "C99 / Arduino"]
   },
 
@@ -26,11 +26,8 @@
     "rows": [
       ["track", "CentraleSupélec entrepreneurship track"],
       ["team", "4 students (credits below)"],
-      ["period", "Jan 2025 – June 2026"],
+      ["period", "Jan 2025 – Oct 2026"],
       ["grade", "17/20 (team project)"],
-      ["extension", "Oct 2026, solo, after the project"],
-      ["result", "87.0 % within one gear of the rider, vs 80.8 % for a torque-aware table (closed-loop simulation)"],
-      ["on the board", "14.9 KB of flash, 316 B of RAM"],
       ["hardware", "Arduino Nano 33 BLE Sense Rev2, cadence sensor, servo"],
       ["stack", "Python (pandas, scikit-learn, XGBoost), C99, C++ (Arduino)"]
     ]
@@ -44,7 +41,7 @@
   },
 
   "blocks": {
-    "after": { "label": "after the project", "md": "after.md", "list": true },
+    "after": { "label": "what actually happened", "md": "after.md", "list": true },
     "overview": {
       "label": "the project", "md": "overview.md", "list": true,
       "image": "bench.jpg",
@@ -90,7 +87,7 @@
 
   "role": { "label": "my part", "md": "role.md" },
 
-  "decisionGroup": { "label": "the R&D choices in detail", "toggleIn": "role", "relief": true, "open": "↓ the R&D choices in detail, with their math", "close": "↑ hide the R&D choices" },
+  "decisionGroup": { "label": "the R&D choices in detail", "toggleIn": "how", "relief": true, "open": "↓ the R&D choices in detail, with their math", "close": "↑ hide the R&D choices" },
 
   "decisions": [
     {
