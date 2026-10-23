@@ -165,7 +165,7 @@
           "subtitle": "A close reading of Jahromi & Orús, Scientific Reports (2024)",
           "cardTitle": "Variational Tensor Neural Networks",
           "summary": "A critical analysis: tensor layers trained like DMRG inside deep networks, a new way to read a network while it trains.",
-          "tags": ["Tensor networks", "Quantum information", "Interpretability", "Critical reading"],
+          "tags": ["Tensor networks", "Quantum-inspired ML (QiML)", "Quantum information", "Interpretability", "Critical reading"],
           "layout": "case",
           "kind": "academic",
           "cover": "fig-spiral.png",
