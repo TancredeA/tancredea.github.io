@@ -6,11 +6,11 @@
     "role": ["Student at CentraleSupélec", "AI engineer at Dassault Systèmes K.K."],
     "roleShort": "CentraleSupélec · AI engineer",
     "photo": null,
-    "cv": "assets/placeholder.pdf",
+    "cv": "assets/CV_Tancrede_AMIEL_pub.pdf",
     "seeking": "a research internship in deep learning, applied statistics for ML or quantum-inspired ML",
     "based": ["Tokyo · JST, 2026–27", "Paris · CET"],
     "contact": [
-      { "label": "↗ read cv", "href": "assets/placeholder.pdf", "openAndDownload": true },
+      { "label": "↗ read cv", "href": "assets/CV_Tancrede_AMIEL_pub.pdf", "openAndDownload": true },
       { "label": "↗ linkedin", "href": "https://www.linkedin.com/in/tancrede-amiel-aa5264291/", "group": "profiles" },
       { "label": "↗ github", "href": "https://github.com/TancredeA", "group": "profiles" }
     ]
