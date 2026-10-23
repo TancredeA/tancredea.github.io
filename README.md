@@ -20,7 +20,7 @@ Préférer ce serveur à `python3 -m http.server 8000` : celui-ci interdit le ca
 index.html            squelette, ne change presque jamais (modèle de toutes les pages)
 css/style.css         couleurs, typo, grille (tokens en haut du fichier)
 js/app.js             moteur : adresses, arbre, fil d'Ariane, placement des cellules
-js/demos.js           démos path et media (aperçu animé + version interactive) ;
+js/demos.js           démo path (aperçu animé + version interactive) ;
                       PIPELINE_3D : intègre demo/ sur sa page de simulation
 demo/                 démo PIPELINE_3D autonome (voir demo/README.md)
 tools/build_pages.py  génère un dossier par page (adresses sans #)
@@ -88,7 +88,7 @@ Champs utiles :
 | `kind` | catégorie affichée sur les cartes épinglées : `academic`, `research`, `professional` ou `personal` |
 | `partner` | partenaire (affiché « with … » sur la carte épinglée, seulement s'il est renseigné) |
 | `tags`, `updated`, `repo` | mots-clés, date de mise à jour (affichée dans la fiche), dépôt de code (aucun bouton tant que vide) |
-| `demo` | `path` ou `media` : branche une démo ; la page passe en tête de section et dans « try it » sur l'accueil |
+| `demo` | `path` : branche une démo ; la page passe en tête de section et dans « try it » sur l'accueil |
 | `start`, `end` | début et fin du projet, `AAAA-MM` (ou `AAAA`) : les pages d'une section sont rangées de la plus récente à la plus ancienne **selon leur date de fin**, dans le menu, la grille de la section, les liens précédent / suivant et les épinglés de l'accueil ; une page en cours (`status` `current` ou `wip`) sans `end` compte comme finissant aujourd'hui, une autre sans `end` est rangée sur `start`, une page sans aucune des deux vient en dernier |
 | `cover`, `coverAlt` | image (dans le dossier de la page) : aperçu sur la carte de la grille « projects » et sur l'accueil si la page est épinglée (quand la page n'a pas de démo), et, sur une page article, au-dessus des liens |
 | `video`, `poster` | avec `demo` : la page montre cet enregistrement au lieu de la démo, avec un bouton vers sa page `…/simulation/` où tourne la vraie démo ; sur les cartes de l'accueil et de la section, la vidéo prend son tour dans la rotation des aperçus (5 s chacun, courte pause, puis le suivant, en boucle) ; seul le visiteur l'interrompt : le survol lance une carte et met les autres en pause ; quand la souris la quitte, elle se met aussitôt en pause (en vert) et, après la courte pause, la boucle reprend à la carte suivante |

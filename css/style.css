@@ -358,12 +358,7 @@ img.preview { object-fit: cover; border: 1px solid var(--line); }
 .rec-go { text-decoration: none; background: var(--ink); color: var(--bg); border-color: var(--ink); padding: 10px 14px; }
 .rec-go:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
 
-.demo-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin: 0 0 12px; }
-.demo-bar label { display: inline-flex; align-items: center; gap: 8px; font: 12px var(--mono); color: var(--muted); }
-.demo-bar output { color: var(--ink); min-width: 2ch; }
-.demo-bar input[type=range] { accent-color: var(--accent); width: 110px; }
-
-.btn, .seg button {
+.btn {
   font: 12.5px/1 var(--mono);
   color: var(--ink);
   background: var(--bg);
@@ -371,19 +366,7 @@ img.preview { object-fit: cover; border: 1px solid var(--line); }
   padding: 7px 10px;
   cursor: pointer;
 }
-.btn:hover, .seg button:hover { border-color: var(--accent); color: var(--accent); }
-.seg { display: inline-flex; }
-.seg button + button { border-left: none; }
-.seg button.on { background: var(--ink); color: var(--bg); }
-
-.demo-canvas { width: 100%; display: block; border: 1px solid var(--ink); touch-action: none; cursor: crosshair; }
-.readout { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 10px; font: 12.5px/1.5 var(--mono); color: var(--muted); }
-.readout b { font-weight: 500; color: var(--ink); }
-.readout .acc { color: var(--accent); }
-
-
-.file-btn { position: relative; overflow: hidden; }
-.file-btn input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.btn:hover { border-color: var(--accent); color: var(--accent); }
 
 .notice { font: 13px/1.6 var(--mono); }
 .notice code { background: var(--accent-soft); padding: 2px 5px; }

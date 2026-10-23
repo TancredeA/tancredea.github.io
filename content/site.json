@@ -86,24 +86,6 @@
           "status": "done"
         },
         {
-          "id": "media-tool",
-          "kind": "TODO",
-          "title": "media tool",
-          "subtitle": "Photo and video processing software",
-          "summary": "TODO: one line on what the tool does.",
-          "layout": "lab",
-          "demo": "media",
-          "caption": "original frame against processed output",
-          "demoNote": "browser re-implementation of a few filters",
-          "role": "TODO",
-          "period": "TODO",
-          "date": null,
-          "stack": ["TODO"],
-          "links": [],
-          "pdf": null,
-          "status": "done"
-        },
-        {
           "id": "autogear",
           "start": "2025-01",
           "end": "2026-10",
