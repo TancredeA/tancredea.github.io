@@ -1269,8 +1269,34 @@
     startPreviews();
     const t = rt.type === 'sim' ? rt.page.title + ', live simulation' : rt.page ? rt.page.title : rt.section ? rt.section.title : null;
     document.title = (rt.type === 'child' || rt.type === 'single') && rt.page.metaTitle ? rt.page.metaTitle : (t ? t + ' — ' : '') + SITE.owner.name.join(' ');
-    if (state.lastPath !== undefined && state.lastPath !== location.pathname) { window.scrollTo(0, 0); main.focus({ preventScroll: true }); }
+    if (state.lastPath !== undefined && state.lastPath !== location.pathname) {
+      window.scrollTo(0, 0); main.focus({ preventScroll: true });
+      countVisit({ path: location.pathname, title: document.title });   // the first page counts itself
+    }
     state.lastPath = location.pathname;
+  }
+
+  // ---------------------------------------------------------------- visit counts
+  // GoatCounter (script in index.html) counts the page a visit lands on by itself; the pages
+  // reached through the site's own links change the address without a reload, so render()
+  // counts them. A few clicks are counted as events: the CV, the PDFs, links to other sites
+  // and the live simulation. Nothing is counted on localhost, or when the script is blocked.
+  let lastEvent = '', lastEventAt = 0;
+  const countVisit = opts => { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count(opts); };
+  function countClick(e) {
+    const a = e.target.closest && e.target.closest('a[href]');
+    if (!a || (a.hasAttribute('download') && !a.textContent.trim())) return;   // the hidden link that downloads the CV
+    const url = new URL(a.href, document.baseURI);
+    const site = new URL(ROOT, location.origin);
+    let name = null;
+    if (url.href === new URL(SITE.owner.cv, document.baseURI).href) name = 'cv';
+    else if (url.origin === location.origin && /\.pdf$/i.test(url.pathname)) name = 'pdf: ' + url.pathname.slice(site.pathname.length);
+    else if (url.origin !== location.origin && /^https?:$/.test(url.protocol)) name = 'link: ' + url.host + url.pathname.replace(/\/$/, '');
+    else if (url.origin === location.origin && /\/simulation\/$/.test(url.pathname)) name = 'live simulation: ' + url.pathname.slice(site.pathname.length).replace(/\/simulation\/$/, '');
+    // the demo button clicks the preview for the reader: one event, not two
+    if (!name || (name === lastEvent && Date.now() - lastEventAt < 1000)) return;
+    lastEvent = name; lastEventAt = Date.now();
+    countVisit({ path: name, title: a.textContent.trim() || name, event: true });
   }
 
   function fileWarning() {
@@ -1312,6 +1338,7 @@
       const target = new URL(location.hash.slice(2).replace(/\/?$/, '/'), new URL(ROOT, location.origin));
       history.replaceState(null, '', routeFor(target.href) ? target.href : new URL(ROOT, location.origin).href);
     }
+    document.addEventListener('click', countClick, true);
     // "↗ read cv": the link opens the file in a new tab; this also downloads it
     document.addEventListener('click', e => {
       const a = e.target.closest && e.target.closest('a[data-also-download]');

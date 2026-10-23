@@ -209,6 +209,17 @@ Deux règles pour garder le site lisible :
 
 Après modification, recharger la page sans cache (Cmd+Shift+R).
 
+## Statistiques de visite (GoatCounter)
+
+Le script GoatCounter est dans `index.html` (compte `tancredea`, tableau de bord sur <https://tancredea.goatcounter.com>) : il compte la page d'arrivée de chaque visite, sans cookie. Les pages ouvertes ensuite par les liens du site ne rechargent pas la page : `render()` dans `js/app.js` les compte (`countVisit`). Quelques clics sont comptés comme événements (`countClick`) :
+
+- `cv` : tout lien vers le CV de `owner.cv` ;
+- `pdf: …` : les autres PDF (rapports) ;
+- `link: …` : les liens vers d'autres sites (LinkedIn, GitHub, le dépôt d'Autogear…) ;
+- `live simulation: …` : l'ouverture d'une simulation en direct.
+
+Rien n'est compté sur `localhost`, ni quand un bloqueur empêche le script de se charger : les chiffres sont un minimum.
+
 ## Mettre en ligne sur GitHub Pages
 
 1. Créer un dépôt nommé `<ton-pseudo>.github.io`.
