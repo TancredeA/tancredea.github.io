@@ -103,7 +103,7 @@
   ],
   "decisionLabels": { "text": "decision", "math": "math" },
 
-  "limits": { "label": "limits and lessons", "md": "limits.md" },
+  "limits": { "label": "limits and next steps", "md": "limits.md" },
 
   "resources": {
     "label": "resources",

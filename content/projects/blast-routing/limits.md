@@ -1,4 +1,3 @@
 - **Convergence, not accuracy.** Validation measured convergence only: with no held-out ARMEN runs, the error of the damage map against ARMEN was not quantified. Leave-one-out cross-validation is the next step.
 - **Free-field law.** It was a custom polynomial fit, valid on part of the scaled-distance range only. It should give way to the standard range-wise Kingery–Bulmash formulation.
 - **Proofs of concept.** Several components were built to fit three months. The 2D and 3D pipelines diverged on scoring, kernel and acquisition; the 3D loop holds six simulations without a convergence study; scaling to larger cities is estimated from a cost model, not measured.
-- **Lesson.** <span class="todo">[TO CONFIRM]</span> I would fix one shared scoring module and kernel for both pipelines from the first week, and set aside a few ARMEN runs for validation.
