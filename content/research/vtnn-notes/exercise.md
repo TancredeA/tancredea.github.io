@@ -1,2 +1,2 @@
-- **The course.** *Information & Physics* at CentraleSupélec, taught by Zeno Toffano and Antoine Berthet: information theory and quantum information, and what each brings to the other.
+- **The course.** *Information Theory & Quantum Information* at CentraleSupélec, taught by Zeno Toffano and Antoine Berthet: information theory and quantum information, and what each brings to the other.
 - **The exercise.** Take a recent research article at that crossing and analyse it critically: a short written report (LaTeX), then an oral presentation. The aim is not to summarise but to judge.

@@ -1,3 +1,4 @@
 - **Mathematics for machine learning:** optimization, probability, information theory.
+- **Quantum-inspired ML:** tensor networks in neural networks.
 - **Random matrices and tensors.**
 - **AI for robotics:** physical AI, reinforcement learning.

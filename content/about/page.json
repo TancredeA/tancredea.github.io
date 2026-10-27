@@ -58,20 +58,16 @@
         "label": "coursework",
         "rows": [
           [
-            "probability & statistics",
-            "probability, statistics, machine learning"
+            "mathematics",
+            "probability, statistics, convex optimisation & duality, PDEs, wave control (applied functional analysis)"
           ],
           [
-            "optimization & analysis",
-            "optimization, PDEs"
-          ],
-          [
-            "information & quantum",
-            "information theory, quantum physics and computing"
+            "machine learning & information",
+            "machine learning, information theory, quantum physics & quantum computing"
           ],
           [
             "computing",
-            "algorithms, HPC, cloud"
+            "algorithms, high-performance computing, cloud computing"
           ]
         ],
         "stacked": true
@@ -98,7 +94,7 @@
           ],
           [
             "HPC & systems",
-            "OpenMP/MPI, SLURM, Linux CLI, Git, Docker"
+            "OpenMP/MPI, SLURM, Linux CLI, Git, Docker, Kubernetes"
           ],
           [
             "basics",

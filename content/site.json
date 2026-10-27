@@ -156,13 +156,13 @@
           "period": "June 2026",
           "date": "2026",
           "metaTitle": "Variational Tensor Neural Networks, a Critical Analysis · Tancrède Amiel",
-          "metaDescription": "A critical analysis of Jahromi & Orús (Scientific Reports, 2024) for the Information & Physics course at CentraleSupélec: no breakthrough in compression or scalability, but tensor layers trained like DMRG inside hybrid networks, which make entanglement readable during training.",
+          "metaDescription": "A critical analysis of Jahromi & Orús (Scientific Reports, 2024) for the Information Theory & Quantum Information course at CentraleSupélec: no breakthrough in compression or scalability, but tensor layers trained like DMRG inside hybrid networks, which make entanglement readable during training.",
           "status": "done"
         },
         {
           "id": "tfjm-2022",
           "start": "2022-01",
-          "end": "2022",
+          "end": "2022-05",
           "title": "TFJM² 2022: The Confined Professor",
           "menuTitle": "TFJM² 2022",
           "subtitle": "Problem 3: The Confined Professor",
