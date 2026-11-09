@@ -18,7 +18,7 @@
 
   "home": {
     "headline": "Applied mathematics, turned into working models.",
-    "lede": "CentraleSupélec engineering student in data science and AI. I like problems where a clean formulation decides whether the code works at all.",
+    "lede": "CentraleSupélec engineering student in general engineering: mathematics, computer science, AI/ML. I like problems where a clean formulation decides whether the code works at all.",
     "now": [
       "**Gap year** from CentraleSupélec, 2026–27.",
       "**AI/ML engineering intern** at Dassault Systèmes K.K., Tokyo, until February 2027.",
@@ -92,7 +92,7 @@
           "title": "Autogear",
           "subtitle": "An automatic derailleur that learns which gear to ride, without a torque sensor",
           "summary": "An automatic derailleur without a torque sensor: we built the hardware, I built the model that chooses the gear. In 14.9 KB of flash, it beats a torque-aware table in closed-loop simulation.",
-          "tags": ["Embedded ML", "Imitation learning", "Gradient boosting", "Closed-loop evaluation"],
+          "tags": ["TinyML", "Imitation learning", "Gradient boosting", "Closed-loop evaluation"],
           "layout": "case",
           "cover": "bench.jpg",
           "coverAlt": "A student pedals the Autogear prototype on a home trainer while a teammate watches the data",
@@ -156,7 +156,7 @@
           "period": "June 2026",
           "date": "2026",
           "metaTitle": "Variational Tensor Neural Networks, a Critical Analysis · Tancrède Amiel",
-          "metaDescription": "A critical analysis of Jahromi & Orús (Scientific Reports, 2024) for the Information Theory & Quantum Information course at CentraleSupélec: no breakthrough in compression or scalability, but tensor layers trained like DMRG inside hybrid networks, which make entanglement readable during training.",
+          "metaDescription": "A critical analysis of Jahromi & Orús (Scientific Reports, 2024) for the Applications of Statistical and Quantum Physics to Information Science course at CentraleSupélec: no breakthrough in compression or scalability, but tensor layers trained like DMRG inside hybrid networks, which make entanglement readable during training.",
           "status": "done"
         },
         {
@@ -197,8 +197,8 @@
           "end": "2027-02",
           "title": "Dassault Systèmes K.K.",
           "subtitle": "AI/ML engineer, AI solution design and deployment · Tokyo",
-          "summary": "AI engineering embedded in internal business teams: RAG, knowledge graphs and MCP servers to streamline their processes.",
-          "tags": ["Generative AI", "RAG", "Knowledge graphs", "MCP", "Solution architecture"],
+          "summary": "AI engineering embedded in internal business teams: multi-tool RAG solutions and MCP servers to streamline their processes, and the launch of a Physical AI Lab.",
+          "tags": ["Generative AI", "RAG", "Vector databases", "MCP", "Physical AI"],
           "layout": "role",
           "page": "page.json",
           "period": "Sept 2026 – Feb 2027",
@@ -209,13 +209,14 @@
         {
           "id": "iagrim",
           "start": "2024-07",
+          "end": "2024-08",
           "title": "IAgriM",
           "subtitle": "Deputy project manager and solution architect · Danew Talla Electronics · Paris – Bamako",
-          "summary": "An offline, voice-based AI assistant for Malian farmers: designed, defended before ministers, now on hold.",
+          "summary": "A two-mode AI assistant for Malian farmers' daily questions, offline first: designed end to end, approved by two ministers, on hold pending funding.",
           "tags": ["AI for development", "Speech AI", "Offline AI", "Solution architecture"],
           "layout": "role",
           "page": "page.json",
-          "period": "since July 2024",
+          "period": "July – Aug 2024",
           "date": "2024-07",
           "metaTitle": "IAgriM · Tancrède Amiel",
           "status": "on hold"

@@ -1,4 +1,5 @@
-- **Process automation architectures.** For processes such as answering RFx (requests for information, proposal or quotation), I design pipelines that combine retrieval-augmented generation (RAG), a knowledge-graph database, and purpose-built tools and skills on top of foundation models.
-- **MCP servers.** I build Model Context Protocol servers that connect internal models to company tools and data.
+- **Process automation.** For processes such as answering RFx (requests for information, proposal or quotation), I build multi-tool AI solutions: company data restructured into Google's Open Knowledge Format (OKF) and vector databases, queried by RAG and OKF-RAG, with web search, Japanese–English translation and output in several formats.
+- **MCP servers.** I build Model Context Protocol servers that expose these tools and the company data to the models.
+- **Physical AI Lab.** I am launching the company's Physical AI Lab, both strategic and hands-on: the stack blueprint, hardware costing, software, a skills curriculum, and the scouting and launch of its first projects.
 - **Use-case prioritization.** I rank candidate use cases by impact and complexity to decide what to build first.
-- **On-premise hosting.** I size and cost the company servers needed to host the models on premises for a few hundred users, and prepare the quotations.
+- **On-premise hosting.** From the executives' needs and budget, I choose and cost the GPU servers that host open-weight models on premises for a few hundred users.

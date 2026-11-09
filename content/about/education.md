@@ -4,5 +4,5 @@
 </div>
 <div class="edu">
 <p><strong>Collège Stanislas</strong><span class="edu-meta">2022–2024 · Paris</span></p>
-<p>Preparatory classes, PCSI then PC*: a two-year intensive course in mathematics and physics leading to the national competitive exams for engineering schools.</p>
+<p>Preparatory classes, PCSI then PC*: a two-year intensive course in mathematics and physics leading to the national competitive exams for engineering schools. GPA 3.92/4 (year 1), 3.98/4 (year 2).</p>
 </div>

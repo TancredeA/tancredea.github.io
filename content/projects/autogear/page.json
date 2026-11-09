@@ -18,7 +18,7 @@
     "label": "projects",
     "title": "Autogear: Learning to Shift Without a Torque Sensor",
     "lede": "From entrepreneurship to R&D: an automatic derailleur for ordinary bikes, without a torque sensor. We built the hardware; I built the model that chooses the gear: 100 boosted trees and a hysteresis controller that, in closed-loop simulation, beat a decision table given the torque, and fit in 14.9 KB of flash on the box's Arduino.",
-    "tags": ["Embedded ML", "Imitation learning", "Gradient boosting", "Closed-loop evaluation", "C99 / Arduino"]
+    "tags": ["TinyML", "Imitation learning", "Gradient boosting", "Closed-loop evaluation", "C99 / Arduino"]
   },
 
   "facts": {
@@ -27,7 +27,7 @@
       ["track", "CentraleSupélec entrepreneurship track"],
       ["team", "4 students (credits below)"],
       ["period", "Jan 2025 – Oct 2026"],
-      ["grade", "17/20 (team project)"],
+      ["grade", "17/20 (A+)"],
       ["hardware", "Arduino Nano 33 BLE Sense Rev2, cadence sensor, servo"],
       ["stack", "Python (pandas, scikit-learn, XGBoost), C99, C++ (Arduino)"]
     ]
