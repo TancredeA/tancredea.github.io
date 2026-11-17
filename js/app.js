@@ -39,6 +39,11 @@
       ? Math.max(42, Math.min(76, Math.floor(vw / tc), Math.floor(window.innerHeight / 12.5)))
       : vw / tc;
     const ox = MODE === 'desk' ? Math.floor((vw - tc * U) / 2) : 0;
+    // Phone browsers hide their address bar while the page scrolls, which changes the window's
+    // height on every gesture. The page height keeps the height measured when the width last
+    // changed, so the page neither grows nor shrinks under the visitor's finger.
+    if (MODE === 'desk' || vw !== state.vw) state.vh = window.innerHeight;
+    state.vw = vw;
     document.documentElement.style.setProperty('--u', U + 'px');
     document.documentElement.style.setProperty('--ox', ox + 'px');
   }
@@ -1137,7 +1142,7 @@
       // fraction of a row.
       const f = state.footer;
       if (f) {
-        const top = state.rowOff * U, vh = window.innerHeight, nav = f.nav ? 1 : 0;
+        const top = state.rowOff * U, vh = state.vh, nav = f.nav ? 1 : 0;
         f.contact.style.height = '';
         place(f.contact, 1, 10, r + nav, 1, letterOffset, state.rowOff);
         const n = rowsNeeded(f.contact, 1);
@@ -1370,9 +1375,11 @@
     });
     window.addEventListener('popstate', render);
     window.addEventListener('resize', debounce(() => {
-      const before = MODE + U;
+      const before = MODE + U, width = state.vw;
       measure();
-      if (before !== MODE + U) render(); else { renderAside(route()); relayout(); fitFormulas(); }
+      if (before !== MODE + U) render();
+      else if (MODE === 'desk' || state.vw !== width) { renderAside(route()); relayout(); fitFormulas(); }
+      // on phones, a change of height alone is the address bar: the header and the page stay as they are
     }, 150));
     await render();
     if (document.fonts) document.fonts.ready.then(() => { renderAside(route()); relayout(); });
