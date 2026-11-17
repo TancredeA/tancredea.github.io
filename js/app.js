@@ -267,11 +267,10 @@
       place(contact, 2, 5, rContact, contactRows, 0);
     } else {
       // Phones: a header of 10 x 3 cells that stays at the top of the screen (A1:J3): the
-      // portrait, the name and role, "read cv", the menu button, and the breadcrumb
+      // name and role, "read cv", the menu button, and the breadcrumb
       // (the role on the home page). The menu button opens a drawer under the header, over
       // the page: the pages, then the contact card.
       state.rowOff = 3;
-      const photo = cell('photo fixed', photoHtml());
       const name = cell('bar-name', `<a class="bar-who" href="${HOME}">${o.name.map(esc).join(' ')}</a><span class="bar-role">${esc(o.roleShort || [].concat(o.role).join(', '))}</span>`);
       const cv = cell('bar-btn', '↗ read cv', 'a', { href: o.cv, target: '_blank', rel: 'noopener', 'data-also-download': '' });
       const toggle = cell('bar-btn bar-toggle', `menu ${state.menuOpen ? '−' : '+'}`, 'button',
@@ -280,12 +279,11 @@
       const bits = crumbBits(rt, true);
       const trail = cell('bar-crumb', bits.length ? bits.join('<span>/</span>') : `<span class="muted">${esc(o.roleShort || [].concat(o.role).join(', '))}</span>`,
         'nav', { 'aria-label': 'Breadcrumb' });
-      aside.append(photo, name, cv, toggle, trail);
-      place(photo, 1, 2, 1, 3, 0);
-      place(name, 3, 7, 1, 2, 0);
+      aside.append(name, cv, toggle, trail);
+      place(name, 1, 7, 1, 2, 0);
       place(cv, 8, 10, 1, 1, 0);
       place(toggle, 8, 10, 2, 1, 0);
-      place(trail, 3, 10, 3, 1, 0);
+      place(trail, 1, 10, 3, 1, 0);
       // a breadcrumb too long for its row loses its first names, then the last one is cut
       const items = () => [...trail.children].filter(e => !e.classList.contains('coord'));
       const cut = () => { const l = items().pop(); return l.scrollWidth > l.clientWidth; };
