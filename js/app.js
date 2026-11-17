@@ -1154,7 +1154,6 @@
         place(f.contact, 1, 10, r + nav, n, letterOffset, state.rowOff);
         f.contact.style.height = (page - end - down * U + n * U) + 'px';
         main.style.minHeight = main.style.height = (page - top) + 'px';
-        snapRail(page);
         return;
       }
     }
@@ -1166,20 +1165,6 @@
     main.style.minHeight = main.style.height = (window.innerHeight + extra) + 'px';
   }
   const relayout = () => { if (state.bands.length) layout(); };
-
-  // Phones: the page stops on the grid lines through CSS scroll snapping, done by the browser
-  // itself: one invisible snap point per row. Moving the page from JavaScript at the end of
-  // a swipe (as on desktop, see snapToGrid) fights the phone's own scrolling and makes the
-  // sticky header shake.
-  function snapRail(height) {
-    let rail = document.getElementById('snap-rail');
-    if (!rail) { rail = h('div', { id: 'snap-rail', 'aria-hidden': 'true' }); document.body.append(rail); }
-    const n = Math.floor(height / U) + 1;
-    if (rail.childElementCount !== n || rail.dataset.u !== String(U)) {
-      rail.dataset.u = U;
-      rail.replaceChildren(...Array.from({ length: n }, (_, k) => { const p = h('i'); p.style.top = k * U + 'px'; return p; }));
-    }
-  }
 
   // ---------------------------------------------------------------- previews (rotation)
   // One preview animates at a time, in order: a turn of TURN_MS, a short GAP_MS where nothing
@@ -1412,7 +1397,7 @@
   }, { passive: true });
 
   function snapToGrid() {
-    if (MODE !== 'desk') return;                        // phones: CSS scroll snapping (snapRail)
+    if (MODE !== 'desk') return;                        // phones keep their own scrolling, momentum and pull-to-refresh
     if (glide) return;                                  // our own glide is moving the page
     const max = document.documentElement.scrollHeight - window.innerHeight;
     const y = window.scrollY;
