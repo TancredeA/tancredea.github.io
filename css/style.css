@@ -531,10 +531,15 @@ code.tex { font: 12px/1.5 var(--mono); white-space: pre-wrap; }
   .case-group.relief .case-sub-math { border-top: 1px solid var(--ink); }
   .case-panels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .case-panels.fixed-w { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }   /* one panel: full width */
-  .page { grid-template-columns: 1fr; width: 100%; margin-left: 0; overflow-x: clip; }   /* cells on column J cover the right edge by 1px */
+  .page { grid-template-columns: 1fr; width: 100%; margin-left: 0; overflow-x: clip; padding-top: calc(3 * var(--u)); }   /* cells on column J cover the right edge by 1px; the top: room for the fixed header */
   /* the left sheet becomes a header of 10 x 3 cells that stays at the top (A1:J3); the
-     menu button opens a drawer under it, over the veiled page (pages, then contact) */
+     menu button opens a drawer under it, over the veiled page (pages, then contact).
+     Fixed rather than sticky, on its own layer: a sticky header is part of the page, and
+     iOS Safari re-pins it a frame late while the page flies or bounces, so it shakes. */
   aside {
+    position: fixed; top: 0; left: 0;
+    width: calc(10 * var(--u));
+    transform: translateZ(0);
     z-index: 10;
     height: calc(3 * var(--u));
     grid-template-columns: repeat(10, var(--u));
@@ -543,6 +548,8 @@ code.tex { font: 12px/1.5 var(--mono); white-space: pre-wrap; }
   html.menu-open { overflow: hidden; }
   /* the page stops on the grid lines: one snap point per row (#snap-rail, see snapRail) */
   html { scroll-snap-type: y proximity; }
+  /* no rubber band at the top and bottom of the page: the page and its header stay put */
+  html, body { overscroll-behavior-y: none; }
   #snap-rail { display: block; }
   /* texts on the bottom of their cell, under the coordinates */
   .bar-name { display: flex; flex-direction: column; justify-content: flex-end; gap: 3px; padding-bottom: calc(var(--u) * 0.16); }
