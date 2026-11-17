@@ -29,6 +29,10 @@
 
 * { box-sizing: border-box; }
 
+/* phones only (see the 959px block): the snap points of the page, one per row */
+#snap-rail { display: none; position: absolute; top: 0; left: 0; width: 1px; height: 0; pointer-events: none; }
+#snap-rail i { position: absolute; left: 0; width: 1px; height: 1px; scroll-snap-align: start; }
+
 html { background-color: var(--bg); }
 
 /* The grid is a fixed layer: it stays still while the cells scroll over it.
@@ -537,6 +541,9 @@ code.tex { font: 12px/1.5 var(--mono); white-space: pre-wrap; }
     overflow: visible;
   }
   html.menu-open { overflow: hidden; }
+  /* the page stops on the grid lines: one snap point per row (#snap-rail, see snapRail) */
+  html { scroll-snap-type: y proximity; }
+  #snap-rail { display: block; }
   /* texts on the bottom of their cell, under the coordinates */
   .bar-name { display: flex; flex-direction: column; justify-content: flex-end; gap: 3px; padding-bottom: calc(var(--u) * 0.16); }
   .bar-who { font: 500 clamp(15px, calc(var(--u) * 0.52), 21px)/1.05 var(--sans); letter-spacing: -0.015em; color: var(--ink); text-decoration: none; }
