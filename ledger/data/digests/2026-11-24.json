@@ -1,0 +1,225 @@
+{
+ "generatedAt": "2026-11-24T07:00:00+09:00",
+ "items": [
+  {
+   "category": "Science",
+   "date": "2026-11-23",
+   "paper": true,
+   "rank": 1,
+   "score": 7,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Google DeepMind blog",
+     "type": "blog",
+     "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/"
+    },
+    {
+     "label": "arXiv:2611.09822",
+     "type": "paper",
+     "url": "https://arxiv.org/abs/2611.09822v2"
+    }
+   ],
+   "summary": "Teams of Gemini 4 agents, working inside a new open-source Lean library for quantum algorithms, found formally verified circuits that cut the cost of a fusion-energy simulation 11.8x, a photochemistry simulation 8x and a drug-metabolism simulation 2.5x, plus a 290x speedup on the arcsin routine. Every result carries a machine-checked proof of both correctness and cost, so the gains are verified rather than merely benchmarked. DeepMind is open-sourcing the Lean library, problem specifications and verified solutions.",
+   "title": "DeepMind: Gemini 4 agent teams formally verify faster quantum algorithms, up to 290x on arithmetic"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-11-23",
+   "rank": 2,
+   "score": 7,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Reuters",
+     "type": "press",
+     "url": "https://www.reuters.com/technology/nvidia-reinstates-jensen-huang-ceo-2026-11-23/"
+    },
+    {
+     "label": "TechCrunch",
+     "type": "press",
+     "url": "https://techcrunch.com/2026/11/23/nvidia-reverses-course-and-brings-jensen-huang-back-as-ceo/"
+    }
+   ],
+   "summary": "Nvidia's board unanimously reinstated Jensen Huang as president, CEO and board director, effective immediately, just 11 days after accepting his resignation over extramarital affairs including one with a woman the US government suspects of being a Chinese spy. The board said it was satisfied with Huang's candour and saw no national security risk after input from senior US government officials, and President Trump publicly welcomed the decision. Shares leapt 33% and the Nasdaq rallied 6%, reversing the AI sell-off that followed Huang's exit.",
+   "title": "Nvidia board reinstates Jensen Huang as CEO, 11 days after his resignation"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-11-23",
+   "rank": 3,
+   "score": 6,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Emergent",
+     "type": "press",
+     "url": "https://emergent.sh/news/apple-rolls-out-siri-ai-across-8-apps-opens"
+    },
+    {
+     "label": "TechEdt",
+     "type": "press",
+     "url": "https://www.techedt.com/apple-previews-ios-27-3-with-expanded-siri-ai-redesigned-health-app-and-safari-upgrades"
+    }
+   ],
+   "summary": "Apple rolled out new Siri AI capabilities across its own apps — Calendar, Files, Mail, Maps, Messages, Photos, Safari, Weather and more — letting the assistant complete multi-step, cross-app tasks rather than just answering questions. Alongside it, Apple opened a Developer Preview letting any third-party app plug into Siri AI via App Intents and multi-step 'skills', though App Store submissions only open in spring 2027. Siri AI remains unavailable in the EU on iOS, iPadOS and watchOS.",
+   "title": "Apple rolls out Siri AI across its apps and opens it to every developer"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-11-23",
+   "score": 6,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Reuters",
+     "type": "press",
+     "url": "https://www.reuters.com/legal/transactional/crowdstrike-buy-zscaler-439-billion-2026-11-23/"
+    },
+    {
+     "label": "Business Wire (companies' release)",
+     "type": "press",
+     "url": "https://www.businesswire.com/news/home/20261123522174/en/CrowdStrike-to-Acquire-Zscaler-Bringing-Network-Security-and-Zero-Trust-to-the-Falcon-Platform"
+    }
+   ],
+   "summary": "CrowdStrike agreed to buy cloud-security firm Zscaler in an all-stock deal valuing Zscaler at about $43.9 billion, or $260.41 a share — a 34% premium to its Friday close — uniting two of cybersecurity's biggest names. The combined company would pair CrowdStrike's Falcon endpoint platform with Zscaler's zero-trust network security, explicitly pitched against AI-powered cyberattacks. The deal, unanimously approved by both boards, is expected to close in the second half of CrowdStrike's fiscal 2028, subject to shareholder and regulatory approval.",
+   "title": "CrowdStrike to acquire Zscaler in a $43.9B all-stock deal"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-11-23",
+   "score": 6,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Claude.com (official)",
+     "type": "blog",
+     "url": "https://claude.com/resources/articles/zero-data-retention-with-enterprise-frontier-safeguards"
+    }
+   ],
+   "summary": "Anthropic opened Enterprise Frontier Safeguards (EFS) in public beta, a system that detects sophisticated misuse of Claude across many requests while remaining compatible with zero data retention. Prompts and responses are stored encrypted in the customer's own cloud storage, with Anthropic's software scanning them for attack patterns without Anthropic or the cloud provider keeping a copy. The system was refined with over 100 customers, including a quarter of the Fortune 100, and runs on the Claude Platform, AWS, Bedrock and Google Cloud.",
+   "title": "Anthropic opens Enterprise Frontier Safeguards in public beta, pairing misuse detection with zero data retention"
+  },
+  {
+   "category": "Science",
+   "date": "2026-11-23",
+   "related": [
+    {
+     "date": "2026-11-22",
+     "index": 1,
+     "label": "Lean community certifies the Claude-assisted proof of the Riemann Hypothesis"
+    }
+   ],
+   "score": 6,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Nature",
+     "type": "press",
+     "url": "https://www.nature.com/articles/d41586-026-03812-7"
+    }
+   ],
+   "summary": "Nature reports that a second, entirely human-written claim of a proof of the Riemann Hypothesis emerged hours after Anthropic mathematician Levent Alpöge announced his Claude-assisted proof on 20 November [[2026-11-22#1]]. The rival preprint, by Alessandro Maria Masullo and posted by Stanford's Ravi Vakil as a 'hurried announcement', had been intended for a year of polishing before release. Experts say both claims now need rigorous checking, with one number theorist calling Alpöge's four-page sketch 'garbled' while another suspects the proof will turn out correct.",
+   "title": "Rival all-human Riemann Hypothesis proof emerges hours after the Claude-assisted claim"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-11-23",
+   "score": 5,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Weights & Takes",
+     "type": "press",
+     "url": "https://weightsandtakes.com/"
+    },
+    {
+     "label": "Post-Cutoff model releases",
+     "type": "press",
+     "url": "https://postcutoff.com/news/model-release/"
+    }
+   ],
+   "summary": "Z.ai shipped GLM-5.4, its first Loop Transformer: instead of adding parameters, it re-runs a block of 28 layers from the GLM-5 base twice, at about 750B scale, which Z.ai says reaches the level of 2–3 trillion-parameter models. It is live now for GLM Coding Plan subscribers and in ZCode and Z.ai Chat, with added vision capabilities and 50% more weekly quota than GLM-5.3. No flagship benchmark scores are out yet, and the API and open weights are promised but not dated.",
+   "title": "Z.ai ships GLM-5.4, its first looped transformer, claiming 2–3T-parameter performance"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-11-23",
+   "score": 5,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "GlobeNewswire (company release)",
+     "type": "press",
+     "url": "https://www.globenewswire.com/news-release/2026/11/23/3408046/0/en/x-square-robot-introduces-wall-oss-1-0-understand-more-act-better-a-native-foundation-model-for-the-physical-world.html"
+    }
+   ],
+   "summary": "X Square Robot unveiled WALL-OSS-1.0, a vision-language-action foundation model built on native pretraining that jointly trains vision, language and robot-action data from a Qwen3.5 base, rather than bolting action onto a language model. In an open-ended real-robot evaluation it achieved a 55.1% zero-shot success rate across 312 evaluator-chosen tasks, with no task-specific demonstrations or fine-tuning. The model comes in 4B Lite and 2B Nano variants, alongside an XR Harness agent framework and a WALL-API-1.0 interface.",
+   "title": "X Square Robot unveils WALL-OSS-1.0, a native vision-language-action model for robots"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-11-23",
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "AI Briefing",
+     "type": "press",
+     "url": "https://www.aibriefing.dev/"
+    }
+   ],
+   "summary": "Microsoft is rolling OpenAI's GPT-6.2 Sol into Copilot worldwide, putting the efficient model from last week's GPT-6.2 launch in front of Copilot's broad user base. The frontier Astra model is also coming to Copilot, but administrators must first approve OpenAI as a subprocessor. The rollout runs alongside the expansion of Microsoft's in-house MAI models, which are increasingly positioned as alternatives inside its own products.",
+   "title": "Microsoft rolls GPT-6.2 Sol into Copilot worldwide"
+  }
+ ],
+ "lead": "Nvidia's board reinstated Jensen Huang as CEO eleven days after his resignation, sending shares up a third, while DeepMind showed Gemini 4 agent teams formally verifying far faster quantum algorithms and CrowdStrike agreed to buy Zscaler for $43.9B.",
+ "scoring": "rubric-v1",
+ "selection": "papers-v2 (paper threshold 5, press threshold 6)",
+ "window": "23 Nov 07:00 → 24 Nov 07:00 JST"
+}

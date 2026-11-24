@@ -1,0 +1,253 @@
+{
+ "date": "2026-09-23",
+ "generatedAt": "2026-09-23T07:20:00+09:00",
+ "items": [
+  {
+   "category": "Models & releases",
+   "date": "2026-09-22",
+   "rank": 1,
+   "related": [
+    {
+     "date": "2026-09-21",
+     "index": 4,
+     "label": "AI slowdown pact lawsuit"
+    }
+   ],
+   "score": 8,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Anthropic — Introducing Claude Opus 5.5",
+     "type": "primary",
+     "url": "https://www.anthropic.com/claude-opus-5-5"
+    },
+    {
+     "label": "TechCrunch",
+     "type": "press",
+     "url": "https://techcrunch.com/2026/09/22/anthropic-releases-opus-5-5-with-lower-prices-and-fable-level-performance/"
+    },
+    {
+     "label": "VentureBeat",
+     "type": "press",
+     "url": "https://venturebeat.com/technology/anthropic-releases-claude-opus-5-5-beating-fable-5-1-on-key-agentic-benchmarks-at-60-cheaper-api-price"
+    }
+   ],
+   "summary": "Anthropic says Opus 5.5 is the strongest-performing model it has tested, surpassing the larger Fable on many benchmarks and matching Mythos in biology and cybersecurity; input drops to $4 and output to $20 per 1M tokens, on Claude, AWS, Google Cloud and Azure, with Sonnet 5.5 and Haiku 5.5 to follow. Released two months after Opus 5 and, with OpenAI's launch 90 minutes earlier, the first frontier releases since the slowdown call behind [[2026-09-21#4|the antitrust class action]].",
+   "title": "Anthropic releases Claude Opus 5.5, its strongest model, with a 20% output price cut"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-09-22",
+   "rank": 2,
+   "related": [
+    {
+     "date": "2026-09-21",
+     "index": 4,
+     "label": "AI slowdown pact lawsuit"
+    }
+   ],
+   "score": 7,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "OpenAI — Introducing GPT-6 Sol and Luna",
+     "type": "primary",
+     "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+    },
+    {
+     "label": "TechCrunch",
+     "type": "press",
+     "url": "https://techcrunch.com/2026/09/22/openai-launches-gpt-6-sol-and-luna/"
+    }
+   ],
+   "summary": "Sol ($2 in / $10 out per 1M tokens) targets coding and computer use and makes about half as many mistakes as its predecessor on OpenAI's factuality evaluation; Luna ($0.10 / $0.50) handles high-volume clerical work. Both claim Astra-level reliability at roughly half the price, credited to caching and inference efficiency; Sol ships in ChatGPT Work, Codex and the API, Luna to free and Go users.",
+   "title": "OpenAI launches GPT-6 Sol and Luna at half the API price of the 5.6 series"
+  },
+  {
+   "category": "Hardware & infra",
+   "date": "2026-09-22",
+   "rank": 3,
+   "related": [
+    {
+     "date": "2026-09-22",
+     "index": 5,
+     "label": "New Qwen LLM lead"
+    },
+    {
+     "date": "2026-09-21",
+     "index": 3,
+     "label": "Qwen-Image-2.1 license"
+    }
+   ],
+   "score": 7,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Alibaba press release (Manila Times newswire)",
+     "type": "primary",
+     "url": "https://www.manilatimes.net/2026/09/22/tmt-newswire/media-outreach-newswire/alibaba-unveils-roadmap-on-full-stack-ai-strategy-from-chips-cloud-infrastructure-models-to-agents/2429925"
+    },
+    {
+     "label": "Unite.AI",
+     "type": "press",
+     "url": "https://www.unite.ai/alibaba-plans-5-to-10-trillion-parameter-model-in-full-stack-ai-push/"
+    }
+   ],
+   "summary": "At the Apsara Conference in Hangzhou, CEO Eddie Wu presented the Zhenwu V900 GPU — claimed 3x the M890 and clusters of up to 500,000 cards — alongside plans for a 5–10 trillion parameter Qwen model and more than 20GW of global data-centre capacity by 2032. It follows Qwen's leadership change on [[2026-09-22#5|21 September]] and its shift to a research-only license for [[2026-09-21#3|Qwen-Image-2.1]].",
+   "title": "Alibaba unveils Zhenwu V900 chip, a 5–10T parameter model plan and 20GW by 2032"
+  },
+  {
+   "category": "Research",
+   "date": "2026-09-22",
+   "related": [
+    {
+     "date": "2026-09-22",
+     "index": 1,
+     "label": "CodeMidas"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2609.24972",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/2609.24972"
+    },
+    {
+     "label": "Hugging Face Daily Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/date/2026-09-22"
+    }
+   ],
+   "summary": "Agent harnesses that rewrite their own prompts, tools and memory tend to memorise the tasks they evolve against; RRSI adds an annealed edit budget and a critic/pruner selector, gaining up to 14.1 points in-distribution, up to 4.7 points on five out-of-distribution benchmarks, and cutting policy tokens by 30% across eight benchmarks. A second route to better coding agents after [[2026-09-22#1|CodeMidas]].",
+   "title": "Google's RRSI regularizes agent self-improvement to stop benchmark overfitting"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-09-22",
+   "related": [
+    {
+     "date": "2026-09-21",
+     "index": 0,
+     "label": "US AI incident alert proposal"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 0,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Bloomberg",
+     "type": "press",
+     "url": "https://www.bloomberg.com/news/articles/2026-09-22/china-us-discuss-ai-investment-on-second-day-of-trade-talks"
+    },
+    {
+     "label": "PANews",
+     "type": "press",
+     "url": "https://panews.io/articles/01a0c956-e033-728b-9a26-0839cbe2e5f1"
+    }
+   ],
+   "summary": "After two days of talks in New York between Treasury Secretary Scott Bessent and Vice Premier He Lifeng, the two sides agreed to set up a standing 'US–China AI Dialogue' on the opportunities and risks of AI, ahead of a Trump–Xi summit. No operating details were published; it follows [[2026-09-21#0|the US proposal to exchange AI incident alerts]].",
+   "title": "US and China agree to launch a bilateral AI dialogue"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-09-21",
+   "late": true,
+   "score": 4,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "The Decoder",
+     "type": "press",
+     "url": "https://the-decoder.com/xai-launches-grok-4-7-at-bargain-prices-but-benchmarks-reveal-a-wide-gap-to-claude-and-gpt-6/"
+    },
+    {
+     "label": "LLM-Stats",
+     "type": "press",
+     "url": "https://llm-stats.com/blog/research/grok-4-7-launch"
+    }
+   ],
+   "summary": "Grok 4.7 reaches 46 on the Artificial Analysis Intelligence Index v4.3.2 and 26% on Terminal-Bench 4.0, against 53 for both Claude Fable 5.1 and GPT-6 and 60% for GPT-6 Astra on agentic coding; it is available via the Grok API, Cursor and Grok Build.",
+   "title": "xAI ships Grok 4.7 at $2/$6 per 1M tokens, scoring 46 on Artificial Analysis"
+  },
+  {
+   "category": "Hardware & infra",
+   "date": "2026-09-22",
+   "score": 4,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "TechCrunch",
+     "type": "press",
+     "url": "https://techcrunch.com/2026/09/22/qualcomm-launches-two-new-smartphone-chips-with-emphasis-on-ai/"
+    }
+   ],
+   "summary": "The Extreme tier adds an accelerator that runs a 30-billion-parameter mixture-of-experts model locally, while a Sensing Hub runs models up to 200M parameters continuously for speaker separation and voice-in/voice-out agents. The Motorola Signature 27 is the first device, due later this year.",
+   "title": "Qualcomm's Snapdragon 8 Elite Extreme Gen 6 runs a 30B MoE model on-device"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-09-22",
+   "score": 4,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "ING — As AI starts shopping, who stays in control?",
+     "type": "primary",
+     "url": "https://ing.com/news/2026/as-ai-starts-shopping-who-stays-in-control.html"
+    },
+    {
+     "label": "Quartz",
+     "type": "press",
+     "url": "https://qz.com/banks-ai-shopping-agents-fraud-privacy-risks-092226"
+    }
+   ],
+   "summary": "ING, ASB Bank, Bank of America, Capital One, Commonwealth Bank of Australia and NatWest Group issued five principles — transparency, safety, privacy and data protection, customer choice, interoperability — warning that AI shopping agents are moving faster than existing fraud and privacy safeguards.",
+   "title": "Six global banks publish shared principles for trusted agentic commerce"
+  }
+ ],
+ "lead": "Anthropic released Claude Opus 5.5, which it calls its strongest-performing model to date — beating its own larger Fable model on many benchmarks — and cut output pricing from $25 to $20 per million tokens.",
+ "scoring": "rubric-v1",
+ "window": "22 Sep 07:00 → 23 Sep 07:00 JST (+ late catch from 21 Sep)"
+}

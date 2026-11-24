@@ -1,0 +1,316 @@
+{
+ "date": "2026-10-07",
+ "generatedAt": "2026-10-07T07:02:45+09:00",
+ "items": [
+  {
+   "category": "Models & releases",
+   "date": "2026-10-06",
+   "rank": 1,
+   "related": [
+    {
+     "date": "2026-09-28",
+     "index": 2,
+     "label": "Chinese open-weight token share"
+    }
+   ],
+   "score": 8,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Mistral AI",
+     "type": "primary",
+     "url": "https://mistral.ai/news/mistral-large-4/"
+    },
+    {
+     "label": "Hugging Face model card",
+     "type": "primary",
+     "url": "https://huggingface.co/mistralai/Mistral-Large-4.0-1T05-A52B"
+    },
+    {
+     "label": "Artificial Analysis",
+     "type": "press",
+     "url": "https://artificialanalysis.ai/articles/mistral-large-4-france-ai"
+    },
+    {
+     "label": "TechCrunch",
+     "type": "press",
+     "url": "https://techcrunch.com/2026/10/06/mistrals-new-1t-model-aims-to-leapfrog-closed-and-open-rivals/"
+    }
+   ],
+   "summary": "Multimodal MoE with a 512k context, priced $1.36 in / $4.18 out per 1M tokens ($0.14 cached input) with a 50% launch discount for two weeks; Artificial Analysis scores it 38 on its Intelligence Index and 50 on its Cyber Index, the highest of any model from outside the US and China. Mistral says it was trained on 4,000 Nvidia GPUs, \"two to three times less than our Chinese competitors\", and frames it as a \"third way\" between closed US models and open Chinese ones — the counter-move to [[2026-09-28#2|Chinese open-weight models taking majority token share]]. Access is via a guarded preview endpoint; weights follow after safety testing.",
+   "title": "Mistral releases Large 4 (\"Le Chonk\"): 1T MoE, 49B active, open weights due end of October"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-10-05",
+   "late": true,
+   "rank": 2,
+   "related": [
+    {
+     "date": "2026-10-04",
+     "index": 2,
+     "label": "Aleph Alpha Kolibri"
+    },
+    {
+     "date": "2026-09-28",
+     "index": 2,
+     "label": "Chinese open-weight token share"
+    }
+   ],
+   "score": 7,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Reflection on X",
+     "type": "x",
+     "url": "https://x.com/reflection_ai/status/2107186849370247235"
+    },
+    {
+     "label": "SiliconANGLE",
+     "type": "press",
+     "url": "https://siliconangle.com/2026/10/05/reflection-ai-debuts-open-source-beam-model-with-501b-parameters/"
+    }
+   ],
+   "summary": "Trained from scratch on 23.8T tokens, with the base run on 6,144 GPUs and an RL phase on 10,000 GB300s using 1.3B sandboxes, each in under four weeks. Reflection says it beats GLM-5.2 — 250B larger — on coding and agentic tasks at a third to a quarter of the hardware and approaches Qwen 3.8-Max, while trailing Claude Fable 5.1; weights, docs and fine-tuning tools are due later this month. The company is valued at $25B and has a $6.3B GB300 deal with SpaceX. A second Western open-frontier release in two days alongside [[2026-10-04#2|Aleph Alpha's Kolibri]].",
+   "title": "Reflection AI debuts Beam, a 501B / 23B-active open-weight agentic model"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-10-06",
+   "rank": 3,
+   "score": 6,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Anthropic",
+     "type": "primary",
+     "url": "https://www.anthropic.com/news/cyber-verification-program"
+    }
+   ],
+   "summary": "Anthropic says researchers using its models found more than 129,000 verified software flaws between April and July 2026, and is folding Project Glasswing into a tiered programme for security researchers. It is the largest published count of model-found, human-verified vulnerabilities to date.",
+   "title": "Anthropic consolidates its cyber work into a three-tier verification programme"
+  },
+  {
+   "category": "Hardware & infra",
+   "date": "2026-10-06",
+   "related": [
+    {
+     "date": "2026-09-26",
+     "index": 0,
+     "label": "Project Jupiter force majeure"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 0,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Reuters",
+     "type": "press",
+     "url": "https://www.reuters.com/business/energy/google-enters-massive-36-gw-power-deal-with-constellation-energy-2026-10-06/"
+    }
+   ],
+   "summary": "The contract includes 890 MW of new nuclear capacity from 11 reactor uprates and triggers about $4.3B of infrastructure investment, per Reuters. It is one of the largest single corporate power agreements tied to AI demand, and buys capacity rather than sites — the constraint behind [[2026-09-26#0|Oracle's force majeure at Project Jupiter]].",
+   "title": "Google signs a 3,590 MW power deal with Constellation Energy"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-06",
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.05608",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.05608"
+    },
+    {
+     "label": "Hugging Face Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/2610.05608"
+    }
+   ],
+   "summary": "The paper presents a single model that generates coordinated video and audio rather than dubbing a soundtrack onto generated frames, the first of the day's Hugging Face papers.",
+   "title": "Kandinsky 6.0 Video: a foundation model for synchronised video and audio generation"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-06",
+   "related": [
+    {
+     "date": "2026-10-04",
+     "index": 5,
+     "label": "belief states for long-horizon agents"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.05303",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.05303"
+    },
+    {
+     "label": "Hugging Face Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/date/2026-10-06"
+    }
+   ],
+   "summary": "The method has an agent distil its own successful trajectories during deployment rather than relying on a frozen policy, another route to long-horizon reliability after [[2026-10-04#5|explicit belief states]].",
+   "title": "ASCENT trains long-horizon agents at test time by self-distillation"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-10-06",
+   "related": [
+    {
+     "date": "2026-10-06",
+     "index": 0,
+     "label": "NYC Council subpoenaed testimony"
+    }
+   ],
+   "score": 4,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Fox News live coverage",
+     "type": "press",
+     "url": "https://foxnews.com/live-news/ai-super-intelligence-safety-10-06"
+    }
+   ],
+   "summary": "Asked by NYC Council Speaker Julie Menin to assure the public under oath that their agents would always follow safety guardrails, OpenAI's Morgan Dwyer said it is \"not possible for me to commit or guarantee that any technology is without risk\" and Anthropic's Logan Graham that \"the science of doing this is fundamentally hard and unsettled\"; Meta's Shane Cahill and Google's Alice Friend committed to process, not outcomes. It is the company half of the hearing where [[2026-10-06#0|ex-lab researchers testified under subpoena]].",
+   "title": "OpenAI, Anthropic, Meta and Google all decline to guarantee agent safety under oath"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-06",
+   "related": [
+    {
+     "date": "2026-09-23",
+     "index": 7,
+     "label": "bank principles for agentic commerce"
+    }
+   ],
+   "score": 4,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "The Next Web",
+     "type": "press",
+     "url": "https://thenextweb.com/news/personal-agent-protocol-sierra-meta"
+    }
+   ],
+   "summary": "An open OAuth-based standard lets a user's agent authenticate with a business and act across its website, API and owned channels, with Walmart and Shopify among founding partners. It is the identity layer missing from [[2026-09-23#7|the banks' agentic-commerce principles]].",
+   "title": "Meta and Sierra publish a Personal Agent Protocol for agent authentication"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-06",
+   "score": 3,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Quartz",
+     "type": "press",
+     "url": "https://qz.com/moonshot-ai-hong-kong-ipo-2027-50-billion-valuation-100626"
+    },
+    {
+     "label": "Business Standard",
+     "type": "press",
+     "url": "https://www.business-standard.com/technology/tech-news/moonshot-eyes-early-2027-hong-kong-ipo-after-valuation-hits-50-billion-126100600918_1.html"
+    }
+   ],
+   "summary": "Bloomberg reports the round is final before a listing expected to raise up to $5B, after the Kimi K3 release. It would be the first Chinese frontier lab to go public.",
+   "title": "Moonshot AI closes its last private round at a $50B valuation, targeting a Q1 2027 Hong Kong IPO"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-10-06",
+   "score": 3,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Korea JoongAng Daily",
+     "type": "press",
+     "url": "https://www.koreajoongangdaily.com/korea/aidriven-hacks-on-banks-leave-customers-fearing-their-data-is-fair-game/12905416"
+    }
+   ],
+   "summary": "Roughly 65,000 customers are affected; investigators trace the intrusions to ARTEX AI, a Chinese-language penetration-testing tool. It is an early case of offensive tooling rather than a lab's own agent causing the damage.",
+   "title": "Seven South Korean financial institutions breached using an AI penetration-testing tool"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-10-05",
+   "late": true,
+   "score": 3,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "SiliconANGLE",
+     "type": "press",
+     "url": "https://siliconangle.com/2026/10/05/utah-gives-startup-nolla-health-permission-to-start-issuing-ai-automated-prescriptions-for-acne-treatments/"
+    }
+   ],
+   "summary": "The state's regulatory sandbox allows initial prescriptions, not only refills, with minimal physician oversight — a step beyond the AI refill approval it granted earlier this year.",
+   "title": "Utah lets Nolla Health issue AI-generated prescriptions for acne treatment"
+  }
+ ],
+ "lead": "Mistral released Large 4, a 1-trillion-parameter mixture-of-experts model with 49B active parameters, in research preview now and with open weights promised for the end of October.",
+ "scoring": "rubric-v1",
+ "window": "6 Oct 07:00 → 7 Oct 07:00 JST (+ late catch from 5 Oct)"
+}

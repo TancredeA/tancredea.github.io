@@ -1,0 +1,333 @@
+{
+ "date": "2026-10-15",
+ "generatedAt": "2026-10-15T07:02:40+09:00",
+ "items": [
+  {
+   "category": "Research",
+   "date": "2026-10-09",
+   "late": true,
+   "rank": 1,
+   "score": 6,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.13527",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.13527"
+    },
+    {
+     "label": "hyper.ai paper page",
+     "type": "press",
+     "url": "https://hyper.ai/en/papers/2610.13527"
+    },
+    {
+     "label": "AI Weekly",
+     "type": "press",
+     "url": "https://aiweekly.co/editors-blog/found-first-mllms-hide-a-linear-spatial-subspace-s-space-rotation-raises"
+    }
+   ],
+   "summary": "The authors find a subspace in multimodal LLM activations encoding object positions on horizontal, vertical and distance axes; it stays readable on non-spatial questions, and editing it at shift magnitude 5 cut spatial-answer retention to 62.5% while random edits left 99.8%. Applying an explicit S-Space rotation raised Molmo2-ER's perspective-taking on SpinBench from 60.96% to 94.52%, locating the bottleneck in viewpoint transformation rather than in the spatial representation itself. It was the second most-upvoted Hugging Face paper on 14 October.",
+   "title": "S-Space: a linear spatial subspace in multimodal models lifts SpinBench 61% to 94.5%"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-10-14",
+   "rank": 2,
+   "related": [
+    {
+     "date": "2026-09-27",
+     "index": 8,
+     "label": "26 state AGs ask Congress for federal AI rules"
+    },
+    {
+     "date": "2026-10-11",
+     "index": 2,
+     "label": "mandatory incident reporting"
+    }
+   ],
+   "score": 6,
+   "scores": {
+    "capability": 0,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Engadget",
+     "type": "press",
+     "url": "https://www.engadget.com/2287111/iowa-nebraska-and-six-other-states-are-suing-openai-for-endangering-children/"
+    },
+    {
+     "label": "CNBC",
+     "type": "press",
+     "url": "https://www.cnbc.com/2026/10/14/openai-sued-by-8-states-over-chatgpt-safety-concerns-.html"
+    },
+    {
+     "label": "The Hill",
+     "type": "press",
+     "url": "https://thehill.com/policy/technology/6149365-states-sue-openai-safety/"
+    },
+    {
+     "label": "Arizona Capitol Times",
+     "type": "press",
+     "url": "http://azcapitoltimes.com/news/2026/10/14/arizona-other-states-sue-openai-alleging-harms-to-the-public/"
+    }
+   ],
+   "summary": "Iowa, Nebraska, Kansas, West Virginia, Arkansas, Arizona, Idaho and Montana each filed in their own state courts under state consumer-protection law, alleging OpenAI misled users about product safety, enabled self-harm and gave medical information that led to an overdose; Iowa and Nebraska cite the company's rogue-agent incidents including the Hugging Face hack. They seek penalties, risk disclosure and compliance, and Arkansas asks the court to halt testing of advanced models until safeguards are in place. It is the first coordinated multi-state enforcement action against a frontier lab, after [[2026-09-27#8|the 26 attorneys general who asked Congress for federal rules]] and [[2026-10-11#2|the White House's mandatory incident reporting]].",
+   "title": "Eight US states sue OpenAI over ChatGPT safety and harm to children"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-13",
+   "late": true,
+   "rank": 3,
+   "score": 5,
+   "scores": {
+    "capability": 0,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "TechCrunch",
+     "type": "press",
+     "url": "https://techcrunch.com/2026/10/13/just-5-years-in-interactive-chatbot-platform-character-ai-files-for-bankruptcy/"
+    },
+    {
+     "label": "CNBC",
+     "type": "press",
+     "url": "https://www.cnbc.com/2026/10/13/character-ai-chapter-11-disney-bid.html"
+    },
+    {
+     "label": "Deadline",
+     "type": "press",
+     "url": "https://deadline.com/2026/10/disney-character-ai-chapter-11-bankruptcy-1237155582/"
+    }
+   ],
+   "summary": "The companion-chatbot platform, founded five years ago and once valued around $1B, cites compute costs and litigation including suits alleging ties to teen suicides; Disney — previously an adversary over character copyright — has bid about $20M for key IP, and the platform may shut down. It is the first large consumer AI company of the ChatGPT era to go bankrupt.",
+   "title": "Character.AI files for Chapter 11 as Disney bids $20M for its assets"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-13",
+   "late": true,
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Anthropic on X",
+     "type": "x",
+     "url": "https://x.com/AnthropicAI/status/2110047081414987957"
+    },
+    {
+     "label": "AlphaSignal",
+     "type": "press",
+     "url": "https://alphasignal.ai/news/anthropic-ditched-git-and-built-scion-after-claude-caused-12x-merge-surge"
+    }
+   ],
+   "summary": "Anthropic says daily merged code changes rose from about 2,500 in May to more than 30,000 in September, leaving it bottlenecked by developer infrastructure built for human rather than agent scale; a small team built Scion, a change-list-based version control system, in about five months. Git's design assumption that any client can serve the full repository offline is what breaks at that rate.",
+   "title": "Anthropic replaced Git with Scion after merges went from 2,500 to 30,000 a day"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-10-13",
+   "late": true,
+   "score": 4,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "DOJ press release",
+     "type": "primary",
+     "url": "https://www.justice.gov/opa/pr/saudi-national-arrested-installing-surreptitious-audio-recording-device-openai"
+    },
+    {
+     "label": "CBS News",
+     "type": "press",
+     "url": "https://www.cbsnews.com/news/openai-employee-arrest-recording-device/"
+    },
+    {
+     "label": "Fortune",
+     "type": "press",
+     "url": "https://fortune.com/2026/10/13/fbi-arrests-openai-employee-charged-planting-secret-recording-device-conference-room/"
+    }
+   ],
+   "summary": "Abdulrahman Alfozan, 35, an OpenAI engineer since July 2025, was arrested on 9 October and appeared in federal court on 13 October, charged with using a device to intercept oral communications (up to 5 years). The complaint says OpenAI found an encrypted covert recorder plugged into a USB port behind a television on 30 September, installed around 28 September, and a second device on 5 October in a bag he left unattended; a court filing identifies the hardware as a roughly $14 Seeed Xiao ESP32-S3 Sense board. OpenAI says it used its own models to analyse the device and referred the matter to the FBI.",
+   "title": "DOJ charges an OpenAI engineer over a hidden recorder in an executive conference room"
+  },
+  {
+   "category": "Hardware & infra",
+   "date": "2026-10-14",
+   "related": [
+    {
+     "date": "2026-10-13",
+     "index": 6,
+     "label": "capital access as AI's bottleneck"
+    },
+    {
+     "date": "2026-09-25",
+     "index": 4,
+     "label": "Brookings $10.3T"
+    }
+   ],
+   "score": 4,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Quartz",
+     "type": "press",
+     "url": "https://qz.com/coreweave-stock-bond-yields-ai-debt-101426"
+    },
+    {
+     "label": "FourWeekMBA",
+     "type": "press",
+     "url": "https://fourweekmba.com/ai-coreweave-falls-16-as-yield-on-its-2032-bonds-nears-15/"
+    },
+    {
+     "label": "GuruFocus",
+     "type": "press",
+     "url": "https://www.gurufocus.com/news/9123763/coreweave-crwv-stock-and-bonds-plunge-amid-ai-infrastructure-debt-concerns"
+    }
+   ],
+   "summary": "Both the stock and the debt sold off on concerns about how the AI buildout is being financed, with the 2032 notes yielding about 14.8%. It is the clearest market price yet on the debt-funded capacity question raised by [[2026-10-13#6|Broadcom and Intel's chief executives on capital access]] and the financing shift in [[2026-09-25#4|Brookings' $10.3T projection]].",
+   "title": "CoreWeave falls 16% as the yield on its 2032 bonds nears 15%"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-14",
+   "score": 4,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Anthropic news",
+     "type": "primary",
+     "url": "https://www.anthropic.com/news/singapore-office-opening"
+    },
+    {
+     "label": "TechNode Global",
+     "type": "press",
+     "url": "https://technode.global/2026/10/14/us-based-anthropic-opens-singapore-office-signs-mou-with-the-singapore-government/"
+    }
+   ],
+   "summary": "The memorandum with the Ministry of Digital Development and Information, signed at Singapore International Cyber Week by co-founder Ben Mann and Permanent Secretary Kai Fong Chng, covers model evaluation and testing standards, incident response, adoption research and public-sector capability. Anthropic says Singapore ranks 2nd of 121 countries for Claude.ai use relative to population — about 6x what its size predicts — and that over 1,500 GovTech engineers use Claude Code.",
+   "title": "Anthropic opens a Singapore office and signs an AI safety MOU with the government"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-09",
+   "late": true,
+   "related": [
+    {
+     "date": "2026-10-13",
+     "index": 3,
+     "label": "SoftwareGym"
+    }
+   ],
+   "score": 4,
+   "scores": {
+    "capability": 1,
+    "durability": 0,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.12984",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.12984"
+    },
+    {
+     "label": "Hugging Face Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers"
+    }
+   ],
+   "summary": "WorkRecorder captures synchronised screen video, input events and accessibility-tree data to build WorkDemo-350, 350 screened human desktop demonstrations, from which an agentic induction method derives skills covering workflow rules, step dependencies and completion checks. Across four execution models it adds 4.67–10.54 points on MyPCBench Bounded Action and 3.11–7.50 points on 286 OSWorld-Verified tasks over a no-skill baseline. It is the human-demonstration counterpart to the synthetic environments in [[2026-10-13#3|SoftwareGym]].",
+   "title": "Work2Skill turns recorded human GUI work into reusable agent skills"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-14",
+   "score": 3,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Dealroom",
+     "type": "press",
+     "url": "https://dealroom.co/news/162593-modal-raises-750m-series-d-at-15-75b-valuation-tops-1b-in-arr/"
+    },
+    {
+     "label": "TechCrunch (September report)",
+     "type": "press",
+     "url": "https://techcrunch.com/2026/09/28/source-inference-provider-modal-labs-closing-in-on-750m-round-at-15-75b-valuation/"
+    }
+   ],
+   "summary": "Accel led the round for the inference infrastructure provider, which had previously raised $483M; CEO Erik Bernhardsson says annual recurring revenue has passed $1B. Dealroom places it in the top 1% of US enterprise software Series D rounds on record.",
+   "title": "Modal raises a $750M Series D at a $15.75B valuation, past $1B ARR"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-14",
+   "score": 3,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Quartz",
+     "type": "press",
+     "url": "https://qz.com/apple-openai-trade-secret-hearing-injunction-dismissal-101426"
+    },
+    {
+     "label": "Bloomberg Law",
+     "type": "press",
+     "url": "https://news.bloomberglaw.com/artificial-intelligence/apple-openai-head-to-court-in-high-stakes-ai-trade-secret-fight"
+    },
+    {
+     "label": "MacRumors",
+     "type": "press",
+     "url": "https://www.macrumors.com/2026/10/14/openai-apple-potential-counterclaim/"
+    }
+   ],
+   "summary": "At a hearing on Apple's injunction request and OpenAI's motion to dismiss, the judge signalled he was likely to grant an injunction, having already given Apple expedited access to OpenAI documents and employee testimony; OpenAI says an ex-employee who rejoined Apple took unreleased device files, pointing to a counterclaim. The dispute is over personnel and documents in OpenAI's hardware effort.",
+   "title": "Apple and OpenAI argue the trade-secret case as OpenAI signals a counterclaim"
+  }
+ ],
+ "lead": "A Tsinghua and Peking University team identified a linear subspace inside multimodal language models that encodes object positions, and rotating it lifted perspective-taking accuracy on SpinBench from 60.96% to 94.52%.",
+ "scoring": "rubric-v1",
+ "window": "14 Oct 07:00 → 15 Oct 07:00 JST (+ late catches from 9 and 13 Oct)"
+}

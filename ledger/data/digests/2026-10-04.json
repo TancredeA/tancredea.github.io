@@ -1,0 +1,409 @@
+{
+ "date": "2026-10-04",
+ "generatedAt": "2026-10-04T07:02:44+09:00",
+ "items": [
+  {
+   "category": "Research",
+   "date": "2026-10-02",
+   "late": true,
+   "rank": 1,
+   "related": [
+    {
+     "date": "2026-09-24",
+     "index": 0,
+     "label": "Claude's novel enzyme system"
+    }
+   ],
+   "score": 7,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Meta AI Research — Solving Open Research Problems Together",
+     "type": "primary",
+     "url": "https://research.meta.ai/blog/solving-open-research-problems-together"
+    },
+    {
+     "label": "AI at Meta on X",
+     "type": "x",
+     "url": "https://x.com/AIatMeta/status/2106099776035152231"
+    },
+    {
+     "label": "arXiv 2608.10184",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2608.10184"
+    },
+    {
+     "label": "HuggingNews — reviewer dispute",
+     "type": "press",
+     "url": "https://huggingnews.com/ai/reviewer-claims-meta-solved-only-3-of-6-open-math-problems-ee36952c"
+    },
+    {
+     "label": "Crypto Briefing",
+     "type": "press",
+     "url": "https://cryptobriefing.com/meta-ai-six-papers-open-math-problems/"
+    }
+   ],
+   "summary": "Mathematicians working with Muse Spark 1.1 and 1.2 in Thinking Mode produced six papers across Gaussian ellipsoid fitting, the biharmonic nonlinear Schrödinger equation, semiabelian groups, cycle-based relaxation, string theory and height functions, and evolution algebras; Meta says the model helped work through calculations, test arguments and revise proofs, and that five of six answer open questions. On 3 October Jason Dean Lee, named as a reviewer on the project, posted that \"actually 3 of 6 were already resolved\". It is the first lab claim of model-assisted original mathematics at this scale, after [[2026-09-24#0|Claude's novel enzyme system]].",
+   "title": "Meta publishes six Muse Spark maths papers; a reviewer disputes half the claims"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-01",
+   "late": true,
+   "rank": 2,
+   "score": 6,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.01762",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.01762"
+    },
+    {
+     "label": "Hugging Face Daily Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/date/2026-10-02"
+    }
+   ],
+   "summary": "The system unifies perception, memory and proactive response for live video interaction; the 4B model beats every compared method on all eight streaming video understanding benchmarks. The release includes OneStreamer-1M, a dataset of over one million records, and a partial-state supervision scheme (PSTL) that outperforms dense state supervision while labelling only 27.5% of annotated state tokens.",
+   "title": "OneStreamer: a 4B streaming-video model tops all eight benchmarks it is tested on"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-10-03",
+   "rank": 3,
+   "related": [
+    {
+     "date": "2026-09-28",
+     "index": 2,
+     "label": "Chinese open-weight token share"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "TestingCatalog",
+     "type": "press",
+     "url": "https://www.testingcatalog.com/aleph-alpha-releases-open-weight-kolibri-with-1m-context/"
+    },
+    {
+     "label": "Startup Fortune",
+     "type": "press",
+     "url": "https://startupfortune.com/aleph-alpha-launches-kolibri-a-sovereign-german-ai-model-for-government-use/"
+    },
+    {
+     "label": "RuntimeWire",
+     "type": "press",
+     "url": "https://runtimewire.com/article/aleph-alpha-kolibri-sovereign-open-weight-model"
+    }
+   ],
+   "summary": "A bilingual German–English mixture-of-experts model with 384 experts and six active per token, four reasoning settings and tool calling, weights on Hugging Face and on-premises deployment through vLLM; 21.3% of pre-training tokens are German. Reported scores include 96.9 on AIME 2025, 85.9 on LiveCodeBench v6 and 61.4 on BFCL v4, with 75.5 overall English and 70.8 German. It is the first European sovereign-deployment model shipped at this sparsity, against the Chinese open-weight share documented in [[2026-09-28#2|OpenRouter and Vercel token data]].",
+   "title": "Aleph Alpha releases Kolibri under Apache 2.0: 78B total, 3.46B active, 1M context"
+  },
+  {
+   "category": "Hardware & infra",
+   "date": "2026-10-02",
+   "late": true,
+   "related": [
+    {
+     "date": "2026-09-21",
+     "index": 5,
+     "label": "$300B off balance sheets"
+    },
+    {
+     "date": "2026-10-03",
+     "index": 0,
+     "label": "Broadcom's $42B for Anthropic"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 0,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Reuters (via Yahoo Finance)",
+     "type": "press",
+     "url": "https://finance.yahoo.com/technology/ai/articles/amazon-hiking-ai-chip-rental-122155988.html"
+    },
+    {
+     "label": "Dealroom",
+     "type": "press",
+     "url": "https://dealroom.co/news/other-1ltaeys-amazon-seeks-to-offload-8bn-of-nvidia-chips-to-investors/"
+    }
+   ],
+   "summary": "Amazon announced a roughly 15% increase on EC2 Capacity Blocks for ML covering A100 through B300, and the FT reports it approached outside investors about transferring about $8B of Grace Blackwell processors — already running at sites in five US states — into a special-purpose vehicle funded by debt, with Amazon keeping up to 10% equity and leasing the chips back. Its 2026 capex budget is $200B, up from $131B. It is the same off-balance-sheet structure as [[2026-09-21#5|the FT's $300B of hidden exposure]] and [[2026-10-03#0|Broadcom's $42B lending facility for Anthropic]].",
+   "title": "Amazon raises AI chip rental prices 15% and seeks to move $8B of Nvidia chips off its books"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-10-03",
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Cactus Compute blog",
+     "type": "primary",
+     "url": "https://cactuscompute.com/blog/whistle"
+    },
+    {
+     "label": "Cactus Compute on X",
+     "type": "x",
+     "url": "https://x.com/cactuscompute/status/2106083041265562075"
+    }
+   ],
+   "summary": "The model runs on CPU and beats Whisper Base on several benchmarks at roughly a ninth of the file size and six times the speed, covering seven languages including English, German and French. It puts usable transcription inside the memory budget of ordinary edge devices.",
+   "title": "Cactus ships Whistle, a 16.9MB CPU speech-to-text model"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-01",
+   "late": true,
+   "related": [
+    {
+     "date": "2026-09-25",
+     "index": 3,
+     "label": "Just-in-Time Memory"
+    },
+    {
+     "date": "2026-10-02",
+     "index": 5,
+     "label": "Context Language Models"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.01415",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.01415"
+    },
+    {
+     "label": "Hugging Face Daily Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/date/2026-10-02"
+    }
+   ],
+   "summary": "PoS gives an agent a maintained belief state with consistency validation and recovery rather than a growing memory log; it takes the highest overall score on all four execution and diagnosis benchmarks with all three LLM backbones tested, and holds up as context grows. It is a third route to long-horizon agents after [[2026-09-25#3|just-in-time memory curation]] and [[2026-10-02#5|context rewriting]].",
+   "title": "Explicit belief states beat memory for long-horizon agents"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-10-02",
+   "late": true,
+   "related": [
+    {
+     "date": "2026-09-21",
+     "index": 8,
+     "label": "Plugin4Shell"
+    },
+    {
+     "date": "2026-09-27",
+     "index": 0,
+     "label": "OpenAI DNS sandbox escape"
+    }
+   ],
+   "score": 4,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "The Hacker News",
+     "type": "press",
+     "url": "https://thehackernews.com/2026/10/gitlab-patches-critical-self-hosted-ai.html"
+    },
+    {
+     "label": "Cybersecurity News",
+     "type": "press",
+     "url": "https://cybersecuritynews.com/gitlab-ai-gateway-vulnerability/"
+    },
+    {
+     "label": "The Hacker Wire",
+     "type": "press",
+     "url": "https://www.thehackerwire.com/cve-2026-90970-gitlab-ai-gateway-sandbox-escape-leads-to-arbitrary-command-execution/"
+    }
+   ],
+   "summary": "A prompt-template sandbox escape in the self-hosted AI Gateway let an authenticated user run arbitrary commands on the server. It is the third agent-tooling containment failure in two weeks, after [[2026-09-21#8|Plugin4Shell]] and [[2026-09-27#0|the DNS escape that paused OpenAI's top models]].",
+   "title": "GitLab patches CVE-2026-90970, a CVSS 9.9 AI Gateway sandbox escape"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-10-02",
+   "late": true,
+   "related": [
+    {
+     "date": "2026-09-30",
+     "index": 3,
+     "label": "White House self-policing accord"
+    },
+    {
+     "date": "2026-09-26",
+     "index": 4,
+     "label": "US rejects global AI governance"
+    }
+   ],
+   "score": 4,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Bloomberg",
+     "type": "press",
+     "url": "https://www.bloomberg.com/news/articles/2026-10-02/trump-set-to-name-jay-clayton-as-ai-czar-with-safety-fear-rising"
+    },
+    {
+     "label": "NBC News",
+     "type": "press",
+     "url": "https://www.nbcnews.com/politics/trump-administration/trump-ai-czar-jay-clayton-white-house-rcna601140"
+    },
+    {
+     "label": "France 24 (AFP)",
+     "type": "press",
+     "url": "https://www.france24.com/en/live-news/20261002-trump-expected-to-name-intel-chief-clayton-as-ai-czar-reports"
+    }
+   ],
+   "summary": "Bloomberg and NBC News report Clayton would take the role while remaining Director of National Intelligence, putting US AI policy under the intelligence chief as safety concerns rise. No appointment has been announced. It follows [[2026-09-30#3|the voluntary self-policing accord signed at the White House]] and [[2026-09-26#4|the administration's rejection of international governance]].",
+   "title": "Trump expected to name intelligence director Jay Clayton as AI czar"
+  },
+  {
+   "category": "Hardware & infra",
+   "date": "2026-10-02",
+   "late": true,
+   "score": 4,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Tom's Hardware",
+     "type": "press",
+     "url": "https://www.tomshardware.com/pc-components/cpus/openais-jalapeno-asics-are-deployed-alongside-amd-epyc-turin-cpus-as-hosts-hardware-vp-says-nvidias-vera-standalone-is-a-little-bit-behind-on-that-maturity-level"
+    },
+    {
+     "label": "SemiAnalysis",
+     "type": "press",
+     "url": "https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia"
+    }
+   ],
+   "summary": "OpenAI's hardware VP said the custom Broadcom-built inference ASIC is deployed with AMD EPYC 'Turin' CPUs as host processors, calling Nvidia's standalone Vera CPU 'a little bit behind on that maturity level'. It is the first disclosed host pairing for OpenAI's own silicon and a direct loss of attached CPU sockets for Nvidia.",
+   "title": "OpenAI runs its Jalapeño ASICs on AMD EPYC Turin hosts, not Nvidia Vera"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-10-02",
+   "late": true,
+   "related": [
+    {
+     "date": "2026-09-24",
+     "index": 6,
+     "label": "Meta Connect"
+    }
+   ],
+   "score": 4,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "AI Weekly",
+     "type": "press",
+     "url": "https://aiweekly.co/alerts/meta-open-sources-muse-gadgets-ships-5000-home-link-dongles"
+    },
+    {
+     "label": "Alexandr Wang on X",
+     "type": "x",
+     "url": "https://x.com/alexandr_wang/status/2106113742266089526"
+    }
+   ],
+   "summary": "An open-source ESP32 firmware and Linux SDK let third parties build hardware around the Muse assistant, with API tokens from gadgets.muse.ai and support for Raspberry Pi 5; Meta made 5,000 USB-C Home Link reference dongles for smart-home control, free to Muse subscribers while stocks last. It extends the assistant push behind [[2026-09-24#6|Meta Connect's glasses line]] beyond Meta's own devices.",
+   "title": "Meta open-sources Muse Gadgets and ships 5,000 Home Link dongles"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-10-03",
+   "score": 3,
+   "scores": {
+    "capability": 1,
+    "durability": 0,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "DeepSeek on X",
+     "type": "x",
+     "url": "https://x.com/deepseek_ai/status/2105915715241062644"
+    }
+   ],
+   "summary": "The app runs DeepSeek models for work and coding with built-in plugins and workspaces, moving the company from API and web access to a first-party agent client.",
+   "title": "DeepSeek releases Harness v0.2 as a desktop app for macOS, Windows and Linux"
+  },
+  {
+   "category": "Other",
+   "date": "2026-10-03",
+   "score": 3,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Linuxiac",
+     "type": "press",
+     "url": "https://linuxiac.com/cosmic-stops-accepting-llm-generated-content-in-pull-requests"
+    }
+   ],
+   "summary": "The Linux desktop project banned machine-generated code in contributions, citing the review burden the submissions place on maintainers. It is one of the first outright bans by a major open-source desktop project.",
+   "title": "System76's COSMIC desktop stops accepting LLM-generated pull requests"
+  }
+ ],
+ "lead": "Meta published six mathematics papers written with Muse Spark, saying five answer previously open research questions — and a reviewer named on the project says three of the six had already been resolved elsewhere.",
+ "scoring": "rubric-v1",
+ "window": "3 Oct 07:00 → 4 Oct 07:00 JST (+ late catches from 1–2 Oct)"
+}

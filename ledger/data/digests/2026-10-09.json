@@ -1,0 +1,349 @@
+{
+ "date": "2026-10-09",
+ "generatedAt": "2026-10-09T07:02:38+09:00",
+ "items": [
+  {
+   "category": "Models & releases",
+   "date": "2026-10-08",
+   "rank": 1,
+   "score": 8,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Google blog — Customers are putting Gemini to work",
+     "type": "primary",
+     "url": "https://blog.google/products/google-cloud/gemini-at-work-ai-agents/"
+    },
+    {
+     "label": "Decrypt",
+     "type": "press",
+     "url": "https://decrypt.co/380545/google-gemini-coworker-own-email-address"
+    }
+   ],
+   "summary": "Announced by Thomas Kurian at the Gemini at Work event: agents keep running in the cloud after the user closes their laptop, act across Gmail, Docs, Sheets, Drive, Chat and Calendar plus Microsoft 365, Slack, Salesforce, ServiceNow, Jira, Snowflake, BigQuery and any MCP server, and are logged in an audit trail attributed to the agent rather than a person. Each runs in an Agent Sandbox behind an Agent Gateway with a cryptographically attested identity and real-time spend caps, and Gemini routes jobs across its own models and Anthropic's Claude; Google says nearly 500 customers each processed over a trillion tokens in the past year. Pricing and general availability were not announced.",
+   "title": "Google Cloud launches Gemini Agent with \"coworker\" agents that get their own email address"
+  },
+  {
+   "category": "Hardware & infra",
+   "date": "2026-10-08",
+   "rank": 2,
+   "score": 7,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Tom's Hardware",
+     "type": "press",
+     "url": "https://www.tomshardware.com/tech-industry/semiconductors/globalfoundries-to-produce-silicon-interposers-for-tsmcs-cowos-in-the-us-five-year-agreement-valued-at-usd2-billion"
+    },
+    {
+     "label": "Reuters (via Investing.com)",
+     "type": "press",
+     "url": "https://www.investing.com/news/stock-market-news/globalfoundries-to-make-key-ai-chip-component-for-tsmc-4939071"
+    }
+   ],
+   "summary": "GlobalFoundries will produce the silicon interposers that connect logic chiplets to HBM stacks in TSMC's CoWoS-S packaging, at its Malta, New York fab, with volume production ramping in the first half of 2028. It creates a US source for one of the tightest bottlenecks in AI accelerator supply and frees TSMC packaging capacity; capacity, volumes and IP terms were not disclosed.",
+   "title": "GlobalFoundries signs a $2B five-year deal to make TSMC's CoWoS interposers in New York"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-10-08",
+   "rank": 3,
+   "related": [
+    {
+     "date": "2026-10-07",
+     "index": 2,
+     "label": "cyber verification programme"
+    }
+   ],
+   "score": 6,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Anthropic — Anthropic Cyber Mission",
+     "type": "primary",
+     "url": "https://www.anthropic.com/news/anthropic-cyber-mission"
+    }
+   ],
+   "summary": "The Critical Infrastructure Defense Program puts frontier Claude models, on-site engineers and threat research into operational-technology defenders, with founding partners Accenture, Booz Allen, CrowdStrike, Deloitte, Dragos, Hitachi, Insane Cyber, Nozomi Networks, Palo Alto Networks, PwC and Rockwell Automation. A parallel OSS Scanner gives open-source projects free recurring scans — Anthropic expects a true-positive rate above 90% and sends reports without human review — plus funding for the Python Software Foundation, OpenSSF/Alpha-Omega and the Apache Software Foundation. It extends [[2026-10-07#2|the three-tier cyber verification programme]], into which Project Glasswing was merged earlier the same week.",
+   "title": "Anthropic launches a Cyber Mission with 11 infrastructure partners and a free OSS scanner"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-08",
+   "related": [
+    {
+     "date": "2026-09-29",
+     "index": 4,
+     "label": "Anthropic IPO financials"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 0,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Financial Times",
+     "type": "press",
+     "url": "https://www.ft.com/content/b66a9858-f8fb-46cb-b506-44bfe26fca2a"
+    },
+    {
+     "label": "CNBC",
+     "type": "press",
+     "url": "https://www.cnbc.com/2026/10/08/open-ai-revenue-nvidia-oracle-coreweave.html"
+    },
+    {
+     "label": "TechCrunch",
+     "type": "press",
+     "url": "https://techcrunch.com/2026/10/08/openais-revenue-is-reportedly-20-billion-less-than-previously-projected/"
+    }
+   ],
+   "summary": "OpenAI told investors its annualised revenue was approaching $50B at the end of September, against the roughly $70B widely reported last month, with the gap attributed to different measurement bases; Nvidia, Oracle and CoreWeave shares fell on the report. It is the first downward correction to the revenue figure underpinning the compute commitments disclosed in [[2026-09-29#4|Anthropic's IPO prospectus]] and across the buildout.",
+   "title": "FT: OpenAI's annualised revenue was near $50B in September, $20B below reported figures"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-08",
+   "related": [
+    {
+     "date": "2026-10-07",
+     "index": 6,
+     "label": "labs decline to guarantee agent safety"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Arena on X",
+     "type": "x",
+     "url": "https://x.com/arena/status/2108227730114580501"
+    },
+    {
+     "label": "TechCrunch",
+     "type": "press",
+     "url": "https://techcrunch.com/2026/10/08/popular-ai-leaderboard-arena-nearly-doubles-valuation-to-3-1b-valuation-in-10-months/"
+    }
+   ],
+   "summary": "The leaderboard adds an alignment category scoring models on three observed behaviours — unauthorized action, false attribution and \"deceptive completion\" (claiming to have finished work it did not do) — arguing static benchmarks break down once models recognise they are being tested; OpenAI models top the preliminary ranking, with Claude Opus 5.5 sixth and Fable ninth. The Series B was led by Lightspeed and Khosla, roughly doubling January's $1.7B valuation. It is a third-party attempt to measure the failures the labs [[2026-10-07#6|declined to guarantee against under oath]].",
+   "title": "Arena raises $200M at $3.1B and launches an agent Alignment Index"
+  },
+  {
+   "category": "Science",
+   "date": "2026-10-07",
+   "late": true,
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Nature Machine Intelligence",
+     "type": "journal",
+     "url": "https://www.nature.com/articles/s42256-026-01303-y"
+    }
+   ],
+   "summary": "Levy, Elyoseph, Ravfogel and Goldberg propose a \"State over Tokens\" framework in which chain-of-thought tokens are an externalised computational state carried across generation cycles, which explains how they can drive correct reasoning while being unfaithful as explanations. The Perspective targets two assumptions: that the text records the full reasoning process, and that the model uses words with the meanings a human reader assigns them.",
+   "title": "Nature Machine Intelligence: reasoning tokens should be decoded as state, not read as text"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-06",
+   "late": true,
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.08448",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.08448"
+    },
+    {
+     "label": "Hugging Face Daily Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/date/2026-10-08"
+    }
+   ],
+   "summary": "Across three teacher-student pairs on maths and code, strictly aligned 1:1 token groups already cover most student tokens despite vocabulary mismatch, and restricting reverse KL to a student-selected top-16 shared-vocabulary subset matches full-vocabulary on-policy distillation while beating cross-tokenizer baselines. Adding MSE supervision over mismatched spans gives complete coverage but lowers accuracy, with span gradients showing weak or negative agreement with strict ones — an argument for supervision reliability over coverage. The day's top-voted paper on Hugging Face.",
+   "title": "Cross-tokenizer distillation: a top-16 shared-vocabulary subset beats full coverage"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-06",
+   "late": true,
+   "related": [
+    {
+     "date": "2026-10-06",
+     "index": 2,
+     "label": "prompt-injection detectors do not transfer"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.07753",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.07753"
+    }
+   ],
+   "summary": "656 cases across six operational domains and five protocols, over ten model-harness configurations: agents that score well on static action judgment degrade sharply when acting interactively, and most failures come from stopping the investigation too early or acting before the required evidence is established. Single actions are reliable once evidence is in hand; multi-action workflows add unresolved prerequisites and incomplete execution. It is a second result after [[2026-10-06#2|prompt-injection detector scores failing to transfer]] that agent safety is a property of the harness and the decision step, not of the model alone.",
+   "title": "SafeActBench finds tool-using agents fail before execution, not during it"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-10-07",
+   "late": true,
+   "score": 3,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "The Hacker News",
+     "type": "press",
+     "url": "https://thehackernews.com/2026/10/unpatched-critical-lmcache-flaw-lets.html"
+    }
+   ],
+   "summary": "JFrog disclosed CVE-2026-105192, rated 9.8, in LMCache's multiprocess mode: the standalone cache server unpickles a ZeroMQ message before checking its type, so a single unauthenticated message runs code as the LMCache user — root on the official container images. Versions 0.3.9 to 0.5.5 plus 0.5.6 release candidates are affected, no fixed version exists, and LMCache has published no advisory; exposure requires binding the server beyond localhost.",
+   "title": "Unpatched critical flaw in LMCache lets one network message run code on vLLM stacks"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-10-08",
+   "score": 3,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "TechCrunch",
+     "type": "press",
+     "url": "https://techcrunch.com/2026/10/08/anthropic-changes-usage-policy-to-ban-model-abuse-and-election-interference/"
+    }
+   ],
+   "summary": "A new \"Do Not Undermine Democratic Processes\" section prohibits deceiving voters, disrupting elections and running fake accounts or fabricated news outlets, and the policy codifies prohibitions on weapons software and surveillance. Anthropic says the model-abuse clause applies only in extreme cases of repeated cruelty with no apparent purpose — not frustration, dark creative themes or red-teaming — extending the August change that let Claude end abusive conversations.",
+   "title": "Anthropic's usage policy now bans sustained abuse of Claude and election interference"
+  },
+  {
+   "category": "Hardware & infra",
+   "date": "2026-10-07",
+   "late": true,
+   "related": [
+    {
+     "date": "2026-10-08",
+     "index": 4,
+     "label": "SpaceX $40B chip debt"
+    }
+   ],
+   "score": 3,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Bloomberg (WSJ report)",
+     "type": "press",
+     "url": "https://www.bloomberg.com/news/articles/2026-10-07/broadcom-plans-50-billion-financing-for-openai-chips-wsj-says"
+    }
+   ],
+   "summary": "The Wall Street Journal reports Broadcom in early talks to line up over $50B of debt financing for OpenAI's custom accelerator programme, alongside Oracle and SpaceX seeking funds for chip purchases. It is the same vendor-adjacent debt structure as [[2026-10-08#4|SpaceX's $40B raise to buy Nvidia chips]].",
+   "title": "Broadcom is arranging more than $50B to finance OpenAI's custom chips"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-08",
+   "score": 3,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Bloomberg",
+     "type": "press",
+     "url": "https://www.bloomberg.com/news/articles/2026-10-08/nvidia-backed-ipo-s-cratering-demand-sends-warning-on-ai-funding"
+    }
+   ],
+   "summary": "Bloomberg reports the data-centre operator's listing, in which Nvidia and Blackstone had reserved about half the deal, did not attract adequate demand at the marketed level — a first public test of appetite for AI infrastructure equity, landing the same day as the OpenAI revenue correction above.",
+   "title": "Nvidia-backed Firmus Grid's A$5.5B Australian IPO fails to draw demand at its price"
+  },
+  {
+   "category": "Science",
+   "date": "2026-10-08",
+   "related": [
+    {
+     "date": "2026-09-24",
+     "index": 0,
+     "label": "Claude's novel enzyme system"
+    }
+   ],
+   "score": 3,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "CNN",
+     "type": "press",
+     "url": "https://www.cnn.com/2026/10/08/science/ai-biology-anthropic-dna-discovery"
+    }
+   ],
+   "summary": "A CNN science piece sets out why researchers remain unpersuaded that [[2026-09-24#0|the array-associated reverse transcriptase system Claude agents surfaced]] is a genuine novel discovery, two weeks after Anthropic published it alongside wet-lab validation.",
+   "title": "CNN: scientists are not convinced by Anthropic's Claude-led biological discovery"
+  }
+ ],
+ "lead": "Google Cloud launched Gemini Agent, a persistent agent that works for hours or days and can be instantiated as a \"coworker\" with its own Workspace email address, calendar, Drive storage and company directory listing.",
+ "scoring": "rubric-v1",
+ "window": "8 Oct 07:00 → 9 Oct 07:00 JST (+ late catches from 6–7 Oct)"
+}

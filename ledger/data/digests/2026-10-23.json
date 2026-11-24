@@ -1,0 +1,302 @@
+{
+ "date": "2026-10-23",
+ "generatedAt": "2026-10-23T07:02:46+09:00",
+ "items": [
+  {
+   "category": "Science",
+   "date": "2026-10-21",
+   "rank": 1,
+   "score": 7,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Nature (s41586-026-11205-z)",
+     "type": "journal",
+     "url": "https://www.nature.com/articles/s41586-026-11205-z"
+    },
+    {
+     "label": "bioRxiv preprint v8",
+     "type": "primary",
+     "url": "https://www.biorxiv.org/content/10.1101/2024.08.01.606258v8"
+    }
+   ],
+   "summary": "A 16B two-stage model (text→structure, then text-conditioned sequence design) trained on 1.7B synthetically annotated protein–text pairs produced a fluorescent protein, a PETase, an alcohol dehydrogenase and a metabolic H-protein, all experimentally confirmed, including catalytic turnover for both enzymes. 17 of 20 structurally novel designs expressed solubly in E. coli, and one H-protein design gave a 1.7x higher product titre than the native protein in a CO2-fixation pathway without iterative optimisation.",
+   "title": "Nature: Pinal designs working enzymes from plain-language functional descriptions"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-10-22",
+   "rank": 2,
+   "score": 6,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Hugging Face model card",
+     "type": "primary",
+     "url": "https://huggingface.co/HuggingFaceBio/Carbon-X"
+    },
+    {
+     "label": "The Next Web",
+     "type": "press",
+     "url": "https://thenextweb.com/news/hugging-face-carbon-x-dna-ai-model"
+    }
+   ],
+   "summary": "Apache-2.0 multimodal model trained on ~300B tokens with a hybrid tokenizer that reads DNA in six-letter groups, answering natural-language questions about sequences; GGUF builds ship alongside it. Limits are a ~50,000 base-pair context window, no wet-lab validation, and viral sequences deliberately excluded from training.",
+   "title": "Hugging Face releases Carbon-X, a 14B open DNA model you can query in English"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-22",
+   "rank": 3,
+   "score": 6,
+   "scores": {
+    "capability": 0,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "OpenAI",
+     "type": "primary",
+     "url": "https://openai.com/index/openai-models-google-cloud/"
+    }
+   ],
+   "summary": "Google Cloud customers get OpenAI's frontier models and Codex through Model Garden, bought via the Cloud Marketplace, with eligible firms able to draw on existing Google Cloud spending commitments; general availability is weeks away. It puts OpenAI's models on all three major clouds and separates model distribution from the compute each lab actually runs on.",
+   "title": "OpenAI frontier models come to Google Cloud's Model Garden"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-21",
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Perplexity blog",
+     "type": "primary",
+     "url": "https://www.perplexity.ai/hub/blog/a-good-teacher-meets-the-student-where-they-are"
+    }
+   ],
+   "summary": "The teacher role sees privileged information such as verified solutions and gives token-level feedback on the student's own attempts, a denser signal than a single outcome reward. JOLT+ beats GRPO by +9.9pp on AppWorld, +4.2pp on MATH, +3.0pp on LiveCodeBench-V6 and +2.7pp on Terminal-Bench 2.1 pass@1; without the student reward it reaches matched MATH accuracy with 13x fewer completion tokens.",
+   "title": "Perplexity's JOLT trains one model as its own teacher and student"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-21",
+   "related": [
+    {
+     "date": "2026-10-07",
+     "index": 0,
+     "label": "Mistral Large 4"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Mistral AI",
+     "type": "primary",
+     "url": "https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering/"
+    }
+   ],
+   "summary": "Mistral brings Large 4 and its physics-modelling pipelines, NVIDIA brings CUDA-X, Warp and Omniverse for GPU-accelerated 3D scene and SimReady asset generation, and the two are building a frontier base model through the Nemotron Coalition. They also promise public datasets and dedicated evaluations for whether agents can complete computer-aided engineering and chip-design work, measuring tool use, technical correctness and compute cost. Mistral puts Large 4's training at 3,800 Grace Blackwell GPUs in European data centres, with weights due at the end of October as promised in [[2026-10-07#0|the Large 4 release]].",
+   "title": "Mistral and NVIDIA partner on AI for industrial engineering, with open CAE benchmarks"
+  },
+  {
+   "category": "Hardware & infra",
+   "date": "2026-10-21",
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Vantage Data Centers",
+     "type": "primary",
+     "url": "https://vantage-dc.com/news/vantage-and-heron-power-electronics-announce-gigawatt-scale-800-vdc-agreement-to-accelerate-ai-infrastructure-delivery/"
+    }
+   ],
+   "summary": "The agreement covers solid-state power electronics for 800-volt DC distribution inside AI data centres, the architecture NVIDIA's rack roadmap assumes, at gigawatt scale. It is a bet that the bottleneck in the buildout is power conversion and delivery rather than chips.",
+   "title": "Vantage signs a gigawatt-scale 800 VDC power deal with Heron Power Electronics"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-22",
+   "related": [
+    {
+     "date": "2026-09-25",
+     "index": 7,
+     "label": "DeepSeek's $7.5B raise"
+    }
+   ],
+   "score": 4,
+   "scores": {
+    "capability": 0,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Reuters (syndicated)",
+     "type": "press",
+     "url": "https://www.centraloregondaily.com/news/consumer/deepseek-wrapping-up-15-billion-fundraising-to-fuel-ai-race-sources-say/article_c841df4a-324e-582d-8fd1-b8ee9f82ad77.html"
+    },
+    {
+     "label": "China Daily",
+     "type": "press",
+     "url": "https://www.chinadaily.com.cn/a/202610/22/WS6ad9b00ee4b06d4aa0564374.html"
+    }
+   ],
+   "summary": "The round, about 100 billion yuan, is double its original 50-billion-yuan target, with reported backers including Tencent, CATL, Meituan, Geely and GigaDevice; terms could still change. Four weeks ago the company was [[2026-09-25#7|finalising a $7.5B raise at roughly 500 billion yuan]], so the raise has doubled while the valuation has held.",
+   "title": "DeepSeek is wrapping up a ~$15B round at a reported ~$74B valuation"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-22",
+   "score": 4,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Business Insider",
+     "type": "press",
+     "url": "https://www.businessinsider.com/barclays-job-cuts-ai-push-layoffs-2026-10"
+    }
+   ],
+   "summary": "Disclosed with Q3 earnings, the cuts are roughly 5% of the workforce, with about 60% of affected roles in support functions including software development. It is one of the first times a major bank has attributed a five-figure headcount reduction partly to AI-driven efficiency rather than to a restructuring alone.",
+   "title": "Barclays cuts about 5,000 jobs and links them to AI productivity"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-22",
+   "score": 4,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Legora newsroom",
+     "type": "primary",
+     "url": "https://legora.com/newsroom/legora-raises-550-million-series-e-at-8.8-billion-valuation-to-accelerate-growth"
+    }
+   ],
+   "summary": "The Series E was led by Atreides Management. Company-reported and unaudited figures: ARR above $200M, up from $100M in under six months, across more than 2,400 law firms and legal departments and 140,000+ legal professionals.",
+   "title": "Legora raises $550M at an $8.8B valuation for legal AI"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-10-21",
+   "score": 4,
+   "scores": {
+    "capability": 1,
+    "durability": 0,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Artificial Analysis on X",
+     "type": "x",
+     "url": "https://x.com/ArtificialAnlys/status/2112961069526249973"
+    }
+   ],
+   "summary": "Artificial Analysis put Voice Turbo first in its controlled-voice ranking with an Elo of 1,202. Listed API pricing is $4 per million characters against $30 for HeyGen's previous voice model, a roughly 7x cut at the top of the leaderboard.",
+   "title": "HeyGen's Voice Turbo tops Artificial Analysis's voice ranking at $4 per 1M characters"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-10-22",
+   "score": 3,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Reuters",
+     "type": "press",
+     "url": "https://www.reuters.com/business/media-telecom/palantir-says-it-cannot-shut-off-nato-ai-system-europeans-fear-us-tech-2026-10-22/"
+    }
+   ],
+   "summary": "Responding to European concerns about dependence on US technology, Palantir said there is no remote kill switch on the Maven Smart System that NATO military headquarters acquired in 2025. The assurance has not been independently verified and is the central question in Europe's sovereign-AI debate.",
+   "title": "Palantir says neither it nor Washington can remotely switch off NATO's Maven system"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-10-21",
+   "score": 3,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "BBC News",
+     "type": "press",
+     "url": "https://www.bbc.com/news/articles/cmreyvepnv0po"
+    }
+   ],
+   "summary": "Research engineer Sofia Liguori resigned this week after three years and researcher Andreas Kirsch left earlier in October, both citing military contracts, governance and a lack of visibility into classified Pentagon use. Google says public-sector work is reviewed against its AI principles and acceptable-use policies.",
+   "title": "Google DeepMind researchers resign over the lab's military AI contracts"
+  },
+  {
+   "category": "Hardware & infra",
+   "date": "2026-10-22",
+   "late": true,
+   "score": 3,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Associated Press",
+     "type": "press",
+     "url": "https://apnews.com/article/2886cb306264b9429bd317bde4bf01fa"
+    }
+   ],
+   "summary": "Strikes between 8 and 18 October hit facilities linked to Yandex, Sberbank and VKontakte, with satellite imagery showing extensive damage at a Yandex-linked site in Sasovo, Ryazan region; full damage and restoration times are unclear. It is the first reported case of AI and cloud compute capacity being destroyed as a wartime target.",
+   "title": "AP: Ukrainian drone strikes damaged Russian data centres used by Yandex and Sberbank"
+  }
+ ],
+ "lead": "Nature published Pinal, a 16B generative model that designs functional proteins from a plain-language description of what they should do, with four designs confirmed in the lab.",
+ "scoring": "rubric-v1",
+ "window": "22 Oct 07:00 → 23 Oct 07:00 JST (+ late catch from 8–18 Oct)"
+}

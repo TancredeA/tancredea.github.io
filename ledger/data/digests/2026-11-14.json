@@ -1,0 +1,346 @@
+{
+ "date": "2026-11-14",
+ "generatedAt": "2026-11-14T07:05:00+09:00",
+ "items": [
+  {
+   "category": "Research",
+   "date": "2026-11-11",
+   "late": true,
+   "paper": true,
+   "rank": 1,
+   "related": [
+    {
+     "date": "2026-11-10",
+     "index": 2,
+     "label": "Authorization Drift: more capable agents overstep their permissions"
+    }
+   ],
+   "score": 7,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Anthropic Alignment Science — Worse Together",
+     "type": "paper",
+     "url": "https://alignment.anthropic.com/2026/worse-together/"
+    }
+   ],
+   "summary": "Anthropic's Alignment Science team tested what happens when every user gets their own AI agent on a shared resource — a token budget, a clinic calendar, a group order or a merge queue — and found the group did worse in all four environments than when a single coordinator agent served everyone, by roughly 10 to 45 percentage points. The failures were concrete: as Sonnet 5 teams grew from 4 to 16 agents, the share taking any action fell from 66% to 10%, and more than half of Claude team episodes contained unsupported claims about other users, versus 17–20% for a single agent. The team is releasing three of the environments as the MAMUBench benchmark, a timely warning as personal-agent products multiply — and a counterpoint to [[2026-11-10#2]], which found capable agents overstepping their permissions.",
+   "title": "Anthropic's 'Worse Together': teams of personal agents lose to one coordinator on shared resources"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-11-10",
+   "late": true,
+   "rank": 2,
+   "related": [
+    {
+     "date": "2026-11-06",
+     "index": 8,
+     "label": "US voters reject data centres in all but one ballot measure"
+    }
+   ],
+   "score": 7,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "SOTKN — SoftBank books $3.7B loss on AI data center power equipment",
+     "type": "article",
+     "url": "https://www.sotkn.com/catalyst/softbank-3-7b-loss-ai-data-center-power-equipment/"
+    },
+    {
+     "label": "Dealroom — SoftBank gives up gas turbines reserved for US data centres",
+     "type": "article",
+     "url": "https://dealroom.co/news/171584-musk-says-masa-son-invested-12b-in-wework-instead-of-a-quarter-of-tesla-/"
+    }
+   ],
+   "summary": "SoftBank reported a ¥597.2 billion ($3.73 billion) loss on power-generation equipment for US AI data centres — $2.85 billion of non-refundable advances and $0.88 billion of contract changes — after a subsidiary reserved far more gas-turbine capacity (reportedly over 13 GW, largely with GE Vernova) than its projects now need. The charge pushed SoftBank to a roughly $7 billion net loss for the July–September quarter, its first in nearly two years, though $6.6 billion of advances remain allocated to projects including the 8 GW PORTS-Pike campus in Ohio leased to OpenAI. It is the first hard writedown of the AI build-out by a top-tier backer, and it lands a week after voters rejected data-centre projects at the ballot box [[2026-11-06#8]].",
+   "title": "SoftBank books a $3.7B loss on over-ordered AI data-centre power gear"
+  },
+  {
+   "category": "Hardware & infra",
+   "date": "2026-11-12",
+   "rank": 3,
+   "related": [
+    {
+     "date": "2026-11-09",
+     "index": 5,
+     "label": "Anthropic reportedly pays $3.4bn for 1.7 GW of gas generators"
+    }
+   ],
+   "score": 6,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Reuters via 96.3 Jack FM — SpaceX to invest over $74 billion in supercompute facilities",
+     "type": "article",
+     "url": "https://963jackfm.com/2026/11/12/spacex-to-invest-over-74-billion-in-supercompute-facilities-in-texas-arizona/"
+    },
+    {
+     "label": "The Hindu BusinessLine — SpaceX announces over $74 billion investment",
+     "type": "article",
+     "url": "https://www.thehindubusinessline.com/info-tech/spacex-announces-over-74-billion-investment-in-texas-arizona-supercomputing-campuses/article71696472.ece"
+    }
+   ],
+   "summary": "SpaceX said it plans to invest more than $74 billion in two AI supercomputing campuses: over $24 billion at its Starbase site in Texas, which would generate its own electricity, and roughly $50 billion in Cochise County, Arizona, a site that could draw up to 6 GW at full build-out and create about 5,500 construction jobs and 1,000 permanent ones. Neither campus is approved yet — the Arizona project faces a county hearing and the Texas one a tax-abatement vote, both on 9 December, and a petition with about 2,400 signatures asks officials to deny the Arizona permit. The announcement underlines how far SpaceX has moved beyond rockets: Reuters reports its AI segment generated more than half of third-quarter revenue, and the power scramble echoes Anthropic's reported $3.4 billion generator deal [[2026-11-09#5]].",
+   "title": "SpaceX plans $74B of AI supercomputing campuses in Texas and Arizona"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-11-12",
+   "related": [
+    {
+     "date": "2026-11-07",
+     "index": 0,
+     "label": "OpenAI ships GPT-6 Cyber, its first model rated Critical for cybersecurity"
+    },
+    {
+     "date": "2026-11-06",
+     "index": 0,
+     "label": "OpenAI's autonomous pipeline builds 948 working Linux root exploits"
+    }
+   ],
+   "score": 6,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Silicon Report — OpenAI introduces Daybreak security tools",
+     "type": "article",
+     "url": "https://www.siliconreport.com/openai-introduces-daybreak-security-tools-to-test-and-fix-web-apps"
+    },
+    {
+     "label": "GBHackers — OpenAI launches Daybreak Red Team and Defense Factory",
+     "type": "article",
+     "url": "https://gbhackers.com/openai-launches-advanced-ai-cybersecurity-tools/"
+    }
+   ],
+   "summary": "At its 'Cyber at the Frontier' event, OpenAI launched two Daybreak security products that put its cyber models to work on both sides of the fence: Daybreak Red Team, in early access, runs coordinated agents that probe web applications for exploitable flaws, while Daybreak Defense Factory scans codebases, traces vulnerabilities to their root cause and drafts merge-ready patches for engineers to approve. Defense Factory runs on GPT-6 Cyber, the model OpenAI classified as Critical for cybersecurity last week [[2026-11-07#0]], and connects to findings from Wiz, Snyk, Endor Labs and GitHub. The pairing of automated attack and automated patching follows directly from OpenAI's own demonstration that an autonomous pipeline can build working Linux root exploits [[2026-11-06#0]] — the same capability, now sold as a service.",
+   "title": "OpenAI launches Daybreak Red Team and Defense Factory, agents that attack and patch code"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-12",
+   "paper": true,
+   "score": 6,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "PaperDeck — Unbundling Multimodal Vision Encoding (arXiv:2611.17334)",
+     "type": "paper",
+     "url": "https://www.ppdeck.com/paper/214bebc5-fbc6-48ea-8795-8186e8ee3141"
+    },
+    {
+     "label": "arXiv:2611.17334",
+     "type": "paper",
+     "url": "http://arxiv.org/abs/2611.17334v1"
+    }
+   ],
+   "summary": "A Meta team including Mike Lewis and Luke Zettlemoyer disentangled what a vision encoder actually contributes to a multimodal model, pretraining every variant from scratch on common data at matched compute. Their headline finding is that the visual prior from pretraining is not necessary — an encoder trained jointly from scratch matches a pretrained one — while dedicated vision capacity is: an encoder-free model trails on visual understanding even when its backbone is enlarged by the encoder's parameter count. Vision-only modules placed inside the early backbone layers perform comparably to a conventional pre-fusion encoder and can lower time to first token, pointing future multimodal designs toward jointly trained, in-fusion vision capacity.",
+   "title": "Unbundling Multimodal Vision Encoding: the pretrained prior is optional, dedicated vision capacity is not"
+  },
+  {
+   "category": "Science",
+   "date": "2026-11-10",
+   "late": true,
+   "paper": true,
+   "related": [
+    {
+     "date": "2026-11-08",
+     "index": 0,
+     "label": "Unreleased Anthropic model proves the Aaronson-Ambainis conjecture"
+    }
+   ],
+   "score": 6,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "HPCwire — Harvard, Anthropic and QuEra reduce quantum circuit resource needs with AI",
+     "type": "article",
+     "url": "https://www.hpcwire.com/off-the-wire/harvard-anthropic-and-quera-reduce-quantum-circuit-resource-needs-with-ai/"
+    },
+    {
+     "label": "QuEra — AI-designed quantum circuits (preprint arXiv:2610.22367)",
+     "type": "article",
+     "url": "https://quantumwire.com/article/17944055798016.html"
+    }
+   ],
+   "summary": "QuEra highlighted research with Harvard and Anthropic in which Claude, paired with an automated correctness evaluator, designed quantum circuits needing far fewer resources than the best published designs: across seven of eight computational building blocks, the AI designs cut both Toffoli-gate counts and qubit requirements. The largest cut was a 39-fold reduction in a combined gate-and-qubit metric for a fixed-point Gaussian function (about 24,000 Toffoli gates and 362 qubits down to 1,583 and 139), and a Reed–Solomon decoder step fell from 5.1 million Toffoli gates to about 440,000. The figures are resource estimates for individual building blocks, not hardware runs, but like the AI-proved Aaronson–Ambainis result [[2026-11-08#0]], they show frontier models doing original work in mathematical design.",
+   "title": "Claude-designed quantum circuits cut gate and qubit needs up to 39-fold, QuEra and Harvard report"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-11",
+   "late": true,
+   "paper": true,
+   "related": [
+    {
+     "date": "2026-11-06",
+     "index": 8,
+     "label": "US voters reject data centres in all but one ballot measure"
+    }
+   ],
+   "score": 6,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Atlas of the Present — Linkages dossier (summarises arXiv:2611.16095)",
+     "type": "article",
+     "url": "https://www.atlasofthepresent.com/en/dossiers/linkages/"
+    }
+   ],
+   "summary": "A new modelling paper (arXiv:2611.16095) puts a number on who pays for AI's power hunger in Texas: for 371 announced data-centre projects totalling 38.9 GW by 2030, household electricity costs rise by 1.64 cents per kWh in the peak season, with 68% of the increase coming through wholesale prices and 32% through transmission charges. Powering the campuses with on-site gas turbines would cut the household hit to 0.92 cents, while excluding data centres from transmission cost-sharing would raise it to 1.87 cents. The result gives the voter backlash against data centres [[2026-11-06#8]] an economic mechanism — and a policy lever.",
+   "title": "Texas data centres would add 1.64 cents/kWh to household power bills, modelling finds"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-11-12",
+   "score": 6,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Anthropic API release notes",
+     "type": "announcement",
+     "url": "https://platform.claude.com/docs/en/release-notes/api"
+    },
+    {
+     "label": "SXF Brief — AI News Nov 13, 2026",
+     "type": "article",
+     "url": "https://sxf.si/brief/"
+    }
+   ],
+   "summary": "Anthropic opened a private beta of self-hosted Claude Managed Agents, letting enterprises run the agents' servers, credentials, sandboxes and session history in their own cloud or on-premises infrastructure, and choose where Claude requests are sent. The move shifts the control plane for managed agents behind the customer's firewall — a direct answer to regulated customers who want agent infrastructure without handing Anthropic their session data. It pairs with this week's Claude for Manufacturing push as Anthropic builds out vertical, enterprise-controlled agent offerings ahead of its IPO.",
+   "title": "Anthropic opens self-hosted Claude Managed Agents in private beta"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-12",
+   "paper": true,
+   "score": 5,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "arXiv:2611.17323 — AgentSSL: Can MLE Agents Leverage Unlabeled Data?",
+     "type": "paper",
+     "url": "http://arxiv.org/abs/2611.17323v1"
+    }
+   ],
+   "summary": "A NeurIPS 2026 paper asks whether machine-learning-engineering agents can work with unlabeled data, framing agentic semi-supervised learning as a program search problem. Even under weak feedback and matched compute, the agents synthesised code combining established semi-supervised techniques and beat the strongest human-engineered baselines in 8 of 12 settings, by up to 21.8 percentage points. The result extends agentic coding from fully supervised pipelines into the data-scarce regimes that dominate real-world machine learning.",
+   "title": "AgentSSL: agents beat human baselines on semi-supervised ML in 8 of 12 settings"
+  },
+  {
+   "category": "Science",
+   "date": "2026-11-13",
+   "paper": true,
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "phys.org — Self-learning AI separates particle jets from background noise",
+     "type": "article",
+     "url": "https://phys.org/news/2026-11-ai-particle-jets-background-noise.html"
+    }
+   ],
+   "summary": "Physicists at Brookhaven National Laboratory, with colleagues at Columbia and the University of Colorado Boulder, report in Scientific Reports the first use of unsupervised generative learning to separate high-energy particle jet signals from collision background — without any paired signal-and-background examples for training. The method could sharpen measurements of the quark–gluon plasma, the hot dense state of matter that existed a microsecond after the Big Bang, by cleaning up the enormous background recorded in relativistic heavy-ion collisions.",
+   "title": "Self-learning AI separates particle jets from background in heavy-ion collisions"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-11-12",
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Anthropic — Introducing Claude for Manufacturing",
+     "type": "announcement",
+     "url": "https://claude.com/resources/articles/claude-for-manufacturing"
+    },
+    {
+     "label": "Unite.AI — Anthropic launches Claude for Manufacturing with 17 workflow skills",
+     "type": "article",
+     "url": "https://www.unite.ai/anthropic-launches-claude-for-manufacturing-with-17-workflow-skills/"
+    }
+   ],
+   "summary": "Anthropic launched Claude for Manufacturing, a plugin for Team and Enterprise plans with 17 skills spanning sales, quality, operations, supply chain, design and setup, plus connectors for Autodesk Fusion, Infor, Microsoft 365 and Oracle NetSuite. Claude drafts job quotes, quality investigations, breakdown diagnoses and supplier comparisons from the plant's own records, for staff to review — Anthropic is explicit that it does not operate factory equipment. Infor released a companion plugin the same day that lets manufacturers approve changes to ERP orders from inside Claude.",
+   "title": "Anthropic launches Claude for Manufacturing: 17 skills and 4 connectors for factory paperwork"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-11-11",
+   "late": true,
+   "score": 5,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "SXF Brief — AI News Nov 13, 2026 (Gemini Decision 1)",
+     "type": "article",
+     "url": "https://sxf.si/brief/"
+    }
+   ],
+   "summary": "Google launched the Gemini Decisions API with Gemini Decision 1, a model built for bounded choices rather than free-form text: it scores yes/no, choice and rubric questions over multimodal inputs without token-by-token generation, priced at $0.10 per million input tokens. The point is agent routing — cheap, fast, structured verdicts at decision points instead of burning a full reasoning model on every branch. It is a small release next to Gemini 4 Hydrogen, but it signals a new model class: the decision, not the paragraph, as the unit of inference.",
+   "title": "Google launches Gemini Decision 1, a model that answers decisions instead of generating text"
+  }
+ ],
+ "lead": "Anthropic showed that teams of personal agents do worse than a single coordinator on shared resources, SoftBank booked a $3.7B writedown on over-ordered AI data-centre power gear, and SpaceX unveiled $74B of planned AI supercomputing campuses, while OpenAI shipped agent security tools and AMD, Google and Anthropic filled out the inference and enterprise stack.",
+ "scoring": "rubric-v1",
+ "selection": "papers-v2 (paper threshold 5, press threshold 6)",
+ "window": "13 Nov 07:00 → 14 Nov 07:00 JST (+ late catches from 10–12 Nov)"
+}

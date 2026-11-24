@@ -1,0 +1,246 @@
+{
+ "generatedAt": "2026-11-13T06:58:56+09:00",
+ "items": [
+  {
+   "category": "Models & releases",
+   "date": "2026-11-12",
+   "rank": 1,
+   "score": 7,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "StartupHub — Google pitches Hydrogen as fast agent worker",
+     "type": "news",
+     "url": "https://www.startuphub.ai/ai-news/artificial-intelligence/2026/google-pitches-hydrogen-as-fast-agent-worker"
+    },
+    {
+     "label": "Oossa — Google launches Gemini 4 Hydrogen, a faster and cheaper AI model",
+     "type": "news",
+     "url": "https://oossa.com/en/google-launches-gemini-4-hydrogen-a-faster-and-cheaper-ai-model"
+    }
+   ],
+   "summary": "Google released Gemini 4 Hydrogen on 12 November, a fast execution model for coding and agentic work with a 1M-token window and four adjustable thinking levels. Google reports it scores 51 on the Artificial Analysis Intelligence Index at default high thinking (54 at xhigh), against 50 for Argon, and jumps to 57% on Terminal-Bench 4.1 from 18.2% for Gemini 3.8 Flash while running 2.5x faster. It is priced at $1.50 per million input tokens and $7.50 per million output tokens, and is available now through the Gemini API, AI Studio and the Gemini app.",
+   "title": "Google ships Gemini 4 Hydrogen, a faster, cheaper agent model that edges out Argon on benchmarks"
+  },
+  {
+   "category": "Science",
+   "date": "2026-11-11",
+   "late": true,
+   "rank": 2,
+   "score": 7,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Google DeepMind — AlphaGenome 2: Deciphering how cells read DNA to better understand disease",
+     "type": "blog",
+     "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/"
+    },
+    {
+     "label": "MLQ — Google DeepMind releases AlphaGenome 2",
+     "type": "news",
+     "url": "https://mlq.ai/news/google-deepmind-releases-alphagenome-2-to-predict-how-dna-changes-affect-specific-cell-types-and-disease/"
+    }
+   ],
+   "summary": "Google DeepMind released AlphaGenome 2 on 11 November, a conditional DNA sequence model that predicts how genetic variants affect gene activity in a specific cell type or state rather than a tissue average. Trained on more than 107 million single-cell profiles across 68 tissues, it identified 30% of causal variants on the TenK10K immune-cell map versus 16% for its predecessor, and called the direction of gene effects correctly 43% of the time versus 23%. It is available free for non-commercial research via the AlphaGenome API, with commercial access in private preview, and is not validated for clinical use.",
+   "title": "DeepMind's AlphaGenome 2 predicts DNA variant effects in specific cell types"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-11-12",
+   "rank": 3,
+   "related": [
+    {
+     "date": "2026-11-09",
+     "index": 5,
+     "label": "NVIDIA board opens independent probe into a foreign intelligence effort on Jensen Huang"
+    }
+   ],
+   "score": 7,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "TechCrunch — Nvidia's Jensen Huang resigns, chipmaker names CFO Colette Kress as interim CEO",
+     "type": "news",
+     "url": "https://techcrunch.com/2026/11/12/nvidias-jensen-huang-resigns-chipmaker-names-cfo-colette-kress-as-interim-ceo/"
+    },
+    {
+     "label": "USA Today — Jensen Huang resigns as Nvidia CEO amid affair probe",
+     "type": "news",
+     "url": "https://www.usatoday.com/story/tech/2026/11/12/jensen-huang-nvidia-ceo-resigns-affair-investigation/92734431007/"
+    }
+   ],
+   "summary": "NVIDIA announced on 12 November that Jensen Huang has resigned as president, CEO and board member with immediate effect, ending his 33-year run leading the company he co-founded in 1993. CFO Colette Kress will serve as interim CEO while the board searches for a permanent successor, and Harvey C. Jones was appointed the board's first chairman. The resignation follows the board probe opened on 8 November [[2026-11-09#5]] into reports that Huang had been targeted by a foreign intelligence operation, and NVIDIA shares fell more than 13% after the news broke.",
+   "title": "Jensen Huang resigns as NVIDIA CEO after 33 years; CFO Colette Kress named interim chief"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-11-12",
+   "score": 6,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Stacks 92.1 / Reuters — OpenAI, Google, Anthropic hit with lawsuit seeking halt to frontier AI development",
+     "type": "news",
+     "url": "https://stacks921.com/2026/11/12/openai-google-anthropic-hit-with-lawsuit-seeking-halt-to-frontier-ai-development/"
+    },
+    {
+     "label": "Mezha — Nonprofits sue OpenAI, Anthropic and other AI giants over model risks",
+     "type": "news",
+     "url": "https://mezha.net/eng/news/fc8e9fb4_nonprofits_sue_openai-_anthropic/"
+    }
+   ],
+   "summary": "Three nonprofits — the Irreplaceable Education Fund, Public Citizen and the Heat Initiative — sued OpenAI, Anthropic, SpaceX's AI division, Meta and Google in San Francisco on 12 November, asking a court to bar further development of the most advanced AI models. The complaint, filed under California unfair-business-practices law, cites the companies' own leaders' warnings about AI's potential threat to humanity and points to past incidents as well as future harm. It is the latest in a series of lawsuits seeking to stop frontier development, after Florida's attorney general sued OpenAI in June.",
+   "title": "Nonprofits sue OpenAI, Anthropic, Google, Meta and SpaceX to halt frontier AI development"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-11-12",
+   "related": [
+    {
+     "date": "2026-11-12",
+     "index": 4,
+     "label": "Anthropic launches its IPO roadshow: 825M shares at $70–78, Nasdaq ticker ANT"
+    }
+   ],
+   "score": 6,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "MadRobot — TSMC to invest up to $1 billion in Anthropic and OpenAI",
+     "type": "news",
+     "url": "https://madrobot.blog/2026/11/12/tsmc-invest-anthropic-openai-1-billion/"
+    },
+    {
+     "label": "StrongMocha — TSMC, Nvidia and Google add investments to their AI supply deals",
+     "type": "news",
+     "url": "https://strongmocha.com/ai-infrastructure/tsmc-nvidia-and-google-add-investments-to-their-ai-supply-deals/"
+    }
+   ],
+   "summary": "TSMC's board approved up to $500 million for Anthropic shares at its IPO price and up to $500 million of OpenAI preferred stock, in resolutions filed with the SEC on 10 November and reported on 12 November, as Anthropic's roadshow continues [[2026-11-12#4]]. Anthropic's amended IPO filing the same day disclosed a $26 billion concurrent private placement from seven companies — Google and NVIDIA at about $10 billion each, AMD $2.5 billion, and Broadcom, Micron, Microsoft and TSMC Partners about $1 billion or $500 million each — closing just after the listing. The filings show the chip and cloud suppliers that AI demand depends on becoming major investors in the labs themselves.",
+   "title": "TSMC approves up to $1B for Anthropic and OpenAI as suppliers commit $26B to Anthropic's IPO"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-03",
+   "late": true,
+   "paper": true,
+   "score": 6,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv — How Finely Can Vision-Language Models See Biology? Bio-VQA",
+     "type": "paper",
+     "url": "https://arxiv.org/abs/2611.05559"
+    },
+    {
+     "label": "Automatica Press — Researchers post arXiv papers on AI overthinking, ARC-AGI-3 and biology",
+     "type": "news",
+     "url": "https://www.automaticapress.com/articles/researchers-post-arxiv-papers-on-ai-overthinking-arc-agi-3-and-biology-mw36b9il"
+    }
+   ],
+   "summary": "Bio-VQA, a benchmark of 1.86 million questions over 217,000 images from 11 public datasets, tests vision-language models on taxonomic, morphological, spatial and individual reasoning about organisms — and finds general visual skills transfer poorly to biology. Across 18 open-weight models, the best counted animals exactly on only 41.7% of images with 2–10 individuals, and taxonomic accuracy fell from 0.72 at phylum to 0.12 at scientific name. The paper, accepted to WACV 2027, argues the benchmark should become a standard test of how well VLM capabilities transfer to the biological domain.",
+   "title": "Bio-VQA: a 1.86M-question benchmark shows vision-language models struggle with biology"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-11-12",
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Manila Times / PR Newswire — Baidu unveils latest ERNIE models amid broader full-stack AI lineup",
+     "type": "news",
+     "url": "https://www.manilatimes.net/2026/11/12/tmt-newswire/pr-newswire/baidu-unveils-latest-ernie-models-amid-broader-full-stack-ai-lineup-and-debuts-token-exchange-to-power-intelligent-organizations/2468739/amp"
+    }
+   ],
+   "summary": "Baidu unveiled ERNIE 5.5 Flash Preview at Baidu World on 12 November, a 280-billion-parameter foundation model with 14 billion parameters active per token and a 1-million-token context window. Baidu reports competitive scores on Terminal-Bench and AutomationBench with very fast decoding, and says the weights will be open-sourced by 25 November; the API is live on Baidu AI Cloud's Qianfan platform at RMB 1 per million input tokens. The company also launched Token Exchange, a marketplace for model services, and upgraded its DuMate, KOOKO and digital-human agents.",
+   "title": "Baidu unveils ERNIE 5.5 Flash Preview, a 280B open-weight model with a 1M-token window"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-12",
+   "paper": true,
+   "score": 5,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Unite.AI — IBM releases Granite models designed to resist prompt injection",
+     "type": "news",
+     "url": "https://www.unite.ai/ibm-releases-granite-models-designed-to-resist-prompt-injection/"
+    }
+   ],
+   "summary": "IBM released two experimental Granite models on 12 November — Granite-4.1-3B-LLMON-preview and Granite-4.1-8B-LLMON-preview — fine-tuned to separate trusted instructions from untrusted data in retrieved documents and tool outputs. IBM reports the models avoided 47% more attacks than the best frontier model it tested on the OPI benchmark, with attack success rates in its evaluations falling from 53–100% to 0.02–5.6% while preserving general capabilities. Both carry an Apache 2.0 licence and are intended for exploration and evaluation, not production, and the model cards caution the learned rule is not an enforced guarantee.",
+   "title": "IBM's Granite LLMON models are trained to resist indirect prompt injection"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-12",
+   "paper": true,
+   "score": 5,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "arXiv — Routes of Reasoning: Reading and Reshaping Test-Time Compute in MoE Models",
+     "type": "paper",
+     "url": "https://arxiv.org/abs/2611.05919"
+    },
+    {
+     "label": "Automatica Press — Researchers post arXiv papers on AI overthinking, ARC-AGI-3 and biology",
+     "type": "news",
+     "url": "https://www.automaticapress.com/articles/researchers-post-arxiv-papers-on-ai-overthinking-arc-agi-3-and-biology-mw36b9il"
+    }
+   ],
+   "summary": "A UCLA paper shows that mixture-of-experts routers provide a training-free interface for controlling reasoning behaviour: linear probes on router logits predict which of six reasoning behaviours a token belongs to, and editing expert router scores during inference curbs overthinking. Across four models and four benchmarks, the intervention cut generated tokens by a median of 30.4% (up to 63.3%) while accuracy never fell by more than 0.5 percentage points and often improved. The preprint, submitted 4 November and updated 12 November, frames MoE routing as both an interpretable lens on reasoning states and a lightweight way to optimise test-time compute.",
+   "title": "Routes of Reasoning: editing MoE router scores curbs overthinking and cuts tokens by ~30%"
+  }
+ ],
+ "lead": "Jensen Huang resigned as NVIDIA's CEO after 33 years, Google shipped the fast Gemini 4 Hydrogen and the cell-type DNA model AlphaGenome 2, and nonprofits sued the frontier labs to halt advanced model development.",
+ "scoring": "rubric-v1",
+ "selection": "papers-v2 (paper threshold 5, press threshold 6)",
+ "window": "12 Nov 07:00 → 13 Nov 07:00 JST (+ late catches from 3–11 Nov)"
+}

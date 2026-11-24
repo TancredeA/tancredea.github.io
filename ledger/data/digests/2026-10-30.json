@@ -1,0 +1,285 @@
+{
+ "date": "2026-10-30",
+ "generatedAt": "2026-10-30T07:02:43+09:00",
+ "items": [
+  {
+   "category": "Models & releases",
+   "date": "2026-10-28",
+   "late": true,
+   "rank": 1,
+   "related": [
+    {
+     "date": "2026-10-23",
+     "index": 9,
+     "label": "HeyGen Voice Turbo"
+    }
+   ],
+   "score": 7,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "NVIDIA on Hugging Face",
+     "type": "primary",
+     "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary"
+    },
+    {
+     "label": "Model card",
+     "type": "primary",
+     "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B"
+    },
+    {
+     "label": "TechCrunch",
+     "type": "press",
+     "url": "https://techcrunch.com/2026/10/28/voice-ai-in-vogue-nvidia-releases-new-open-transcription-model/"
+    }
+   ],
+   "summary": "A 30B-total / ~4B-active hybrid Mamba-Transformer MoE with a speech encoder: transcription in 40 languages, translation for 31 to or from English, speaker attribution in 13 and up to eight speakers, recordings to one hour, word-level timestamps, but recorded audio only and no live streaming. NVIDIA reports 5.33% mean WER on Hugging Face Open ASR English (first among open-weight models, RTFx 462), 4.62% multilingual across seven languages, 10.98% long-form, and 1.8% on Artificial Analysis AA-AgentTalk against 2.3% for the next-best open-weight model; the companion Granary v2 dataset covers 463,062 hours across 48 languages and 16 corpora, up from 25 languages in v1. It is the second Artificial Analysis voice-lane leader in a week after [[2026-10-23#9|HeyGen's Voice Turbo]], this time on the recognition side and with weights.",
+   "title": "NVIDIA's Nemotron 3.5 Transcribe tops open-weight ASR, with a 463k-hour open dataset"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-10-27",
+   "late": true,
+   "paper": true,
+   "rank": 2,
+   "score": 7,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.37364",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.37364"
+    },
+    {
+     "label": "Hugging Face Daily Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/date/2026-10-28"
+    }
+   ],
+   "summary": "An open multimodal embedding model that represents text, images, audio, video and combinations natively in a unified space, using simplified per-layer embeddings and a curriculum that progresses across modalities and objectives. Google claims a new Pareto frontier on embedding benchmarks in every modality, beating specialist models and models two to twelve times larger, with selective loading of modality encoders, adjustable vision token budgets, truncatable embedding dimensions and quantized weights for on-device use.",
+   "title": "Google's EmbeddingGemma 2 puts text, image, audio and video in one embedding space"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-25",
+   "late": true,
+   "paper": true,
+   "rank": 3,
+   "related": [
+    {
+     "date": "2026-10-29",
+     "index": 2,
+     "label": "Axiom in Lean"
+    }
+   ],
+   "score": 6,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.35962",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.35962"
+    }
+   ],
+   "summary": "h1 gives a model an efficient interface to Lean 4 and lets it work from verifier feedback and self-reflection, with no imposed decomposition or search structure; it reports state of the art on PutnamBench, FATE-X and FormalConjectures100-Solved, settles eight open problems in FormalConjectures, and at matched models equals or beats Goedel-Architect and AlphaProof Nexus. Ablations against Claude Code and AxProverBase find simplicity alone is not the cause: the quality of the Lean interface largely determines both cost and solve rate. It is the opposite bet from [[2026-10-29#2|Axiom's large-scale auto-formalization]] — a thin harness aimed at open conjectures rather than at formalizing a known proof.",
+   "title": "h1 settles eight open problems in Lean with a deliberately plain prover harness"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-25",
+   "late": true,
+   "paper": true,
+   "related": [
+    {
+     "date": "2026-10-24",
+     "index": 8,
+     "label": "StreamEval"
+    },
+    {
+     "date": "2026-10-29",
+     "index": 7,
+     "label": "StreamVibe"
+    }
+   ],
+   "score": 6,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.34283",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.34283"
+    }
+   ],
+   "summary": "Instead of merging heterogeneous spatial datasets, ChronoReplay replays them as chronologically ordered episodes, keeps each source's native targets and balances supervision across families; one checkpoint improves OVO-S-Bench, OST-Bench and UCS-Bench together, with a 13.41-point gain on OST-Bench and the best three-benchmark mean among the supervision settings compared, and chronological order beats a shifted-order control by about 2.41 OST points over two paired seeds. The streaming-video evaluation gap measured by [[2026-10-24#8|StreamEval]] and [[2026-10-29#7|StreamVibe]] now has a training-side answer.",
+   "title": "ChronoReplay: replaying spatial supervision in time order gains 13.4 points on OST-Bench"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-28",
+   "late": true,
+   "score": 6,
+   "scores": {
+    "capability": 0,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "GitHub Octoverse 2026",
+     "type": "primary",
+     "url": "https://github.blog/news-insights/octoverse/octoverse-commits-pushes-reach-new-highs-in-2026-as-developers-build-with-agents/"
+    },
+    {
+     "label": "The Next Web",
+     "type": "press",
+     "url": "https://thenextweb.com/news/github-universe-copilot-fusion-octoverse-agents"
+    }
+   ],
+   "summary": "GitHub's 2026 Octoverse report says that as of September developers began over 40% of pull requests by directing an agent, against 17% in March, across more than 225 million developers and 25 million repositories, with 17.9 billion pushes, 34.3 billion commits and 1.3 billion merged pull requests in the past twelve months. It is the first platform-wide measurement of how far agentic coding has displaced hand-written first drafts.",
+   "title": "GitHub: more than 40% of pull requests now start with an agent, up from 17% in March"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-26",
+   "late": true,
+   "paper": true,
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.35013",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.35013"
+    }
+   ],
+   "summary": "MPO pairs Multiscale Advantage Estimation with turn-level importance sampling so that credit assignment and policy updates happen at the same scale as an agent's turns; the authors report consistent gains over strong RL baselines on search, tool-use and automation tasks with 4B and 30B-A3B models, though the abstract names no benchmark or figure.",
+   "title": "Multiscale Policy Optimization assigns RL credit at the turn, not the token"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-26",
+   "late": true,
+   "paper": true,
+   "related": [
+    {
+     "date": "2026-09-24",
+     "index": 5,
+     "label": "Flash-dLLM"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.35201",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.35201"
+    }
+   ],
+   "summary": "DTCA estimates a token's credit from how much committing it improves prediction confidence at the remaining masked positions, groups tokens by part of speech and calibrates the learning signal by token-level entropy change; on LLaDA-8B-Instruct it adds up to 9.0 points on MATH500 and 5.3 on GSM8K over the base model across generation budgets. Training, rather than the decoding cost addressed by [[2026-09-24#5|Flash-dLLM]], is now the active front for diffusion language models.",
+   "title": "DTCA scores each token's contribution in diffusion-LM reinforcement learning"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-25",
+   "late": true,
+   "paper": true,
+   "related": [
+    {
+     "date": "2026-10-26",
+     "index": 3,
+     "label": "naive RAG beats agentic memory"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.34073",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.34073"
+    },
+    {
+     "label": "Project page",
+     "type": "primary",
+     "url": "https://hexuan21.github.io/MemoryTax/"
+    }
+   ],
+   "summary": "A large evaluation across several benchmarks and model backbones finds purpose-built memory systems often underperforming naive RAG, and splits memory's net value into a benefit term, measured against plain retrieval, and a tax term, the losses memory introduces; the paper concentrates on the tax, and promises open code and results. It is independent corroboration of [[2026-10-26#3|the finding that naive RAG over raw chat history beats agentic memory systems]], four days later and with a framework for measuring why.",
+   "title": "'Memory Tax' separates what agent memory adds from what it costs"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-28",
+   "late": true,
+   "related": [
+    {
+     "date": "2026-10-27",
+     "index": 0,
+     "label": "GPT-6.1 Terra"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Replit",
+     "type": "primary",
+     "url": "https://replit.com/blog/vibench-2-long-horizon-software-benchmark"
+    },
+    {
+     "label": "Public task set",
+     "type": "primary",
+     "url": "https://github.com/ViBench/vibench-public/tree/v2.0.6"
+    }
+   ],
+   "summary": "The benchmark builds 17 products four times per model and checks them against 544 browser test plans; Replit reports GPT-6.1 Sol passing every plan in 65% of its builds while leading models pass more than 90% of individual plans, the gap between per-test and per-build success being the point. Eight products are public and nine held out. It is a vendor-run, partner-reported measurement, and the per-build view it adds sits against the per-benchmark claims made for [[2026-10-27#0|GPT-6.1 Terra]].",
+   "title": "Replit's ViBench 2.0 tests whole products, and best-case reliability sits at 65%"
+  }
+ ],
+ "lead": "NVIDIA released Nemotron 3.5 Transcribe, a 30B/4B-active open-weight speech model that leads the open-weight Open ASR English leaderboard at 5.33% word error rate, alongside Granary v2, a 463,062-hour speech dataset covering 48 languages.",
+ "scoring": "rubric-v1",
+ "selection": "papers-v2 (paper threshold 5, press threshold 6)",
+ "window": "29 Oct 07:00 → 30 Oct 07:00 JST (+ late catches from 25–28 Oct)"
+}

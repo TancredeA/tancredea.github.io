@@ -1,0 +1,243 @@
+{
+ "date": "2026-11-09",
+ "generatedAt": "2026-11-09T07:02:41+09:00",
+ "items": [
+  {
+   "category": "Research",
+   "date": "2026-11-05",
+   "late": true,
+   "paper": true,
+   "rank": 1,
+   "related": [
+    {
+     "date": "2026-11-08",
+     "index": 0,
+     "label": "Aaronson-Ambainis proof"
+    },
+    {
+     "date": "2026-11-08",
+     "index": 1,
+     "label": "DeepMind agents on RSA"
+    }
+   ],
+   "score": 7,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2611.07962"
+    },
+    {
+     "label": "Project page (leaderboard)",
+     "type": "primary",
+     "url": "https://moonshotai.github.io/TCSExam/"
+    },
+    {
+     "label": "GitHub",
+     "type": "primary",
+     "url": "https://github.com/MoonshotAI/TCSExam"
+    }
+   ],
+   "summary": "Moonshot AI's TCSExam has 100 expert-reviewed tasks (theorem proving, solver engineering, constructions, open conjectures), each checked by the Lean kernel or an executable checker, plus a 20-task Lite subset that cuts attempts 80% and ranks agents almost identically (Spearman rho 0.93). GPT-6 Astra leads Full with index 71.9 and Opus 5.5 leads Lite with 72.3; on the 30 open-conjecture tasks Kimi K3 built a 124-vertex graph with 630 edges and no triangles or 4-cycles, beating the 629-edge construction of Goedgebeur et al. (2025), and GPT-6 Astra built a [[25,7,6]] quantum code, one better in distance than the [[25,7,5]] entry in Grassl's tables. It sharpens the week's AI-does-real-mathematics thread behind [[2026-11-08#0|the Aaronson-Ambainis proof]] and [[2026-11-08#1|DeepMind's RSA findings]], while showing that nonzero conjecture scores partly reused already-published counterexamples.",
+   "title": "TCSExam: frontier agents score ~72 on TCS research and set two new combinatorial records"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-05",
+   "late": true,
+   "paper": true,
+   "rank": 2,
+   "related": [
+    {
+     "date": "2026-11-02",
+     "index": 3,
+     "label": "WorkFactory task synthesis"
+    },
+    {
+     "date": "2026-11-03",
+     "index": 0,
+     "label": "GDPx"
+    }
+   ],
+   "score": 6,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2611.08219"
+    }
+   ],
+   "summary": "Agent-R2 synthesises 4k agent training tasks from 10k real web-corpus candidates, keeping real attachments and deliverable-level rubrics, then trains a 4B model with SFT plus rubric-based RL. It reaches 51.0% on GDPval against 48.0% for Qwen3-235B-A22B-Thinking-2507, and 14.8% vs 13.8% on OfficeQA, the same real-source-synthesis bet as [[2026-11-02#3|WorkFactory]] measured on the kind of economically grounded work [[2026-11-03#0|GDPx]] probes.",
+   "title": "Agent-R2: a 4B agent scores 51.0% on GDPval, above Qwen3-235B's 48.0%"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-05",
+   "late": true,
+   "paper": true,
+   "rank": 3,
+   "score": 6,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2611.08363"
+    }
+   ],
+   "summary": "StrataFlux recovers accuracy lost to 2-4-bit weight and 2-3-bit KV-cache quantisation by streaming higher-precision data out of host RAM and SSDs instead of GPU memory. Llama-3.1-8B-Instruct at 2-bit goes from 9.46 to 8.40 WikiText-2 perplexity while keeping 95.4% of the quantised model's throughput on an RTX 5090, and at 128K context a 3-bit/2-bit configuration matches vLLM's 4-bit AWQ with 8-bit KV on perplexity and speed using about half the GPU memory.",
+   "title": "StrataFlux lifts 2-bit Qwen3-8B from 11.0% to 47.1% on AIME by streaming from host RAM"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-05",
+   "late": true,
+   "paper": true,
+   "related": [
+    {
+     "date": "2026-11-06",
+     "index": 10,
+     "label": "on-policy distillation loses generalisation"
+    }
+   ],
+   "score": 6,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2611.08453"
+    }
+   ],
+   "summary": "Measuring accuracy per training FLOP, this study finds on-policy distillation loses to GRPO with an external teacher but needs 50x fewer distillation FLOPs for the same maths accuracy when the teacher is the student's own GRPO checkpoint; a two-domain pipeline matches joint GRPO with 42.0% fewer total FLOPs, and multi-teacher distillation costs 5.2% (2 domains) to 8.0% (4 domains) of specialist training. It puts a compute price on the generalisation gap reported in [[2026-11-06#10|on-policy distillation]].",
+   "title": "On-policy distillation beats GRPO only with the student's own GRPO checkpoint as teacher"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-11-08",
+   "score": 5,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "NVIDIA Board of Directors statement",
+     "type": "primary",
+     "url": "https://nvidianews.nvidia.com/news/statement-from-nvidia-board-of-directors"
+    },
+    {
+     "label": "Bloomberg Law",
+     "type": "press",
+     "url": "https://news.bloomberglaw.com/esg/nvidia-board-to-probe-spying-case-after-ceo-admits-infidelity"
+    },
+    {
+     "label": "Bloomberg (board and CEO memos)",
+     "type": "press",
+     "url": "https://www.bloomberg.com/news/articles/2026-11-08/read-the-memos-from-nvidia-s-board-and-ceo-jensen-huang"
+    }
+   ],
+   "summary": "A committee of independent directors with outside counsel will examine reporting that founder and CEO Jensen Huang was targeted by a foreign intelligence effort; the board says it has no reason to believe national security or NVIDIA secrets were compromised and retains confidence in Huang, who has committed to cooperating. The review opens nine days before NVIDIA's quarterly results, and House committee chairs have separately asked Huang to brief them on 18 November.",
+   "title": "NVIDIA board opens independent probe into a foreign intelligence effort on Jensen Huang"
+  },
+  {
+   "category": "Hardware & infra",
+   "date": "2026-11-08",
+   "related": [
+    {
+     "date": "2026-11-06",
+     "index": 8,
+     "label": "data-centre ballot defeats"
+    },
+    {
+     "date": "2026-11-08",
+     "index": 5,
+     "label": "OpenAI to cover power costs"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 0,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Analytics Insight",
+     "type": "press",
+     "url": "https://www.analyticsinsight.net/news/anthropics-usd-34-billion-power-deal-to-fuel-its-ai-data-centre-push"
+    },
+    {
+     "label": "Sell The News (source timeline, FT first)",
+     "type": "press",
+     "url": "https://sellthenews.org/catalyx/event/2026-11-08-anthropic-strikes-3-4-billion-gas-fired-power-deal-for-data-centers-a5d504"
+    }
+   ],
+   "summary": "The Financial Times reports Anthropic committed about $3.4bn to roughly 1.7 GW of heavy-duty gas-fired generators, taking over Caterpillar orders that San Antonio supplier OnePWR Solutions placed around two years ago plus engineering and construction capacity; the deal was finalised in late September and is not an acquisition of OnePWR. It would be the largest known single purchase of power-generation equipment by an AI lab, and it lands while [[2026-11-06#8|US voters are rejecting data centres at the ballot box]] and [[2026-11-08#5|OpenAI is promising to cover power costs]]. Bloomberg and Reuters both attribute the story to the FT, so it rests on one original source.",
+   "title": "Anthropic reportedly pays $3.4bn for 1.7 GW of gas generators via OnePWR"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-05",
+   "late": true,
+   "paper": true,
+   "related": [
+    {
+     "date": "2026-11-05",
+     "index": 2,
+     "label": "SpecPilot discovers decoding algorithms"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2611.08483"
+    },
+    {
+     "label": "Hugging Face Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/2611.08483"
+    }
+   ],
+   "summary": "SwarmEvolve runs LLM-guided evolutionary search with agent swarms that reason in latent space, share KV caches and are filtered for novelty on hidden states. It takes the highest average score across 21 problems and needs a median 3 to 8 minutes to reach scores other frameworks need 60 minutes for, and with Qwen3 8B it improves on some AlphaEvolve solutions, extending the automated-discovery line of [[2026-11-05#2|SpecPilot]].",
+   "title": "SwarmEvolve: latent agent swarms hit rivals' 60-minute best scores in 3-8 minutes"
+  }
+ ],
+ "lead": "Moonshot AI's TCSExam benchmarks frontier agents across the whole of theoretical computer science research, and its open-conjecture track produced two independently checked new records: a 124-vertex, 630-edge triangle- and C4-free graph and a [[25,7,6]] quantum code.",
+ "scoring": "rubric-v1",
+ "selection": "papers-v2 (paper threshold 5, press threshold 6; quiet-day exception used for two press items at 5)",
+ "window": "8 Nov 07:00 → 9 Nov 07:00 JST (+ late catches from 5 Nov; weekend, so no new arXiv announcement day or Hugging Face Daily Papers page after Fri 6 Nov)"
+}

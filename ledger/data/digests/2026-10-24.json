@@ -1,0 +1,322 @@
+{
+ "date": "2026-10-24",
+ "generatedAt": "2026-10-24T07:03:30+09:00",
+ "items": [
+  {
+   "category": "Models & releases",
+   "date": "2026-10-23",
+   "rank": 1,
+   "score": 8,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Kimi blog",
+     "type": "primary",
+     "url": "https://www.kimi.ai/blog/kimi-k3-1-pro"
+    },
+    {
+     "label": "Kimi Code model docs",
+     "type": "primary",
+     "url": "https://www.kimi.com/code/docs/en/kimi-code/models.html"
+    },
+    {
+     "label": "Unite.AI",
+     "type": "press",
+     "url": "https://www.unite.ai/moonshot-ai-releases-kimi-k3-1-pro-first-model-in-new-k3-1-series/"
+    }
+   ],
+   "summary": "Post-trained from K3 with substantially more compute: 1M-token context, image and video input, thinking-mode only. Moonshot reports 65.7% on Terminal-Bench 4.0 (Claude Opus 5.5 66.4%, GPT-6 Astra 58.2%), 92.7% on BenchCAD with tools, and a claim-level hallucination rate down from 23.4% to 8.3%; a Highspeed variant runs 2–3x faster, and no license is named yet.",
+   "title": "Moonshot releases Kimi K3.1 Pro, a 3T-class open-weight model, weights due 4 November"
+  },
+  {
+   "category": "Science",
+   "date": "2026-10-22",
+   "late": true,
+   "paper": true,
+   "rank": 2,
+   "score": 7,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Science 10.1126/science.aeh7930",
+     "type": "journal",
+     "url": "https://www.science.org/doi/10.1126/science.aeh7930"
+    },
+    {
+     "label": "Reuters",
+     "type": "press",
+     "url": "https://www.reuters.com/business/healthcare-pharmaceuticals/microsoft-develops-ai-tool-that-can-diagnose-sequentially-like-doctor-2026-10-23/"
+    },
+    {
+     "label": "Gizmodo",
+     "type": "press",
+     "url": "https://gizmodo.com/microsoft-says-its-new-ai-is-more-than-twice-as-good-at-diagnosing-diseases-as-doctors-2000829562"
+    }
+   ],
+   "summary": "The peer-reviewed version of Sequential Diagnosis with Language Models introduces SDBench, in which a model must order tests and revise a diagnosis step by step. The Microsoft AI Diagnostic Orchestrator reached 83.2% on complex NEJM cases against 36.1% for generalist physicians with reference materials, and 80.3% against 46.8% on emergency-department admissions, at an estimated half to a third of the simulated cost; no real-world clinical trial has been run.",
+   "title": "Science: Microsoft's MAI-DxO hits 83.2% on complex NEJM cases, doctors 36.1%"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-22",
+   "late": true,
+   "paper": true,
+   "rank": 3,
+   "related": [
+    {
+     "date": "2026-10-21",
+     "index": 7,
+     "label": "Anthropic OSS Scanner"
+    },
+    {
+     "date": "2026-10-22",
+     "index": 4,
+     "label": "PHP2Shell"
+    }
+   ],
+   "score": 7,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Anthropic Research",
+     "type": "primary",
+     "url": "https://www.anthropic.com/research/formal-verification"
+    }
+   ],
+   "summary": "The Frontier Red Team, with Theorem, turned 239 OSS-Fuzz entry points across 123 libraries into specifications over compiled RISC-V binaries and had Claude write about 180 million lines of Rocq proof that no input under 64 MB causes a memory-safety error or failed assertion. The work surfaced hundreds of bugs, some missed for years by fuzzing, including a decompressor counter underflow and a rediscovery of CVE-2026-56132 in libexpat; the proofs assume single-threaded musl-linked static binaries, not the dynamic builds most users run. It extends the AI-found-vulnerability line of [[2026-10-21#7|Anthropic's OSS Scanner]] and [[2026-10-22#4|PHP2Shell]] from finding bugs to proving their absence.",
+   "title": "Anthropic uses Claude to formally verify 123 open-source libraries at the binary level"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-10-21",
+   "late": true,
+   "related": [
+    {
+     "date": "2026-10-21",
+     "index": 2,
+     "label": "one hacker, 100+ sites"
+    }
+   ],
+   "score": 7,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Microsoft Security blog",
+     "type": "primary",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/"
+    },
+    {
+     "label": "Microsoft Threat Intelligence on X",
+     "type": "x",
+     "url": "https://x.com/MsftSecIntel/status/2112975078266716390"
+    },
+    {
+     "label": "The Hacker News",
+     "type": "press",
+     "url": "https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html"
+    }
+   ],
+   "summary": "Microsoft Threat Intelligence attributes an automated campaign against hundreds of organisations worldwide to the China state-aligned actor Storm-0940, which used the agentic penetration-testing framework ARTEX to drive the attack chain and abuse credentials across Microsoft 365 environments after compromising ConnectWise. It is the first nation-state campaign Microsoft has publicly tied to an agentic attack framework, a week after [[2026-10-21#2|a lone hacker breached 100+ sites with AI agents]].",
+   "title": "Microsoft: Storm-0940 used the ARTEX agentic framework in a ConnectWise supply-chain hack"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-22",
+   "late": true,
+   "score": 6,
+   "scores": {
+    "capability": 0,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Claude Developers on X",
+     "type": "x",
+     "url": "https://x.com/ClaudeDevs/status/2113328526413996100"
+    },
+    {
+     "label": "Agentic AI Foundation announcement",
+     "type": "press",
+     "url": "https://finance.yahoo.com/technology/ai/articles/agentic-ai-foundation-announces-four-160000692.html"
+    },
+    {
+     "label": "Simon Willison",
+     "type": "press",
+     "url": "https://simonwillison.net/2026/Oct/22/donating-agent-skills/"
+    }
+   ],
+   "summary": "Agent Skills moves to neutral governance under the Linux Foundation's Agentic AI Foundation alongside Open Responses, OpenEnv and OpenSandbox; Anthropic says more than 70 agent platforms have adopted the format since December 2025, including ChatGPT, Cursor, GitHub Copilot and VS Code. It turns a vendor convention for packaging agent instructions into a governed cross-vendor standard.",
+   "title": "Anthropic donates the Agent Skills standard to the Agentic AI Foundation"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-10-23",
+   "related": [
+    {
+     "date": "2026-10-23",
+     "index": 9,
+     "label": "HeyGen Voice Turbo"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "HeyGen on X",
+     "type": "x",
+     "url": "https://x.com/HeyGen/status/2113325916181102761"
+    }
+   ],
+   "summary": "HeyGen's first general-purpose video model, moving the company beyond avatars, placed first for text-to-video in Artificial Analysis's blind comparison. It is the company's second ranking win in two days after [[2026-10-23#9|Voice Turbo took the voice leaderboard]].",
+   "title": "HeyGen Video 1 tops Artificial Analysis's blind text-to-video ranking"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-10-23",
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Ideogram on X",
+     "type": "x",
+     "url": "https://x.com/ideogram_ai/status/2113300317584720259"
+    },
+    {
+     "label": "HyperAI",
+     "type": "press",
+     "url": "https://hyper.ai/en/stories/68d8f8b30735c96d17af253aaad2cc29"
+    }
+   ],
+   "summary": "Ideogram Vector produces SVG files from text prompts and converts raster images to vectors, with support for typography and gradients. Generative models have largely output pixels; an editable vector file is a different artefact for design work.",
+   "title": "Ideogram ships its first vector model, generating editable SVGs from text"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-22",
+   "paper": true,
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.31329",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.31329"
+    },
+    {
+     "label": "Hugging Face Daily Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/date/2026-10-23"
+    }
+   ],
+   "summary": "A lightweight pixel decoder attached to a VLM through an <OBJ> token lets one model do detection, referring localisation, counting, OCR, segmentation and matting, outputting points, boxes, masks and alpha mattes from structured next-token prediction. Trained with a three-stage SFT curriculum then mixed-task RL, the authors report leading results across more than 30 benchmarks and reliable rejection of queries about absent objects.",
+   "title": "WeVisOne-VL unifies object- and pixel-level perception in one vision-language model"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-20",
+   "late": true,
+   "paper": true,
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.28402",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.28402"
+    },
+    {
+     "label": "Hugging Face Daily Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/2610.28402"
+    }
+   ],
+   "summary": "300 scripted cases of 15–300 seconds across avatar dialogue, avatar performance, world generation, instruction editing and reference editing, with requests arriving over time and scoring on task execution, state consistency, visual fidelity and audiovisual coordination. Across 37 models the best request-following scores were 36.90 on avatar performance and 25.93 on text-conditioned world generation, showing that visual quality and identity retention do not bring accurate execution or sustained state.",
+   "title": "StreamEval benchmarks 37 interactive streaming video models; top scores stay below 50"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-20",
+   "late": true,
+   "paper": true,
+   "related": [
+    {
+     "date": "2026-10-20",
+     "index": 5,
+     "label": "CarryOn"
+    },
+    {
+     "date": "2026-10-21",
+     "index": 1,
+     "label": "MemT-1.0"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.28577",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.28577"
+    },
+    {
+     "label": "Hugging Face Daily Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/2610.28577"
+    }
+   ],
+   "summary": "Instead of trimming the trajectory and paying to re-prefill, agents drop selected entries from future attention and reposition the encodings of retained keys; the AKV serving engine keeps a stateless API while handling cache reuse, eviction and restoration. A tool-response rolling-drop policy beats threshold-triggered summarisation by 1.7 points on average while cutting cost 27.7%, with up to 1.2x throughput and a 1.5x P95 latency speedup. It is a serving-side answer to the context-cost problem that [[2026-10-20#5|CarryOn]] and [[2026-10-21#1|MemT-1.0]] attack in the model.",
+   "title": "Cache Engineering lets agents edit their own KV cache, cutting cost 27.7%"
+  }
+ ],
+ "lead": "Moonshot released Kimi K3.1 Pro, a 3T-class open-weight model that scores 65.7% on Terminal-Bench 4.0 against 66.4% for Claude Opus 5.5, with full weights promised by 4 November.",
+ "scoring": "rubric-v1",
+ "selection": "papers-v2 (paper threshold 4, press threshold 6)",
+ "window": "23 Oct 07:00 → 24 Oct 07:00 JST (+ late catches from 20–22 Oct)"
+}

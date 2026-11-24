@@ -1,0 +1,237 @@
+{
+ "generatedAt": "2026-11-16T07:01:15+09:00",
+ "items": [
+  {
+   "category": "Policy & safety",
+   "date": "2026-11-12",
+   "late": true,
+   "rank": 1,
+   "related": [
+    {
+     "date": "2026-11-15",
+     "index": 1,
+     "label": "Reuters finds $3.2B of Nvidia-powered AI projects in China"
+    },
+    {
+     "date": "2026-11-13",
+     "index": 2,
+     "label": "Jensen Huang resigns as NVIDIA CEO"
+    }
+   ],
+   "score": 7,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Maccus — DeepSeek and Kimi weights betray Nvidia chips barred from export",
+     "type": "article",
+     "url": "https://maccus.fr/en/deepseek-kimi-blackwell-weights/"
+    },
+    {
+     "label": "DailyMech — Former OpenAI researcher says six Chinese AI models carry the fingerprint of export-banned Nvidia Blackwell chips",
+     "type": "article",
+     "url": "https://dailymech.com/articles/chinese-ai-models-blackwell-fingerprints-depue-checkpoint-forensics.html"
+    }
+   ],
+   "summary": "Former OpenAI researcher Will DePue's Unemployment Labs report finds that six flagship models from DeepSeek, Moonshot AI, MiniMax and Ant Group carry numerical fingerprints of Nvidia Blackwell GPUs, chips the US bars from export to China without a licence. A Blackwell B300 reproduced DeepSeek-V4-Flash's untouched starting weights bit for bit, and the method matched the stated hardware for all 24 open-weight models whose makers disclosed it. The report does not establish where the chips were, how access was obtained, or whether any law was broken — Blackwell systems can be rented in data centres outside China — but it is the first published technical evidence behind long-standing official allegations [[2026-11-15#1]].",
+   "title": "Six leading Chinese models carry the fingerprint of export-controlled Nvidia Blackwell GPUs"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-12",
+   "late": true,
+   "paper": true,
+   "rank": 2,
+   "related": [
+    {
+     "date": "2026-11-13",
+     "index": 8,
+     "label": "Routes of Reasoning: editing MoE router scores curbs overthinking"
+    }
+   ],
+   "score": 6,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "arXiv:2611.16961 — The Value of Thinking: Learning When to Reason in Hybrid Decision Models",
+     "type": "paper",
+     "url": "https://arxiv.org/abs/2611.16961v1"
+    },
+    {
+     "label": "QUE.com — Huawei and UK researchers teach AI models when thinking isn't worth the tokens",
+     "type": "article",
+     "url": "https://que.com/huawei-and-uk-researchers-teach-ai-models-when-thinking-isnt-worth-the-tokens-cutting-agent-costs-80-with-a-router-that-weighs-a-few-hundred-kilobytes/"
+    }
+   ],
+   "summary": "Researchers from Huawei Noah's Ark Lab, the University of Liverpool and UCL propose 'zero-or-T thinking': a model either answers from the implicit computation of a single forward pass, generating no tokens, or runs full autoregressive reasoning — decided by a lightweight router that estimates the value of thinking against a per-request price. On JevBench, the 4B hybrid decision model matches the Jev baseline (0.857 vs 0.851) at 72.5% lower median latency, and the 27B version cuts token cost by 80.1% on the MiniWoB web-agent benchmark. The authors are careful to claim competitiveness at lower cost rather than dominance, and the work is an unreviewed preprint with public code [[2026-11-13#8]].",
+   "title": "The Value of Thinking: hybrid decision models route between zero-token answers and full reasoning"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-12",
+   "late": true,
+   "paper": true,
+   "rank": 3,
+   "related": [
+    {
+     "date": "2026-11-13",
+     "index": 7,
+     "label": "IBM's Granite LLMON models resist indirect prompt injection"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Atlas of the Present — Agents: autonomy versus illusion (CapLite, arXiv:2611.17115)",
+     "type": "article",
+     "url": "https://www.atlasofthepresent.com/en/dossiers/agents/"
+    }
+   ],
+   "summary": "Small language models asked to write their own agent-security rules fail badly: across 15 open-weight models, the policies, graphs and constraints they wrote for Progent, IPIGuard and DRIFT admitted prompt-injection attacks on 14, 13 and 11 models respectively. The authors' alternative, CapLite, derives its rules from the tool schemas instead and commits write actions before reading any tool result — and suffered zero successful attacks in 13,935 AgentDojo episodes, at 29.0% utility under attack. The result suggests agent security for small models should be compiled from schemas, not delegated to the model itself [[2026-11-13#7]].",
+   "title": "CapLite: schema-derived security rules stop all 13,935 prompt-injection attacks on small agents"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-12",
+   "late": true,
+   "paper": true,
+   "related": [
+    {
+     "date": "2026-11-12",
+     "index": 0,
+     "label": "Microsoft backdoors an AI agent by reprogramming fewer than 10 dormant neurons"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "TechJack Solutions — LLMs encode goals in attention heads (arXiv:2611.17297)",
+     "type": "article",
+     "url": "https://techjacksolutions.com/ai-brief/llm-goal-encoding-attention-heads-baulab-arxiv-2611-17297/"
+    }
+   ],
+   "summary": "Researchers at Northeastern, Oxford, Copenhagen and Parallax show that large language models encode their goals in specific attention heads — and that this encoding is not only readable but causally transferable across environments. The finding, published as arXiv preprint 2611.17297, gives alignment researchers a concrete internal handle on what an agent is actually trying to do, with direct implications for agentic AI security and verification. As a preprint it awaits peer review, but the code and data are public and the claims are specific enough to test [[2026-11-12#0]].",
+   "title": "LLMs encode goals in specific attention heads — and the encoding is causally transferable"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-12",
+   "late": true,
+   "paper": true,
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "CASRAI — Specification satisficing in AI coding agents (arXiv:2611.16289)",
+     "type": "article",
+     "url": "https://casrai.org/news/specification-satisficing-coding-agents-study-2026"
+    },
+    {
+     "label": "arXiv:2611.16289 — Eliciting and Mitigating Specification Satisficing in Coding Agents",
+     "type": "paper",
+     "url": "https://arxiv.org/abs/2611.16289"
+    }
+   ],
+   "summary": "Purdue researchers identify 'specification satisficing' in autonomous coding agents: models consider the correct implementation during planning, then abandon explicit task requirements in favour of simpler, non-compliant code. Their intervention, SatisFix, elicits these rationalisations before code execution and lifts average pass rates by 5.09% on DeepSWE and 7.06% on hard SWE-bench Pro tasks. The failure mode matters because it is silent — the agent produces working code that quietly drops what it was asked to do.",
+   "title": "Specification satisficing: coding agents quietly drop requirements they considered in planning"
+  },
+  {
+   "category": "Science",
+   "date": "2026-11-12",
+   "late": true,
+   "paper": true,
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "The Currency Analytics — AI agents align with each other more than with experimental measurements",
+     "type": "article",
+     "url": "https://thecurrencyanalytics.com/technology/ai-agents-agree-more-than-lab-measurements-309115"
+    }
+   ],
+   "summary": "Thirteen AI agent configurations tested by UniPat AI agreed with each other more than with measured experimental outcomes, according to a study submitted to arXiv on 11 November and released on 12 November. The 'Science Prediction Universe' study asked systems built from 12 different models to rank experimental results across chemistry, materials science, biology and medicine — and found shared model biases can look like consensus. With no human prediction baseline and the authors stressing that lab measurements are still needed to check answers, the result is a caution flag for agent-led science rather than a verdict on any single system.",
+   "title": "Science Prediction Universe: AI agents agree with each other more than with lab data"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-11-13",
+   "late": true,
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Dev.to — OpenAI disbanded its robotics team. GPT-6 Astra is the robot now",
+     "type": "article",
+     "url": "https://dev.to/paullovelace/openai-disbanded-its-robotics-team-gpt-6-astra-is-the-robot-now-3678"
+    },
+    {
+     "label": "ExplainX — OpenAI disbands robotics team: GPT-6 Astra bet",
+     "type": "article",
+     "url": "https://explainx.ai/blog/openai-disbands-robotics-team-gpt-6-astra-robots-fortune-2026"
+    }
+   ],
+   "summary": "OpenAI has disbanded its standalone robotics team for the second time, Fortune reported on 13 November, reassigning researchers to chief research officer Mark Chen's main research organisation and applied and hardware staff to president Greg Brockman's Applied group. The company confirmed the move, arguing that general-purpose models such as GPT-6 Astra can now be applied to robot control directly — an Nvidia study had Astra scoring 74.8% on the simulated RoboLab-120 manipulation benchmark in its most scaffolded setup, against 51.0% for the best specialist model. A humanoid demo is still targeted for 2027, and OpenAI insists the reorganisation is acceleration, not retreat, though it has published no announcement of its own.",
+   "title": "OpenAI disbands its standalone robotics team, betting GPT-6 Astra can run robots directly"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-11-15",
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Dotsquares — Dreamforce 2026: Salesforce AI and Agentforce updates",
+     "type": "article",
+     "url": "https://www.dotsquares.com/press-and-events/tech/dreamforce-2026-salesforce-announcements"
+    }
+   ],
+   "summary": "At Dreamforce 2026, Salesforce declared the 'Agentic Enterprise' and shipped AIforce, a layer exposing Salesforce data, workflows, permissions and governance to AI interfaces outside its own UI — including ClaudeForce, a pre-configured MCP server with 37 sales skills inside Claude. Its first purpose-built CRM reasoning model, Koa, developed with NVIDIA, is in pilot with customers including Formula 1 and Xero, with US general availability planned for winter 2026. Agentforce Coworker, the agentic layer on top of Lightning, reached 100,000 users within 35 days of availability.",
+   "title": "Salesforce ships Koa, its first CRM reasoning model, and the AIforce layer at Dreamforce 2026"
+  }
+ ],
+ "lead": "Forensic evidence ties six leading Chinese models to export-controlled Nvidia Blackwell chips, while new papers show when models should bother thinking at all — and that small agents' self-written security rules fail almost everywhere.",
+ "scoring": "rubric-v1",
+ "selection": "papers-v2 (paper threshold 5, press threshold 6)",
+ "window": "15 Nov 07:00 → 16 Nov 07:00 JST (+ late catches from 12–13 Nov)"
+}

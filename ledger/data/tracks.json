@@ -1,0 +1,898 @@
+{
+ "bayesian-optimisation": {
+  "agentUpdatedAt": "2026-10-10T08:10:04Z",
+  "createdAt": "2026-10-07T04:39:28Z",
+  "description": "Optimising an expensive black-box function with few evaluations. See the loop first, then the Gaussian process that makes it work, then the equations — pictures, code, reference.",
+  "items": [
+   {
+    "id": "bo-distill",
+    "step": 1
+   },
+   {
+    "id": "bo-gp-distill",
+    "step": 1
+   },
+   {
+    "id": "bo-krasser-gp",
+    "step": 2
+   },
+   {
+    "id": "bo-frazier",
+    "step": 2
+   },
+   {
+    "id": "src-snoek-bayesopt-2012",
+    "step": 3
+   },
+   {
+    "id": "bo-gpml",
+    "step": 3
+   }
+  ],
+  "levels": [
+   {
+    "label": "Intuitions — the pictures",
+    "n": 1
+   },
+   {
+    "label": "The surrogate, with the maths and the code",
+    "n": 2
+   },
+   {
+    "label": "Reference",
+    "n": 3
+   }
+  ],
+  "minimalPath": [
+   "bo-distill",
+   "bo-gp-distill",
+   "bo-frazier"
+  ],
+  "order": 7,
+  "short": "Bayesian optimisation",
+  "themes": [
+   "optimization",
+   "proba-inference"
+  ],
+  "title": "Bayesian optimisation: from the picture to the maths"
+ },
+ "info-theory-lm": {
+  "createdAt": "2026-09-16T00:00:00Z",
+  "description": "From intuitions (entropy, cross-entropy, KL) to research: an LLM is a compressor.",
+  "levels": [
+   {
+    "label": "Intuitions — entropy, cross-entropy, KL",
+    "n": 1
+   },
+   {
+    "label": "From Markov models to language models",
+    "n": 2
+   },
+   {
+    "label": "Sources and rigour",
+    "n": 3
+   },
+   {
+    "label": "Research — LLM = compression",
+    "n": 4
+   },
+   {
+    "label": "Going further",
+    "n": 5
+   }
+  ],
+  "minimalPath": [
+   "itlm-01",
+   "itlm-05",
+   "itlm-06",
+   "itlm-08",
+   "itlm-13"
+  ],
+  "order": 1,
+  "short": "Info theory → LLMs",
+  "themes": [
+   "theorie-info",
+   "lm-fondamentaux",
+   "llm-compression"
+  ],
+  "title": "Information theory → language models"
+ },
+ "llm-practice": {
+  "agentUpdatedAt": "2026-11-16T02:47:00Z",
+  "createdAt": "2026-09-17T09:00:00Z",
+  "description": "How a chat model really consumes its input, how far its context actually reaches, how it gets shrunk and served — and why scale works.",
+  "items": [
+   {
+    "id": "sug-multi-turn-01",
+    "step": 1
+   },
+   {
+    "id": "sug-context-window-01",
+    "step": 1
+   },
+   {
+    "id": "sug-multi-turn-03",
+    "step": 1
+   },
+   {
+    "id": "sug-multi-turn-02",
+    "step": 1
+   },
+   {
+    "id": "src-mcp-vs-api",
+    "step": 1
+   },
+   {
+    "id": "sug-context-window-02",
+    "step": 2
+   },
+   {
+    "id": "sug-context-window-05",
+    "step": 2
+   },
+   {
+    "id": "sug-context-window-03",
+    "step": 2
+   },
+   {
+    "id": "sug-context-window-04",
+    "step": 2
+   },
+   {
+    "id": "src-rag-from-scratch-fcc",
+    "step": 2
+   },
+   {
+    "id": "src-belcak-long-context",
+    "step": 2
+   },
+   {
+    "id": "sug-quantization-01",
+    "step": 3
+   },
+   {
+    "id": "sug-quantization-02",
+    "step": 3
+   },
+   {
+    "id": "sug-quantization-03",
+    "step": 3
+   },
+   {
+    "id": "sug-quantization-04",
+    "step": 3
+   },
+   {
+    "id": "sug-runtime-01",
+    "step": 4
+   },
+   {
+    "id": "src-mac-mini-vs-mac-studio-local-ai",
+    "step": 4
+   },
+   {
+    "id": "sug-runtime-02",
+    "step": 4
+   },
+   {
+    "id": "sug-runtime-03",
+    "step": 4
+   },
+   {
+    "id": "sug-runtime-04",
+    "step": 4
+   },
+   {
+    "id": "src-ibm-kv-cache",
+    "step": 4
+   },
+   {
+    "id": "src-ai-infrastructure-gpus-vllm-llm-d",
+    "step": 4
+   },
+   {
+    "id": "src-kodekloud-vllm-demo",
+    "step": 4
+   },
+   {
+    "id": "sug-runtime-05",
+    "step": 4
+   },
+   {
+    "id": "src-guidellm",
+    "step": 4
+   },
+   {
+    "id": "itlm-15a",
+    "step": 5
+   },
+   {
+    "id": "itlm-15b",
+    "step": 5
+   },
+   {
+    "id": "itlm-14",
+    "step": 5
+   },
+   {
+    "id": "olah-10",
+    "step": 5
+   },
+   {
+    "id": "itlm-13",
+    "step": 5
+   }
+  ],
+  "levels": [
+   {
+    "label": "What the model actually sees",
+    "n": 1
+   },
+   {
+    "label": "Long context: limits and extensions",
+    "n": 2
+   },
+   {
+    "label": "Making models smaller",
+    "n": 3
+   },
+   {
+    "label": "Running and serving models",
+    "n": 4
+   },
+   {
+    "label": "Going further: why scale works",
+    "n": 5
+   }
+  ],
+  "minimalPath": [
+   "sug-multi-turn-01",
+   "sug-context-window-02",
+   "sug-quantization-01",
+   "sug-runtime-02",
+   "itlm-15b"
+  ],
+  "order": 3,
+  "short": "LLMs in practice",
+  "themes": [
+   "llm-architecture",
+   "deploiement",
+   "llm-compression"
+  ],
+  "title": "LLMs in practice: from the prompt to your laptop"
+ },
+ "nn-to-transformers": {
+  "agentUpdatedAt": "2026-10-08T04:54:17Z",
+  "createdAt": "2026-09-17T09:00:00Z",
+  "description": "One path through the fundamentals: how a network learns, sees and reads sequences, how attention took over — then how to look inside the model.",
+  "items": [
+   {
+    "id": "sug-mnist-01",
+    "step": 1
+   },
+   {
+    "id": "sug-backprop-01",
+    "step": 1
+   },
+   {
+    "id": "sug-backprop-02",
+    "step": 1
+   },
+   {
+    "id": "sug-mnist-02",
+    "step": 1
+   },
+   {
+    "id": "sug-backprop-03",
+    "step": 1
+   },
+   {
+    "id": "olah-01",
+    "step": 1
+   },
+   {
+    "id": "sug-backprop-04",
+    "step": 1
+   },
+   {
+    "id": "sug-backprop-06",
+    "step": 1
+   },
+   {
+    "id": "src-dropout-hinton-2012",
+    "step": 1
+   },
+   {
+    "id": "sug-convolution-01",
+    "step": 2
+   },
+   {
+    "id": "sug-convolution-02",
+    "step": 2
+   },
+   {
+    "id": "sug-convolution-03",
+    "step": 2
+   },
+   {
+    "id": "sug-mnist-03",
+    "step": 2
+   },
+   {
+    "id": "sug-mnist-04",
+    "step": 2
+   },
+   {
+    "id": "sug-alexnet-02",
+    "step": 2
+   },
+   {
+    "id": "olah-02",
+    "step": 3
+   },
+   {
+    "id": "olah-03",
+    "step": 3
+   },
+   {
+    "id": "olah-04",
+    "step": 3
+   },
+   {
+    "id": "sug-transformer-01",
+    "step": 3
+   },
+   {
+    "id": "sug-transformer-02",
+    "step": 3
+   },
+   {
+    "id": "src-efficient-nlp-transformer-playlist",
+    "step": 3
+   },
+   {
+    "id": "sug-transformer-03",
+    "step": 4
+   },
+   {
+    "id": "sug-transformer-04",
+    "step": 4
+   },
+   {
+    "id": "sug-transformer-05",
+    "step": 4
+   },
+   {
+    "id": "olah-05",
+    "step": 5
+   },
+   {
+    "id": "olah-06",
+    "step": 5
+   },
+   {
+    "id": "olah-07",
+    "step": 5
+   },
+   {
+    "id": "olah-08",
+    "step": 5
+   },
+   {
+    "id": "olah-09",
+    "step": 5
+   },
+   {
+    "id": "olah-10",
+    "step": 5
+   },
+   {
+    "id": "olah-11",
+    "step": 5
+   }
+  ],
+  "levels": [
+   {
+    "label": "Learning: neurons, gradients, backprop",
+    "n": 1
+   },
+   {
+    "label": "Seeing: convolutions and CNNs",
+    "n": 2
+   },
+   {
+    "label": "Sequences and attention",
+    "n": 3
+   },
+   {
+    "label": "The Transformer, in code and on paper",
+    "n": 4
+   },
+   {
+    "label": "Going further: looking inside the network",
+    "n": 5
+   }
+  ],
+  "minimalPath": [
+   "sug-mnist-01",
+   "sug-backprop-02",
+   "sug-convolution-02",
+   "olah-03",
+   "sug-transformer-01",
+   "sug-transformer-03",
+   "olah-07"
+  ],
+  "order": 2,
+  "short": "Neural nets → Transformers",
+  "themes": [
+   "dl-fondamentaux",
+   "llm-architecture",
+   "interpretability"
+  ],
+  "title": "Neural networks from scratch → Transformers → inside the model"
+ },
+ "quantum-ai": {
+  "createdAt": "2026-09-17T13:00:00Z",
+  "description": "Quantum computing basics, then the tensor-network bridge to deep learning (VTNN), then machine learning on quantum hardware — and where quantum advantage really stands.",
+  "items": [
+   {
+    "id": "qai-grover",
+    "step": 1
+   },
+   {
+    "id": "qai-ibm-basics",
+    "step": 1
+   },
+   {
+    "id": "qai-nielsen-chuang",
+    "step": 1
+   },
+   {
+    "id": "qai-bridgeman-chubb",
+    "step": 2
+   },
+   {
+    "id": "qai-orus-intro",
+    "step": 2
+   },
+   {
+    "id": "qai-vtnn",
+    "step": 3
+   },
+   {
+    "id": "qai-stoudenmire",
+    "step": 3
+   },
+   {
+    "id": "qai-compactifai",
+    "step": 3
+   },
+   {
+    "id": "qai-preskill-nisq",
+    "step": 4
+   },
+   {
+    "id": "qai-biamonte-qml",
+    "step": 4
+   },
+   {
+    "id": "qai-pennylane-vqc",
+    "step": 4
+   },
+   {
+    "id": "qai-cerezo-vqa",
+    "step": 4
+   },
+   {
+    "id": "qai-mcclean-bp",
+    "step": 5
+   },
+   {
+    "id": "qai-huang-power-data",
+    "step": 5
+   }
+  ],
+  "levels": [
+   {
+    "label": "Quantum computing foundations",
+    "n": 1
+   },
+   {
+    "label": "Tensor networks",
+    "n": 2
+   },
+   {
+    "label": "Quantum-inspired deep learning",
+    "n": 3
+   },
+   {
+    "label": "Machine learning on quantum computers",
+    "n": 4
+   },
+   {
+    "label": "Going further: trainability and quantum advantage",
+    "n": 5
+   }
+  ],
+  "minimalPath": [
+   "qai-grover",
+   "qai-bridgeman-chubb",
+   "qai-vtnn",
+   "qai-biamonte-qml",
+   "qai-cerezo-vqa"
+  ],
+  "order": 4,
+  "short": "Quantum × AI",
+  "themes": [
+   "quantum",
+   "dl-fondamentaux",
+   "llm-compression"
+  ],
+  "title": "Quantum computing & AI: from qubits to tensor networks"
+ },
+ "reinforcement-learning": {
+  "createdAt": "2026-09-17T14:00:00Z",
+  "description": "The RL framework and its classic methods, deep RL, how RL shapes today's LLMs (RLHF, DPO, reasoning), and model-based RL with learned world models.",
+  "items": [
+   {
+    "id": "rl-weng-peek",
+    "step": 1
+   },
+   {
+    "id": "rl-hf-course",
+    "step": 1
+   },
+   {
+    "id": "rl-karpathy-pong",
+    "step": 1
+   },
+   {
+    "id": "rl-sutton-barto",
+    "step": 2
+   },
+   {
+    "id": "rl-silver-ucl",
+    "step": 2
+   },
+   {
+    "id": "rl-spinning-up",
+    "step": 3
+   },
+   {
+    "id": "rl-gymnasium",
+    "step": 3
+   },
+   {
+    "id": "rl-dqn",
+    "step": 3
+   },
+   {
+    "id": "rl-ppo",
+    "step": 3
+   },
+   {
+    "id": "rl-instructgpt",
+    "step": 4
+   },
+   {
+    "id": "rl-rlhf-book",
+    "step": 4
+   },
+   {
+    "id": "rl-dpo",
+    "step": 4
+   },
+   {
+    "id": "rl-deepseek-r1",
+    "step": 4
+   },
+   {
+    "id": "rl-muzero",
+    "step": 5
+   },
+   {
+    "id": "rl-dreamerv3",
+    "step": 5
+   },
+   {
+    "id": "sug-world-models-industrie-04",
+    "step": 5
+   }
+  ],
+  "levels": [
+   {
+    "label": "Intuition and first agents",
+    "n": 1
+   },
+   {
+    "label": "Foundations, rigorously",
+    "n": 2
+   },
+   {
+    "label": "Deep RL",
+    "n": 3
+   },
+   {
+    "label": "RL for language models",
+    "n": 4
+   },
+   {
+    "label": "Going further: model-based RL and world models",
+    "n": 5
+   }
+  ],
+  "minimalPath": [
+   "rl-weng-peek",
+   "rl-silver-ucl",
+   "rl-spinning-up",
+   "rl-ppo",
+   "rl-instructgpt",
+   "rl-deepseek-r1"
+  ],
+  "order": 5,
+  "short": "Reinforcement learning",
+  "themes": [
+   "reinforcement-learning",
+   "llm-architecture",
+   "world-models"
+  ],
+  "title": "Reinforcement learning: from MDPs to LLM post-training"
+ },
+ "tensor-networks": {
+  "agentUpdatedAt": "2026-10-05T13:10:18Z",
+  "createdAt": "2026-10-05T13:10:18Z",
+  "description": "A fast re-entry. Refresh the diagram formalism, read the one founding paper that made a tensor network a layer, then the 2025-2026 work on TN layers for compression, efficiency and scale, and finish with interpretability plus a critical review that calibrates the claims.",
+  "items": [
+   {
+    "id": "qai-bridgeman-chubb",
+    "step": 1
+   },
+   {
+    "id": "qai-orus-intro",
+    "step": 1
+   },
+   {
+    "id": "tn-novikov",
+    "step": 2
+   },
+   {
+    "id": "qai-stoudenmire",
+    "step": 2
+   },
+   {
+    "id": "tn-lm-survey",
+    "step": 3
+   },
+   {
+    "id": "tn-mpo-picogpt",
+    "step": 3
+   },
+   {
+    "id": "qai-compactifai",
+    "step": 3
+   },
+   {
+    "id": "qai-vtnn",
+    "step": 3
+   },
+   {
+    "id": "tn-deeptree",
+    "step": 3
+   },
+   {
+    "id": "tn-tensorization-orus",
+    "step": 4
+   },
+   {
+    "id": "tn-tt-rss",
+    "step": 4
+   },
+   {
+    "id": "tn-qi-review",
+    "step": 4
+   }
+  ],
+  "levels": [
+   {
+    "label": "Refresher — the formalism, fast",
+    "n": 1
+   },
+   {
+    "label": "The founding paper",
+    "n": 2
+   },
+   {
+    "label": "Recent — TN layers for compression, efficiency, scale",
+    "n": 3
+   },
+   {
+    "label": "Recent — interpretability, and what to believe",
+    "n": 4
+   }
+  ],
+  "minimalPath": [
+   "qai-bridgeman-chubb",
+   "tn-novikov",
+   "tn-lm-survey",
+   "tn-tensorization-orus",
+   "tn-qi-review"
+  ],
+  "order": 6,
+  "short": "Tensor networks",
+  "themes": [
+   "quantum",
+   "dl-fondamentaux",
+   "llm-compression",
+   "interpretability"
+  ],
+  "title": "Tensor networks in deep learning: back up to speed"
+ },
+ "tn-dl": {
+  "agentUpdatedAt": "2026-11-01T22:10:00Z",
+  "createdAt": "2026-10-08T13:07:23Z",
+  "description": "Five steps from tensor diagrams and tensor trains to tensor networks inside LLMs, then the literature: what made a splash since October 2024 and every 2026 paper found.",
+  "items": [
+   {
+    "id": "qai-bridgeman-chubb",
+    "step": 1
+   },
+   {
+    "id": "qai-orus-intro",
+    "step": 1
+   },
+   {
+    "id": "tndl-oseledets-tt-2011",
+    "step": 1
+   },
+   {
+    "id": "tndl-cichocki-2016",
+    "step": 1
+   },
+   {
+    "id": "tndl-schollwock-2011",
+    "step": 1
+   },
+   {
+    "id": "tndl-efthymiou-2019",
+    "step": 2
+   },
+   {
+    "id": "qai-stoudenmire",
+    "step": 2
+   },
+   {
+    "id": "tndl-exp-machines-2016",
+    "step": 2
+   },
+   {
+    "id": "tndl-stoudenmire-2018",
+    "step": 2
+   },
+   {
+    "id": "tndl-han-born-2018",
+    "step": 2
+   },
+   {
+    "id": "tndl-cheng-ttn-2019",
+    "step": 2
+   },
+   {
+    "id": "tndl-cohen-2016",
+    "step": 3
+   },
+   {
+    "id": "tndl-levine-2018",
+    "step": 3
+   },
+   {
+    "id": "tndl-glasser-2019",
+    "step": 3
+   },
+   {
+    "id": "tndl-liu-entanglement",
+    "step": 3
+   },
+   {
+    "id": "tn-novikov",
+    "step": 4
+   },
+   {
+    "id": "tndl-garipov-2016",
+    "step": 4
+   },
+   {
+    "id": "tndl-gao-mpo-2020",
+    "step": 4
+   },
+   {
+    "id": "tndl-ma-tensorized-transformer",
+    "step": 4
+   },
+   {
+    "id": "qai-vtnn",
+    "step": 4
+   },
+   {
+    "id": "qai-compactifai",
+    "step": 4
+   },
+   {
+    "id": "tn-tensorization-orus",
+    "step": 4
+   },
+   {
+    "id": "tndl-wang-survey-2023",
+    "step": 5
+   },
+   {
+    "id": "tn-qi-review",
+    "step": 5
+   },
+   {
+    "id": "tn-lm-survey",
+    "step": 5
+   },
+   {
+    "id": "tn-tt-rss",
+    "step": 5
+   },
+   {
+    "id": "tn-deeptree",
+    "step": 5
+   },
+   {
+    "id": "tn-mpo-picogpt",
+    "step": 5
+   }
+  ],
+  "levels": [
+   {
+    "label": "The language — diagrams, MPS, tensor trains",
+    "n": 1
+   },
+   {
+    "label": "Tensor networks as models",
+    "n": 2
+   },
+   {
+    "label": "What a tensor network can express",
+    "n": 3
+   },
+   {
+    "label": "Tensor networks inside neural networks",
+    "n": 4
+   },
+   {
+    "label": "The frontier — maps and 2025–26 results",
+    "n": 5
+   }
+  ],
+  "lit": {
+   "lastSweep": "2026-11-02",
+   "method": "Built on 8 Oct 2026 from about 100 targeted web searches and curated GitHub lists, plus a same-day gap check; every entry links a page that was actually seen. arXiv's own API refuses automated access, so the list is broad but not provably exhaustive.",
+   "since": "2024-10",
+   "splashRule": "★ Splash = explicit evidence: an oral or spotlight at a top ML venue, or coverage in major science or tech press. Below it, papers peer-reviewed at a top venue since October 2024. No citation counts: citation services refused automated lookups.",
+   "topic": "tn-dl"
+  },
+  "minimalPath": [
+   "qai-bridgeman-chubb",
+   "qai-stoudenmire",
+   "tn-novikov",
+   "tndl-glasser-2019",
+   "tn-qi-review"
+  ],
+  "order": 8,
+  "short": "TN for deep learning",
+  "tab": {
+   "label": "TN for DL",
+   "order": 5
+  },
+  "themes": [
+   "quantum",
+   "dl-fondamentaux",
+   "llm-compression",
+   "interpretability"
+  ],
+  "title": "Tensor networks for deep learning"
+ }
+}

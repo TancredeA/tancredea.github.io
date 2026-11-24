@@ -1,0 +1,384 @@
+{
+ "date": "2026-10-16",
+ "generatedAt": "2026-10-16T07:02:35+09:00",
+ "items": [
+  {
+   "category": "Models & releases",
+   "date": "2026-10-15",
+   "rank": 1,
+   "related": [
+    {
+     "date": "2026-10-14",
+     "index": 0,
+     "label": "Muse Wonder, closed"
+    },
+    {
+     "date": "2026-10-07",
+     "index": 0,
+     "label": "Mistral Large 4"
+    },
+    {
+     "date": "2026-09-28",
+     "index": 2,
+     "label": "Chinese open-weight token share"
+    }
+   ],
+   "score": 8,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Meta AI research blog",
+     "type": "primary",
+     "url": "https://research.meta.ai/blog/muse-spark-open"
+    },
+    {
+     "label": "Bloomberg",
+     "type": "press",
+     "url": "https://bloomberg.com/news/articles/2026-10-15/meta-releases-open-ai-model-while-keeping-its-best-tech-closed"
+    }
+   ],
+   "summary": "816B total / 42B active parameters, 1M-token context, natively multimodal and aimed at coding and long-horizon agentic work, under a Muse Model License with limited commercial terms rather than a standard open licence. Meta says the pair of Apple M5 Ultra Mac Studios it runs on via MLX acts as one machine with about a terabyte of memory, and custom Helion kernels in SGLang give 1.03–3.95x kernel-level speedups on NVIDIA and AMD GPUs; weights are on Hugging Face, SageMaker, Google Cloud Model Garden and Microsoft Foundry. No benchmark scores were published — the evaluation report is listed as coming. It is the open half of the split strategy set three days earlier, when [[2026-10-14#0|Muse Wonder and Wonder Full shipped with no weights at all]], and a US answer to [[2026-10-07#0|Mistral's open-weight 'third way']] and [[2026-09-28#2|Chinese open-weight models' majority token share]].",
+   "title": "Meta releases Muse Spark Open: 816B/42B MoE, 1M context, open weights"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-10-15",
+   "rank": 2,
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "VentureBeat",
+     "type": "press",
+     "url": "https://venturebeat.com/technology/nvidias-new-open-nemotron-3-5-super-vl-with-post-training-beats-claude-opus-5-gpt-6-1-sol-on-specialized-task-benchmarks"
+    }
+   ],
+   "summary": "The 120B model reads PDFs, charts, tables and webpages and uses tools, released under OpenMDW permitting commercial use and redistribution; a companion Bolt 74B-A9B uses native 2-bit compression to fit in 24GB, with a 4GB-device variant due 23 October. NVIDIA reports post-training gains of 9–44% on five narrow tasks — medical insurance claims from ~28% to 72% against ~66% for GPT-6.1 Sol on attack resilience — but these compare task-customised versions, and on the general Artificial Analysis Intelligence Index Super VL scores about 26, below GLM-5.3-Flash at 42 and Qwen3.8-Flash-Next at 40. Task definitions and sample sizes are unpublished.",
+   "title": "NVIDIA open-weights Nemotron 3.5 Super VL, a 120B multimodal agent model"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-15",
+   "rank": 3,
+   "related": [
+    {
+     "date": "2026-10-10",
+     "index": 7,
+     "label": "TypeSafe / Jev"
+    },
+    {
+     "date": "2026-10-11",
+     "index": 8,
+     "label": "OpenAI Decisions API"
+    },
+    {
+     "date": "2026-10-12",
+     "index": 7,
+     "label": "Microsoft Decision-1"
+    },
+    {
+     "date": "2026-10-13",
+     "index": 4,
+     "label": "vLLM Decision 3.0"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.17309",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.17309"
+    },
+    {
+     "label": "StartLuxLabs repository",
+     "type": "primary",
+     "url": "https://github.com/StartLuxLabs/Startlux-Decision"
+    },
+    {
+     "label": "Hugging Face Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/date/2026-10-15"
+    }
+   ],
+   "summary": "An open family from 0.8B to 35B-A3B taking text and images with a 256K-token context, returning a probability for each option of a fixed question rather than generated text, trained with reinforcement learning to modulate how much it deliberates. It was the day's most-upvoted Hugging Face paper at 411 votes, and its repository claims it beats [[2026-10-10#7|TypeSafe's Jev]] on benchmarks — making it the fourth entrant in a niche that filled up in a week with [[2026-10-11#8|OpenAI's Decisions API]], [[2026-10-12#7|Microsoft's Decision-1]] and [[2026-10-13#4|vLLM's Decision 3.0]].",
+   "title": "StartLux-Decision tops Hugging Face with open typed decision models to 35B"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-10-15",
+   "related": [
+    {
+     "date": "2026-10-15",
+     "index": 1,
+     "label": "Eight states sue OpenAI"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 0,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Axios",
+     "type": "press",
+     "url": "https://www.axios.com/2026/10/15/ftc-openai-anthropic-ai-safety-investigation"
+    },
+    {
+     "label": "Reuters (via US News)",
+     "type": "press",
+     "url": "https://money.usnews.com/investing/news/articles/2026-10-15/us-ftc-subpoenas-openai-and-anthropic-over-consumer-harms-axios-reports"
+    }
+   ],
+   "summary": "Axios reports civil investigative demands of more than 50 pages each, sent on 14 October, seeking records on security incidents, safeguarding practices, marketing materials and privacy policies under the agency's unfair-and-deceptive-practices authority; the FTC also plans to compel senior executives to testify, with demands to other AI companies to follow. OpenAI said it would engage constructively; Anthropic did not comment. It is the first federal enforcement-track action against both leading labs at once, a day after [[2026-10-15#1|eight states sued OpenAI in their own courts]]. Single-outlet scoop so far — other coverage relays Axios.",
+   "title": "FTC subpoenas OpenAI and Anthropic over AI safety incidents"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-15",
+   "related": [
+    {
+     "date": "2026-10-15",
+     "index": 5,
+     "label": "CoreWeave bonds near 15%"
+    },
+    {
+     "date": "2026-10-13",
+     "index": 6,
+     "label": "capital access as AI's bottleneck"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "CNBC",
+     "type": "press",
+     "url": "https://www.cnbc.com/2026/10/15/sk-hynix-samsung-softbank-stocks-asia-tech-rout-ai-funding-worries.html"
+    },
+    {
+     "label": "Yahoo Finance",
+     "type": "press",
+     "url": "https://finance.yahoo.com/markets/stocks/article/nvidia-stock-sinks-as-chip-sell-off-deepens-on-hot-inflation-data-203235137.html"
+    },
+    {
+     "label": "Forbes",
+     "type": "press",
+     "url": "https://www.forbes.com/sites/fionariley/2026/10/15/tech-selloff-extends-on-hot-inflation-data-ai-spending-woes/"
+    }
+   ],
+   "summary": "Nvidia fell more than 3% and AMD, Micron and TSMC sold off with it as hotter-than-expected inflation raised expectations of tighter Fed policy, with the rout spreading to SK Hynix, Samsung and SoftBank in Asia; one tally puts the loss across AI chip names at about $1.64T over six sessions. It is the second consecutive day of AI-financing-driven selling after [[2026-10-15#5|CoreWeave's 2032 bonds neared a 15% yield]], and the market's answer to [[2026-10-13#6|Broadcom and Intel's warning that capital access, not chips, is the constraint]].",
+   "title": "AI chip stocks extend a global rout on hot inflation data and AI debt fears"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-10-15",
+   "related": [
+    {
+     "date": "2026-10-14",
+     "index": 3,
+     "label": "evaluator publication fight"
+    },
+    {
+     "date": "2026-09-21",
+     "index": 7,
+     "label": "Anthropic–Accenture embedded evaluation"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 0,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Anthropic news",
+     "type": "primary",
+     "url": "https://www.anthropic.com/news/an-update-on-independent-evaluators"
+    }
+   ],
+   "summary": "Six METR staff now have company hardware, office space and internal tools comparable to Anthropic's own risk-assessment teams, and will publish on risk levels, incidents and practices; Anthropic cannot block publication and may require redaction only in predefined categories such as customer data, privileged material and architecture, with METR free to say publicly whether it thinks redactions were justified. The tiered programme puts SecureBio at tier 1 reviewing the CBRN chapter of the August 2026 Risk Report, with Accenture, Faculty and early talks including Hugging Face. It is a direct response to [[2026-10-14#3|the Reuters report that both labs fought evaluators over what they may publish]] and the first concrete terms under [[2026-09-21#7|the embedded-evaluation commitment]].",
+   "title": "Anthropic gives METR on-site access and publication rights it cannot veto"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-10-14",
+   "late": true,
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "xAI news",
+     "type": "primary",
+     "url": "https://x.ai/news/grok-voice-3"
+    }
+   ],
+   "summary": "The speech-to-speech model ships at the same price as its predecessor and xAI reports it ranking first on one speech-to-speech index at 86.9. No independent benchmark confirmation yet.",
+   "title": "xAI launches Grok Voice 3.0 with sub-second latency at unchanged pricing"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-10-15",
+   "score": 4,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Swiss AI release notes (Hugging Face)",
+     "type": "primary",
+     "url": "https://huggingface.co/blog/swiss-ai/apertus-v15-release-notes"
+    }
+   ],
+   "summary": "The 8B and 70B models accept text, images and experimental audio, extend context about fourfold to 262,144 tokens and add an optional thinking mode, trained to roughly 19T and 17T tokens with a technical report at arXiv:2610.15542. Swiss AI reports the 8B leading similarly sized open models on instruction-following and multilingual work and matching GPT-OSS-20B on the Last Translation Benchmark, while trailing frontier open-weight models overall; the weights themselves went up on 24 July, so the 15 October release notes document rather than ship the models.",
+   "title": "Swiss AI publishes Apertus 1.5: Apache-2.0, 262K context, image and audio input"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-15",
+   "related": [
+    {
+     "date": "2026-09-29",
+     "index": 4,
+     "label": "Anthropic IPO prospectus"
+    },
+    {
+     "date": "2026-10-12",
+     "index": 8,
+     "label": "gross vs net revenue booking"
+    }
+   ],
+   "score": 4,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "CNBC",
+     "type": "press",
+     "url": "https://www.cnbc.com/2026/10/15/anthropics-third-quarter-revenue-hits-16point8-billion-ipo.html"
+    },
+    {
+     "label": "SiliconANGLE",
+     "type": "press",
+     "url": "https://siliconangle.com/2026/10/14/ahead-of-ipo-anthropic-reveals-its-revenue-grow-45-sequentially-to-16-8b-in-q3/"
+    }
+   ],
+   "summary": "The figure, reported by the Financial Times ahead of a planned IPO, is sequential growth of roughly 45–50%. Read against the $4.59B full-year 2025 revenue and ~$518B of future compute obligations in [[2026-09-29#4|the IPO prospectus]], and remembering that [[2026-10-12#8|Anthropic books gross cloud-partner sales while OpenAI records only its net share]], it is the steepest quarter a frontier lab has disclosed. All coverage traces to the FT.",
+   "title": "Anthropic tells investors Q3 revenue reached $16.8B, up about 45% on the quarter"
+  },
+  {
+   "category": "Hardware & infra",
+   "date": "2026-10-15",
+   "score": 4,
+   "scores": {
+    "capability": 0,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Tom's Hardware (FT report)",
+     "type": "press",
+     "url": "https://www.tomshardware.com/tech-industry/data-centers/tencent-scores-100-000-offshore-ai-chip-deal-with-oracle-for-usd7-billion-despite-climbing-prices-per-hour-costs-estimated-to-be-43-percent-under-standard-h100-rental-rates"
+    }
+   ],
+   "summary": "A five-year lease across Oracle data centres, roughly $1.60 per chip per hour with about 30% paid upfront — some 43% below recent H100 contract rates — with the chip generation unnamed and neither company commenting. The FT says such leases are legal today: Commerce licence requirements since November 2023 cover shipments to China-headquartered firms abroad but exclude cloud rentals, the Remote Access Security Act passed the House 369–22 in January and sits in the Senate, and The Information reports Commerce drafting a rule to block Chinese firms renting compute in third countries.",
+   "title": "FT: Oracle to lease Tencent about 100,000 AI chips for ~$7B in Southeast Asia"
+  },
+  {
+   "category": "Science",
+   "date": "2026-10-15",
+   "related": [
+    {
+     "date": "2026-10-08",
+     "index": 3,
+     "label": "OpenAI maths preprints"
+    }
+   ],
+   "score": 4,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Simons Foundation",
+     "type": "primary",
+     "url": "https://www.simonsfoundation.org/news/simons-foundation-launches-15m-effort-to-help-mathematicians-navigate-ai-era/"
+    }
+   ],
+   "summary": "The foundation will award the funding through an open call for workshops and initiatives that help researchers assess recent AI-assisted results, learn the tools and set shared standards for AI use in mathematics, while Anthropic and OpenAI supply models and compute to supported researchers in mathematics and basic science. It is institutional machinery for the problem raised by [[2026-10-08#3|OpenAI's 700-plus AI-generated maths preprints]].",
+   "title": "Simons Foundation launches a $15M AI effort for mathematics with Anthropic and OpenAI"
+  },
+  {
+   "category": "Hardware & infra",
+   "date": "2026-10-15",
+   "related": [
+    {
+     "date": "2026-10-12",
+     "index": 10,
+     "label": "memory prices and iPhone orders"
+    }
+   ],
+   "score": 3,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "South China Morning Post",
+     "type": "press",
+     "url": "https://www.scmp.com/economy/china-economy/article/3327832/china-chip-exports-climb-record-high-ai-driven-boom-propels-tech-trade"
+    }
+   ],
+   "summary": "Export value rose 136% year over year to a record while unit volumes rose about 1%, so the entire gain came from price. It is the trade-data view of the AI-driven memory and component squeeze already reaching consumer devices in [[2026-10-12#10|Apple's 15–20% cut to iPhone 18 Pro orders]].",
+   "title": "China's September chip exports hit a record on prices, with volumes flat"
+  }
+ ],
+ "lead": "Meta released Muse Spark Open, an 816B-parameter mixture-of-experts model with 42B active and a 1M-token context that it calls the most capable US open-weight model to date — three days after shipping its closed frontier models.",
+ "scoring": "rubric-v1",
+ "window": "15 Oct 07:00 → 16 Oct 07:00 JST (+ late catch from 14 Oct)"
+}

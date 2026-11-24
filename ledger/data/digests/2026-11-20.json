@@ -1,0 +1,192 @@
+{
+ "generatedAt": "2026-11-20T06:59:28+09:00",
+ "items": [
+  {
+   "category": "Industry & business",
+   "date": "2026-11-19",
+   "rank": 1,
+   "related": [
+    {
+     "date": "2026-11-19",
+     "index": 3,
+     "label": "Anthropic prices its IPO at $83"
+    }
+   ],
+   "score": 7,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Al Jazeera",
+     "type": "press",
+     "url": "https://www.aljazeera.com/amp/economy/2026/11/19/anthropic-starts-trading-in-the-us-after-blockbuster-ipo"
+    },
+    {
+     "label": "Motley Fool",
+     "type": "press",
+     "url": "https://www.fool.com/investing/2026/11/19/anthropic-just-started-trading-here-s-what-you-need-to-know/"
+    }
+   ],
+   "summary": "Anthropic began trading on Nasdaq as ANT on 19 November, opening at $111.50 — 34% above its $83 IPO price — and briefly reaching a market valuation of around $2 trillion, the largest US IPO on record at $81.3B raised. The shares eased to near $96–100 by midday, but the debut makes Anthropic the first publicly traded company focused on frontier AI. The offering is expected to close on 20 November.",
+   "title": "Anthropic debuts on Nasdaq as ANT, opening 34% above its $83 IPO price"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-11-19",
+   "rank": 2,
+   "related": [
+    {
+     "date": "2026-11-18",
+     "index": 9,
+     "label": "US Commerce rule targets remote access to advanced chips via third-country data centres"
+    }
+   ],
+   "score": 7,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "AI Agent Update",
+     "type": "press",
+     "url": "https://aiagentupdate.com/post/bis-chip-rule-effective-2026-11-19"
+    }
+   ],
+   "summary": "The US Bureau of Industry and Security's interim final rule 'Addressing Remote Access to Advanced Semiconductors' took effect on 19 November on its Federal Register publication. It requires a licence when advanced chips serve a data centre giving China-, Macau- or other D:5-linked firms remote access to more than 12 million TPP of compute, adds destination licences for advanced-chip shipments to Indonesia, Malaysia, Singapore, Thailand and Brazil, and formally rescinds the Biden-era AI Diffusion Rule. Data centres already serving covered customers have 90 days to obtain a licence, and Nvidia's interim chief said the company is no longer shipping licensed Hopper data-centre products to China.",
+   "title": "US remote-access chip rule takes effect, closing the rent-not-buy workaround"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-11-19",
+   "rank": 3,
+   "score": 7,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "DEV Community",
+     "type": "press",
+     "url": "https://dev.clauneck.workers.dev/alifar/google-microsoft-openai-and-anthropic-back-a-shared-ai-training-opt-out-signal-1po8"
+    }
+   ],
+   "summary": "Google, Microsoft, OpenAI and Anthropic have backed work toward a single shared, machine-readable AI training opt-out signal in robots.txt, tied to the IETF's AI Preferences initiative and its draft token `__usage_ai-training`. The aim is one interoperable preference for publishers instead of separate crawler directives per provider, covering training use rather than use as a source for AI-generated answers. Microsoft says it will begin honouring the signal on 1 February 2027, and Google plans to roll out support in 2027 as the standard develops.",
+   "title": "Google, Microsoft, OpenAI and Anthropic back a shared AI training opt-out signal"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-11-18",
+   "late": true,
+   "related": [
+    {
+     "date": "2026-11-17",
+     "index": 6,
+     "label": "Tencent launches Hy4 flash at $0.07 per 1M input tokens"
+    }
+   ],
+   "score": 6,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "MLQ / AF.net",
+     "type": "press",
+     "url": "https://af.net/realtime/tencent-releases-open-weight-hy4-flash-model-with-220b-parameters/"
+    },
+    {
+     "label": "Toolnavs",
+     "type": "press",
+     "url": "https://toolnavs.com/article/3524-tencents-hunyuan-hy4-flash-goes-open-weight-a-224b-lightweight-model-free-to-dow"
+    }
+   ],
+   "summary": "Tencent has published the open weights for Hy4 Flash — the standard build, an FP8-quantised build and a pre-trained base model — on Hugging Face, ModelScope and GitCode, a day after the model launched as API-only. The multimodal mixture-of-experts model has about 220B total parameters with roughly 12B active per token and a 1M-token context, and Tencent reports it runs office tasks at about one-twentieth the cost of the flagship Hy4. The weights use the custom Tencent Hy License 1.0 rather than a standard open-source licence, with a separate written licence required for large model-as-a-service operators.",
+   "title": "Tencent open-sources Hy4 flash weights: 220B parameters, 12B active, 1M context"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-19",
+   "paper": true,
+   "score": 5,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Daily Agent Benchmarks",
+     "type": "paper",
+     "url": "https://xbsleepy.github.io/daily-agent-benchmarks/"
+    }
+   ],
+   "summary": "RSIBench-Infra (arXiv:2611.24395) asks whether LLM agents can optimise their own training and inference infrastructure at production scale, moving beyond benchmarks that target single software layers such as kernels. A preview gives agents a fixed 10-hour wall-clock budget to deliver end-to-end performance gains across real training workloads. It is the most direct benchmark yet of recursive self-improvement at the infrastructure layer, though only a preview with no full results has surfaced so far.",
+   "title": "RSIBench-Infra: can agents optimise their own training infrastructure at production scale?"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-19",
+   "paper": true,
+   "score": 5,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Zotpaper",
+     "type": "paper",
+     "url": "https://zot.news/category/research?view=list"
+    },
+    {
+     "label": "AI News Brief (cs.AI updates)",
+     "type": "paper",
+     "url": "https://www.ai-news-brief.info/category/cs-ai-updates-on-arxiv-org/"
+    }
+   ],
+   "summary": "Toaster (arXiv:2611.23648) builds a nonlinear recurrent memory by cascading two linear memory layers with target propagation, letting language models process long sequences with a fixed-size state. The authors report it can match attention's prediction quality and represent associations that a single matrix memory cannot. If the claim holds up, it is a step toward attention-free long-context models with constant memory.",
+   "title": "Toaster: nonlinear memory from cascaded linear memories and target propagation"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-19",
+   "paper": true,
+   "score": 5,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "AI News Brief (cs.AI updates)",
+     "type": "paper",
+     "url": "https://www.ai-news-brief.info/category/cs-ai-updates-on-arxiv-org/"
+    }
+   ],
+   "summary": "Weight Space Programming for Vision Language Model Repair (arXiv:2611.23615) extends weight-space programming — a language model editing another network's weights directly, without gradients — from language models to vision-language models. The work follows MIT CSAIL's November demonstrations in which a frontier model repaired a looping small language model with a tiny targeted weight edit. Applying the same idea to multimodal models would make direct weight-level repair a general model-maintenance tool rather than a language-only curiosity.",
+   "title": "Weight Space Programming for Vision Language Model Repair"
+  }
+ ],
+ "lead": "Anthropic began trading on Nasdaq as ANT, opening 34% above its $83 IPO price and briefly topping a $2 trillion valuation, as a new US rule took effect closing the remote-access workaround for advanced chips and the four frontier labs backed a shared AI training opt-out.",
+ "scoring": "rubric-v1",
+ "selection": "papers-v2 (paper threshold 5, press threshold 6)",
+ "window": "19 Nov 07:00 → 20 Nov 07:00 JST (+ late catches from 16–18 Nov)"
+}

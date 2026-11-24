@@ -1,0 +1,211 @@
+{
+ "date": "2026-10-06",
+ "generatedAt": "2026-10-06T07:02:38+09:00",
+ "items": [
+  {
+   "category": "Policy & safety",
+   "date": "2026-10-05",
+   "rank": 1,
+   "related": [
+    {
+     "date": "2026-09-27",
+     "index": 10,
+     "label": "NYC kill-switch bills"
+    }
+   ],
+   "score": 6,
+   "scores": {
+    "capability": 0,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "CNBC",
+     "type": "press",
+     "url": "https://www.cnbc.com/2026/10/05/anthropic-openai-google-meta-execs-testify-nyc-council-ai-hearing.html"
+    },
+    {
+     "label": "The Next Web",
+     "type": "press",
+     "url": "https://thenextweb.com/news/nyc-council-ai-hearing-coxon-kokotajlo-turner"
+    },
+    {
+     "label": "Yahoo Finance (Fortune)",
+     "type": "press",
+     "url": "https://uk.finance.yahoo.com/news/ex-anthropic-whistleblower-sounds-alarm-210728804.html"
+    }
+   ],
+   "summary": "Former Anthropic researcher Jacob Coxon appeared in person while ex-OpenAI researcher Daniel Kokotajlo and ex-Google DeepMind researcher Alex Turner testified remotely under subpoena; Coxon said loss of control is 'more likely than not' and Turner put takeover risk at roughly one in three, while OpenAI's Morgan Dwyer, Anthropic's Logan Graham, Google's Alice Friend and Meta's Shane Cahill represented the labs. Ten bills were on the agenda — third-party validation on a 180-day timeline, human shutdown mechanisms, whistleblower protections and 24-hour incident reporting for city contractors, with a $25,000 penalty per violation — and council staff counted 13 publicly reported AI incidents in 2026. It is the hearing announced in [[2026-09-27#10|the NYC Council kill-switch package]], and the first time a legislative body has compelled frontier-lab researchers to testify.",
+   "title": "Ex-lab researchers testify under subpoena at NYC Council's AI safety hearing"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-04",
+   "late": true,
+   "rank": 2,
+   "related": [
+    {
+     "date": "2026-09-28",
+     "index": 2,
+     "label": "Chinese models' token share"
+    }
+   ],
+   "score": 4,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Bloomberg",
+     "type": "press",
+     "url": "https://www.bloomberg.com/news/articles/2026-10-04/us-lead-in-ai-over-china-narrows-after-deepseek-gains-bi-says"
+    },
+    {
+     "label": "Startup Fortune",
+     "type": "press",
+     "url": "https://startupfortune.com/deepseek-narrows-ai-gap-with-us-to-just-3-percent-bloomberg-says/"
+    }
+   ],
+   "summary": "Senior analyst Robert Lea's note has the benchmark gap between America's best and China's best models falling from 15% earlier in 2026 to 9% in May and 3% now, crediting DeepSeek's V4.1 Flash launch in September, and expects Chinese labs to keep gaining; the note does not name the benchmarks used. It is the capability-side counterpart to [[2026-09-28#2|Chinese open-weight models passing a majority of token share on OpenRouter and Vercel]].",
+   "title": "Bloomberg Intelligence puts the US–China top-model gap at a record-low 3%"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-02",
+   "late": true,
+   "rank": 3,
+   "related": [
+    {
+     "date": "2026-09-29",
+     "index": 0,
+     "label": "NVIDIA agent safety platform"
+    }
+   ],
+   "score": 4,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.03448",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.03448"
+    }
+   ],
+   "summary": "Replaying ground-truth tool calls across BIPIA, AgentDojo and tau-bench for 15 detectors, the best BIPIA detector caught just 2% of AgentDojo injections at a 1% false-positive rate, and a detector scoring 72% on AgentDojo managed 15% on tau-bench; false-positive rates transferred better than detection rates. The practical conclusion is that published detector numbers say little about a given agent deployment, which matters for the containment layer being built in [[2026-09-29#0|NVIDIA's Open Agent Safety Platform]].",
+   "title": "Prompt-injection detector scores do not transfer between agent benchmarks"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-04",
+   "late": true,
+   "related": [
+    {
+     "date": "2026-10-05",
+     "index": 1,
+     "label": "Super Intelligence Force order"
+    }
+   ],
+   "score": 3,
+   "scores": {
+    "capability": 0,
+    "durability": 0,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Reuters (via Investing.com)",
+     "type": "press",
+     "url": "https://www.investing.com/news/stock-market-news/musk-says-he-will-rename-spacexai-to-spacexsi-4930944"
+    },
+    {
+     "label": "Fox Business",
+     "type": "press",
+     "url": "https://www.foxbusiness.com/technology/elon-musk-rebrands-spacexai-following-trump-directive"
+    },
+    {
+     "label": "The Next Web",
+     "type": "press",
+     "url": "https://thenextweb.com/news/musk-spacexai-renamed-spacexsi"
+    }
+   ],
+   "summary": "Musk said the unit will drop 'artificial intelligence' for 'super intelligence' to match the federal terminology change; SpaceX shares rose about 5% on the day. It is the first corporate rebrand to follow [[2026-10-05#1|the executive order creating the Super Intelligence Force]].",
+   "title": "Musk renames SpaceXAI to SpaceXSI after Trump's 'Super Intelligence' order"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-10-04",
+   "late": true,
+   "related": [
+    {
+     "date": "2026-09-28",
+     "index": 10,
+     "label": "Gates on self-regulation"
+    }
+   ],
+   "score": 3,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Yahoo News",
+     "type": "press",
+     "url": "https://www.yahoo.com/news/openai-ceo-sam-altman-pushes-154916611.html"
+    },
+    {
+     "label": "Techmeme (Politico)",
+     "type": "press",
+     "url": "https://www.techmeme.com/261004/p19"
+    }
+   ],
+   "summary": "In a Politico interview Altman argued AI's benefits justify accepting 'some bad things happening' and pressed for more freedom and less regulation, framing the split with Anthropic as a matter of worldview rather than detail. It is the industry side of the argument Bill Gates took the other way in [[2026-09-28#10|his call for government monitoring]], and the position OpenAI's own staff then defended at the NYC hearing above.",
+   "title": "Altman says OpenAI and Anthropic hold 'fundamentally different worldviews' on regulation"
+  },
+  {
+   "category": "Beyond AI",
+   "date": "2026-10-05",
+   "score": 4,
+   "scores": {
+    "capability": 0,
+    "durability": 2,
+    "reach": 0,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "NPR",
+     "type": "press",
+     "url": "https://www.npr.org/2026/10/05/g-s1-146400/nobel-medicine-prize"
+    },
+    {
+     "label": "STAT",
+     "type": "press",
+     "url": "https://www.statnews.com/2026/10/05/nobel-prize-medicine-2026-winner-deisseroth-hegemann-nagel/"
+    },
+    {
+     "label": "C&EN",
+     "type": "press",
+     "url": "https://cen.acs.org/people/nobel-prize/nobel-2026-physiology-medicine/104/web/2026/10"
+    }
+   ],
+   "summary": "Karl Deisseroth, Peter Hegemann and Georg Nagel share the 2026 prize for the method that uses light-sensitive microbial proteins to switch individual neurons on and off, now standard equipment in systems neuroscience and the main experimental source of the circuit-level data that computational models of the brain are tested against.",
+   "title": "Nobel Prize in Physiology or Medicine goes to optogenetics"
+  }
+ ],
+ "lead": "New York City's Council took testimony from three subpoenaed former frontier-lab researchers, one of whom told members that humanity losing control of AI is more likely than not, alongside policy staff from Anthropic, OpenAI, Google and Meta.",
+ "scoring": "rubric-v1",
+ "window": "5 Oct 07:00 → 6 Oct 07:00 JST (+ late catches from 2–4 Oct)"
+}

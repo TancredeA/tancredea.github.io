@@ -1,0 +1,294 @@
+{
+ "date": "2026-11-17",
+ "generatedAt": "2026-11-17T07:00:55+09:00",
+ "items": [
+  {
+   "category": "Research",
+   "date": "2026-11-05",
+   "late": true,
+   "paper": true,
+   "rank": 1,
+   "score": 7,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "i10x — METR Report: AI Doubling Anthropic R&D Speed (AECI)",
+     "type": "article",
+     "url": "https://i10x.ai/news/metr-ai-doubling-anthropic-rd-speed"
+    },
+    {
+     "label": "Medium — Anthropic's staff felt 12x faster. The assessors measured about 2x.",
+     "type": "article",
+     "url": "https://medium.com/@aveekforyou/anthropics-staff-felt-12x-faster-the-assessors-measured-about-2x-3029c78ae8c3"
+    }
+   ],
+   "summary": "METR's independent assessment, published 5 November and widely discussed over the past week, found Anthropic improving model capabilities on well-specified tasks at about twice the March 2024–October 2025 rate — 1.9x on its AECI benchmark index (95% CI 1.5–2.8x) — with roughly 80% of the acceleration attributed to AI-assisted R&D and faster training-compute growth ruled out as the cause. METR also disclosed that Anthropic redacted a majority of the most informative evidence, that staff self-reported about 12x uplift (which METR calls very loose evidence), and that it found no clear bottleneck to further speedups in the next 12 months.",
+   "title": "METR: AI has roughly doubled Anthropic's R&D speed, with ~80% of the gain from AI itself"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-11-16",
+   "rank": 2,
+   "related": [
+    {
+     "date": "2026-11-12",
+     "index": 9,
+     "label": "Alibaba previews the Qwen4 family, starting with Qwen4-Max"
+    }
+   ],
+   "score": 6,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "PYMNTS — Alibaba Takes on Anthropic With New Qwen AI Model",
+     "type": "article",
+     "url": "https://www.pymnts.com/news/artificial-intelligence/2026/alibaba-takes-on-anthropic-with-new-qwen-ai-model/"
+    },
+    {
+     "label": "Life News Agency — Alibaba Launches Qwen4-Max Flagship AI Model",
+     "type": "article",
+     "url": "https://lifenewsagency.com/alibaba-launches-qwen4-max-flagship-ai-model/"
+    }
+   ],
+   "summary": "Alibaba launched Qwen4-Max, the flagship of its Qwen family: a 2.4-trillion-parameter multimodal model with native vision, a 1-million-token context and text, image and video understanding, priced at $1.50/$4.50 per million input/output tokens. Alibaba claims top rankings on coding, agentic and visual-reasoning benchmarks and about 60% lower average task cost than Qwen3.8-Max, using 35% fewer tokens in high-effort reasoning mode; the model is not open-weight, with smaller Qwen4 models promised as open source later. This is the full launch following the preview covered in [[2026-11-12#9]].",
+   "title": "Alibaba launches Qwen4-Max, a 2.4T-parameter flagship at $1.50/$4.50 per 1M tokens"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-11-13",
+   "late": true,
+   "rank": 3,
+   "score": 6,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Inc. — Are You Brave Enough to Give ChatGPT's Agent Your Credit Card?",
+     "type": "article",
+     "url": "https://www.inc.com/aaron-mok/are-you-brave-enough-to-give-chatgpts-agent-your-credit-card-heres-what-it-can-do/91437199"
+    },
+    {
+     "label": "ID Tech Wire — OpenAI Launches ChatGPT Wallet, With a Security Check Such as Face ID for Every Agent Purchase",
+     "type": "article",
+     "url": "https://idtechwire.com/openai-launches-chatgpt-wallet-with-a-security-check-such-as-face-id-for-every-agent-purchase/"
+    }
+   ],
+   "summary": "OpenAI began rolling out ChatGPT Wallet, letting its always-on 'dots' agents complete purchases on a user's behalf: the user saves a card once, reviews each order, and approves it with Face ID or a fingerprint, after which the card network issues a single-transaction token so neither the agent nor the merchant ever sees the real card details. Built with American Express, Mastercard and Visa, the wallet launches to a limited group of US ChatGPT Pro subscribers, and OpenAI says users may eventually pre-authorise purchases within spending limits and categories.",
+   "title": "OpenAI launches ChatGPT Wallet: agents can now pay, with a biometric check per purchase"
+  },
+  {
+   "category": "Hardware & infra",
+   "date": "2026-11-16",
+   "score": 6,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Stocktwits — Top Supply Chain Analyst Says New OpenAI, Anthropic Chip Orders Boost Google's TPU Outlook",
+     "type": "article",
+     "url": "https://stocktwits.com/news-articles/markets/equity/more-pain-for-nvda-top-supply-chain-analyst-says-new-open-ai-anthropic-chip-orders-boost-google-s-tpu-outlook/cNb7fwwR9X7"
+    },
+    {
+     "label": "TechFeatured — OpenAI and Anthropic Are Buying 26 Million Google TPUs",
+     "type": "article",
+     "url": "https://techfeatured.com/20829/openai-anthropic-26-million-google-tpus-2029"
+    }
+   ],
+   "summary": "TF International analyst Ming-Chi Kuo estimates OpenAI (about 12 million TPU 8t chips, bought outright) and Anthropic (about 14 million TPU 8i chips, via leasing and purchases) will take roughly 26 million Google TPUs between them across 2028–29, extending Google's TPU shipment visibility to 2029 — ahead of Nvidia GPUs and rival AI accelerators, which mostly run to late 2027 or mid-2028. Kuo puts TPU shipments at 8–9 million units in 2027, 14–15 million in 2028 and 16–18 million in 2029; none of Google, OpenAI or Anthropic has confirmed the figures, which come from Kuo's industry survey.",
+   "title": "Kuo: OpenAI and Anthropic will take ~26M Google TPUs in 2028–29"
+  },
+  {
+   "category": "Hardware & infra",
+   "date": "2026-11-12",
+   "late": true,
+   "related": [
+    {
+     "date": "2026-11-13",
+     "index": 2,
+     "label": "Jensen Huang resigns as NVIDIA CEO after 33 years"
+    }
+   ],
+   "score": 6,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "WorldAttention — Analyst: NVIDIA Rubin delayed again on motherboard warpage, volume shipments pushed to 2027",
+     "type": "article",
+     "url": "https://worldattention.com/wire/443540"
+    },
+    {
+     "label": "Medium — KOSPI -3.59%: Nvidia Funding Uncertainty and Rubin Launch Postponement",
+     "type": "article",
+     "url": "https://medium.com/@lorosha/nov-16-26-kst-kospi-3-59-nvidia-funding-uncertainty-and-rubin-launch-postponement-7319635febac"
+    }
+   ],
+   "summary": "Supply-chain analyst JuKan reports Nvidia's Vera Rubin platform has slipped again, with motherboard warpage cited as the latest cause after the HBM4 issue was resolved in October, pushing volume shipments into 2027 and prompting Nvidia to raise Blackwell orders in the meantime. Morgan Stanley analysis of the same yield issue was carried by Taiwan's Commercial Times on 14 November and Korean media picked the story up on 16 November; Nvidia has not confirmed any delay, having said production shipments began in August. The news lands days after Jensen Huang's resignation covered in [[2026-11-13#2]].",
+   "title": "Vera Rubin volume shipments slip to 2027 on motherboard warpage, analyst reports"
+  },
+  {
+   "category": "Models & releases",
+   "date": "2026-11-16",
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "CASRAI — Tencent launches lower-cost Hy4 flash AI model",
+     "type": "article",
+     "url": "https://casrai.org/news/tencent-hy4-flash-lower-cost-ai-model-launch-2026"
+    },
+    {
+     "label": "LLM Stats — LLM News Today (November 2026)",
+     "type": "article",
+     "url": "https://llm-stats.com/ai-news"
+    }
+   ],
+   "summary": "Tencent launched Hy4 flash on 16 November, a cheaper tier of its Hy4 model family priced at $0.07/$0.281 per million input/output tokens, with a 1-million-token context, image understanding and tool calling. The release follows the 4 November introduction of Hy4 and undercuts rival budget models on price; Tencent Cloud's API guide now lists the hy4-flash identifier and marks Hy4 preview as nearing retirement.",
+   "title": "Tencent launches Hy4 flash at $0.07 per 1M input tokens"
+  },
+  {
+   "category": "Science",
+   "date": "2026-11-16",
+   "score": 5,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Unite.AI — NVIDIA Launches Nemotron for Science and Open Chemistry Dataset",
+     "type": "article",
+     "url": "https://www.unite.ai/nvidia-launches-nemotron-for-science-and-open-chemistry-dataset/"
+    },
+    {
+     "label": "KuCoin — Nvidia Launches Nemotron for Science to Accelerate AI-Driven Research",
+     "type": "article",
+     "url": "https://www.kucoin.com/news/flash/nvidia-launches-nemotron-for-science-to-accelerate-ai-driven-research"
+    }
+   ],
+   "summary": "At SC26 Nvidia introduced Nemotron for Science, pairing its open Nemotron 3.5 Super VL model — 120 billion total parameters, 12 billion active, 1-million-token context — with post-training recipes, scientific evaluations and LitmusBench v0.2, an open chemistry dataset of nearly 50,000 reasoning questions. The package targets research agents that interpret scientific information, generate code and call computational tools across chemistry, life sciences, protein design and materials science; Argonne National Laboratory is integrating it into a multi-agent system for designing protein-based therapeutics.",
+   "title": "NVIDIA launches Nemotron for Science with an open 50k-question chemistry dataset"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-12",
+   "late": true,
+   "paper": true,
+   "score": 5,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "arXiv:2611.17309 — Classical Energies Learn to Reason 1,000x Faster than Looped Models",
+     "type": "paper",
+     "url": "https://arxiv.org/abs/2611.17309"
+    }
+   ],
+   "summary": "Prefrontal's CRAM revives Hopfield and Tank's 1980s energy formulation as a learned model: with just 7,700 parameters it solved 99.996% of Sudoku-Extreme puzzles after 42 ms of training on one GPU and 100% of Maze-Unique after 132 ms — at least 1,000x faster to train than looped transformers, using 282x fewer inference FLOPs at matching accuracy. The authors themselves warn that Sudoku and Maze are trivially solvable pairwise graphical models, so the result is as much a caution against using such benchmarks to judge reasoning methods as it is a promising new direction.",
+   "title": "CRAM: a 7,700-parameter energy model reasons 1,000x faster than looped transformers"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-13",
+   "late": true,
+   "paper": true,
+   "score": 5,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "arXiv:2611.18553 — WeightBench: Evaluating Language Models as Weight-Space Programmers",
+     "type": "paper",
+     "url": "http://arxiv.org/abs/2611.18553v1"
+    }
+   ],
+   "summary": "MIT researchers introduce WeightBench, a benchmark for 'weight-space programming' — LLMs reading, fixing and writing other networks' weights without gradient descent — with 42 tasks across five tracks, from 2,000-parameter control policies to 7-billion-parameter language models. Frontier agents can already read small networks and write working control policies without running them, but cannot yet patch language models, compress them without data, or tell an impossible edit from a hard one; GPT-6.1 Sol scored 0.568 overall and Claude Opus 5.5 0.535.",
+   "title": "WeightBench: a benchmark for LLMs that read and edit other models' weights"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-13",
+   "late": true,
+   "paper": true,
+   "score": 5,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "arXiv:2611.18562 — Training Reasoning Models in Simulation to Natively Use Real Robots",
+     "type": "paper",
+     "url": "https://arxiv.org/abs/2611.18562"
+    }
+   ],
+   "summary": "A team including MIT's Song Han shows an open-weight 27B reasoning model can be trained entirely in simulation, with no demonstrations, to use real robots natively, via robot-use reinforcement learning in their PEAR post-training engine. After training on LIBERO and RoboDojo in simulation, the model succeeded in 60% of trials on a real dual-arm robot (the base model succeeded in none) and rose from 1.6% to 74.4% on LIBERO, approaching GPT-6 Astra and GPT-6.1 Sol at maximum reasoning effort, while retaining its general capabilities.",
+   "title": "An open 27B model learns to use real robots from simulation alone"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-11-13",
+   "late": true,
+   "paper": true,
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 1
+   },
+   "sources": [
+    {
+     "label": "Daijiworld — AI safety tests need overhaul as models grow more powerful: Anthropic",
+     "type": "article",
+     "url": "https://daijiworld.com/news/newsDisplay?newsID=1335460"
+    }
+   ],
+   "summary": "In a research publication released 13 November, Anthropic warned that conventional safety evaluations — single questions and refusal rates — may fail to reveal how models behave in complex real-world interactions, since a model may refuse a harmful request at first but comply as the user gradually reframes it. The company calls for testing that examines behaviour across entire conversations; OpenAI and Google DeepMind have meanwhile been strengthening their own evaluation frameworks, including OpenAI's Preparedness Framework and DeepMind's Frontier Safety Framework.",
+   "title": "Anthropic: single-question safety tests miss how models behave over a conversation"
+  }
+ ],
+ "lead": "METR's audit says AI has roughly doubled Anthropic's own R&D speed, Alibaba shipped its flagship Qwen4-Max, and OpenAI let its agents pay for purchases with a biometric-approved wallet.",
+ "scoring": "rubric-v1",
+ "selection": "papers-v2 (paper threshold 5, press threshold 6)",
+ "window": "16 Nov 07:00 → 17 Nov 07:00 JST (+ late catches from 5–13 Nov)"
+}

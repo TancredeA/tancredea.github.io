@@ -1,0 +1,115 @@
+{
+ "agents": {
+  "description": "Agents, tool calling, protocols such as MCP.",
+  "label": "AI agents & tool use",
+  "order": 14
+ },
+ "ai-for-science": {
+  "description": "Machine learning applied to scientific discovery: biology, artificial life, simulation.",
+  "label": "AI for science & discovery",
+  "order": 17
+ },
+ "ai-safety": {
+  "agentUpdatedAt": "2026-09-22T22:11:22.000Z",
+  "description": "Misalignment and loss-of-control risks, evaluations, incident reporting, international oversight of AI.",
+  "label": "AI safety & governance",
+  "order": 20
+ },
+ "clustering": {
+  "description": "Hierarchical clustering, k-means, grouping data.",
+  "label": "Unsupervised learning & clustering",
+  "order": 10
+ },
+ "computer-vision": {
+  "description": "Images and video: detection, pose and hand tracking, gesture recognition, visual models.",
+  "label": "Computer vision",
+  "order": 19
+ },
+ "connaissances": {
+  "description": "Knowledge graphs, ontologies, GraphRAG.",
+  "label": "Knowledge representation",
+  "order": 9
+ },
+ "consciousness": {
+  "description": "Theories of consciousness, including quantum approaches such as Orch OR, and their critiques.",
+  "label": "Consciousness & quantum mind",
+  "order": 18
+ },
+ "deploiement": {
+  "description": "Quantization, runtimes, running a model locally or in production.",
+  "label": "Inference & deployment",
+  "order": 8
+ },
+ "dl-fondamentaux": {
+  "description": "Neural networks, backpropagation, convolutions, historical milestones.",
+  "label": "Deep learning — fundamentals",
+  "order": 6
+ },
+ "gradient-boosting": {
+  "agentUpdatedAt": "2026-09-28T22:11:18Z",
+  "description": "Boosting of decision trees: additive training, shrinkage, and the link between stagewise boosting and L1 (lasso) regularization paths.",
+  "label": "Gradient boosting",
+  "order": 22
+ },
+ "industrie-ia": {
+  "description": "Players, strategies, products and numbers.",
+  "label": "AI industry",
+  "order": 12
+ },
+ "interpretability": {
+  "description": "Looking inside neural networks: features, circuits, superposition.",
+  "label": "Interpretability",
+  "order": 13
+ },
+ "linguistique-info": {
+  "description": "Information and language from the linguistics side.",
+  "label": "Computational linguistics",
+  "order": 5
+ },
+ "llm-architecture": {
+  "description": "Transformer, context window, multi-turn conversations.",
+  "label": "LLMs: architecture & usage",
+  "order": 7
+ },
+ "llm-compression": {
+  "description": "LLMs as compressors, scaling laws, capacity.",
+  "label": "LLMs: compression & scaling",
+  "order": 4
+ },
+ "lm-fondamentaux": {
+  "description": "N-grams, Markov chains, perplexity, tokenization.",
+  "label": "Language models — fundamentals",
+  "order": 3
+ },
+ "optimization": {
+  "agentUpdatedAt": "2026-09-23T22:13:17Z",
+  "description": "Multi-objective optimization, Pareto frontiers and trade-off curves.",
+  "label": "Optimization & trade-offs",
+  "order": 21
+ },
+ "proba-inference": {
+  "description": "Bayesian inference, probabilistic models.",
+  "label": "Probability & inference",
+  "order": 2
+ },
+ "quantum": {
+  "description": "Qubits and algorithms, tensor networks, variational and quantum machine learning.",
+  "label": "Quantum computing & quantum-inspired ML",
+  "order": 15
+ },
+ "reinforcement-learning": {
+  "description": "MDPs, value and policy methods, deep RL, RL for LLMs, model-based RL.",
+  "label": "Reinforcement learning",
+  "order": 16
+ },
+ "theorie-info": {
+  "description": "Entropy, coding, divergences, entropy rate.",
+  "label": "Information theory",
+  "order": 1
+ },
+ "world-models": {
+  "description": "Models that simulate and predict the physical world.",
+  "label": "World models & physical AI",
+  "order": 11
+ }
+}

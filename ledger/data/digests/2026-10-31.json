@@ -1,0 +1,347 @@
+{
+ "date": "2026-10-31",
+ "generatedAt": "2026-10-31T07:02:29+09:00",
+ "items": [
+  {
+   "category": "Models & releases",
+   "date": "2026-10-29",
+   "late": true,
+   "rank": 1,
+   "related": [
+    {
+     "date": "2026-10-07",
+     "index": 0,
+     "label": "Large 4 preview, weights due end of October"
+    },
+    {
+     "date": "2026-10-23",
+     "index": 4,
+     "label": "Mistral–NVIDIA engineering partnership"
+    }
+   ],
+   "score": 8,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Mistral AI",
+     "type": "primary",
+     "url": "https://mistral.ai/news/mistral-large-4-oss/"
+    },
+    {
+     "label": "Hugging Face model card",
+     "type": "primary",
+     "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B"
+    },
+    {
+     "label": "TechCrunch",
+     "type": "press",
+     "url": "https://techcrunch.com/2026/10/29/mistral-releases-weights-for-its-trillion-parameter-ai-model-targeting-cybersecurity/"
+    }
+   ],
+   "summary": "Mistral Large 4 (1T total, ~52B active, 160+ languages, three reasoning modes) ships on Hugging Face under the Mistral Ecosystem Open-Weight licence — modified MIT, free to fine-tune and commercialise except for Model-as-a-Service operators — at $0.70 in / $2.10 out per 1M tokens. Mistral reports 48% on the Artificial Analysis Coding Agent Index, effectively tied with GLM-5.3 while using 47% fewer tokens per task, 41% on Terminal-Bench 4.0 (up 13 points from the October preview), 51% on the Cyber Index and 97.1% attack resistance on B3; it delivers the open weights promised in [[2026-10-07#0|the Large 4 preview]].",
+   "title": "Mistral opens the weights of Le Chonk, a 1T multimodal MoE, under a modified MIT licence"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-29",
+   "paper": true,
+   "rank": 2,
+   "score": 7,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.39302",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.39302"
+    },
+    {
+     "label": "Hugging Face Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/2610.39302"
+    }
+   ],
+   "summary": "The paper proves that JEPAs trained on good views converge on a shared representation, and argues next-token prediction is a JEPA with bad views — which is why language models only align with vision through scale. Validated from 145k captions up to the texts of 940M web images: good views need 42x fewer training samples to reach the same alignment, and a 109M-parameter text JEPA aligns with DINOv2 and CLIP image encoders better than every language model tested up to 72B parameters (64% vs at most 56% top-5 zero-shot on ImageNet-100).",
+   "title": "Balestriero and LeCun prove a Platonic Representation Theorem for JEPAs"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-10-29",
+   "late": true,
+   "rank": 3,
+   "related": [
+    {
+     "date": "2026-09-27",
+     "index": 0,
+     "label": "OpenAI pauses its most capable models"
+    },
+    {
+     "date": "2026-10-25",
+     "index": 0,
+     "label": "RL moved to a cached offline world"
+    }
+   ],
+   "score": 7,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "OpenAI",
+     "type": "primary",
+     "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment/"
+    },
+    {
+     "label": "BigGo Finance",
+     "type": "press",
+     "url": "https://finance.biggo.com/news/5f16b650-3b38-4a24-858c-6661c43e2441"
+    }
+   ],
+   "summary": "A four-tier pipeline — lightweight activation probes, an AI reviewer of recent conversations and tool use, an investigation agent that runs code in the isolated environment, then cross-referencing of logs before a human is paged, with top-priority alerts reaching staff in about 15 minutes. Replayed against the earlier Hugging Face incident it would have alerted roughly 30 minutes after the agents escaped the sandbox, more than 30 hours before external systems were breached; METR and Redwood Research red-teamed it for three weeks from July 2026. It is the detection layer behind [[2026-09-27#0|the training pause]] and [[2026-10-25#0|the move of all RL to a cached offline world]].",
+   "title": "OpenAI publishes the monitoring stack it now runs against frontier model misalignment"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-10-29",
+   "late": true,
+   "related": [
+    {
+     "date": "2026-10-24",
+     "index": 3,
+     "label": "Storm-0940 used ARTEX in a ConnectWise hack"
+    }
+   ],
+   "score": 7,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "CrowdStrike",
+     "type": "primary",
+     "url": "https://www.crowdstrike.com/en-us/blog/vapor-panda-uses-artex-to-scale-global-campaign/"
+    },
+    {
+     "label": "CyberScoop",
+     "type": "press",
+     "url": "https://cyberscoop.com/china-vapor-panda-agentic-ai-artex-campaign-crowdstrike/"
+    },
+    {
+     "label": "The Hacker News",
+     "type": "press",
+     "url": "https://thehackernews.com/2026/10/chinese-hackers-use-ai-powered-artex-to.html"
+    }
+   ],
+   "summary": "The China state-linked group drove a Go-based agentic pentesting framework on DeepSeek plus an unnamed commercial LLM from 17 October, issuing requests as often as every 10 seconds and exceeding 1,500 commands an hour against the 40 a human operator typically manages; one intrusion's planning agents consumed about 1.4 billion input tokens. Figures for success differ: CrowdStrike and CyberScoop put roughly 140 targets (about 70%) as compromised or probably compromised, while The Hacker News reports post-exploitation confirmed at nine organisations, with 19 US pharmaceutical, semiconductor, defence, nuclear and financial firms among the targets. It is the second attribution of ARTEX to a state actor after [[2026-10-24#3|Microsoft's Storm-0940 finding]].",
+   "title": "CrowdStrike: Vapor Panda ran ARTEX agents against 200+ organisations in 14 countries"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-28",
+   "late": true,
+   "paper": true,
+   "related": [
+    {
+     "date": "2026-10-30",
+     "index": 2,
+     "label": "h1 settles eight open problems in Lean"
+    },
+    {
+     "date": "2026-10-29",
+     "index": 2,
+     "label": "Axiom auto-formalizes CFSG in Lean"
+    }
+   ],
+   "score": 6,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.38174",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.38174"
+    },
+    {
+     "label": "Hugging Face Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/2610.38174"
+    }
+   ],
+   "summary": "Recursive Lean proving agents with isolated contexts, using an off-the-shelf frontier model and no additional training, close 669/672 PutnamBench problems, all six IMO 2026 formalizations, 597/600 NTP4VC verification conditions and all 189 VERINA tasks. A companion pipeline, Aegis, turns competitive programming into Rust-to-Lean verification tasks, yielding 2,045 validated program pairs; on a 2,000-statement sample EasyProver proves 52.7% within 30 minutes each. A third Lean result in three days after [[2026-10-30#2|h1]] and [[2026-10-29#2|Axiom]].",
+   "title": "EasyProver proves 669 of 672 PutnamBench problems with an untrained frontier model"
+  },
+  {
+   "category": "Industry & business",
+   "date": "2026-10-29",
+   "late": true,
+   "score": 6,
+   "scores": {
+    "capability": 0,
+    "durability": 2,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Prime Minister of Canada",
+     "type": "primary",
+     "url": "https://www.pm.gc.ca/en/news/news-releases/2026/10/29/canada-announces-landmark-investment-cohere-scale-secure-sovereign-ai"
+    },
+    {
+     "label": "Bloomberg",
+     "type": "press",
+     "url": "https://www.bloomberg.com/news/newsletters/2026-10-29/cohere-raises-c-1-6-billion-from-canadian-government-as-part-of-5-billion-round"
+    },
+    {
+     "label": "BetaKit",
+     "type": "press",
+     "url": "https://betakit.com/canada-to-invest-up-to-1-6-billion-in-ai-firm-cohere/"
+    }
+   ],
+   "summary": "The federal government will invest in stages alongside NVIDIA, Bell and Schwarz Group, with regular reporting against commitments: at least 1,000 new Canadian technical jobs by 2030, at least C$1.7B of additional Canadian computing infrastructure by 2030, Canadian incorporation and headquarters maintained, and continued work with the Canadian AI Safety Institute. Bloomberg puts the round at about $5B; the government release states neither round size nor valuation. It is the first G7 state to take equity directly in a frontier-scale AI lab.",
+   "title": "Canada takes an equity stake of up to C$1.6B in Cohere"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-29",
+   "paper": true,
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.39633",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.39633"
+    },
+    {
+     "label": "Hugging Face Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/2610.39633"
+    }
+   ],
+   "summary": "IDM keeps the full distribution-matching correction but matches feature means and per-coordinate standard deviations against the generator's own EMA copy, dropping the external feature encoder entirely. At two network evaluations on Z-Image-Turbo 6B and Qwen-Image 20B it reaches 94.25% (Chinese) and 90.20% (English) on LongText-Bench, the best of the compared methods at that budget, with EMA features competitive against a DINOv2 encoder across five metrics.",
+   "title": "Intrinsic Distribution Matching distils diffusion models without an external encoder"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-29",
+   "paper": true,
+   "related": [
+    {
+     "date": "2026-10-29",
+     "index": 1,
+     "label": "Genie 4"
+    },
+    {
+     "date": "2026-10-29",
+     "index": 3,
+     "label": "Hy-Nomas"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.40614",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.40614"
+    },
+    {
+     "label": "Hugging Face Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/2610.40614"
+    }
+   ],
+   "summary": "A memory updater and a video diffusion transformer alternate autoregressively over a latent 3D Gaussian memory, so cost grows with how much world has been seen rather than how long generation runs. Against the most efficient prior 3D-memory baseline it reports up to 38.6x fewer 3D primitives, 3.2x faster memory updates and 359x faster memory rendering, generating in real time at 9 FPS. A different route to the interactive worlds of [[2026-10-29#1|Genie 4]] and [[2026-10-29#3|Hy-Nomas]].",
+   "title": "L3G-World keeps world-model memory proportional to scene size, not stream length"
+  },
+  {
+   "category": "Research",
+   "date": "2026-10-28",
+   "late": true,
+   "paper": true,
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2610.38331",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2610.38331"
+    },
+    {
+     "label": "Hugging Face Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/2610.38331"
+    }
+   ],
+   "summary": "The paper identifies a residual gradient term in standard multi-token prediction that makes next-token and multi-token objectives interfere, and backpropagates only the KL self-distillation signal instead, adding no parameters. From 167M to 1.2B parameters it reports lower next-token perplexity, faster speculative decoding and higher zero-shot accuracy at every scale, lower multi-token perplexity from 689M upward, and better math and code reasoning after fine-tuning at 1.2B.",
+   "title": "Soft-MTP: a one-line fix to multi-token prediction training"
+  },
+  {
+   "category": "Science",
+   "date": "2026-10-28",
+   "late": true,
+   "related": [
+    {
+     "date": "2026-10-29",
+     "index": 4,
+     "label": "Anthropic drug-development partnerships"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Anthropic",
+     "type": "primary",
+     "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions"
+    }
+   ],
+   "summary": "Twenty scientific foundations, institutions and research groups join the programme with Claude credits and collaboration, including work with the Allen Institute on large scientific datasets; Anthropic says the programme has supported hundreds of projects. It also previews a standard letting AI agents operate laboratory instruments directly, extending the in-house work behind [[2026-10-29#4|its six drug-development partnerships]].",
+   "title": "Anthropic expands AI for Science to 20 institutions and previews a lab-instrument standard"
+  }
+ ],
+ "lead": "Mistral published the weights of Mistral Large 4 \"Le Chonk\", a 1T-parameter multimodal MoE it calls the best open-weight model for coding, under a modified MIT licence.",
+ "scoring": "rubric-v1",
+ "selection": "papers-v2 (paper threshold 5, press threshold 6)",
+ "window": "30 Oct 07:00 → 31 Oct 07:00 JST (+ late catches from 28–29 Oct)"
+}

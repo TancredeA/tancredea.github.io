@@ -1,0 +1,227 @@
+{
+ "date": "2026-11-08",
+ "generatedAt": "2026-11-08T07:02:43+09:00",
+ "items": [
+  {
+   "category": "Research",
+   "date": "2026-11-06",
+   "late": true,
+   "paper": true,
+   "rank": 1,
+   "related": [
+    {
+     "date": "2026-11-06",
+     "index": 1,
+     "label": "Claude and the vault particle"
+    }
+   ],
+   "score": 7,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "PSI research page",
+     "type": "primary",
+     "url": "https://psi.inc/research/aaronson-ambainis/"
+    },
+    {
+     "label": "PSI paper (PDF, GitHub)",
+     "type": "primary",
+     "url": "https://github.com/physical-superintelligence/aaronson-ambainis/blob/main/paper/aaronson_ambainis_paper.pdf"
+    },
+    {
+     "label": "Aaronson & Ambainis (2009)",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/0911.0996"
+    },
+    {
+     "label": "The Quantum Insider",
+     "type": "press",
+     "url": "https://thequantuminsider.com/2026/11/06/ai-assisted-proof-settles-longstanding-question-about-quantum-speedups/"
+    }
+   ],
+   "summary": "The conjecture, stated by Scott Aaronson in a 2008 lecture, asked whether any quantum query algorithm has at least one input bit with measurable influence; the proof gives a classical deterministic approximation of a quantum algorithm's acceptance probability on all but a small fraction of uniformly random inputs, with classical query count growing as a fixed power of the quantum one. A research system built and run by David Turturean at Physical Superintelligence (PSI) produced the first complete proof during the third day of a run, then two improvements to the bound; all three were formalised and kernel-checked in Lean. Stanford's Guy Blanc, Jordan Docter, Carmen Strassle and Li-Yang Tan, who proved a narrower result in August 2026, are reading the full proof. It bounds input reads only, not total computation time. A second AI-assisted scientific result in three days after [[2026-11-06#1|Claude's vault-particle structure]].",
+   "title": "Unreleased Anthropic model proves the Aaronson-Ambainis conjecture, checked in Lean"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-06",
+   "late": true,
+   "paper": true,
+   "rank": 2,
+   "related": [
+    {
+     "date": "2026-11-07",
+     "index": 0,
+     "label": "GPT-6 Cyber"
+    },
+    {
+     "date": "2026-11-06",
+     "index": 7,
+     "label": "Xen flaws found by Claude"
+    }
+   ],
+   "score": 7,
+   "scores": {
+    "capability": 2,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "Google DeepMind on X",
+     "type": "x",
+     "url": "https://x.com/GoogleDeepMind/status/2118755418675765656"
+    },
+    {
+     "label": "OfficeChai",
+     "type": "press",
+     "url": "https://officechai.com/ai/google-deepmind-says-it-has-used-ai-agents-to-break-legacy-rsa-1024-encryption-faster-than-anyone-thought-possible/"
+    }
+   ],
+   "summary": "Human-guided agents produced two results: RSA padding gives far less protection than assumed once an attacker controls about half the signed block, and for the harder 32-byte-fingerprint case a new algorithm improves on the best known method by roughly 1,600x for 1024-bit keys on DeepMind's theoretical estimates; separately, a batch-factoring algorithm with better asymptotic complexity than any prior one cuts the marginal cost of each additional 1024-bit key by about 30x. In a sandbox against an already-solved 1024-bit benchmark key the agents reproduced the padding attack with 3.5x less CPU time; no live key was factored and 2048-bit keys are reported unaffected. Dj Dvijotham and Abhradeep Thakurta led the work with Nadia Heninger (UC San Diego, Inria) and Emmanuel Thomé (Inria). It extends the week's run of AI-found security results after [[2026-11-07#0|GPT-6 Cyber]] and [[2026-11-06#7|the Xen VM-escape flaws credited to Claude]].",
+   "title": "DeepMind's agents find two new weaknesses in legacy 1024-bit RSA"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-05",
+   "late": true,
+   "paper": true,
+   "rank": 3,
+   "score": 6,
+   "scores": {
+    "capability": 2,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2611.07854",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2611.07854"
+    },
+    {
+     "label": "Hugging Face Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/2611.07854"
+    }
+   ],
+   "summary": "Four open models (8B, 9B, 35B with 3B active, and a vision-tuned 27B 'Max') return a probability distribution over user-supplied options without autoregressive decoding, trained with supervised fine-tuning plus reinforcement learning from adjusted feedback. Max scores 67.52 against 60.70 for Jev 1.14.0 on the public Decision Index 0.4.1 suite, is statistically tied with d3-turbo and GPT-6 Sol on Decision Bench v4 while trailing Claude Opus 5.5 by 1.6 points, and answers in 183 ms against about 2.0 s for GPT-6 Sol and 3.5 s for Claude Opus 5.5.",
+   "title": "Drex: open non-autoregressive decision models answer in 183 ms and match GPT-6 Sol"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-04",
+   "late": true,
+   "paper": true,
+   "related": [
+    {
+     "date": "2026-11-06",
+     "index": 9,
+     "label": "NEO-VLA"
+    }
+   ],
+   "score": 6,
+   "scores": {
+    "capability": 1,
+    "durability": 2,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2611.06817",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2611.06817"
+    },
+    {
+     "label": "Hugging Face Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/2611.06817"
+    }
+   ],
+   "summary": "A fully open recipe for pretraining embodied foundation models on human video reports a log-linear scaling law between egocentric pretraining hours and robot success rate, using a 50,000-hour dataset. A world-action model pretrained on human video alone reaches 92.08% success on RoboTwin 2.0 Clean2Clean and 68.88% on Clean2Random, and 14.17% mean success on RoboDojo; the goal-conditioned variant reaches 92.70% and 84.60%. A different bet from [[2026-11-06#9|NEO-VLA's argument for dropping the vision encoder]].",
+   "title": "Open-HumanScale: 50,000 hours of egocentric video, and a scaling law to robot success"
+  },
+  {
+   "category": "Research",
+   "date": "2026-11-05",
+   "late": true,
+   "paper": true,
+   "score": 5,
+   "scores": {
+    "capability": 1,
+    "durability": 1,
+    "reach": 1,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "arXiv 2611.07392",
+     "type": "primary",
+     "url": "https://arxiv.org/abs/2611.07392"
+    },
+    {
+     "label": "Hugging Face Papers",
+     "type": "primary",
+     "url": "https://huggingface.co/papers/2611.07392"
+    }
+   ],
+   "summary": "A unified model handling text-to-image generation, instruction-guided editing and multi-reference synthesis in one interleaved sequence: 31.7B stored parameters with about 5.4B activated per target latent token via a Mixture-of-Transformers plus MoE, trained natively at 1.5K resolution. The authors report the 1536-resolution model ranks first among the open-source models they evaluated on PRISM-Bench, Qwen-Image-Bench and UnicBench, without giving per-benchmark scores, and a MeanFlow-distilled Turbo variant renders 1024x1024 in 4.98 s on a single NVIDIA H20 using eight guidance-free steps. It is built for single-GPU deployment inside WeChat.",
+   "title": "WeChat's WeLM-Image: 31.7B MoE image model, 1024x1024 in 4.98 s on one H20"
+  },
+  {
+   "category": "Policy & safety",
+   "date": "2026-11-05",
+   "late": true,
+   "related": [
+    {
+     "date": "2026-11-06",
+     "index": 8,
+     "label": "data-centre ballot measures"
+    },
+    {
+     "date": "2026-11-07",
+     "index": 2,
+     "label": "$3T chip selloff"
+    }
+   ],
+   "score": 5,
+   "scores": {
+    "capability": 0,
+    "durability": 1,
+    "reach": 2,
+    "reliability": 2
+   },
+   "sources": [
+    {
+     "label": "OpenAI",
+     "type": "primary",
+     "url": "https://openai.com/index/setting-new-standard-responsible-ai-infrastructure/"
+    },
+    {
+     "label": "OpenAI — Compute Campus Policy Blueprint (PDF)",
+     "type": "primary",
+     "url": "https://cdn.openai.com/pdf/compute-campus-policy-blueprint.pdf"
+    },
+    {
+     "label": "Gizmodo",
+     "type": "press",
+     "url": "https://www.gizmodo.com/openai-is-changing-its-tune-on-data-centers-following-electoral-wipeout-2000835718"
+    }
+   ],
+   "summary": "The 'National Community Compact' and an accompanying Compute Campus Policy Blueprint commit OpenAI to limiting nondisclosure agreements with public officials, covering the electricity and energy-infrastructure costs of data centres it owns and operates, publishing construction plans and noise levels, writing per-community water-use plans, and investing in local childcare, education, healthcare and transport. No dollar amounts or volumes were given, and the power commitment covers only owned-and-operated sites. It came two days after the midterms, in which [[2026-11-06#8|voters rejected data centres in all but one ballot measure]], and before [[2026-11-07#2|the roughly $3T selloff in chip and AI stocks]].",
+   "title": "OpenAI limits data-centre NDAs and will cover power costs after ballot defeats"
+  }
+ ],
+ "lead": "Physical Superintelligence says a non-public Anthropic model found a proof of the Aaronson-Ambainis conjecture, open since 2008, on the third day of a run, and the main theorem was formalised and kernel-checked in Lean.",
+ "scoring": "rubric-v1",
+ "selection": "papers-v2 (paper threshold 5, press threshold 6)",
+ "window": "7 Nov 07:00 → 8 Nov 07:00 JST (+ late catches from 4–6 Nov; no arXiv listing and no Hugging Face Daily Papers page published for 7 Nov)"
+}
