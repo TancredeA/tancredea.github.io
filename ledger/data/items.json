@@ -10134,5 +10134,38 @@
   ],
   "title": "SHAP: explaining models with Shapley values",
   "trackId": "shap-odyssey"
+ },
+ "src-news-anthropic-posts-a-claude-written-proof-o": {
+  "kind": "source",
+  "title": "Anthropic posts a Claude-written proof of VP ≠ VNP, formalized in Lean but unaudited by humans",
+  "author": "Anthropic formal-math — vp-vnp (paper and Lean formalization)",
+  "format": "article",
+  "url": "https://github.com/anthropics/formal-math/tree/main/vp-vnp",
+  "links": [
+   {
+    "label": "Paper PDF — VP ≠ VNP over every field",
+    "url": "https://github.com/anthropics/formal-math/blob/main/vp-vnp/paper.pdf"
+   },
+   {
+    "label": "Interesting Engineering — Claude proves VP ≠ VNP",
+    "url": "https://interestingengineering.com/ai-robotics/claude-proves-vp-not-vnp-valiant-conjecture"
+   },
+   {
+    "label": "DataCamp — Claude claims proof of Valiant's conjecture",
+    "url": "https://www.datacamp.com/blog/claude-claims-proof-of-valiants-conjecture-vp-vs-vnp"
+   }
+  ],
+  "note": "Anthropic published a roughly 70-page paper, \"VP ≠ VNP over every field\", which its README says an internal Claude research model discovered, together with a Lean 4 formalization of 324 files and about 73,000 lines that passes automated checks. If it holds, it settles Valiant's 1979 conjecture — the algebraic analogue of P vs NP — with superpolynomial lower bounds for arithmetic circuits computing the Hamiltonian cycle polynomial over any field and the permanent outside characteristic 2. Anthropic says it does not resolve P vs NP. No human audit has been published, and the repository warns that nothing machine-checks that the formal statement matches the intended claim; complexity theorist Lance Fortnow called the result \"likely correct\" and \"a huge result\" on X. It follows the same Lean-certified pattern as .",
+  "status": "done",
+  "trackId": "",
+  "ideaId": "",
+  "themes": [],
+  "tags": [],
+  "lang": "en",
+  "newsId": "2026-11-25-0",
+  "needsReview": true,
+  "addedAt": "2026-11-25T04:08:22.019Z",
+  "by": "page",
+  "statusChangedAt": "2026-11-25T04:08:22.019Z"
  }
 }
