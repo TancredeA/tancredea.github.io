@@ -9950,8 +9950,8 @@
   "note": "Four significant limitations of SHAP and when its explanations can mislead.",
   "num": 5,
   "prereq": "the first two videos of the playlist",
-  "status": "reading",
-  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T04:04:57.271Z",
   "tags": [
    "SHAP",
    "Shapley values",
@@ -9987,8 +9987,8 @@
   "note": "Violin and heatmap SHAP plots and the extra insights they give.",
   "num": 6,
   "prereq": "the first two videos of the playlist",
-  "status": "reading",
-  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T04:04:59.570Z",
   "tags": [
    "SHAP",
    "Shapley values",
