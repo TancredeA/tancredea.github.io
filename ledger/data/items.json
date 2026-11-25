@@ -9826,7 +9826,7 @@
  "shap-odyssey-04": {
   "addedAt": "2026-11-25T03:59:40Z",
   "agentUpdatedAt": "2026-11-25T09:30:00Z",
-  "by": "inbox",
+  "by": "page",
   "author": "Conor O'Sullivan (A Data Odyssey)",
   "core": false,
   "difficulty": {
@@ -9841,8 +9841,8 @@
   "links": [],
   "note": "How Shapley values are applied to explain machine-learning models.",
   "prereq": "the first two videos of the playlist",
-  "status": "todo",
-  "statusChangedAt": "2026-11-25T04:04:50.821Z",
+  "status": "done",
+  "statusChangedAt": "2026-11-25T06:59:48.869Z",
   "tags": [
    "SHAP",
    "Shapley values",
@@ -9856,7 +9856,9 @@
   "trackId": "",
   "url": "https://www.youtube.com/watch?v=b9qqbFudVhI",
   "year": 2024,
-  "bookUnit": "shap-p2"
+  "bookUnit": "shap-p2",
+  "fromUnit": "shap-p2",
+  "fromLesson": 1
  },
  "shap-odyssey-05": {
   "addedAt": "2026-11-25T03:59:40Z",
