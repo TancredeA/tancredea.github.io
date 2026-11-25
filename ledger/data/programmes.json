@@ -57,5 +57,39 @@
   "weightHint": "Progression pondérée par le nombre de pages de chaque section, relevé dans la table des matières et vérifié dans le PDF. Pour le sujet de TD, une question pèse la place que son énoncé occupe dans le PDF, en équivalents-pages : c'est une longueur d'énoncé, pas un temps de résolution.",
   "weightLabel": "pages",
   "weightUnit": "page"
+ },
+ "cs229": {
+  "agentUpdatedAt": "2026-11-25T09:30:00Z",
+  "author": "Andrew Ng (Stanford Online)",
+  "blurb": "Andrew Ng's Stanford course, lecture by lecture: linear and generative models, SVMs and kernels, learning theory, neural networks, unsupervised learning and reinforcement learning. Every lecture is a tick box and opens its own video.",
+  "bookmark": null,
+  "createdAt": "2026-11-25T09:30:00Z",
+  "eyebrow": "Video course",
+  "order": 4,
+  "short": "Stanford CS229",
+  "step": "lecture",
+  "title": "Stanford CS229: Machine Learning (Autumn 2018)",
+  "unit": "part",
+  "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU",
+  "weightHint": "Progress is weighted by the length of each video, read from its YouTube page.",
+  "weightLabel": "minutes of video",
+  "weightUnit": "min"
+ },
+ "shap": {
+  "agentUpdatedAt": "2026-11-25T09:30:00Z",
+  "author": "Conor O'Sullivan (A Data Odyssey)",
+  "blurb": "The A Data Odyssey playlist on SHAP: the intuition and first code, the Shapley maths and its limits, then applications to classification, CatBoost and anomaly detection. Every video is a tick box and opens itself.",
+  "bookmark": null,
+  "createdAt": "2026-11-25T09:30:00Z",
+  "eyebrow": "Video course",
+  "order": 5,
+  "short": "SHAP (A Data Odyssey)",
+  "step": "video",
+  "title": "SHAP: explaining models with Shapley values",
+  "unit": "part",
+  "url": "https://www.youtube.com/playlist?list=PLqDyyww9y-1SJgMw92x90qPYpHgahDLIK",
+  "weightHint": "Progress is weighted by the length of each video, read from its YouTube page.",
+  "weightLabel": "minutes of video",
+  "weightUnit": "min"
  }
 }

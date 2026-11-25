@@ -1353,6 +1353,7 @@ function progStats(pid){
           pctCount: tot?Math.round(dn/tot*100):0,
           fin: cs.filter(c=>kStatus(c)==="done").length, certs: cs.filter(c=>c.certificate).length};
 }
+const lessonUrl = (c, k) => (c.urls||[])[k] || ((c.anchors||[])[k] ? unitUrl(c, (c.anchors||[])[k]) : "");   // v28.2: a lesson may have its own link (a video)
 const unitUrl = (c, anchor) => { const b = String(c.url||"").split("#")[0]; if(!b) return ""; return anchor ? b+"#"+encodeURIComponent(anchor) : b; };
 
 function renderLearning(){
@@ -1385,10 +1386,10 @@ function renderLearning(){
     const marked = bm && bm.unit===c.id && bm.kind==="lesson" && bm.k===k;
     const xs = (c.extras||[]).map((x,xi)=>({x,xi})).filter(o=>o.x.after===k);
     return `<li class="${on?"on":""}">
-      <label>${RO?`<span class="kck${on?" on":""}" aria-label="${on?"done":"not done"}">${on?"✓":""}</span>`:`<input type="checkbox" data-klesson="${esc(c.id)}|${k}" ${on?"checked":""}>`} ${esc(l)}</label>
+      <label>${RO?`<span class="kck${on?" on":""}" aria-label="${on?"done":"not done"}">${on?"✓":""}</span>`:`<input type="checkbox" data-klesson="${esc(c.id)}|${k}" ${on?"checked":""}>`} ${esc(l)}</label>${(()=>{ const s = items.find(i=>i.id===(c.sourceIds||[])[k]); return s && s.status==="reading" ? `<span class="chip">in progress</span>` : ""; })()}
       ${(c.pages||[])[k]?`<span class="lw pg" title="Page in the document">p. ${esc(c.pages[k])}</span>`:""}
       ${wu?`<span class="lw">${esc(fmtW(wOf(c,med).w[k]||0, wu))}</span>`:""}
-      ${anchor?`<a class="kjump" href="${esc(unitUrl(c,anchor))}" target="_blank" rel="noopener" title="Open this section">↗</a>`:""}
+      ${lessonUrl(c,k)?`<a class="kjump" href="${esc(lessonUrl(c,k))}" target="_blank" rel="noopener" title="Open this ${esc(stepW)}">↗</a>`:""}
       ${RO ? (marked?`<span class="kmark on" title="You are here">🔖</span>`:"") : `<button class="kmark${marked?" on":""}" data-kmark="${esc(c.id)}|lesson|${k}" title="${marked?"You are here":"Bookmark: I am here"}" aria-pressed="${!!marked}">🔖</button>`}
       ${xs.length?`<ul class="kextras">${xs.map(({x,xi})=>{
         const xon = (c.doneX||[]).includes(xi), xmark = bm && bm.unit===c.id && bm.kind==="extra" && bm.k===xi;
@@ -1444,7 +1445,7 @@ function renderLearning(){
       <div>
         <p class="eyebrow">${esc(p.eyebrow||"Programme")}</p>
         <h2>${esc(p.title)}${p.author?` <span class="prio">${esc(p.author)}</span>`:""}</h2>
-        ${p.blurb?`<p class="desc">${esc(p.blurb)}</p>`:""}
+        ${p.blurb?`<p class="desc">${esc(p.blurb)}</p>`:""}<p>${ibxBtn("+ Source for this programme", {type:"Add source", placement:"prog:"+p.id})}</p>
         ${p.url?`<p class="prio"><a class="linkish" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(String(p.url).replace(/^https?:\/\//,""))} ↗</a></p>`:""}
       </div>
       <div class="tally ksum">
@@ -1465,7 +1466,7 @@ function renderLearning(){
         <button class="btn ghost" data-kgoto="${esc(bmUnit.id)}">Show in list</button>
         ${RO?"":`<button class="btn ghost" data-kclearmark="${esc(p.id)}">Clear</button>`}
       </div>` : RO ? "" : `<div class="bmark empty-bm"><span class="lbl">🔖 Bookmark</span><span class="note">Open a ${esc(unitW)} and press 🔖 on the ${esc(stepW)} you stopped at — it lands here, one click from the exact spot on the page.</span></div>`}
-    ${next?(()=>{ const nu = unitUrl(next.c,(next.c.anchors||[])[next.i]);
+    ${next?(()=>{ const nu = lessonUrl(next.c, next.i) || unitUrl(next.c,(next.c.anchors||[])[next.i]);
         const np = (next.c.pages||[])[next.i];
         const lab = `${esc(next.c.short||next.c.title)} — ${esc(stepW)} ${next.i+1}: ${esc(next.c.lessons[next.i])}${np?` · p. ${esc(np)}`:""}`;
         return `<div class="nextup"><span class="lbl">Next up</span>${nu?`<a class="linkish" href="${esc(nu)}" target="_blank" rel="noopener">${lab} ↗</a>`:`<span class="linkish nolink">${lab}</span>`}${RO?"":`<button class="btn ghost" data-klesson="${esc(next.c.id)}|${next.i}">✓ Done</button>`}</div>`; })()
@@ -1488,8 +1489,23 @@ async function kWrite(id, patch){
   if(!db) return banner("Saving isn't available in this view.");
   try{ await db.doc("kaggle/"+id).update(patch); }catch(err){ banner("Couldn't save progress ("+(err.code||"error")+")."); }
 }
+async function syncLessons(c){                      // v28.2: a lesson with its own source (a video) marks that source
+  const now = new Date().toISOString();
+  for(const [k, sid] of (c.sourceIds||[]).entries()){
+    const it = sid && items.find(i=>i.id===sid); if(!it) continue;
+    const on = (c.done||[]).includes(k);
+    let want = null;
+    if(on && it.status!=="done" && it.status!=="skimmed") want = "done";
+    else if(!on && it.status==="done" && it.fromUnit===c.id && it.fromLesson===k) want = "todo";   // undo a tick, never a hand-set Done
+    if(!want) continue;
+    try{ await db.doc("items/"+sid).update({status:want, statusChangedAt:now, by:"page", fromUnit:c.id, fromLesson:k}); }
+    catch(err){ banner("Progress saved, but a linked source couldn't be updated ("+(err.code||"error")+")."); }
+  }
+}
 async function syncSource(c){                       // a finished chapter marks its source read in the ledger
-  if(!db || !c || !c.sourceId) return;
+  if(!db || !c) return;
+  await syncLessons(c);
+  if(!c.sourceId) return;
   const it = items.find(i=>i.id===c.sourceId); if(!it) return;
   const n = (c.lessons||[]).length, d = (c.done||[]).length;
   let want = null;
@@ -1622,7 +1638,7 @@ function trackEntries(){
     mem.forEach((m,k)=>m.num=k+1);
     out.push({key:"_ideas", pseudo:true, t:{title:"From your ideas", short:"From your ideas", description:"Suggestions you accepted that are not part of a track yet, grouped by subject.", levels:ids.map((id,k)=>({n:k+1,label:ideaOf(id).title}))}, members:mem, stats:trackStats(mem)});
   }
-  const loose = src.filter(i=>!inAnyTrack(i) && !ideaOf(i.ideaId));
+  const loose = src.filter(i=>!inAnyTrack(i) && !ideaOf(i.ideaId) && !progUnitsOf(i).length);   // programme steps live in their programme
   if(loose.length){
     const mem = loose.map((i,k)=>({it:i, step:1, num:k+1, ctx:"", d:diffOf(i)}));
     out.push({key:"_loose", pseudo:true, t:{title:"Unsorted", short:"Unsorted", description:"Sources not attached to a track or an idea yet.", levels:[{n:1,label:"Everything else"}]}, members:mem, stats:trackStats(mem)});
@@ -1676,7 +1692,7 @@ function renderTracks(target, forceKey, bare){
       <div class="tbar">
         <div class="snavs">${stepNav}</div>
         <div class="tctl">
-          ${RO && !cur.pseudo ? ibxBtn("+ Source for this track", {type:"Add source", target:cur.key}) : ""}
+          ${!cur.pseudo ? ibxBtn("+ Source for this track", {type:"Add source", placement:(cur.t.tab?"topic:":"track:")+cur.key}) : ""}
           <label class="chk"><input type="checkbox" id="hide-read" ${hideRead?"checked":""}> Hide done</label>
           <button class="btn ghost" data-allsteps="open">Expand all</button>
           <button class="btn ghost" data-allsteps="close">Collapse all</button>
@@ -1697,7 +1713,7 @@ function hl(s, q){
 }
 function progOf(pid){ return progList().find(x=>x.id===pid) || {id:pid, title:pid, unit:"unit", step:"step"}; }
 function progUnitsOf(it){
-  return kcourses.filter(c=>c.sourceId===it.id).map(c=>({c, p:progOf(c.programme||"kaggle")}));
+  return kcourses.filter(c=>c.sourceId===it.id || (c.sourceIds||[]).includes(it.id)).map(c=>({c, p:progOf(c.programme||"kaggle")}));
 }
 // every source says, explicitly, where it belongs: reading tracks, programmes, concept, themes
 function ownChips(it){
@@ -2140,7 +2156,7 @@ function renderLibrary(){
     sec("th:_none", head("Not yet classified","Claude sorts these when the ledger is next touched"), orphan, "");
   } else if(filters.group==="path"){
     for(const p of progList()){
-      const ids = new Set(unitsOf(p.id).map(c=>c.sourceId).filter(Boolean));
+      const ids = new Set(unitsOf(p.id).flatMap(c=>[c.sourceId, ...(c.sourceIds||[])]).filter(Boolean));
       const list = src.filter(i=>ids.has(i.id));
       if(!list.length) continue;
       const st = progStats(p.id);
@@ -2268,7 +2284,7 @@ function renderConcepts(){
       <div class="meta"><span class="prio ${it.priority==="high"?"high":""}">${esc((it.priority||"medium").toUpperCase())}</span>
         ${themeChips(it)}${t?`<button class="chip trk" data-opentrack="${esc(t.id)}">↗ ${esc(t.short||t.title)}</button>`:""}</div>
       ${it.note?`<p class="q">${esc(it.note)}</p>`:""}
-      <div class="side">${statusSelect(it)}${removeCtl(it)}${RO?ibxBtn("+ Source for this concept", {type:"Add source", target:it.id}):""}</div>
+      <div class="side">${statusSelect(it)}${removeCtl(it)}${ibxBtn("+ Source for this concept", {type:"Add source", placement:"idea:"+it.id})}</div>
     </header>
     ${pick.length?`<div class="ctwo">${pick.map((p,k)=>conceptCard(p, ctx, roles[k])).join("")}</div>
       ${pinned?"":`<p class="cask">These two are the lowest-difficulty sources on file; no deliberate pair has been pinned yet — ask in chat.</p>`}`
@@ -2333,50 +2349,156 @@ function render(){
   else if(view==="library") renderLibrary(); else if(isTopic) renderTopic(); else renderConcepts();
 }
 
-// ================= INBOX — + opens a pre-filled GitHub issue; the 06:30 routine files it =================
+// ================= INBOX — + opens a pre-filled GitHub issue; the morning routine files it =================
+// The panel mirrors the ledger itself: where a source can go (a programme and its part, a reading track
+// and its step, a topic tab, a concept, or the library alone), what it is, and where you are with it.
 const INBOX_REPO = "TancredeA/tancredea.github.io", INBOX_LABEL = "ledger-inbox";
-const IBX_TYPES = ["Add source","Change status","New concept","Attach","Other"];
+const IBX_TYPES = {
+  "Add source":    "Add a source",
+  "Change status": "Change a status",
+  "New programme": "New programme — a course, playlist, book or PDF to follow step by step",
+  "New track":     "New reading track — sources to read in order, by step",
+  "New concept":   "New concept — a question to get to the bottom of",
+  "Attach":        "Attach a source to a path or a concept",
+  "Other":         "Something else",
+};
+const IBX_FIELDS = {
+  "Add source":    ["link","place","format","status","note"],
+  "Change status": ["target","status","note"],
+  "New programme": ["link","status","note"],
+  "New track":     ["link","theme","note"],
+  "New concept":   ["link","priority","theme","note"],
+  "Attach":        ["target","place","note"],
+  "Other":         ["link","target","note"],
+};
+const IBX_LINK = {
+  "Add source":    ["Link or title", "https://… or a title"],
+  "New programme": ["Link or title", "a playlist, a course page, a book, a PDF…"],
+  "New track":     ["Title, theme or links", "what the track is about, or the links to put in it"],
+  "New concept":   ["Concept or question", "e.g. Why do residual connections help optimisation?"],
+  "Other":         ["Link or title", "optional"],
+};
+const IBX_HELP = {
+  "Add source":    "Claude completes it (author, year, official link, note), classifies it and rates its difficulty; in a programme it becomes a step weighted by its real length.",
+  "New programme": "For anything you follow step by step. Claude splits it into parts and steps, measures each step's real length (video minutes, words, pages) so progress is weighted, and adds every step to your Library.",
+  "New track":     "A reading list ordered by step, for sources you read rather than follow as a course.",
+  "New concept":   "Claude comes back with a deliberate pair: one entry point and one source that goes deeper.",
+};
 let ibxOpen = false, ibxReq = {}, inboxLog = null;
+// a source saved from a news item or a paper carries what it comes from as its Target
+const fieldsFor = (type, r) => type==="Add source" && r.target ? ["target", ...IBX_FIELDS[type]] : IBX_FIELDS[type];
+const capFirst = s => String(s||"").charAt(0).toUpperCase() + String(s||"").slice(1);
 function targetLabel(id){
   if(!id) return "";
   const it = items.find(i=>i.id===id); if(it) return (it.kind==="idea"?"concept: ":"source: ")+it.title;
-  const t = trackOf(id); if(t) return "track: "+(t.short||t.title);
+  const t = trackOf(id); if(t) return (t.tab?"topic tab: ":"track: ")+(t.short||t.title);
   const p = papers.find(x=>x.id===id); if(p) return "paper: "+p.title;
+  const pr = progList().find(x=>x.id===id); if(pr) return "programme: "+(pr.short||pr.title);
+  const u = kcourses.find(c=>c.id===id); if(u) return "programme part: "+u.title;
   const m = /^(\d{4}-\d{2}-\d{2})-(\d+)$/.exec(id);
   if(m){ const d = digests.find(x=>x.id===m[1]), n = d && (d.items||[])[+m[2]]; if(n) return "news of "+fmtDay(m[1],true)+": "+n.title; }
   return "";
 }
+function placeLabel(pl){
+  if(!pl || pl==="library") return "Library only";
+  const [k, id] = [pl.slice(0, pl.indexOf(":")), pl.slice(pl.indexOf(":")+1)];
+  if(k==="prog"){ const p = progList().find(x=>x.id===id); return "programme: "+(p ? (p.short||p.title) : id); }
+  if(k==="track" || k==="topic"){ const t = trackOf(id); return (k==="topic"?"topic tab: ":"track: ")+(t ? (t.short||t.title) : id); }
+  if(k==="idea"){ const c = ideaOf(id); return "concept: "+(c ? c.title : id); }
+  return pl;
+}
+function subChoices(pl){                                  // the second level of a placement
+  if(!pl) return null;
+  if(pl.startsWith("prog:")){
+    const p = progOf(pl.slice(5)), us = unitsOf(p.id), word = capFirst(p.unit||"unit");
+    return {key:"Unit", label:word, opts:[["", "Let the routine choose"], ...us.map(c=>[c.id, c.title||c.short||c.id]), ["new", "A new "+(p.unit||"unit")+", at the end"]]};
+  }
+  if(pl.startsWith("track:") || pl.startsWith("topic:")){
+    const t = trackOf(pl.slice(pl.indexOf(":")+1)); if(!t) return null;
+    const lv = (t.levels||[]).length ? t.levels : [...new Set(trackMembers(t).map(m=>m.step))].sort((a,b)=>a-b).map(n=>({n, label:levelLabel(t,n)}));
+    return {key:"Step", label:"Step", opts:[["", "Let the routine choose"], ...lv.map(l=>[String(l.n), "Step "+l.n+" — "+l.label])]};
+  }
+  return null;
+}
 function openInbox(req){ ibxReq = Object.assign({type:"Add source"}, req||{}); ibxOpen = true; renderInbox(); }
+function ibxRead(){
+  const v = id => { const e = $(id); return e ? e.value.trim() : undefined; };
+  for(const [k, id] of [["type","#ibx-type"],["link","#ibx-link"],["target","#ibx-target"],["placement","#ibx-place"],["sub","#ibx-sub"],
+                        ["format","#ibx-format"],["status","#ibx-status"],["theme","#ibx-theme"],["priority","#ibx-prio"],["note","#ibx-note"]]){
+    const x = v(id); if(x!==undefined) ibxReq[k] = x;
+  }
+}
 function renderInbox(){
   const el = $("#ibx"), fab = $("#ibx-fab");
   fab.setAttribute("aria-expanded", String(ibxOpen));
   if(!ibxOpen){ el.innerHTML = ""; return; }
-  const r = ibxReq, opt = (v,sel,l)=>`<option value="${esc(v)}"${v===sel?" selected":""}>${esc(l??v)}</option>`;
+  const r = ibxReq, type = IBX_TYPES[r.type] ? r.type : "Other", F = fieldsFor(type, r);
+  const opt = (v,sel,l)=>`<option value="${esc(v)}"${String(v)===String(sel??"")?" selected":""}>${esc(l??v)}</option>`;
+  const byOrder = (a,b)=>(a.order??99)-(b.order??99);
+  const fields = {
+    link: ()=>{ const [l,ph] = IBX_LINK[type]||IBX_LINK.Other; return `<label>${esc(l)}<input id="ibx-link" value="${esc(r.link||"")}" placeholder="${esc(ph)}"></label>`; },
+    target: ()=>`<label>${type==="Other"?"About":type==="Add source"?"From":"Source"} <span class="ibx-tgt">${esc(targetLabel(r.target)||"type a title, pick it in the list")}</span><input id="ibx-target" list="ibx-items" value="${esc(r.target||"")}" placeholder="title or id"></label>
+      <datalist id="ibx-items">${items.filter(i=>i.kind!=="idea" && i.status!=="dismissed").sort((a,b)=>String(a.title).localeCompare(String(b.title))).map(i=>`<option value="${esc(i.id)}">${esc(i.title)}</option>`).join("")}</datalist>`,
+    place: ()=>{
+      const sub = subChoices(r.placement);
+      return `<label>${type==="Attach"?"Attach it to":"Where it goes"}<select id="ibx-place">
+          ${opt("library", r.placement||"library", "Library only — not in a path")}
+          <optgroup label="Programmes · weighted by real effort">${progList().map(p=>opt("prog:"+p.id, r.placement, p.short||p.title)).join("")}</optgroup>
+          <optgroup label="Reading tracks · by step">${[...tracks].filter(t=>!t.tab).sort(byOrder).map(t=>opt("track:"+t.id, r.placement, t.short||t.title)).join("")}</optgroup>
+          ${topicTracks().length?`<optgroup label="Topic tabs">${topicTracks().map(t=>opt("topic:"+t.id, r.placement, (t.tab&&t.tab.label)||t.short||t.title)).join("")}</optgroup>`:""}
+          <optgroup label="Concepts">${items.filter(i=>i.kind==="idea").sort((a,b)=>String(a.title).localeCompare(String(b.title))).map(c=>opt("idea:"+c.id, r.placement, c.title)).join("")}</optgroup>
+        </select></label>
+        ${sub?`<label>${esc(sub.label)}<select id="ibx-sub">${sub.opts.map(([v,l])=>opt(v, r.sub||"", l)).join("")}</select></label>`:""}`;
+    },
+    format: ()=>`<label>Format<select id="ibx-format">${opt("", r.format||"", "Let the routine decide")}${Object.entries(FORMATS).map(([k,l])=>opt(k, r.format, l)).join("")}</select></label>`,
+    status: ()=>`<label>Status<select id="ibx-status">${opt("", r.status||"", type==="Change status"?"—":"To do (default)")}${Object.values(FORM_STATUS).map(v=>opt(v, r.status)).join("")}</select></label>`,
+    theme: ()=>`<label>Theme<select id="ibx-theme">${opt("", r.theme||"", "Let the routine choose")}${[...themes].sort(byOrder).map(t=>opt(t.id, r.theme, t.label)).join("")}</select></label>`,
+    priority: ()=>`<label>Priority<select id="ibx-prio">${["medium","high","low"].map(v=>opt(v, r.priority||"medium", capFirst(v))).join("")}</select></label>`,
+    note: ()=>`<label>Note<textarea id="ibx-note" rows="3" placeholder="why, what's in it, anything the routine should know">${esc(r.note||"")}</textarea></label>`,
+  };
   el.innerHTML = `<div class="drawer-bg" data-ibx="close"></div>
   <aside class="drawer" aria-label="Send to the Ledger">
     <div class="drawer-head"><h3>Send to the Ledger</h3><button class="btn ghost" data-ibx="close" aria-label="Close">✕</button></div>
     <section class="zone"><form class="ibx-form" id="ibx-form">
-      <label>Type<select id="ibx-type">${IBX_TYPES.map(t=>opt(t, r.type)).join("")}</select></label>
-      <label>Link or title<input id="ibx-link" value="${esc(r.link||"")}" placeholder="https://… or a title"></label>
-      <label>Target <span class="ibx-tgt">${esc(targetLabel(r.target)||"a source, concept, track, paper or news id — optional")}</span><input id="ibx-target" value="${esc(r.target||"")}" placeholder="id or title"></label>
-      <label>Status<select id="ibx-status">${opt("", r.status||"", "—")}${Object.values(FORM_STATUS).map(v=>opt(v, r.status)).join("")}</select></label>
-      <label>Note<textarea id="ibx-note" rows="3" placeholder="why, what's in it, anything the routine should know">${esc(r.note||"")}</textarea></label>
+      <label>What<select id="ibx-type">${Object.entries(IBX_TYPES).map(([k,l])=>opt(k, type, l)).join("")}</select></label>
+      ${IBX_HELP[type]?`<p class="ibx-foot">${esc(IBX_HELP[type])}</p>`:""}
+      ${F.map(f=>fields[f]()).join("")}
       <div class="asst-btns"><button class="btn primary" type="button" data-ibx="send">Open on GitHub →</button></div>
       <p class="ibx-foot">Opens a pre-filled issue in a new tab: press <b>Submit</b> there. Only issues opened by the repository owner are read. The inbox routine files them every morning and says what it did under “Filed this morning” in the Library.</p>
     </form></section>
   </aside>`;
-  setTimeout(()=>{ const f = $(r.target ? "#ibx-note" : "#ibx-link"); if(f) f.focus(); }, 30);
+  setTimeout(()=>{ const f = $(F.includes("link") && !r.link ? "#ibx-link" : "#ibx-note"); if(f) f.focus(); }, 30);
 }
+document.addEventListener("change", e=>{
+  if(!ibxOpen) return;
+  if(e.target.id==="ibx-type" || e.target.id==="ibx-place"){ ibxRead(); if(e.target.id==="ibx-place") ibxReq.sub = ""; renderInbox(); }
+});
+document.addEventListener("input", e=>{ if(ibxOpen && e.target.id==="ibx-target"){ const s = e.target.closest("label")?.querySelector(".ibx-tgt"); if(s) s.textContent = targetLabel(e.target.value.trim()) || "type a title, pick it in the list"; } });
 function sendInbox(){
-  const v = id => ($(id)?.value || "").trim();
-  const req = {type:v("#ibx-type"), link:v("#ibx-link"), target:v("#ibx-target"), status:v("#ibx-status"), note:v("#ibx-note")};
-  const what = req.link || targetLabel(req.target) || req.target || req.note.slice(0,60) || "request";
-  const title = "Ledger: " + req.type + " — " + (what.length>80 ? what.slice(0,78)+"…" : what);
-  const tl = targetLabel(req.target);
-  const body = ["<!-- Ledger inbox request. Keep the keys; edit the values. Filed at 06:30 Tokyo. -->",
-    "Type: "+req.type, "Link or title: "+req.link, "Target: "+req.target+(tl?"  ("+tl+")":""), "Status: "+req.status, "Note:", req.note].join("\n");
+  ibxRead();
+  const r = ibxReq, type = IBX_TYPES[r.type] ? r.type : "Other", F = fieldsFor(type, r);
+  const has = f => F.includes(f);
+  const lines = ["<!-- Ledger inbox request. Keep the keys; edit the values. -->", "Type: "+type];
+  const add = (k, v, label) => { if(v) lines.push(k+": "+v+(label?"  ("+label+")":"")); };
+  if(has("link")) add("Link or title", r.link);
+  if(has("target")) add("Target", r.target, targetLabel(r.target));
+  if(has("place")){
+    add("Placement", r.placement||"library", placeLabel(r.placement));
+    const sub = subChoices(r.placement);
+    if(sub && r.sub){ const o = sub.opts.find(([v])=>v===r.sub); add(sub.key, r.sub, o ? o[1] : ""); }
+  }
+  if(has("format")) add("Format", r.format);
+  if(has("status")) add("Status", r.status);
+  if(has("theme")) add("Theme", r.theme, (themeOf(r.theme)||{}).label);
+  if(has("priority")) add("Priority", r.priority);
+  lines.push("Note:", r.note||"");
+  const what = r.link || targetLabel(r.target) || r.target || (r.note||"").slice(0,60) || "request";
+  const where = has("place") && r.placement && r.placement!=="library" ? " → "+placeLabel(r.placement).replace(/^[a-z ]+: /,"") : "";
+  let title = "Ledger: " + type + " — " + what;
+  if(title.length > 110) title = title.slice(0, 108) + "…";
+  title += where;
   const url = "https://github.com/"+INBOX_REPO+"/issues/new?labels="+encodeURIComponent(INBOX_LABEL)
-            + "&title="+encodeURIComponent(title)+"&body="+encodeURIComponent(body);
+            + "&title="+encodeURIComponent(title)+"&body="+encodeURIComponent(lines.join("\n"));
   window.open(url, "_blank", "noopener");
   ibxOpen = false; renderInbox();
 }
@@ -2634,7 +2756,7 @@ document.addEventListener("click", async e=>{
     const isX = kind==="extra", x = isX ? (c.extras||[])[+k] : null;
     const anchor = isX ? (x||{}).anchor : (c.anchors||[])[+k];
     const label = isX ? ((x||{}).kind==="problem"?"Problem":"Exercise")+(x&&x.label?" — "+x.label:"") : (c.lessons||[])[+k];
-    const mark = {unit:id, kind, k:+k, anchor:anchor||"", label:label||"", url:unitUrl(c, anchor), at:new Date().toISOString()};
+    const mark = {unit:id, kind, k:+k, anchor:anchor||"", label:label||"", url:(!isX && lessonUrl(c,+k)) || unitUrl(c, anchor), at:new Date().toISOString()};
     if(!isX && (c.pages||[])[+k]) mark.page = c.pages[+k];
     const pp = programmes.find(x=>x.id===pid); if(pp) pp.bookmark = mark;
     renderPaths(); await pWrite(pid, {bookmark:mark});

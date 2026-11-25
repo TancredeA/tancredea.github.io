@@ -138,6 +138,12 @@ def main():
         for k in u.get('doneX') or []:
             if not (isinstance(k, int) and 0 <= k < len(u.get('extras') or [])):
                 E(f'{p}: doneX index {k!r} out of range')
+        for key in ('urls', 'sourceIds'):              # optional, one entry per lesson ("" when none)
+            if u.get(key) is not None and len(u[key]) != n:
+                E(f'{p}: {len(u[key])} {key} for {n} lessons')
+        for s in u.get('sourceIds') or []:
+            if s and s not in items:
+                E(f'{p}: lesson source {s} does not exist')
         if u.get('sourceId') and u['sourceId'] not in items:
             E(f'{p}: unknown sourceId {u["sourceId"]}')
         if u.get('relatedTrack') and u['relatedTrack'] not in tracks:
