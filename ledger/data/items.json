@@ -4285,7 +4285,7 @@
   "links": [],
   "note": "Closing essay: whether intelligence reduces to a handful of principles, and what the answer would change.",
   "prereq": "none",
-  "status": "todo",
+  "status": "done",
   "tags": [
    "Nielsen",
    "essay",
@@ -4297,7 +4297,10 @@
   "title": "Neural Networks and Deep Learning — Appendix: Is there a simple algorithm for intelligence?",
   "trackId": "",
   "url": "http://neuralnetworksanddeeplearning.com/sai.html",
-  "year": 2015
+  "year": 2015,
+  "statusChangedAt": "2026-11-25T02:51:04.875Z",
+  "by": "page",
+  "fromUnit": "nndl-7"
  },
  "src-rag-from-scratch-fcc": {
   "addedAt": "2026-10-26T04:52:23Z",
