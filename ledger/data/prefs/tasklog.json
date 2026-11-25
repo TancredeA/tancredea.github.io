@@ -4,5 +4,20 @@
   "source": "Muse artifact prefs/tasklog (imported 2026-11-24)",
   "summary": "Last Muse run before the move: briefing of 2026-11-24, 9 items, 1 paper.",
   "routine": "Learning Ledger — AI morning briefing"
+ },
+ {
+  "at": "2026-11-25T10:28:00+09:00",
+  "day": "2026-11-25",
+  "items": 10,
+  "papers": 4,
+  "searches": 12,
+  "fetches": 17,
+  "unverified": [
+   "VP != VNP: the Hexagon preprint URL (hexagonmath.org/2611.00954v1) appeared only in secondary coverage and was not opened; the paper and Lean files were confirmed in the anthropics/formal-math repo path instead. No human audit of the proof exists, and Fortnow's reaction is quoted via secondary coverage.",
+   "Amazon/Decart: the $7.5B figure is Bloomberg's, not Amazon's; the About Amazon post URL came from TechCrunch and was not opened directly.",
+   "Latent-reasoning and Loop-Residuals papers: arXiv v1 dated 23 Nov, surfaced on Hugging Face on 24 Nov; marked late: true as their timestamps precede the window start.",
+   "ShellBench: vendor-adjacent benchmark (OpenClaw Foundation) with no published paper yet; the figures are the authors' own."
+  ],
+  "summary": "Today in AI 2026-11-25: 10 items, 4 papers. Lead is Anthropic's Claude-written VP != VNP paper with a Lean 4 formalization and no human audit; also OpenAI's wet-lab-validated GPT-6 protein design, the Siren sandbox-escape evaluation, hidden latent reasoning that evades CoT monitors, Claude Ship, New York's AI-toy ban, Amazon/Decart, ShellBench, Loop Residuals and Dell's AI server backlog."
  }
 ]
