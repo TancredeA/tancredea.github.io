@@ -643,6 +643,12 @@ span.kpip.on:hover{background:var(--done);color:#fff}
 .report .rmark.left{color:var(--reading)}
 .report .linkish{font-size:inherit}
 .filedline{margin:0 0 10px;font-size:13px;color:var(--muted)}
+.ownerchip{margin-top:6px;border:0;border-radius:999px;padding:3px 11px;font-size:12px;font-weight:600;cursor:pointer;background:var(--done-bg);color:var(--done)}
+.ownerchip.pending,.ownerchip.saving{background:var(--reading-bg);color:var(--reading)}
+.ownerchip.error{background:var(--warn-bg);color:var(--warn)}
+.authsteps{margin:0;padding-left:20px;font-size:13px;display:flex;flex-direction:column;gap:4px}
+.zone p{margin:0}
+.zone .clar{color:var(--warn);font-size:13px}
 @media (max-width:640px){                       /* v28: no horizontal overflow at 390px (kit §14) */
   .libbar .seg{flex:1 1 100%;max-width:100%;overflow-x:auto;scrollbar-width:none}
   .libbar .seg::-webkit-scrollbar{display:none}
@@ -658,6 +664,7 @@ span.kpip.on:hover{background:var(--done);color:#fff}
       <div class="brand">
         <h1>Learning Ledger</h1>
         <p>Paths to follow, a library of sources, and concepts to get to the bottom of.</p>
+        <span id="owner" hidden></span>
       </div>
       <div class="tally" id="tally"></div>
     </header>
@@ -760,47 +767,183 @@ span.kpip.on:hover{background:var(--done);color:#fff}
 
   <section id="view-topic" hidden><div id="topic-body"></div></section>
 
-  <p class="hint">This page is read-only. Press <b>+</b> (bottom right), or a shortcut on any card, to send a source or a change: it opens a pre-filled issue on GitHub, and the inbox routine files it at 6:30 (Tokyo). For anything else, ask in chat. In Concepts, <code>j</code> and <code>k</code> move between concepts.</p>
+  <p class="hint" id="hint"></p>
   <button class="fab plus" id="ibx-fab" aria-expanded="false" aria-label="Send something to the Ledger" title="Send something to the Ledger">+</button>
   <div id="ibx"></div>
+  <div id="auth"></div>
 </div>
 
 <script>
-// v28 static adapter: the artifact's document store, served from data/*.json in this repository.
-// Reads once per load (no-cache, so a new digest shows without a hard reload); every write is refused
-// except prefs/touch, which stays on this device (localStorage "ll.touch").
+// v28 data adapter: the artifact's document store, served from data/*.json in this repository.
+// Signed out (everyone): read-only, files fetched from the site; every write is refused except prefs/touch,
+// which stays on this device (localStorage "ll.touch").
+// Signed in (the owner, with a fine-grained GitHub token stored on this device under "ll.ghToken"):
+// files are read fresh from the GitHub API and every write becomes a commit on main. Writes are applied
+// on screen at once, batched for a few seconds, then committed in one commit; if a routine committed in
+// between, the batch is replayed on top of the new version. GitHub itself refuses anyone without push rights.
 (() => {
-  const FILES = {digests: "data/digests/all.json"};
-  const read = name => fetch(FILES[name] || ("data/" + name + ".json"), {cache: "no-cache"})
-    .then(r => r.ok ? r.json() : {}).catch(() => ({}));
-  const localTouch = () => { try { return JSON.parse(localStorage.getItem("ll.touch") || "null"); } catch { return null; } };
+  const OWNER = "TancredeA", REPO = "TancredeA/tancredea.github.io", BRANCH = "main", DIR = "ledger/data/";
+  const API = "https://api.github.com/repos/" + REPO;
+  const FILES = {digests: "digests/all.json"};
+  const fileOf = name => FILES[name] || (name + ".json");
+  const ls = {get(k){ try { return localStorage.getItem(k); } catch { return null; } },
+              set(k, v){ try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch {} }};
+  const token = ls.get("ll.ghToken");
+  const gh = (url, opt = {}) => fetch(url.startsWith("http") ? url : API + url, Object.assign({cache: "no-store"}, opt, {
+    headers: Object.assign({Authorization: "Bearer " + token, "X-GitHub-Api-Version": "2022-11-28", Accept: "application/vnd.github+json"}, opt.headers || {})}));
+  const ghJson = async (url, opt) => { const r = await gh(url, opt); if (!r.ok) throw Object.assign(new Error("GitHub " + r.status + " on " + url), {status: r.status}); return r.json(); };
+  const raw = async (path, ref) => { const r = await gh("/contents/" + DIR + path + "?ref=" + encodeURIComponent(ref || BRANCH), {headers: {Accept: "application/vnd.github.raw+json"}});
+    if (r.status === 404) return {}; if (!r.ok) throw Object.assign(new Error("GitHub " + r.status), {status: r.status}); return r.json(); };
+  const site = name => fetch("data/" + fileOf(name), {cache: "no-cache"}).then(r => r.ok ? r.json() : {}).catch(() => ({}));
+  const emitSync = detail => window.dispatchEvent(new CustomEvent("ll-sync", {detail}));
+  const localTouch = () => { try { return JSON.parse(ls.get("ll.touch") || "null"); } catch { return null; } };
   const refuse = path => Promise.reject(Object.assign(new Error("Read-only page: " + path + " can't be written here."), {code: "read_only"}));
+
+  let writable = false, login = "";
+  const auth = !token ? Promise.resolve() : Promise.race([
+    (async () => {
+      const u = await ghJson("https://api.github.com/user");
+      if (u.login !== OWNER) throw new Error("this token belongs to " + u.login + ", not " + OWNER);
+      await ghJson("");                                   // the token can see the repository
+      writable = true; login = u.login;
+    })(),
+    new Promise((_, no) => setTimeout(() => no(new Error("GitHub did not answer")), 8000)),
+  ]).catch(e => { emitSync({state: "auth-error", message: String(e.message || e)}); });
+
+  const state = {}, listeners = {};
+  const docsOf = name => Object.entries(state[name] || {}).map(([id, d]) => ({id, data: () => d}));
+  const emit = name => { for (const f of listeners[name] || []) f({docs: docsOf(name)}); };
+  async function load(name){
+    if (name === "prefs") return (t => t ? {touch: t} : {})(localTouch());
+    if (writable && name !== "digests") { try { return await raw(fileOf(name)); } catch (e) { /* fall back to the site */ } }
+    return site(name);
+  }
+
+  // ---------- writes (owner only): local first, then one commit per batch ----------
+  const pending = []; let timer = null, flushing = false, again = false;
+  const clone = o => JSON.parse(JSON.stringify(o));
+  function applyOp(obj, op){
+    if (op.kind === "set") obj[op.id] = clone(op.data);
+    else if (op.kind === "update") obj[op.id] = Object.assign(obj[op.id] || {}, clone(op.data));
+    else delete obj[op.id];
+  }
+  const serialize = obj => JSON.stringify(obj, null, 1) + "\n";      // same layout as the Python tools
+  function queue(op){
+    if (!state[op.col]) state[op.col] = {};
+    if (op.kind === "update" && !state[op.col][op.id]) return Promise.reject(Object.assign(new Error("No document " + op.col + "/" + op.id), {code: "not_found"}));
+    applyOp(state[op.col], op);
+    pending.push(op);
+    queueMicrotask(() => emit(op.col));
+    emitSync({state: "pending", count: pending.length});
+    clearTimeout(timer); timer = setTimeout(flush, 2500);
+    return Promise.resolve();
+  }
+  function describe(ops){
+    const names = [...new Set(ops.map(o => {
+      const d = o.data || {};
+      if (o.kind === "delete") return "remove " + o.id;
+      if (d.status) return o.id + " → " + d.status;
+      if (d.done) return o.id + " progress";
+      if ("bookmark" in d) return o.id + " bookmark";
+      return (o.kind === "set" ? "add " : "edit ") + o.id;
+    }))];
+    return "Ledger (page): " + (names.length > 3 ? names.slice(0, 3).join(", ") + " and " + (names.length - 3) + " more" : names.join(", "));
+  }
+  async function flush(){
+    clearTimeout(timer); timer = null;
+    if (!pending.length) return;
+    if (flushing) { again = true; return; }
+    flushing = true;
+    const ops = pending.splice(0);
+    emitSync({state: "saving", count: ops.length});
+    let lastErr = null;
+    for (let attempt = 0; attempt < 4; attempt++) {
+      try {
+        const ref = await ghJson("/git/ref/heads/" + BRANCH);
+        const head = ref.object.sha;
+        const commit = await ghJson("/git/commits/" + head);
+        const cols = [...new Set(ops.map(o => o.col))];
+        const tree = [];
+        for (const col of cols) {
+          const obj = await raw(fileOf(col), head);
+          ops.filter(o => o.col === col).forEach(o => { if (o.kind !== "update" || obj[o.id]) applyOp(obj, o); });
+          tree.push({path: DIR + fileOf(col), mode: "100644", type: "blob", content: serialize(obj)});
+          state[col] = obj;                               // what is on GitHub now, routines' changes included
+        }
+        const t = await ghJson("/git/trees", {method: "POST", body: JSON.stringify({base_tree: commit.tree.sha, tree})});
+        const c = await ghJson("/git/commits", {method: "POST", body: JSON.stringify({message: describe(ops), tree: t.sha, parents: [head]})});
+        const r = await gh("/git/refs/heads/" + BRANCH, {method: "PATCH", body: JSON.stringify({sha: c.sha, force: false})});
+        if (r.status === 422 || r.status === 409) { lastErr = new Error("main moved; retrying"); continue; }   // someone committed meanwhile
+        if (!r.ok) throw Object.assign(new Error("GitHub " + r.status + " when updating main"), {status: r.status});
+        for (const p of pending) applyOp(state[p.col] || (state[p.col] = {}), p);   // edits made while saving stay on screen
+        cols.forEach(emit);
+        lastErr = null;
+        emitSync({state: "saved", sha: c.sha.slice(0, 7), at: new Date().toISOString(), count: pending.length});
+        break;
+      } catch (e) {
+        lastErr = e;
+        if (e.status === 401 || e.status === 403 || e.status === 404) break;   // retrying will not help
+        await new Promise(res => setTimeout(res, 800 * (attempt + 1)));
+      }
+    }
+    if (lastErr) {
+      pending.unshift(...ops);                            // keep them; the next change or a click on the status retries
+      const why = lastErr.status === 401 ? "the token was refused (expired or revoked?)"
+                : lastErr.status === 403 || lastErr.status === 404 ? "the token can't write to the repository (needs Contents: read and write)"
+                : String(lastErr.message || lastErr);
+      emitSync({state: "error", message: why, count: pending.length});
+    }
+    flushing = false;
+    if (again) { again = false; flush(); }
+  }
+  document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden" && pending.length) flush(); });
+  window.addEventListener("beforeunload", e => { if (pending.length || flushing) { flush(); e.preventDefault(); e.returnValue = ""; } });
+
   const staticDb = {
+    get writable(){ return writable; }, get login(){ return login; },
+    flush,
     collection(name){
       return { onSnapshot(next, error){
-        const p = name === "prefs" ? Promise.resolve((t => t ? {touch: t} : {})(localTouch())) : read(name);
-        p.then(obj => next({docs: Object.entries(obj || {}).map(([id, d]) => ({id, data: () => d}))}))
-         .catch(e => { if (error) error(e); });
-        return () => {};
+        (listeners[name] = listeners[name] || []).push(next);
+        load(name).then(obj => { state[name] = obj || {}; next({docs: docsOf(name)}); }).catch(e => { if (error) error(e); });
+        return () => { listeners[name] = (listeners[name] || []).filter(f => f !== next); };
       } };
     },
     doc(path){
+      const [col, id] = path.split("/");
+      const local = col === "prefs" && id === "touch";
       return {
         set(obj){
-          if (path === "prefs/touch") { try { localStorage.setItem("ll.touch", JSON.stringify(obj)); } catch {} return Promise.resolve(); }
-          return refuse(path);
+          if (local) { ls.set("ll.touch", JSON.stringify(obj)); return Promise.resolve(); }
+          return writable ? queue({col, id, kind: "set", data: obj}) : refuse(path);
         },
-        update(){ return refuse(path); },
-        delete(){ return refuse(path); },
+        update(patch){ return writable && !local ? queue({col, id, kind: "update", data: patch}) : refuse(path); },
+        delete(){ return writable && !local ? queue({col, id, kind: "delete"}) : refuse(path); },
       };
     },
   };
-  window.claude = { use: async name => name === "db" ? staticDb : undefined };
+  window.claude = { use: async name => { if (name !== "db") return undefined; await auth; return staticDb; } };
+  window.llAuth = {
+    owner: OWNER, repo: REPO, signedIn: () => !!token,
+    async check(t){
+      const h = {Authorization: "Bearer " + t, Accept: "application/vnd.github+json"};
+      const u = await fetch("https://api.github.com/user", {headers: h, cache: "no-store"});
+      if (u.status === 401) throw new Error("GitHub refused this token.");
+      if (!u.ok) throw new Error("GitHub answered " + u.status + ".");
+      const who = (await u.json()).login;
+      if (who !== OWNER) throw new Error("This token belongs to " + who + ", not " + OWNER + ".");
+      const r = await fetch(API, {headers: h, cache: "no-store"});
+      if (!r.ok) throw new Error("This token can't see " + REPO + ": give it access to that repository.");
+      return who;
+    },
+    signIn(t){ ls.set("ll.ghToken", t); },
+    signOut(){ ls.set("ll.ghToken", null); },
+  };
 })();
 </script>
 <script>
 (() => {
-const RO = true;                                   // v28: the page is a read-only showcase; writes go through the inbox (+)
+let RO = true;                                     // v28: read-only for everyone; the owner signed in with GitHub can edit
 const STATUS = {todo:"To do", reading:"In progress", skimmed:"Quick pass", done:"Done"};
 const STATUS_ORDER = ["reading","todo","skimmed","done"];
 const IDEA_STATUS = {open:"Open", exploring:"Exploring", tracked:"Has a track", parked:"Parked"};
@@ -2219,7 +2362,7 @@ function renderInbox(){
       <label>Status<select id="ibx-status">${opt("", r.status||"", "—")}${Object.values(FORM_STATUS).map(v=>opt(v, r.status)).join("")}</select></label>
       <label>Note<textarea id="ibx-note" rows="3" placeholder="why, what's in it, anything the routine should know">${esc(r.note||"")}</textarea></label>
       <div class="asst-btns"><button class="btn primary" type="button" data-ibx="send">Open on GitHub →</button></div>
-      <p class="ibx-foot">Opens a pre-filled issue in a new tab: press <b>Submit</b> there. Only issues opened by the repository owner are read. The inbox routine files them at 6:30 (Tokyo) and says what it did under “Filed this morning” in the Library.</p>
+      <p class="ibx-foot">Opens a pre-filled issue in a new tab: press <b>Submit</b> there. Only issues opened by the repository owner are read. The inbox routine files them every morning and says what it did under “Filed this morning” in the Library.</p>
     </form></section>
   </aside>`;
   setTimeout(()=>{ const f = $(r.target ? "#ibx-note" : "#ibx-link"); if(f) f.focus(); }, 30);
@@ -2267,6 +2410,69 @@ function renderFiled(){
   </section>`;
 }
 
+// ================= OWNER SIGN-IN — a GitHub token on this device unlocks editing =================
+const HINT_RO = `This page is read-only. Press <b>+</b> (bottom right), or a shortcut on any card, to send a source or a change: it opens a pre-filled issue on GitHub, and the inbox routine files it every morning. For anything else, ask in chat. In Concepts, <code>j</code> and <code>k</code> move between concepts. <button class="linkish" data-auth="open">Owner sign-in</button>`;
+const HINT_OWNER = `Signed in with GitHub: change a status with its pill, tick steps, move the 🔖 — each change is committed to the repository a few seconds later. <b>+</b> still sends anything that needs research to the inbox. For anything else, ask in chat. In Concepts, <code>j</code> and <code>k</code> move between concepts.`;
+const TOKEN_URL = "https://github.com/settings/personal-access-tokens/new?name=Learning%20Ledger&description=Edit%20the%20Learning%20Ledger%20page&target_name=TancredeA&expires_in=365&contents=write";
+let authOpen = false, syncState = {state:"idle"};
+function renderOwner(){
+  const el = $("#owner");
+  if(el){
+    if(RO){ el.hidden = true; el.innerHTML = ""; }
+    else {
+      const st = syncState.state, txt = st==="pending"||st==="saving" ? "saving…" : st==="error" ? "not saved" : st==="saved" ? "saved" : "editing";
+      el.hidden = false;
+      el.innerHTML = `<button class="ownerchip ${esc(st)}" data-auth="open" title="${esc(st==="error" ? syncState.message : "Signed in with GitHub: changes are committed to the repository")}">✎ ${esc((db&&db.login)||"owner")} · ${esc(txt)}</button>`;
+    }
+  }
+  const h = $("#hint"); if(h) h.innerHTML = RO ? HINT_RO : HINT_OWNER;
+}
+function renderAuth(){
+  const el = $("#auth"); if(!el) return;
+  if(!authOpen){ el.innerHTML = ""; return; }
+  const A = window.llAuth || {};
+  el.innerHTML = `<div class="drawer-bg" data-auth="close"></div>
+  <aside class="drawer" aria-label="Owner sign-in">
+    <div class="drawer-head"><h3>${RO ? "Owner sign-in" : "Signed in"}</h3><button class="btn ghost" data-auth="close" aria-label="Close">✕</button></div>
+    <section class="zone">${!RO ? `
+      <p class="ibx-foot">Signed in on this device as <b>${esc(db.login)}</b>. Every change is committed to ${esc(A.repo||"")}, a few seconds after you make it.</p>
+      ${syncState.state==="error" ? `<p class="clar">Last save failed: ${esc(syncState.message)}.</p><div class="asst-btns"><button class="btn primary" data-auth="retry">Retry now</button></div>` : ""}
+      ${syncState.state==="saved" ? `<p class="ibx-foot">Last commit: ${esc(syncState.sha)}.</p>` : ""}
+      <div class="asst-btns"><button class="btn" data-auth="signout">Sign out on this device</button></div>`
+    : `<p class="ibx-foot">Everyone else sees this page read-only. To edit from this device, paste a GitHub token that can write to this repository: GitHub refuses any write from an account without push rights.</p>
+      <ol class="authsteps">
+        <li><a href="${TOKEN_URL}" target="_blank" rel="noopener">Create a fine-grained token</a> (GitHub → Settings → Developer settings → Fine-grained tokens).</li>
+        <li>Repository access: <b>Only select repositories</b> → <b>tancredea.github.io</b>.</li>
+        <li>Permissions → Repositories → <b>Contents: Read and write</b>. Nothing else.</li>
+        <li>Generate it, copy it, paste it here.</li>
+      </ol>
+      <form class="ibx-form" id="auth-form">
+        <label>Token<input id="auth-token" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_…"></label>
+        <div class="asst-btns"><button class="btn primary" type="submit">Sign in</button><span class="msg" id="auth-msg"></span></div>
+      </form>
+      <p class="ibx-foot">The token stays in this browser only, never in the repository. Sign out here to remove it, and revoke it on GitHub if a device is lost.</p>`}
+    </section>
+  </aside>`;
+  setTimeout(()=>{ const f = $("#auth-token"); if(f) f.focus(); }, 30);
+}
+window.addEventListener("ll-sync", e=>{
+  const d = e.detail || {};
+  if(d.state==="auth-error"){ banner("GitHub sign-in failed ("+d.message+"): this device stays read-only. Sign in again from the link at the bottom of the page."); return; }
+  syncState = d;
+  if(d.state==="error") banner("Not saved to GitHub: "+d.message+". Your change is kept on this page until it saves; open ✎ at the top to retry.");
+  else if(d.state==="saved" && $("#banner").textContent.startsWith("Not saved")) banner("");
+  renderOwner(); if(authOpen) renderAuth();
+});
+document.addEventListener("submit", async e=>{
+  if(e.target.id!=="auth-form") return;
+  e.preventDefault();
+  const t = ($("#auth-token").value||"").trim(), msg = $("#auth-msg");
+  if(!t) return;
+  msg.textContent = "Checking with GitHub…";
+  try{ await window.llAuth.check(t); window.llAuth.signIn(t); msg.textContent = "Signed in — reloading…"; location.reload(); }
+  catch(err){ msg.textContent = String(err.message||err); }
+});
+
 function banner(msg){const b=$("#banner"); b.textContent=msg||""; b.hidden=!msg;}
 
 // events
@@ -2274,7 +2480,7 @@ document.querySelector("nav.tabs").addEventListener("click", e=>{
   const b = e.target.closest("button[data-view]"); if(!b) return;
   delete seenSnap[b.dataset.view]; delete seenSigSnap[b.dataset.view]; view = b.dataset.view; store.set("ll.view",view); render();
 });
-document.addEventListener("keydown", e=>{ if(e.key==="Escape" && ibxOpen){ ibxOpen=false; renderInbox(); } });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape" && ibxOpen){ ibxOpen=false; renderInbox(); } if(e.key==="Escape" && authOpen){ authOpen=false; renderAuth(); } });
 document.addEventListener("input", e=>{ if(e.target.id==="arch-q"){ archQ = e.target.value; renderArchiveView(); } });
 document.addEventListener("change", e=>{
   if(e.target.id==="arch-cat"){ archCat = e.target.value; renderArchiveView(); }
@@ -2445,6 +2651,11 @@ document.addEventListener("click", async e=>{
   else if(t.closest && t.closest("[data-ibx]")){ const a = t.closest("[data-ibx]").dataset.ibx;
     if(a==="close"){ ibxOpen=false; renderInbox(); }
     else if(a==="send"){ sendInbox(); } }
+  else if(t.closest && t.closest("[data-auth]")){ const a = t.closest("[data-auth]").dataset.auth;
+    if(a==="open"){ authOpen = true; renderAuth(); }
+    else if(a==="close"){ authOpen = false; renderAuth(); }
+    else if(a==="retry"){ if(db && db.flush) db.flush(); }
+    else if(a==="signout"){ window.llAuth.signOut(); location.reload(); } }
   else if(t.dataset.filedack){ store.set("ll.inboxSeen", t.dataset.filedack); render(); }
   else if(t.dataset.gofiled){ libMode = "sources"; store.set("ll.libMode",libMode); view = "library"; store.set("ll.view",view); render(); window.scrollTo({top:0}); }
   else if(t.dataset.ask){ openRemove.add(t.dataset.ask); render(); }
@@ -2512,12 +2723,13 @@ $("#form-idea").addEventListener("submit", async e=>{
   }catch(err){ msg.textContent = "Couldn't save it ("+(err.code||"error")+")."; }
 });
 
-render();
+render(); renderOwner();
 
 (async () => {
   fetch("data/inbox-log.json", {cache:"no-cache"}).then(r=>r.ok?r.json():null).then(j=>{ if(j){ inboxLog = j; render(); } }).catch(()=>{});
   db = await window.claude?.use?.("db");
   if(!db){ banner("Your ledger's saved data can't be loaded in this view. Open the published page to see it."); return; }
+  RO = !db.writable; $("#add-idea").hidden = RO; renderOwner(); render();
   db.collection("items").onSnapshot(s=>{ loadedCols.add("items"); items = s.docs.map(d=>({id:d.id, ...d.data()})); render(); },
     err=>banner("Live updates stopped ("+err.code+"). Reload the page."));
   db.collection("programmes").onSnapshot(s=>{ loadedCols.add("programmes"); programmes = s.docs.map(d=>({id:d.id, ...d.data()})); render(); },
