@@ -9789,7 +9789,7 @@
  "shap-odyssey-03": {
   "addedAt": "2026-11-25T03:59:40Z",
   "agentUpdatedAt": "2026-11-25T09:30:00Z",
-  "by": "inbox",
+  "by": "page",
   "author": "Conor O'Sullivan (A Data Odyssey)",
   "core": true,
   "difficulty": {
@@ -9804,8 +9804,8 @@
   "links": [],
   "note": "The mathematics behind Shapley values, from game theory to the SHAP formulation.",
   "prereq": "the first two videos of the playlist",
-  "status": "reading",
-  "statusChangedAt": "2026-11-25T04:04:52.321Z",
+  "status": "done",
+  "statusChangedAt": "2026-11-25T06:42:12.924Z",
   "tags": [
    "SHAP",
    "Shapley values",
@@ -9819,7 +9819,9 @@
   "trackId": "",
   "url": "https://www.youtube.com/watch?v=UJeu29wq7d0",
   "year": 2024,
-  "bookUnit": "shap-p2"
+  "bookUnit": "shap-p2",
+  "fromUnit": "shap-p2",
+  "fromLesson": 0
  },
  "shap-odyssey-04": {
   "addedAt": "2026-11-25T03:59:40Z",
