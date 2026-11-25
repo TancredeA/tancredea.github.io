@@ -8896,5 +8896,1243 @@
   "trackId": "",
   "url": "https://arxiv.org/abs/2302.09019",
   "year": 2023
+ },
+ "cs229-2018-01": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Andrew Ng (Stanford Online)",
+  "core": false,
+  "difficulty": {
+   "_": 2,
+   "theme:proba-inference": 2,
+   "theme:optimization": 2,
+   "theme:dl-fondamentaux": 2,
+   "theme:reinforcement-learning": 2,
+   "track:cs229-2018": 2
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 1,
+  "links": [],
+  "note": "Course overview, then the supervised-learning setup and the first learning algorithm.",
+  "num": 1,
+  "prereq": "none beyond basic linear algebra and probability",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Stanford CS229: Machine Learning Lecture 1 - Andrew Ng (Autumn 2018)",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=jGwO_UgTS7I",
+  "year": 2018
+ },
+ "cs229-2018-02": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Andrew Ng (Stanford Online)",
+  "core": false,
+  "difficulty": {
+   "_": 2,
+   "theme:proba-inference": 2,
+   "theme:optimization": 2,
+   "theme:dl-fondamentaux": 2,
+   "theme:reinforcement-learning": 2,
+   "track:cs229-2018": 2
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 1,
+  "links": [],
+  "note": "Linear regression, the normal equations and gradient descent (batch and stochastic).",
+  "num": 2,
+  "prereq": "Lectures 1 to 1 of this course",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Stanford CS229: Machine Learning - Linear Regression and Gradient Descent |  Lecture 2 (Autumn 2018)",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=4b4MUYve_U8",
+  "year": 2018
+ },
+ "cs229-2018-03": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Andrew Ng (Stanford Online)",
+  "core": false,
+  "difficulty": {
+   "_": 2,
+   "theme:proba-inference": 2,
+   "theme:optimization": 2,
+   "theme:dl-fondamentaux": 2,
+   "theme:reinforcement-learning": 2,
+   "track:cs229-2018": 2
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 1,
+  "links": [],
+  "note": "Locally weighted regression, the probabilistic view of least squares, and logistic regression.",
+  "num": 3,
+  "prereq": "Lectures 1 to 2 of this course",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Locally Weighted & Logistic Regression | Stanford CS229: Machine Learning - Lecture 3 (Autumn 2018)",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=het9HFqo1TQ",
+  "year": 2018
+ },
+ "cs229-2018-04": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Andrew Ng (Stanford Online)",
+  "core": false,
+  "difficulty": {
+   "_": 2,
+   "theme:proba-inference": 2,
+   "theme:optimization": 2,
+   "theme:dl-fondamentaux": 2,
+   "theme:reinforcement-learning": 2,
+   "track:cs229-2018": 2
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 1,
+  "links": [],
+  "note": "The perceptron and the exponential family, leading to generalized linear models.",
+  "num": 4,
+  "prereq": "Lectures 1 to 3 of this course",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Lecture 4 - Perceptron & Generalized Linear Model | Stanford CS229: Machine Learning (Autumn 2018)",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=iZTeva0WSTQ",
+  "year": 2018
+ },
+ "cs229-2018-05": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Andrew Ng (Stanford Online)",
+  "core": false,
+  "difficulty": {
+   "_": 2,
+   "theme:proba-inference": 2,
+   "theme:optimization": 2,
+   "theme:dl-fondamentaux": 2,
+   "theme:reinforcement-learning": 2,
+   "track:cs229-2018": 2
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 1,
+  "links": [],
+  "note": "Generative learning: Gaussian discriminant analysis and Naive Bayes, compared with discriminative models.",
+  "num": 5,
+  "prereq": "Lectures 1 to 4 of this course",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Lecture 5 - GDA & Naive Bayes | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=nt63k3bfXS0",
+  "year": 2018
+ },
+ "cs229-2018-06": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Andrew Ng (Stanford Online)",
+  "core": false,
+  "difficulty": {
+   "_": 3,
+   "theme:proba-inference": 3,
+   "theme:optimization": 3,
+   "theme:dl-fondamentaux": 3,
+   "theme:reinforcement-learning": 3,
+   "track:cs229-2018": 3
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 2,
+  "links": [],
+  "note": "The maximum-margin classifier and support vector machines.",
+  "num": 6,
+  "prereq": "Lectures 1 to 5 of this course",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Lecture 6 - Support Vector Machines | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=lDwow4aOrtg",
+  "year": 2018
+ },
+ "cs229-2018-07": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Andrew Ng (Stanford Online)",
+  "core": false,
+  "difficulty": {
+   "_": 3,
+   "theme:proba-inference": 3,
+   "theme:optimization": 3,
+   "theme:dl-fondamentaux": 3,
+   "theme:reinforcement-learning": 3,
+   "track:cs229-2018": 3
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 2,
+  "links": [],
+  "note": "The kernel trick and how it extends SVMs to non-linear problems.",
+  "num": 7,
+  "prereq": "Lectures 1 to 6 of this course",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Lecture 7 - Kernels | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=8NYoQiRANpg",
+  "year": 2018
+ },
+ "cs229-2018-08": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Andrew Ng (Stanford Online)",
+  "core": false,
+  "difficulty": {
+   "_": 3,
+   "theme:proba-inference": 3,
+   "theme:optimization": 3,
+   "theme:dl-fondamentaux": 3,
+   "theme:reinforcement-learning": 3,
+   "track:cs229-2018": 3
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 2,
+  "links": [],
+  "note": "Bias-variance, train/validation/test splits, regularisation and cross-validation.",
+  "num": 8,
+  "prereq": "Lectures 1 to 7 of this course",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Lecture 8 - Data Splits, Models & Cross-Validation | Stanford CS229: Machine Learning (Autumn 2018)",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=rjbkWSTjHzM",
+  "year": 2018
+ },
+ "cs229-2018-09": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Stanford CS229 teaching team",
+  "core": false,
+  "difficulty": {
+   "_": 3,
+   "theme:proba-inference": 3,
+   "theme:optimization": 3,
+   "theme:dl-fondamentaux": 3,
+   "theme:reinforcement-learning": 3,
+   "track:cs229-2018": 3
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 2,
+  "links": [],
+  "note": "A discussion section on learning theory: generalisation bounds and sample complexity.",
+  "num": 9,
+  "prereq": "Lectures 1 to 8 of this course",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Discussion Section: Learning Theory | Stanford CS229: Machine Learning (Autumn 2018)",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=iVOxMcumR4A",
+  "year": 2018
+ },
+ "cs229-2018-10": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Andrew Ng (Stanford Online)",
+  "core": false,
+  "difficulty": {
+   "_": 3,
+   "theme:proba-inference": 3,
+   "theme:optimization": 3,
+   "theme:dl-fondamentaux": 3,
+   "theme:reinforcement-learning": 3,
+   "track:cs229-2018": 3
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 2,
+  "links": [],
+  "note": "Decision trees, bagging, random forests and boosting.",
+  "num": 10,
+  "prereq": "Lectures 1 to 9 of this course",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Lecture 9 - Decision Trees and Ensemble Methods | Stanford CS229: Machine Learning (Autumn 2018)",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=wr9gUr-eWdA",
+  "year": 2018
+ },
+ "cs229-2018-11": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Andrew Ng (Stanford Online)",
+  "core": false,
+  "difficulty": {
+   "_": 3,
+   "theme:proba-inference": 3,
+   "theme:optimization": 3,
+   "theme:dl-fondamentaux": 3,
+   "theme:reinforcement-learning": 3,
+   "track:cs229-2018": 3
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 3,
+  "links": [],
+  "note": "Introduction to neural networks: layers, activations and the forward pass.",
+  "num": 11,
+  "prereq": "Lectures 1 to 10 of this course",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Lecture 10 - Introduction to Neural Networks | Stanford CS229: Machine Learning (Autumn 2018)",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=MfIjxPh6Pys",
+  "year": 2018
+ },
+ "cs229-2018-12": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Andrew Ng (Stanford Online)",
+  "core": false,
+  "difficulty": {
+   "_": 3,
+   "theme:proba-inference": 3,
+   "theme:optimization": 3,
+   "theme:dl-fondamentaux": 3,
+   "theme:reinforcement-learning": 3,
+   "track:cs229-2018": 3
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 3,
+  "links": [],
+  "note": "Backpropagation and practical ways to improve neural-network training.",
+  "num": 12,
+  "prereq": "Lectures 1 to 11 of this course",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Lecture 11 - Backprop & Improving Neural Networks | Stanford CS229: Machine Learning (Autumn 2018)",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=zUazLXZZA2U",
+  "year": 2018
+ },
+ "cs229-2018-13": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Andrew Ng (Stanford Online)",
+  "core": false,
+  "difficulty": {
+   "_": 3,
+   "theme:proba-inference": 3,
+   "theme:optimization": 3,
+   "theme:dl-fondamentaux": 3,
+   "theme:reinforcement-learning": 3,
+   "track:cs229-2018": 3
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 3,
+  "links": [],
+  "note": "Debugging ML models: error analysis, ablations and bias/variance diagnostics.",
+  "num": 13,
+  "prereq": "Lectures 1 to 12 of this course",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Lecture 12 - Debugging ML Models and Error Analysis | Stanford CS229: Machine Learning (Autumn 2018)",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=ORrStCArmP4",
+  "year": 2018
+ },
+ "cs229-2018-14": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Andrew Ng (Stanford Online)",
+  "core": false,
+  "difficulty": {
+   "_": 3,
+   "theme:proba-inference": 3,
+   "theme:optimization": 3,
+   "theme:dl-fondamentaux": 3,
+   "theme:reinforcement-learning": 3,
+   "track:cs229-2018": 3
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 4,
+  "links": [],
+  "note": "Mixtures of Gaussians and the expectation-maximisation algorithm.",
+  "num": 14,
+  "prereq": "Lectures 1 to 13 of this course",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Lecture 13 - Expectation-Maximization Algorithms | Stanford CS229: Machine Learning (Autumn 2018)",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=rVfZHWTwXSA",
+  "year": 2018
+ },
+ "cs229-2018-15": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Andrew Ng (Stanford Online)",
+  "core": false,
+  "difficulty": {
+   "_": 3,
+   "theme:proba-inference": 3,
+   "theme:optimization": 3,
+   "theme:dl-fondamentaux": 3,
+   "theme:reinforcement-learning": 3,
+   "track:cs229-2018": 3
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 4,
+  "links": [],
+  "note": "The EM algorithm continued, with factor analysis.",
+  "num": 15,
+  "prereq": "Lectures 1 to 14 of this course",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Lecture 14 - EM Algorithm & Factor Analysis | Stanford CS229: Machine Learning Andrew Ng -Autumn2018",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=tw6cmL5STuY",
+  "year": 2018
+ },
+ "cs229-2018-16": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Andrew Ng (Stanford Online)",
+  "core": false,
+  "difficulty": {
+   "_": 3,
+   "theme:proba-inference": 3,
+   "theme:optimization": 3,
+   "theme:dl-fondamentaux": 3,
+   "theme:reinforcement-learning": 3,
+   "track:cs229-2018": 3
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 4,
+  "links": [],
+  "note": "Principal component analysis and independent component analysis.",
+  "num": 16,
+  "prereq": "Lectures 1 to 15 of this course",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Lecture 15 - PCA and ICA | Stanford CS229: Machine Learning Andrew Ng - Autumn 2018",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=dyb_cFywuik",
+  "year": 2018
+ },
+ "cs229-2018-17": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Andrew Ng (Stanford Online)",
+  "core": false,
+  "difficulty": {
+   "_": 3,
+   "theme:proba-inference": 3,
+   "theme:optimization": 3,
+   "theme:dl-fondamentaux": 3,
+   "theme:reinforcement-learning": 3,
+   "track:cs229-2018": 3
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 4,
+  "links": [],
+  "note": "Independent component analysis finished, then the start of reinforcement learning.",
+  "num": 17,
+  "prereq": "Lectures 1 to 16 of this course",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Lecture 16 - Independent Component Analysis & RL | Stanford CS229: Machine Learning (Autumn 2018)",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=YQA9lLdLig8",
+  "year": 2018
+ },
+ "cs229-2018-18": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Andrew Ng (Stanford Online)",
+  "core": false,
+  "difficulty": {
+   "_": 3,
+   "theme:proba-inference": 3,
+   "theme:optimization": 3,
+   "theme:dl-fondamentaux": 3,
+   "theme:reinforcement-learning": 3,
+   "track:cs229-2018": 3
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 5,
+  "links": [],
+  "note": "Markov decision processes, value iteration and policy iteration.",
+  "num": 18,
+  "prereq": "Lectures 1 to 17 of this course",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Lecture 17 - MDPs & Value/Policy Iteration | Stanford CS229: Machine Learning Andrew Ng (Autumn2018)",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=d5gaWTo6kDM",
+  "year": 2018
+ },
+ "cs229-2018-19": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Andrew Ng (Stanford Online)",
+  "core": false,
+  "difficulty": {
+   "_": 3,
+   "theme:proba-inference": 3,
+   "theme:optimization": 3,
+   "theme:dl-fondamentaux": 3,
+   "theme:reinforcement-learning": 3,
+   "track:cs229-2018": 3
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 5,
+  "links": [],
+  "note": "Continuous-state MDPs, discretisation and model simulation.",
+  "num": 19,
+  "prereq": "Lectures 1 to 18 of this course",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=QFu5nuc-S0s",
+  "year": 2018
+ },
+ "cs229-2018-20": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Andrew Ng (Stanford Online)",
+  "core": false,
+  "difficulty": {
+   "_": 3,
+   "theme:proba-inference": 3,
+   "theme:optimization": 3,
+   "theme:dl-fondamentaux": 3,
+   "theme:reinforcement-learning": 3,
+   "track:cs229-2018": 3
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 5,
+  "links": [],
+  "note": "Reward models and linear dynamical systems (LQR-style control).",
+  "num": 20,
+  "prereq": "Lectures 1 to 19 of this course",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Lecture 19 - Reward Model & Linear Dynamical System | Stanford CS229: Machine Learning (Autumn 2018)",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=0rt2CsEQv6U",
+  "year": 2018
+ },
+ "cs229-2018-21": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Andrew Ng (Stanford Online)",
+  "core": false,
+  "difficulty": {
+   "_": 3,
+   "theme:proba-inference": 3,
+   "theme:optimization": 3,
+   "theme:dl-fondamentaux": 3,
+   "theme:reinforcement-learning": 3,
+   "track:cs229-2018": 3
+  },
+  "format": "video",
+  "ideaId": "cs229-2018",
+  "kind": "source",
+  "lang": "en",
+  "level": 5,
+  "links": [],
+  "note": "Diagnosing and debugging reinforcement-learning systems, closing the course.",
+  "num": 21,
+  "prereq": "Lectures 1 to 20 of this course",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "CS229",
+   "Stanford",
+   "lecture"
+  ],
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "RL Debugging and Diagnostics | Stanford CS229: Machine Learning Andrew Ng - Lecture 20 (Autumn 2018)",
+  "trackId": "cs229-2018",
+  "url": "https://www.youtube.com/watch?v=pLhPQynL0tY",
+  "year": 2018
+ },
+ "cs229-2018": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "kind": "idea",
+  "links": [
+   {
+    "label": "YouTube playlist",
+    "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU"
+   }
+  ],
+  "note": "The full Stanford CS229 lecture series (2018) as a track to follow lecture by lecture. Created from inbox issue #1.",
+  "priority": "medium",
+  "status": "tracked",
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Stanford CS229: Machine Learning (Autumn 2018)",
+  "trackId": "cs229-2018"
+ },
+ "shap-odyssey-01": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Conor O'Sullivan (A Data Odyssey)",
+  "core": false,
+  "difficulty": {
+   "_": 1,
+   "theme:interpretability": 1,
+   "theme:gradient-boosting": 1,
+   "track:shap-odyssey": 1
+  },
+  "format": "video",
+  "ideaId": "shap-odyssey",
+  "kind": "source",
+  "lang": "en",
+  "level": 1,
+  "links": [],
+  "note": "The intuition behind SHAP values and what they mean for a model's predictions, with applications.",
+  "num": 1,
+  "prereq": "none beyond basic machine-learning vocabulary",
+  "status": "reading",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "SHAP",
+   "Shapley values",
+   "explainability"
+  ],
+  "themes": [
+   "interpretability",
+   "gradient-boosting"
+  ],
+  "title": "SHAP values for beginners | What they mean and their applications",
+  "trackId": "shap-odyssey",
+  "url": "https://www.youtube.com/watch?v=MQ6fFDwjuco",
+  "year": 2024
+ },
+ "shap-odyssey-02": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Conor O'Sullivan (A Data Odyssey)",
+  "core": false,
+  "difficulty": {
+   "_": 1,
+   "theme:interpretability": 1,
+   "theme:gradient-boosting": 1,
+   "track:shap-odyssey": 1
+  },
+  "format": "video",
+  "ideaId": "shap-odyssey",
+  "kind": "source",
+  "lang": "en",
+  "level": 1,
+  "links": [],
+  "note": "Hands-on SHAP in Python: computing and plotting explanations with the shap library.",
+  "num": 2,
+  "prereq": "Python and basic scikit-learn",
+  "status": "reading",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "SHAP",
+   "Shapley values",
+   "explainability"
+  ],
+  "themes": [
+   "interpretability",
+   "gradient-boosting"
+  ],
+  "title": "SHAP with Python (Code and Explanations)",
+  "trackId": "shap-odyssey",
+  "url": "https://www.youtube.com/watch?v=L8_sVRhBDLU",
+  "year": 2024
+ },
+ "shap-odyssey-03": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Conor O'Sullivan (A Data Odyssey)",
+  "core": false,
+  "difficulty": {
+   "_": 2,
+   "theme:interpretability": 2,
+   "theme:gradient-boosting": 2,
+   "track:shap-odyssey": 2
+  },
+  "format": "video",
+  "ideaId": "shap-odyssey",
+  "kind": "source",
+  "lang": "en",
+  "level": 2,
+  "links": [],
+  "note": "The mathematics behind Shapley values, from game theory to the SHAP formulation.",
+  "num": 3,
+  "prereq": "the first two videos of the playlist",
+  "status": "reading",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "SHAP",
+   "Shapley values",
+   "explainability"
+  ],
+  "themes": [
+   "interpretability",
+   "gradient-boosting"
+  ],
+  "title": "The mathematics behind Shapley Values",
+  "trackId": "shap-odyssey",
+  "url": "https://www.youtube.com/watch?v=UJeu29wq7d0",
+  "year": 2024
+ },
+ "shap-odyssey-04": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Conor O'Sullivan (A Data Odyssey)",
+  "core": false,
+  "difficulty": {
+   "_": 2,
+   "theme:interpretability": 2,
+   "theme:gradient-boosting": 2,
+   "track:shap-odyssey": 2
+  },
+  "format": "video",
+  "ideaId": "shap-odyssey",
+  "kind": "source",
+  "lang": "en",
+  "level": 2,
+  "links": [],
+  "note": "How Shapley values are applied to explain machine-learning models.",
+  "num": 4,
+  "prereq": "the first two videos of the playlist",
+  "status": "reading",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "SHAP",
+   "Shapley values",
+   "explainability"
+  ],
+  "themes": [
+   "interpretability",
+   "gradient-boosting"
+  ],
+  "title": "Shapley Values for Machine Learning",
+  "trackId": "shap-odyssey",
+  "url": "https://www.youtube.com/watch?v=b9qqbFudVhI",
+  "year": 2024
+ },
+ "shap-odyssey-05": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Conor O'Sullivan (A Data Odyssey)",
+  "core": false,
+  "difficulty": {
+   "_": 2,
+   "theme:interpretability": 2,
+   "theme:gradient-boosting": 2,
+   "track:shap-odyssey": 2
+  },
+  "format": "video",
+  "ideaId": "shap-odyssey",
+  "kind": "source",
+  "lang": "en",
+  "level": 2,
+  "links": [],
+  "note": "Four significant limitations of SHAP and when its explanations can mislead.",
+  "num": 5,
+  "prereq": "the first two videos of the playlist",
+  "status": "reading",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "SHAP",
+   "Shapley values",
+   "explainability"
+  ],
+  "themes": [
+   "interpretability",
+   "gradient-boosting"
+  ],
+  "title": "4 Significant Limitations of SHAP",
+  "trackId": "shap-odyssey",
+  "url": "https://www.youtube.com/watch?v=zIbQgYxRBUc",
+  "year": 2024
+ },
+ "shap-odyssey-06": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Conor O'Sullivan (A Data Odyssey)",
+  "core": false,
+  "difficulty": {
+   "_": 2,
+   "theme:interpretability": 2,
+   "theme:gradient-boosting": 2,
+   "track:shap-odyssey": 2
+  },
+  "format": "video",
+  "ideaId": "shap-odyssey",
+  "kind": "source",
+  "lang": "en",
+  "level": 3,
+  "links": [],
+  "note": "Violin and heatmap SHAP plots and the extra insights they give.",
+  "num": 6,
+  "prereq": "the first two videos of the playlist",
+  "status": "reading",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "SHAP",
+   "Shapley values",
+   "explainability"
+  ],
+  "themes": [
+   "interpretability",
+   "gradient-boosting"
+  ],
+  "title": "SHAP Violin and Heatmap Plots | Interpretations and New Insights",
+  "trackId": "shap-odyssey",
+  "url": "https://www.youtube.com/watch?v=efb4vgL-bTE",
+  "year": 2024
+ },
+ "shap-odyssey-07": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Conor O'Sullivan (A Data Odyssey)",
+  "core": false,
+  "difficulty": {
+   "_": 2,
+   "theme:interpretability": 2,
+   "theme:gradient-boosting": 2,
+   "track:shap-odyssey": 2
+  },
+  "format": "video",
+  "ideaId": "shap-odyssey",
+  "kind": "source",
+  "lang": "en",
+  "level": 3,
+  "links": [],
+  "note": "SHAP for binary and multiclass targets, with code for classification problems.",
+  "num": 7,
+  "prereq": "the first two videos of the playlist",
+  "status": "reading",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "SHAP",
+   "Shapley values",
+   "explainability"
+  ],
+  "themes": [
+   "interpretability",
+   "gradient-boosting"
+  ],
+  "title": "SHAP for Binary and Multiclass Target Variables | Code and Explanations for Classification Problems",
+  "trackId": "shap-odyssey",
+  "url": "https://www.youtube.com/watch?v=2xlgOu22YgE",
+  "year": 2024
+ },
+ "shap-odyssey-08": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Conor O'Sullivan (A Data Odyssey)",
+  "core": false,
+  "difficulty": {
+   "_": 2,
+   "theme:interpretability": 2,
+   "theme:gradient-boosting": 2,
+   "track:shap-odyssey": 2
+  },
+  "format": "video",
+  "ideaId": "shap-odyssey",
+  "kind": "source",
+  "lang": "en",
+  "level": 3,
+  "links": [],
+  "note": "Using SHAP with CatBoost on categorical features.",
+  "num": 8,
+  "prereq": "the first two videos of the playlist",
+  "status": "reading",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "SHAP",
+   "Shapley values",
+   "explainability"
+  ],
+  "themes": [
+   "interpretability",
+   "gradient-boosting"
+  ],
+  "title": "SHAP with CatBoostClassifier for Categorical Features | Python Tutorial",
+  "trackId": "shap-odyssey",
+  "url": "https://www.youtube.com/watch?v=8G95bCyRak0",
+  "year": 2024
+ },
+ "shap-odyssey-09": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "author": "Conor O'Sullivan (A Data Odyssey)",
+  "core": false,
+  "difficulty": {
+   "_": 2,
+   "theme:interpretability": 2,
+   "theme:gradient-boosting": 2,
+   "track:shap-odyssey": 2
+  },
+  "format": "video",
+  "ideaId": "shap-odyssey",
+  "kind": "source",
+  "lang": "en",
+  "level": 3,
+  "links": [],
+  "note": "Explaining anomaly scores from an Isolation Forest with SHAP.",
+  "num": 9,
+  "prereq": "the first two videos of the playlist",
+  "status": "reading",
+  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "tags": [
+   "SHAP",
+   "Shapley values",
+   "explainability"
+  ],
+  "themes": [
+   "interpretability",
+   "gradient-boosting"
+  ],
+  "title": "Explaining Anomalies with Isolation Forest and SHAP | Python Tutorial",
+  "trackId": "shap-odyssey",
+  "url": "https://www.youtube.com/watch?v=ucgR0E_LXCk",
+  "year": 2024
+ },
+ "shap-odyssey": {
+  "addedAt": "2026-11-25T03:59:40Z",
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "kind": "idea",
+  "links": [
+   {
+    "label": "YouTube playlist",
+    "url": "https://www.youtube.com/playlist?list=PLqDyyww9y-1SJgMw92x90qPYpHgahDLIK"
+   }
+  ],
+  "note": "The SHAP video course by A Data Odyssey as a track to follow video by video. Created from inbox issue #2.",
+  "priority": "medium",
+  "status": "tracked",
+  "themes": [
+   "interpretability",
+   "gradient-boosting"
+  ],
+  "title": "SHAP: explaining models with Shapley values",
+  "trackId": "shap-odyssey"
  }
 }

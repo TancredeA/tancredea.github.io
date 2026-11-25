@@ -1,4 +1,78 @@
 {
- "processed": [],
- "runs": []
+ "processed": [
+  1,
+  2
+ ],
+ "runs": [
+  {
+   "at": "2026-11-25T03:59:40Z",
+   "rows": 2,
+   "filed": 2,
+   "merged": 0,
+   "left": 0,
+   "rejected": 0,
+   "entries": [
+    {
+     "key": "#1",
+     "type": "Add source",
+     "input": {
+      "link": "https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU",
+      "target": "track",
+      "status": "To do",
+      "note": "create a track with all these videos so that i can keep track with my progress in this course"
+     },
+     "outcome": "filed",
+     "docIds": [
+      "cs229-2018",
+      "cs229-2018-01",
+      "cs229-2018-02",
+      "cs229-2018-03",
+      "cs229-2018-04",
+      "cs229-2018-05",
+      "cs229-2018-06",
+      "cs229-2018-07",
+      "cs229-2018-08",
+      "cs229-2018-09",
+      "cs229-2018-10",
+      "cs229-2018-11",
+      "cs229-2018-12",
+      "cs229-2018-13",
+      "cs229-2018-14",
+      "cs229-2018-15",
+      "cs229-2018-16",
+      "cs229-2018-17",
+      "cs229-2018-18",
+      "cs229-2018-19",
+      "cs229-2018-20",
+      "cs229-2018-21"
+     ],
+     "explanation": "Created the track 'Stanford CS229 (Autumn 2018)' with its 21 videos (20 lectures plus the learning-theory discussion section) as sources in five levels, all To do. Titles and ids come from the playlist page; the author is credited as Andrew Ng, Stanford Online, and the lecture notes are my own summaries from the titles."
+    },
+    {
+     "key": "#2",
+     "type": "Other",
+     "input": {
+      "link": "https://www.youtube.com/playlist?list=PLqDyyww9y-1SJgMw92x90qPYpHgahDLIK",
+      "target": "track",
+      "status": "In progress",
+      "note": "create a track such that i can keep trak with my progress in this online youtube course et add all sources to the ledger"
+     },
+     "outcome": "filed",
+     "docIds": [
+      "shap-odyssey",
+      "shap-odyssey-01",
+      "shap-odyssey-02",
+      "shap-odyssey-03",
+      "shap-odyssey-04",
+      "shap-odyssey-05",
+      "shap-odyssey-06",
+      "shap-odyssey-07",
+      "shap-odyssey-08",
+      "shap-odyssey-09"
+     ],
+     "explanation": "Treated this 'Other' request as add-source plus a track: created the track 'SHAP: explaining models with Shapley values' with the playlist's 9 A Data Odyssey videos as sources, all marked In progress as given. Titles were verified through YouTube oEmbed; the year 2024 is the playlist's last update, so treat it as approximate."
+    }
+   ]
+  }
+ ]
 }

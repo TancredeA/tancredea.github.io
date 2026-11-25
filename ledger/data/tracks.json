@@ -894,5 +894,206 @@
    "interpretability"
   ],
   "title": "Tensor networks for deep learning"
+ },
+ "cs229-2018": {
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "createdAt": "2026-11-25T03:59:40Z",
+  "description": "Stanford CS229 (Autumn 2018, Andrew Ng) lecture by lecture: linear and generative models, SVMs and kernels, learning theory, neural networks, unsupervised learning and reinforcement learning.",
+  "items": [
+   {
+    "id": "cs229-2018-01",
+    "step": 1
+   },
+   {
+    "id": "cs229-2018-02",
+    "step": 1
+   },
+   {
+    "id": "cs229-2018-03",
+    "step": 1
+   },
+   {
+    "id": "cs229-2018-04",
+    "step": 1
+   },
+   {
+    "id": "cs229-2018-05",
+    "step": 1
+   },
+   {
+    "id": "cs229-2018-06",
+    "step": 2
+   },
+   {
+    "id": "cs229-2018-07",
+    "step": 2
+   },
+   {
+    "id": "cs229-2018-08",
+    "step": 2
+   },
+   {
+    "id": "cs229-2018-09",
+    "step": 2
+   },
+   {
+    "id": "cs229-2018-10",
+    "step": 2
+   },
+   {
+    "id": "cs229-2018-11",
+    "step": 3
+   },
+   {
+    "id": "cs229-2018-12",
+    "step": 3
+   },
+   {
+    "id": "cs229-2018-13",
+    "step": 3
+   },
+   {
+    "id": "cs229-2018-14",
+    "step": 4
+   },
+   {
+    "id": "cs229-2018-15",
+    "step": 4
+   },
+   {
+    "id": "cs229-2018-16",
+    "step": 4
+   },
+   {
+    "id": "cs229-2018-17",
+    "step": 4
+   },
+   {
+    "id": "cs229-2018-18",
+    "step": 5
+   },
+   {
+    "id": "cs229-2018-19",
+    "step": 5
+   },
+   {
+    "id": "cs229-2018-20",
+    "step": 5
+   },
+   {
+    "id": "cs229-2018-21",
+    "step": 5
+   }
+  ],
+  "levels": [
+   {
+    "label": "Linear and generative models",
+    "n": 1
+   },
+   {
+    "label": "SVMs, kernels and generalisation",
+    "n": 2
+   },
+   {
+    "label": "Neural networks and practical ML",
+    "n": 3
+   },
+   {
+    "label": "Unsupervised learning",
+    "n": 4
+   },
+   {
+    "label": "Reinforcement learning",
+    "n": 5
+   }
+  ],
+  "minimalPath": [
+   "cs229-2018-01",
+   "cs229-2018-06",
+   "cs229-2018-11",
+   "cs229-2018-14",
+   "cs229-2018-18"
+  ],
+  "order": 9,
+  "short": "Stanford CS229",
+  "themes": [
+   "proba-inference",
+   "optimization",
+   "dl-fondamentaux",
+   "reinforcement-learning"
+  ],
+  "title": "Stanford CS229: Machine Learning (Autumn 2018)"
+ },
+ "shap-odyssey": {
+  "agentUpdatedAt": "2026-11-25T03:59:40Z",
+  "by": "inbox",
+  "createdAt": "2026-11-25T03:59:40Z",
+  "description": "The A Data Odyssey SHAP playlist: intuition, the Shapley maths, Python practice, limitations, and applications to classification, CatBoost and anomaly detection.",
+  "items": [
+   {
+    "id": "shap-odyssey-01",
+    "step": 1
+   },
+   {
+    "id": "shap-odyssey-02",
+    "step": 1
+   },
+   {
+    "id": "shap-odyssey-03",
+    "step": 2
+   },
+   {
+    "id": "shap-odyssey-04",
+    "step": 2
+   },
+   {
+    "id": "shap-odyssey-05",
+    "step": 2
+   },
+   {
+    "id": "shap-odyssey-06",
+    "step": 3
+   },
+   {
+    "id": "shap-odyssey-07",
+    "step": 3
+   },
+   {
+    "id": "shap-odyssey-08",
+    "step": 3
+   },
+   {
+    "id": "shap-odyssey-09",
+    "step": 3
+   }
+  ],
+  "levels": [
+   {
+    "label": "Intuition and first code",
+    "n": 1
+   },
+   {
+    "label": "The maths and its limits",
+    "n": 2
+   },
+   {
+    "label": "Applications",
+    "n": 3
+   }
+  ],
+  "minimalPath": [
+   "shap-odyssey-01",
+   "shap-odyssey-02",
+   "shap-odyssey-03",
+   "shap-odyssey-05"
+  ],
+  "order": 10,
+  "short": "SHAP (A Data Odyssey)",
+  "themes": [
+   "interpretability",
+   "gradient-boosting"
+  ],
+  "title": "SHAP: explaining models with Shapley values"
  }
 }
