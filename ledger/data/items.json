@@ -10024,8 +10024,8 @@
   "note": "SHAP for binary and multiclass targets, with code for classification problems.",
   "num": 7,
   "prereq": "the first two videos of the playlist",
-  "status": "reading",
-  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T04:05:02.755Z",
   "tags": [
    "SHAP",
    "Shapley values",
@@ -10061,8 +10061,8 @@
   "note": "Using SHAP with CatBoost on categorical features.",
   "num": 8,
   "prereq": "the first two videos of the playlist",
-  "status": "reading",
-  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T04:05:04.805Z",
   "tags": [
    "SHAP",
    "Shapley values",
@@ -10098,8 +10098,8 @@
   "note": "Explaining anomaly scores from an Isolation Forest with SHAP.",
   "num": 9,
   "prereq": "the first two videos of the playlist",
-  "status": "reading",
-  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T04:05:06.488Z",
   "tags": [
    "SHAP",
    "Shapley values",
