@@ -9863,7 +9863,7 @@
  "shap-odyssey-05": {
   "addedAt": "2026-11-25T03:59:40Z",
   "agentUpdatedAt": "2026-11-25T09:30:00Z",
-  "by": "inbox",
+  "by": "page",
   "author": "Conor O'Sullivan (A Data Odyssey)",
   "core": true,
   "difficulty": {
@@ -9878,8 +9878,8 @@
   "links": [],
   "note": "Four significant limitations of SHAP and when its explanations can mislead.",
   "prereq": "the first two videos of the playlist",
-  "status": "todo",
-  "statusChangedAt": "2026-11-25T04:04:57.271Z",
+  "status": "done",
+  "statusChangedAt": "2026-11-25T07:09:11.026Z",
   "tags": [
    "SHAP",
    "Shapley values",
@@ -9893,7 +9893,9 @@
   "trackId": "",
   "url": "https://www.youtube.com/watch?v=zIbQgYxRBUc",
   "year": 2024,
-  "bookUnit": "shap-p2"
+  "bookUnit": "shap-p2",
+  "fromUnit": "shap-p2",
+  "fromLesson": 2
  },
  "shap-odyssey-06": {
   "addedAt": "2026-11-25T03:59:40Z",
