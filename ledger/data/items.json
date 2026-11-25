@@ -9876,8 +9876,8 @@
   "note": "The mathematics behind Shapley values, from game theory to the SHAP formulation.",
   "num": 3,
   "prereq": "the first two videos of the playlist",
-  "status": "todo",
-  "statusChangedAt": "2026-11-25T04:04:47.887Z",
+  "status": "reading",
+  "statusChangedAt": "2026-11-25T04:04:52.321Z",
   "tags": [
    "SHAP",
    "Shapley values",
@@ -9913,8 +9913,8 @@
   "note": "How Shapley values are applied to explain machine-learning models.",
   "num": 4,
   "prereq": "the first two videos of the playlist",
-  "status": "reading",
-  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T04:04:50.821Z",
   "tags": [
    "SHAP",
    "Shapley values",
