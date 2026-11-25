@@ -9802,8 +9802,8 @@
   "note": "The intuition behind SHAP values and what they mean for a model's predictions, with applications.",
   "num": 1,
   "prereq": "none beyond basic machine-learning vocabulary",
-  "status": "reading",
-  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "status": "done",
+  "statusChangedAt": "2026-11-25T04:04:44.525Z",
   "tags": [
    "SHAP",
    "Shapley values",
@@ -9839,8 +9839,8 @@
   "note": "Hands-on SHAP in Python: computing and plotting explanations with the shap library.",
   "num": 2,
   "prereq": "Python and basic scikit-learn",
-  "status": "reading",
-  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "status": "done",
+  "statusChangedAt": "2026-11-25T04:04:46.055Z",
   "tags": [
    "SHAP",
    "Shapley values",
@@ -9876,8 +9876,8 @@
   "note": "The mathematics behind Shapley values, from game theory to the SHAP formulation.",
   "num": 3,
   "prereq": "the first two videos of the playlist",
-  "status": "reading",
-  "statusChangedAt": "2026-11-25T03:59:40Z",
+  "status": "todo",
+  "statusChangedAt": "2026-11-25T04:04:47.887Z",
   "tags": [
    "SHAP",
    "Shapley values",
