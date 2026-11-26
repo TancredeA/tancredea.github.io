@@ -22,7 +22,7 @@
     "label": "projects",
     "title": "Routing an Unexploded Device at Minimum Expected Damage",
     "lede": "Moving a device that may detonate across a built-up area, along the route that minimizes expected damage to the surrounding buildings, with a handful of expensive blast simulations instead of thousands.",
-    "tags": ["Bayesian optimization", "Gaussian processes", "Path planning", "HPC"],
+    "tags": ["Bayesian active learning", "Gaussian processes", "Path planning", "HPC"],
     "access": "↓ The animation below is a preview: click it to open the interactive demo.",
     "demoButton": "▶ Open the interactive demo",
     "reportButton": "↗ Read the report",

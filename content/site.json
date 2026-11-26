@@ -3,11 +3,11 @@
 
   "owner": {
     "name": ["Tancrède", "Amiel"],
-    "role": ["Student at CentraleSupélec", "AI engineer at Dassault Systèmes K.K."],
+    "role": ["Student at CentraleSupélec", "AI/ML engineer intern at Dassault Systèmes K.K."],
     "roleShort": "CentraleSupélec · AI engineer",
     "photo": null,
     "cv": "assets/CV_Tancrede_AMIEL_pub.pdf",
-    "seeking": "a research internship in deep learning, applied statistics for ML or quantum-inspired ML",
+    "seeking": "a research internship in physics-inspired or probabilistic machine learning",
     "based": ["Tokyo · JST, 2026–27", "Paris · CET"],
     "contact": [
       { "label": "↗ read cv", "href": "assets/CV_Tancrede_AMIEL_pub.pdf", "openAndDownload": true },
@@ -18,11 +18,11 @@
 
   "home": {
     "headline": "Applied mathematics, turned into working models.",
-    "lede": "CentraleSupélec engineering student in general engineering: mathematics, computer science, AI/ML. I like problems where a clean formulation decides whether the code works at all.",
+    "lede": "Engineering student at CentraleSupélec, on a gap year as an AI/ML engineer in Tokyo, turning to physics-inspired and probabilistic machine learning. I like problems where a clean formulation decides whether the code works at all.",
     "now": [
       "**Gap year** from CentraleSupélec, 2026–27.",
       "**AI/ML engineering intern** at Dassault Systèmes K.K., Tokyo, until February 2027.",
-      "Applying for **master's programmes** in the UK (2027),",
+      "Applying for **master's programmes** in machine learning in the UK (2027),",
       "and for a **research internship** at RIKEN AIP."
     ],
     "latest": null,
@@ -30,11 +30,10 @@
     "seeking": {
       "label": "looking for",
       "title": "A research internship",
-      "text": "I am applying for a research internship at RIKEN AIP, in Tokyo, at the intersection of mathematics and machine intelligence, in one of three directions:",
+      "text": "I am applying for a research internship at RIKEN AIP, in Tokyo, at the intersection of mathematics and machine intelligence, in one of two directions:",
       "items": [
-        { "label": "Deep learning", "text": "what a network learns, and how to read it while it trains.", "pages": ["research/vtnn-notes"] },
-        { "label": "Applied statistics for ML", "text": "uncertainty, active learning and evaluation protocols that hold up.", "pages": ["projects/blast-routing", "projects/autogear"] },
-        { "label": "Quantum-inspired ML", "text": "tensor networks as layers of a model and as a lens on what it learns.", "pages": ["research/vtnn-notes"] }
+        { "label": "Physics-inspired ML", "text": "tensor networks and mean-field theory, to read what a network learns and make it more compact.", "pages": ["research/vtnn-notes"] },
+        { "label": "Probabilistic ML", "text": "Gaussian processes and Bayesian active learning, to decide well from a few expensive observations.", "pages": ["projects/blast-routing"] }
       ]
     },
     "benchFallback": "Nothing marked as in progress. Set \"status\": \"wip\" on a page to show it here."
@@ -62,7 +61,7 @@
           "title": "Blast-aware routing",
           "subtitle": "Routing an unexploded device at minimum expected damage, with the CEA-DAM",
           "summary": "A device that may detonate, routed at minimum expected damage with 19 simulations out of 10,000 candidates.",
-          "tags": ["Bayesian optimization", "Gaussian processes", "Path planning", "HPC"],
+          "tags": ["Bayesian active learning", "Gaussian processes", "Path planning", "HPC"],
           "layout": "case",
           "page": "page.json",
           "metaTitle": "Routing an Unexploded Device at Minimum Expected Damage · Tancrède Amiel",
@@ -136,7 +135,7 @@
     {
       "id": "research",
       "title": "research",
-      "intro": "TODO: two or three sentences on the questions that interest you (tensor networks for learning, applied probability, ...). This section will host the research internship once it starts.",
+      "intro": "Two threads run through my work. Physics-inspired machine learning, from tensor networks to mean-field views of neural networks, to understand what models learn and make them more compact. Probabilistic machine learning, from Gaussian processes to Bayesian active learning, to decide well from a few expensive observations. This section will host my research internship once it starts.",
       "children": [
         {
           "id": "vtnn-notes",
@@ -196,9 +195,9 @@
           "start": "2026-09",
           "end": "2027-02",
           "title": "Dassault Systèmes K.K.",
-          "subtitle": "AI/ML engineer, AI solution design and deployment · Tokyo",
-          "summary": "AI engineering embedded in internal business teams: multi-tool RAG solutions and MCP servers to streamline their processes, and the launch of a Physical AI Lab.",
-          "tags": ["Generative AI", "RAG", "Vector databases", "MCP", "Physical AI"],
+          "subtitle": "AI/ML engineer intern · compound AI systems and on-premise deployment · Tokyo",
+          "summary": "AI engineering embedded in internal business teams: hybrid RAG pipelines and MCP servers to streamline their processes, an HMM-inspired product-matching algorithm, and the launch of a Physical AI Lab.",
+          "tags": ["Generative AI", "Compound AI systems", "RAG", "MCP", "Physical AI"],
           "layout": "role",
           "page": "page.json",
           "period": "Sept 2026 – Feb 2027",

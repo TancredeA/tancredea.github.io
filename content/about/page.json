@@ -13,7 +13,7 @@
   "header": {
     "label": "who I am",
     "title": "Tancrède Amiel",
-    "subtitle": "Engineering student at CentraleSupélec, AI engineer intern at Dassault Systèmes K.K.",
+    "subtitle": "Engineering student at CentraleSupélec, AI/ML engineer intern at Dassault Systèmes K.K.",
     "md": "who-i-am.md"
   },
   "photo": {
@@ -59,15 +59,15 @@
         "rows": [
           [
             "mathematics",
-            "probability, statistics, convex optimisation & duality, PDEs, wave control (applied functional analysis)"
+            "probability, statistics & learning, convex optimisation & duality, PDEs, wave control (applied functional analysis), signal processing"
           ],
           [
-            "machine learning & information",
-            "machine learning, information theory, quantum physics & quantum computing"
+            "physics & information",
+            "quantum & statistical physics, quantum computing & information theory"
           ],
           [
             "computing",
-            "algorithms, high-performance computing, cloud computing"
+            "algorithms & complexity, high-performance computing, cloud & distributed computing"
           ]
         ],
         "stacked": true
@@ -90,7 +90,11 @@
           ],
           [
             "Python",
-            "pandas, NumPy, SciPy, scikit-learn, TensorFlow/Keras, mpi4py"
+            "NumPy, SciPy, pandas, mpi4py"
+          ],
+          [
+            "machine learning",
+            "scikit-learn (incl. Gaussian processes), XGBoost, TensorFlow/Keras"
           ],
           [
             "HPC & systems",
