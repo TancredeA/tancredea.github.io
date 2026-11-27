@@ -1,3 +1,3 @@
 - **Physics-inspired ML:** tensor networks as layers and as a lens on what a network learns ([VTNN](#/research/vtnn-notes)); mean-field theory of neural networks.
 - **Probabilistic ML:** Gaussian processes, Bayesian optimisation and active learning when each observation is expensive ([blast-aware routing](#/projects/blast-routing)).
-- **ML that ships:** models sized for the hardware and the users they serve ([Autogear](#/projects/autogear), [Dassault](#/experience/dassault)).
+- **AI for robotics:** physical AI, reinforcement learning.
